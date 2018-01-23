@@ -9,8 +9,8 @@ var schema = new Schema({
     bitcoinAddress: {type: String, required: true, unique : true},
     email: {type: String, required: true},
     phone: {type: Number, required: true},
-    location: [{ lat: Number, long: Number }],
-    friends  : [{ type: Schema.Types.ObjectId, ref: 'friendsModel' }]
+    lat: {type: Number, required: true}, 
+    long: {type: Number, required: true}
     },
     { collection : 'profile' });
 

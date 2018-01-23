@@ -5,11 +5,13 @@ import { FormsModule }   from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent }  from './home.component';
+import { ProfileComponent }  from './profile.component';
+import { CryptoMapComponent }  from './cryptomap.component';
 import { routing } from './app.routing';
 
 @NgModule({
   imports:      [ BrowserModule, routing, HttpModule, FormsModule],
-  declarations: [AppComponent, HomeComponent ],
+  declarations: [AppComponent, HomeComponent, ProfileComponent, CryptoMapComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

@@ -7,7 +7,8 @@ var schema = new Schema({
     bitcoinAddress: {type: String, required: true, unique : true},
     email: {type: String, required: true},
     phone: {type: Number, required: true},
-    location: [{ lat: Number, long: Number }]
+    lat: {type: Number, required: true}, 
+    long: {type: Number, required: true}
     },
     { collection : 'friends' });
 
