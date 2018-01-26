@@ -12,30 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/Rx");
-var profile_model_1 = require("./profile.model");
-var ProfileService = /** @class */ (function () {
+var status_model_1 = require("./status.model");
+var StatusService = /** @class */ (function () {
     // Http Contructor for setting up connection
-    function ProfileService(http) {
+    function StatusService(http) {
         this.http = http;
     }
-    // Create a new wallet
-    ProfileService.prototype.createWallet = function () {
-        return this.http.get('http://localhost:3000/api/v2/create')
-            .map(function (data) {
-            var extracted = data.json();
-            var proArray = [];
-            var profile;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
-                console.log(element.firstName);
-                profile = new profile_model_1.Profile(element.username, element.firstName, element.lastName, element.bitcoinAddress, element.email, element.phone, element.lat, element.long);
-                proArray.push(profile);
-            }
-            return proArray;
-        });
-    };
-    ProfileService.prototype.getDetailsByUsername = function (username) {
-        return this.http.get('http://localhost:3000/Profiles/' + username)
+    StatusService.prototype.getTxById = function (id) {
+        return this.http.get('http://localhost:3000/Tx/' + id)
             .map(function (data) {
             var extracted = data.json();
             var msgArray = [];
@@ -43,17 +27,24 @@ var ProfileService = /** @class */ (function () {
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
                 console.log(element.firstName);
-                message = new profile_model_1.Profile(element.username, element.firstName, element.lastName, element.bitcoinAddress, element.email, element.phone, element.lat, element.long);
+                message = new status_model_1.Status(element.username, element.text, element.date, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                 msgArray.push(message);
             }
             return msgArray;
         });
     };
-    ProfileService = __decorate([
+    StatusService.prototype.saveTx = function (Tx) {
+        console.log(Tx);
+        var body = JSON.stringify(Tx);
+        console.log(body);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.post('http://localhost:3000/Tx/Status', body, { headers: headers });
+    };
+    StatusService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
-    ], ProfileService);
-    return ProfileService;
+    ], StatusService);
+    return StatusService;
 }());
-exports.ProfileService = ProfileService;
-//# sourceMappingURL=profile.service.js.map
+exports.StatusService = StatusService;
+//# sourceMappingURL=status.service.js.map

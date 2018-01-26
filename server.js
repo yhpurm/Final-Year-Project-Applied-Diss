@@ -10,7 +10,7 @@ var index = require('./routes/index');
 var port = 3000;
 
 var app = express();
-mongoose.connect('localhost:27017/', { useMongoClient: true });
+mongoose.connect('mongodb://localhost:27017/Crypto', { useMongoClient: true });
 mongoose.BatchSize = 300;
 //View Engine
 app.set('views', path.join(__dirname, 'views'));

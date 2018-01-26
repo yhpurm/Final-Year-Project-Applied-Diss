@@ -25,4 +25,19 @@ export class ProfileService {
                 return proArray;
             });
     }
+
+    getDetailsByUsername(username: string): Observable<any> {
+        return this.http.get('http://localhost:3000/Profiles/' + username)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: Profile[] = [];
+                let message;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    message =new Profile(element.username, element.firstName, element.lastName, element.bitcoinAddress ,element.email,element.phone, element.lat, element.long);
+                    msgArray.push(message);
+                }
+                return msgArray;
+            });
+    }
 }

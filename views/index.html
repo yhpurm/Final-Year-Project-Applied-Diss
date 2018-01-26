@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>RMS</title>
+    <title>Crypto Wallet</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
@@ -13,8 +13,10 @@
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <!-- Add imports like apis here -->
-    
+
+    <!-- APIs -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4rNge4TKKxorFGR8mHWx4Qs_4KQfIXAo&callback" async defer></script>
+
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
@@ -25,6 +27,11 @@
   <body>
     <base href="/">
     <my-app>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 60%; top: 50%; text-align:center" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            
+          </div>
+          <p>Loading please wait....</p>
     </my-app>
   </body>
 </html>
