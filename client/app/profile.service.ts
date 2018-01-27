@@ -27,7 +27,7 @@ export class ProfileService {
     }
 
     getDetailsByUsername(username: string): Observable<any> {
-        return this.http.get('http://localhost:3000/Profiles/' + username)
+        return this.http.get('http://localhost:3000/Crypto/profile' + username)
             .map( (data: Response) => {
                 const extracted = data.json();
                 const msgArray: Profile[] = [];

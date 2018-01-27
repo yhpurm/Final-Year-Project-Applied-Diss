@@ -35,7 +35,7 @@ var ProfileService = /** @class */ (function () {
         });
     };
     ProfileService.prototype.getDetailsByUsername = function (username) {
-        return this.http.get('http://localhost:3000/Profiles/' + username)
+        return this.http.get('http://localhost:3000/Crypto/profile' + username)
             .map(function (data) {
             var extracted = data.json();
             var msgArray = [];

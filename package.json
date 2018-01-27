@@ -19,7 +19,8 @@
     "express": "^4.16.2",
     "mongodb": "^2.2.34",
     "mongojs": "^2.4.1",
-    "mongoose": "^4.13.9"
+    "mongoose": "^4.13.9",
+    "mongoose-unique-validator": "^2.0.0"
   },
   "devDependencies": {
     "@types/jquery": "^2.0.48"
