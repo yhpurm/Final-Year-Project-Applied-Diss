@@ -4,8 +4,16 @@ const fs = require('fs');
 
 var Profile = require('../models/profileModel');
 
-router.get('/', function (req, res, next) {
+router.get('/index', function (req, res, next) {
     res.render('index.html');
+});
+
+router.get('/', function (req, res, next) {
+    res.render('users/home.html');
+});
+
+router.get('/register', function (req, res, next) {
+    res.render('users/register.html');
 });
 
 router.get('/Crypto/profile', function(req, res, next) {
@@ -21,6 +29,8 @@ router.get('/Crypto/profile', function(req, res, next) {
         });
     });
 });
+
+
 
 router.patch('/URL/PATCH', function (req, res) {
     // Patch Something..

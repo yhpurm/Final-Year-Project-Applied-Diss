@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Crypto Wallet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 1. Load libraries -->
+     <!-- Polyfill(s) for older browsers -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+
+      <div class="container-fullwidth">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Bitcoin Wallet</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">App</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div class="page-header">
+    <h1>User Registration</h1>
+</div>
+
+<!-- Registration Form -->
+<form ng-submit="register.regUser(regData);">
+    <!-- Email -->
+    <label>Email:</label>
+    <input class="form-control" type="text" name="email" placeholder="please enter email" ng-model="register.regData.email">
+    <br>
+    <!-- Username -->
+    <label>Username:</label>
+    <input class="form-control" type="text" name="username" placeholder="please enter username" ng-model="register.regData.username">
+    <br>
+    <!-- Password -->
+    <label>Password:</label>
+    <input class="form-control" type="password" name="password" placeholder="please enter password" ng-model="register.regData.password">
+    <br>
+    <!-- Submit/Register Button -->
+    <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <!-- Registration Form -->
+
+    <br>
+
+    <router-outlet></router-outlet>
+
+  </body>
+</html>
