@@ -4,17 +4,21 @@ const fs = require('fs');
 
 var Profile = require('../models/profileModel');
 
+// Index Page
 router.get('/index', function (req, res, next) {
     res.render('index.html');
 });
 
+// Opening page called home.html
 router.get('/', function (req, res, next) {
     res.render('users/home.html');
 });
 
+// Register Page
 router.get('/register', function (req, res, next) {
     res.render('users/register.html');
 });
+
 
 router.get('/Crypto/profile', function(req, res, next) {
     Profile.find(function(err, messages) {
