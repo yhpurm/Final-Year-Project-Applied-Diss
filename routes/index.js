@@ -19,7 +19,7 @@ router.get('/register', function (req, res, next) {
     res.render('users/register.html');
 });
 
-
+// Getting crypto files
 router.get('/Crypto/profile', function(req, res, next) {
     Profile.find(function(err, messages) {
         console.log(messages);
@@ -33,8 +33,6 @@ router.get('/Crypto/profile', function(req, res, next) {
         });
     });
 });
-
-
 
 router.patch('/URL/PATCH', function (req, res) {
     // Patch Something..

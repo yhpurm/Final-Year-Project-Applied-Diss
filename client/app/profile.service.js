@@ -20,7 +20,7 @@ var ProfileService = /** @class */ (function () {
     }
     // Create a new wallet
     ProfileService.prototype.createWallet = function () {
-        return this.http.get('http://localhost:3000/api/v2/create')
+        return this.http.get('https://api.blockcypher.com/v1/tokens/$d510526f00b3473582e794287817cd0c')
             .map(function (data) {
             var extracted = data.json();
             var proArray = [];

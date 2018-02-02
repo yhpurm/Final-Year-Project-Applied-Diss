@@ -12,7 +12,7 @@ export class ProfileService {
 
     // Create a new wallet
     createWallet(): Observable<any> {
-        return this.http.get('http://localhost:3000/api/v2/create')
+        return this.http.get('https://api.blockcypher.com/v1/tokens/$d510526f00b3473582e794287817cd0c')
             .map( (data: Response) => {
                 const extracted = data.json();
                 const proArray: Profile[] = [];
