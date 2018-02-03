@@ -4,13 +4,13 @@ const fs = require('fs');
 
 var Profile = require('../models/profileModel');
 
-// Index Page
-router.get('/index', function (req, res, next) {
+// Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
+router.get('/', function (req, res, next) {
     res.render('index.html');
 });
 
 // Opening page called home.html
-router.get('/', function (req, res, next) {
+router.get('/donalsloginhome', function (req, res, next) {
     res.render('users/home.html');
 });
 
@@ -19,7 +19,7 @@ router.get('/register', function (req, res, next) {
     res.render('users/register.html');
 });
 
-// Getting crypto files
+// Getting crypto profile from db
 router.get('/Crypto/profile', function(req, res, next) {
     Profile.find(function(err, messages) {
         console.log(messages);

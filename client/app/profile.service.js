@@ -18,22 +18,6 @@ var ProfileService = /** @class */ (function () {
     function ProfileService(http) {
         this.http = http;
     }
-    // Create a new wallet
-    ProfileService.prototype.createWallet = function () {
-        return this.http.get('https://api.blockcypher.com/v1/tokens/$d510526f00b3473582e794287817cd0c')
-            .map(function (data) {
-            var extracted = data.json();
-            var proArray = [];
-            var profile;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
-                console.log(element.firstName);
-                profile = new profile_model_1.Profile(element.username, element.firstName, element.lastName, element.bitcoinAddress, element.email, element.phone, element.lat, element.long);
-                proArray.push(profile);
-            }
-            return proArray;
-        });
-    };
     ProfileService.prototype.getDetailsByUsername = function (username) {
         return this.http.get('http://localhost:3000/Crypto/profile' + username)
             .map(function (data) {
