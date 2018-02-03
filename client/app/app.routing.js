@@ -4,6 +4,7 @@ var router_1 = require("@angular/router");
 var home_component_1 = require("./home.component");
 var cryptomap_component_1 = require("./cryptomap.component");
 var profile_component_1 = require("./profile.component");
+var friends_component_1 = require("./friends.component");
 var appRoutes = [
     {
         path: '',
@@ -16,6 +17,10 @@ var appRoutes = [
     {
         path: 'map',
         component: cryptomap_component_1.CryptoMapComponent
+    },
+    {
+        path: 'friends',
+        component: friends_component_1.FriendsComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

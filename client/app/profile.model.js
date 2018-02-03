@@ -1,13 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Profile = /** @class */ (function () {
-    function Profile(username, firstName, lastName, bitcoinAddress, email, phone, lat, long) {
+    function Profile(username, aboutMe, avater, statusCount, friendCount, isOnline, bitcoinAddress, email, lat, long) {
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.aboutMe = aboutMe;
+        this.avater = avater;
+        this.statusCount = statusCount;
+        this.friendCount = friendCount;
+        this.isOnline = isOnline;
         this.bitcoinAddress = bitcoinAddress;
         this.email = email;
-        this.phone = phone;
         this.lat = lat;
         this.long = long;
     }

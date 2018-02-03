@@ -1,0 +1,1 @@
+{"version":3,"file":"friends.component.js","sourceRoot":"","sources":["friends.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAQ1C;IAAA;IAAgC,CAAC;IAApB,gBAAgB;QAN5B,gBAAS,CAAC;YACT,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,wBAAwB;SACtC,CAAC;OAEW,gBAAgB,CAAI;IAAD,uBAAC;CAAA,AAAjC,IAAiC;AAApB,4CAAgB"}

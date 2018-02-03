@@ -4,6 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home.component';
 import {CryptoMapComponent} from './cryptomap.component';
 import {ProfileComponent} from './profile.component';
+import {FriendsComponent} from './friends.component';
 
 const appRoutes: Routes = [
     {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
     {
         path: 'map',
         component: CryptoMapComponent
+    },
+    {
+        path: 'friends',
+        component: FriendsComponent
     }
 ];
 

@@ -11,11 +11,10 @@ var schema = new Schema({
     isOnline: {type: Boolean, required: true},
     bitcoinAddress: {type: String, required: true, unique : true},
     email: {type: String, required: true},
-    phone: {type: Number, required: true},
     lat: {type: Number, required: true}, 
     long: {type: Number, required: true}
     },
-    { collection : 'profile' });
+    { collection : 'Profile' });
 
 schema.plugin(uniqueValidator);
 
