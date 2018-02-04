@@ -5,8 +5,12 @@ Welcome to our Crypto-Currency wallet application. The focus of this application
 
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
 Here is a brief video to explain some questions you make have about bitcoin.
-<a href="http://www.youtube.com/watch?feature=player_embedded&v==Um63OQz3bjo" target="_blank"><img src="http://img.youtube.com/vi/Um63OQz3bjo/0.jpg" alt="Bitcoin" width="240" height="180" border="10" /></a>
+
+[![Bicoin](https://img.youtube.com/vi/YUm63OQz3bjo&t=3s/0.jpg)](https://www.youtube.com/watch?v=Um63OQz3bjo&t=3s)
 
 
 ## Technologies 
+![Angular](https://www.ag-grid.com/images/angular2.png "Angular 2")
 
+### Angular 2
+Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google and by a community of individuals and corporations.
