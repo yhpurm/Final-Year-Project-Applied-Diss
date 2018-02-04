@@ -20,7 +20,7 @@ router.get('/register', function (req, res, next) {
 });
 
 // Getting crypto profile from db
-router.get('/login/profile', function(req, res, next) {
+router.get('/login/profile/:username', function(req, res, next) {
     Profile.find(function(err, messages) {
         console.log(messages);
         if (err) {
