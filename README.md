@@ -6,7 +6,7 @@ Welcome to our Crypto-Currency wallet application. The focus of this application
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
 Here is a brief video to explain some questions you make have about bitcoin.
 
-[![Bitcoin](https://img.youtube.com/vi/Um63OQz3bjo&t=3s/0.jpg)](https://www.youtube.com/watch?v=Um63OQz3bjo&t=3s_blank)
+[![Bitcoin](https://img.youtube.com/vi/v=Um63OQz3bjo&t=3s/0.jpg)](https://www.youtube.com/watch?v=Um63OQz3bjo&t=3s_blank)
 
 
 ## Technologies 
