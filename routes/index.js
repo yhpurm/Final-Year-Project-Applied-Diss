@@ -9,6 +9,7 @@ router.get('/index', function (req, res, next) {
     res.render('index.html');
 });
 
+// Login Page for user
 router.get('/', function (req, res, next) {
     res.render('login/login.component.html');
 });
@@ -20,7 +21,7 @@ router.get('/donalsloginhome', function (req, res, next) {
 
 // Register Page
 router.get('/register', function (req, res, next) {
-    res.render('users/register.html');
+    res.render('register/register.component.html');
 });
 
 // Getting crypto profile from db
