@@ -18,6 +18,16 @@ var ProfileComponent = /** @class */ (function () {
         this.long = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
+        var imagePath = "\\avatars\\" + 1 + ".png";
+        console.log(imagePath);
+        // This service gets the logged in users profile
+        this.profileService.getProfileByUsername(this.username)
+            .subscribe(function (profiles) {
+            _this.profile = profiles;
+            console.log("GET this users profile");
+        }, function (error) { return console.error(error); });
     };
     ProfileComponent = __decorate([
         core_1.Component({

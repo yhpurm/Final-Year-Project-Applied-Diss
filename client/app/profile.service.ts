@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-
 import { Profile } from "./profile.model";
 
 @Injectable()
@@ -10,7 +9,7 @@ export class ProfileService {
     // Http Contructor for setting up connection
     constructor(private http: Http) {}
 
-    getProfileByUsername(user: string): Observable<any> {
+    getProfileByUsername(user: string) {
         return this.http.get('http://localhost:3000/login/profile/' + user)
             .map( (data: Response) => {
                 const extracted = data.json();

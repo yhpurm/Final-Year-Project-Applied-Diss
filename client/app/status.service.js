@@ -18,6 +18,37 @@ var StatusService = /** @class */ (function () {
     function StatusService(http) {
         this.http = http;
     }
+    StatusService.prototype.getAllStatus = function () {
+        return this.http.get('http://localhost:3000/Tx/Local/All')
+            .map(function (data) {
+            console.log("got here 1!");
+            var extracted = data.json();
+            var msgArray = [];
+            console.log("got extracted here!");
+            var status;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                status = new status_model_1.Status(element.username, element.date, element.text, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                msgArray.push(status);
+            }
+            return msgArray;
+        });
+    };
+    StatusService.prototype.getStatusByUsername = function (user) {
+        return this.http.get('http://localhost:3000/Tx/Local/' + user)
+            .map(function (data) {
+            var extracted = data.json();
+            var msgArray = [];
+            var status;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                console.log(element.firstName);
+                status = new status_model_1.Status(element.username, element.date, element.text, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                msgArray.push(status);
+            }
+            return msgArray;
+        });
+    };
     StatusService.prototype.getTxById = function (id) {
         return this.http.get('http://localhost:3000/Tx/' + id)
             .map(function (data) {
