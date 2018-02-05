@@ -5,8 +5,12 @@ var apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
-router.get('/', function (req, res, next) {
+router.get('/index', function (req, res, next) {
     res.render('index.html');
+});
+
+router.get('/', function (req, res, next) {
+    res.render('login/login.component.html');
 });
 
 // Opening page called home.html
