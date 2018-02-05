@@ -5,8 +5,13 @@ var apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
-router.get('/', function (req, res, next) {
+router.get('/index', function (req, res, next) {
     res.render('index.html');
+});
+
+// Login Page for user
+router.get('/', function (req, res, next) {
+    res.render('login/login.component.html');
 });
 
 // Opening page called home.html
@@ -16,11 +21,11 @@ router.get('/donalsloginhome', function (req, res, next) {
 
 // Register Page
 router.get('/register', function (req, res, next) {
-    res.render('users/register.html');
+    res.render('register/register.component.html');
 });
 
 // Getting crypto profile from db
-router.get('/login/profile', function(req, res, next) {
+router.get('/login/profile/:username', function(req, res, next) {
     Profile.find(function(err, messages) {
         console.log(messages);
         if (err) {

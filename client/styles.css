@@ -11,12 +11,18 @@
 #top {
     text-align: center;
 }
-  
 #shadow {
     box-shadow: 0px 0px 5px 0px;
     padding-top: 10px;
 }
-  
 #h2, #a{
     color: #fff;
+}
+#WalletJumbo{
+    margin-bottom:0;
+    background: #6ed3cf;
+}
+#StatusJumbo{
+    margin-bottom:0;
+    background: #9068be;
 }

@@ -13,13 +13,13 @@
       <div class="col-md-4 bg_blur ">
       </div>
           <div class="col-md-8  col-xs-12">
-             <img src="..." alt="..." class="img-thumbnail">
+             <img src={{imagePath}} class="img-thumbnail">
              <div class="header">
-                  <h1>Username</h1>
+                  <h1>{{ profile.username }}</h1>
                   <h4>About me</h4>
-                  <p>Stuff about me goes here</p>
+                  <p>{{ profile.aboutMe }}</p>
                   <h5>Contact details</h5>
-                  <p>email: woop@gmail phone: 12356789</p>
+                  <p>email: {{ profile.email }}</p>
              </div>
           </div>
       </div>   
@@ -32,11 +32,18 @@
           </div>
       </div>
       <div>
+        <h4>My Wallet</h4>
+          <div class="jumbotron" id="WalletJumbo">
+              <div class="container">
+                <h4>{{ profile.username }}'s Address</h4>
+                        {{ profile.bitcoinAddress }}
+              </div>
+          </div>
       <h4>Status Section</h4>
-      <div class="jumbotron">
+      <div class="jumbotron" id="StatusJumbo">
           <div class="container">
             <h4>Status Name</h4>
-            Status Stuff
+            Statuses goe here
           </div>
         </div>
       </div>

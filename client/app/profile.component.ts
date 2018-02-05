@@ -26,7 +26,18 @@ export class ProfileComponent implements OnInit {
   
   ngOnInit() {
 
-   
+    // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
+    var imagePath = "\\avatars\\" + 1 + ".png";
+    console.log(imagePath); 
 
+    // This service gets the logged in users profile
+    this.profileService.getProfileByUsername(this.username)
+    .subscribe(
+        profiles => {
+            this.profile = profiles;
+            console.log("GET this users profile");  
+        },
+        error => console.error(error)
+     );
+    }
   }
-}
