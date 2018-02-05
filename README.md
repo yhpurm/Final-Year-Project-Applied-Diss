@@ -19,8 +19,7 @@ The term MEAN stack refers to a collection of JavaScript based technologies used
 
 ![mongo](https://user-images.githubusercontent.com/14197773/35832055-b86372f0-0ac3-11e8-8c43-7f13981df5db.png)
 
-MongoDB stores data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time. MongoDB is a distributed database at its core, so high availability, horizontal scaling, and geographic distribution are built in and easy to use. MongoDB is free and open-source. [3] 
-
+MongoDB stores data in flexible, JSON-like documents, meaning fields can vary from document to document and data structure can be changed over time. MongoDB is a distributed database at its core, so high availability, horizontal scaling, and geographic distribution are built in and easy to use. MongoDB is free and open-source. [3]
 
 ### ExpressJS
 
@@ -42,7 +41,6 @@ Angular is a platform that makes it easy to build applications with the web. Ang
 
 
 Node.js is an open source server framework and it is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X,etc.) It uses JavaScript on the server. [7] Node.js enables JavaScript to be used for server-side scripting, and runs scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. [8]
-
 
 
 
