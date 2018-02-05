@@ -11,8 +11,7 @@ Here is a brief video to explain some questions you make have about bitcoin.
 
 ## **Technologies**
 
-### MEAN
-![MEAN](https://user-images.githubusercontent.com/14197773/35831809-ec15581c-0ac2-11e8-890b-fa9d460e6425.png)
+![image](https://user-images.githubusercontent.com/14197773/35832746-49148e18-0ac6-11e8-98ca-b2b42598a921.png)
 
 The term MEAN stack refers to a collection of JavaScript based technologies used to develop web applications. [1] The MEAN stack is MongoDB, Express.js, Angular 2, and Node.js. Because all components of the MEAN stack support programs are written in JavaScript, MEAN applications can be written in one language for both server-side and client-side execution environments. [2]
 
