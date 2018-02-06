@@ -14,7 +14,7 @@ var profile_service_1 = require("./profile.service");
 var GenerateComponent = /** @class */ (function () {
     function GenerateComponent(profileService) {
         this.profileService = profileService;
-        this.profile = [];
+        this.wallet = [];
         this.long = [];
     }
     GenerateComponent.prototype.onCreateNewWallet = function () {
@@ -25,9 +25,9 @@ var GenerateComponent = /** @class */ (function () {
             alert("Email must contain @ and end with .com");
             return;
         }
-        this.profileService.createWallet()
-            .subscribe(function (messages) { return _this.messages = messages; }, function (error) { return console.error(error); });
-        console.log(this.messages);
+        this.profileService.createWallet(this.walletpass, this.email, this.username)
+            .subscribe(function (messages) { return _this.wallet = messages; }, function (error) { return console.error(error); });
+        console.log(this.wallet);
     };
     GenerateComponent = __decorate([
         core_1.Component({

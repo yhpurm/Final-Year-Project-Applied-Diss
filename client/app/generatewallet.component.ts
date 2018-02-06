@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Profile } from "./profile.model";
+import { Wallet } from "./mywallet.model";
 import { ProfileService } from "./profile.service";
 
 @Component({
@@ -11,10 +12,10 @@ import { ProfileService } from "./profile.service";
 
 export class GenerateComponent {
 
-  profile: Profile[] = [];
+  wallet: Wallet[] = [];
   username: string;
-  aboutMe: String;
-  address: String;
+  walletpass: string;
+  address: string;
   email: string;
   phone: Number;
   lat: Number;
@@ -32,12 +33,12 @@ export class GenerateComponent {
         return;
     }
     
-        this.profileService.createWallet()
+        this.profileService.createWallet(this.walletpass,this.email,this.username)
           .subscribe(
-            messages => this.messages = messages,
+            messages => this.wallet = messages,
             error => console.error(error)
         );
-        console.log(this.messages);
+        console.log(this.wallet);
     }
 
  }

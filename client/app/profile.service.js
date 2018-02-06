@@ -33,8 +33,8 @@ var ProfileService = /** @class */ (function () {
             return msgArray;
         });
     };
-    ProfileService.prototype.createWallet = function () {
-        return this.http.get('http://localhost:3000/api/v2/create')
+    ProfileService.prototype.createWallet = function (pass, email, username) {
+        return this.http.post('http://localhost:3000/api/v2/create', { password: pass, email: email, label: username })
             .map(function (data) {
             var extracted = data.json();
             console.log(extracted);
