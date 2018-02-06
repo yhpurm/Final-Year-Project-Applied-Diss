@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const fs = require('fs');
-var apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
+const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
@@ -77,16 +77,15 @@ node. We run it on port 4000 cause our app is already is using 3000
 */
 
 // The call for creating the a new wallet, this can be linked to the registration page
-router.get('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
-    console.log(req.body); 
-    if (err) {
-        return res.status(500).json({
-            message: 'Error while fetching data!'
-        });
-    }
-    res.status(200).json({
-        data: wallet
+router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
+console.log(req.body); 
+if (err) {
+    return res.status(500).json({
+        message: 'Error while fetching data!'
     });
+}
+res.status(200).json({
+    data: wallet
 });
 
 router.patch('/URL/PATCH', function (req, res) {

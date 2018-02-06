@@ -6,7 +6,6 @@ var schema = new Schema({
     username: {type: String, required: true, unique : true},
     bitcoinAddress: {type: String, required: true, unique : true},
     email: {type: String, required: true},
-    phone: {type: Number, required: true},
     lat: {type: Number, required: true}, 
     long: {type: Number, required: true}
     },
