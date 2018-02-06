@@ -42,7 +42,11 @@ Angular is a platform that makes it easy to build applications with the web. Ang
 
 Node.js is an open source server framework and it is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X,etc.) It uses JavaScript on the server. [7] Node.js enables JavaScript to be used for server-side scripting, and runs scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. [8]
 
+## Architecture
 
+Below is a screenshot from a presentation our team gave to our software development year. This is a basic overview of how the technologies mention will connect and interact from back-end to front-end, we are still investigating extra features and technologies that could be used to create these features so this design is subject to change along with the addition of extra features. The full presentation slides are included in this repository.
+
+![Design](technologies.png)
 
 ## **References**
 [1] - https://www.sitepoint.com/introduction-mean-stack
