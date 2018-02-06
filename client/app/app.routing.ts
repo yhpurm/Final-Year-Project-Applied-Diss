@@ -5,6 +5,7 @@ import {HomeComponent} from './home.component';
 import {CryptoMapComponent} from './cryptomap.component';
 import {ProfileComponent} from './profile.component';
 import {FriendsComponent} from './friends.component';
+import { GenerateComponent }  from './generatewallet.component';
 
 const appRoutes: Routes = [
     {
@@ -22,6 +23,10 @@ const appRoutes: Routes = [
     {
         path: 'friends',
         component: FriendsComponent
+    },
+    {
+        path: 'linkwallet',
+        component: GenerateComponent
     }
 ];
 

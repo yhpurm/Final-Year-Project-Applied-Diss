@@ -8,11 +8,14 @@ import { HomeComponent }  from './home.component';
 import { FriendsComponent }  from './friends.component';
 import { ProfileComponent }  from './profile.component';
 import { CryptoMapComponent }  from './cryptomap.component';
+import { GenerateComponent }  from './generatewallet.component';
 import { routing } from './app.routing';
 
 @NgModule({
   imports:      [ BrowserModule, routing, HttpModule, FormsModule],
-  declarations: [AppComponent, HomeComponent, ProfileComponent, CryptoMapComponent, FriendsComponent ],
+  declarations: [AppComponent, HomeComponent, 
+    ProfileComponent, CryptoMapComponent, FriendsComponent,
+    GenerateComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

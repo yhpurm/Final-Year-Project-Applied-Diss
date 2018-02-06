@@ -1,0 +1,1 @@
+{"version":3,"file":"generatewallet.component.js","sourceRoot":"","sources":["generatewallet.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAQ1C;IAAA;IAAiC,CAAC;IAArB,iBAAiB;QAN7B,gBAAS,CAAC;YACT,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,UAAU;YACpB,WAAW,EAAE,+BAA+B;SAC7C,CAAC;OAEW,iBAAiB,CAAI;IAAD,wBAAC;CAAA,AAAlC,IAAkC;AAArB,8CAAiB"}
