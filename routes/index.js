@@ -78,14 +78,15 @@ node. We run it on port 4000 cause our app is already is using 3000
 
 // The call for creating the a new wallet, this can be linked to the registration page
 router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
-console.log(req.body); 
-if (err) {
-    return res.status(500).json({
-        message: 'Error while fetching data!'
+    console.log(req.body); 
+    if (err) {
+        return res.status(500).json({
+            message: 'Error while fetching data!'
+        });
+    }
+    res.status(200).json({
+        data: wallet
     });
-}
-res.status(200).json({
-    data: wallet
 });
 
 router.patch('/URL/PATCH', function (req, res) {
@@ -98,11 +99,10 @@ router.post('/URL/POST', function(req, res, next) {
 
 router.put('/URL/PUT', function (req, res) {
    // Put Something
-})
+});
 
 router.delete('/URL/DELETE', function (req, res) {
     // Delete Something
 });
-
 
 module.exports = router;
