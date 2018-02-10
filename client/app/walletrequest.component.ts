@@ -5,12 +5,12 @@ import { ProfileService } from "./profile.service";
 
 @Component({
   moduleId: module.id,
-  selector: 'Generate',
-  templateUrl: 'generatewallet.component.html',
+  selector: 'NewWallet',
+  templateUrl: 'walletrequest.component.html',
   providers: [ProfileService]
 })
 
-export class GenerateComponent {
+export class NewWalletComponent {
 
   wallet: Wallet[] = [];
   username: string;
@@ -22,7 +22,6 @@ export class GenerateComponent {
   long: Number[] = [];
 
   constructor(private profileService: ProfileService) {}
-
   
   onCreateNewWallet() {
     var atSymbol = this.email.includes("@");
