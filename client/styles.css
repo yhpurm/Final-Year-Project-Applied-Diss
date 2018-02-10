@@ -1,6 +1,8 @@
 #loading{
-    font-family: 'Anton';
+    font-family: 'Lobster';
     color: rgb(0, 0, 0);
+    height: 20px;
+    text-align: center;
 }
 
 #body {
@@ -28,7 +30,8 @@
 }
 #MyWalletJumbo{
     margin-bottom:0;
-    background: #23ff35;
+    background: teal;
+    font-family: Lobster;
 }
 #EditWalletJumbo{
     margin-bottom:0;
