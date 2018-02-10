@@ -39,6 +39,90 @@ router.get('/login/profile/:username', function(req, res, next) {
     });
 });
 
+// Patches below are for the Settings page
+// Update Username
+router.patch('/login/profile/user/:username', function (req, res) {
+    console.log('PATCH request to homepage');
+      var username = req.params.username;
+      console.log(username);
+    Products.update({username: username}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
+
+// Update About Me
+router.patch('/login/profile/user/:aboutMe', function (req, res) {
+    console.log('PATCH request to homepage');
+      var aboutMe = req.params.aboutMe;
+      console.log(aboutMe);
+    Products.update({aboutMe: aboutMe}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
+
+// Update avatar
+router.patch('/login/profile/user/:avatar', function (req, res) {
+    console.log('PATCH request to homepage');
+      var avatar = req.params.avatar;
+      console.log(avatar);
+    Products.update({avatar: avatar}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
+
+// Update Online status
+router.patch('/login/profile/user/:isOnline', function (req, res) {
+    console.log('PATCH request to homepage');
+      var isOnline = req.params.isOnline;
+      console.log(isOnline);
+    Products.update({isOnline: isOnline}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
+
+// Update bitcoin address
+router.patch('/login/profile/user/:address', function (req, res) {
+    console.log('PATCH request to homepage');
+      var bitcoinAddress = req.params.bitcoinAddress;
+      console.log(bitcoinAddress);
+    Products.update({bitcoinAddress: bitcoinAddress}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
+
+  // Update bitcoin email
+router.patch('/login/profile/user/:email', function (req, res) {
+    console.log('PATCH request to homepage');
+      var email= req.params.email;
+      console.log(email);
+    Products.update({email: email}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
 // Saving a new profile to mongo
 router.post('/Register/Profile', function(req, res, next) {
     
