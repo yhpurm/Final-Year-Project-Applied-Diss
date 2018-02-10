@@ -11,34 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var profile_service_1 = require("./profile.service");
-var GenerateComponent = /** @class */ (function () {
-    function GenerateComponent(profileService) {
+var WalletComponent = /** @class */ (function () {
+    function WalletComponent(profileService) {
         this.profileService = profileService;
         this.wallet = [];
-        this.long = [];
     }
-    GenerateComponent.prototype.onCreateNewWallet = function () {
-        var _this = this;
-        var atSymbol = this.email.includes("@");
-        var dotCom = this.email.endsWith(".com");
-        if (atSymbol == false || dotCom == false) {
-            alert("Email must contain @ and end with .com");
-            return;
-        }
-        this.profileService.createWallet(this.walletpass, this.email, this.username)
-            .subscribe(function (messages) { return _this.wallet = messages; }, function (error) { return console.error(error); });
-        console.log(this.wallet);
+    WalletComponent.prototype.onGetMyWallet = function () {
+        // get users wallet
     };
-    GenerateComponent = __decorate([
+    WalletComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'Generate',
-            templateUrl: 'generatewallet.component.html',
+            selector: 'Wallet',
+            templateUrl: 'myWallet.component.html',
             providers: [profile_service_1.ProfileService]
         }),
         __metadata("design:paramtypes", [profile_service_1.ProfileService])
-    ], GenerateComponent);
-    return GenerateComponent;
+    ], WalletComponent);
+    return WalletComponent;
 }());
-exports.GenerateComponent = GenerateComponent;
-//# sourceMappingURL=generatewallet.component.js.map
+exports.WalletComponent = WalletComponent;
+//# sourceMappingURL=myWallet.component.js.map

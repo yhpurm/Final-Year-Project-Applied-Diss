@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
   lName: String;
   address: String;
   email: string;
-  phone: Number;
   lat: Number;
   long: Number[] = [];
 

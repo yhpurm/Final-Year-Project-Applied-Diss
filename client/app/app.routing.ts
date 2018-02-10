@@ -5,7 +5,9 @@ import {HomeComponent} from './home.component';
 import {CryptoMapComponent} from './cryptomap.component';
 import {ProfileComponent} from './profile.component';
 import {FriendsComponent} from './friends.component';
-import { GenerateComponent }  from './generatewallet.component';
+import { NewWalletComponent }  from './walletrequest.component';
+import { WalletComponent }  from './myWallet.component';
+import { SettingsComponent }  from './settings.component';
 
 const appRoutes: Routes = [
     {
@@ -26,7 +28,15 @@ const appRoutes: Routes = [
     },
     {
         path: 'linkwallet',
-        component: GenerateComponent
+        component: WalletComponent
+    },
+    {
+        path: 'newwallet',
+        component: NewWalletComponent
+    },
+    {
+        path: 'settings',
+        component: SettingsComponent
     }
 ];
 

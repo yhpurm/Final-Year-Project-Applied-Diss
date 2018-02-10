@@ -5,7 +5,9 @@ var home_component_1 = require("./home.component");
 var cryptomap_component_1 = require("./cryptomap.component");
 var profile_component_1 = require("./profile.component");
 var friends_component_1 = require("./friends.component");
-var generatewallet_component_1 = require("./generatewallet.component");
+var walletrequest_component_1 = require("./walletrequest.component");
+var myWallet_component_1 = require("./myWallet.component");
+var settings_component_1 = require("./settings.component");
 var appRoutes = [
     {
         path: '',
@@ -25,7 +27,15 @@ var appRoutes = [
     },
     {
         path: 'linkwallet',
-        component: generatewallet_component_1.GenerateComponent
+        component: myWallet_component_1.WalletComponent
+    },
+    {
+        path: 'newwallet',
+        component: walletrequest_component_1.NewWalletComponent
+    },
+    {
+        path: 'settings',
+        component: settings_component_1.SettingsComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

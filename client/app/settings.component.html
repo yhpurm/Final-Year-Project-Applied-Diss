@@ -1,0 +1,107 @@
+<body>
+    <div class="container">
+        <div class="row main">
+            <div class="main-login main-center">
+            <h5>You cane change your profile detail, add a wallet or create a new wallet here.</h5>
+                <form class="" method="post" action="#">
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Change Profile Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your new username"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit username</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Change Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit email</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Change About me</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit About me</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label"> Change Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit password</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Appear offline to other users</label>
+                        <div class="cols-sm-10">
+                            <button type="button" class="btn btn-danger btn-lg btn-block">
+                                <span class="glyphicon glyphicon-edit"></span> 
+                                Appear offline
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+     </div>
+</body>
+<div class="container">
+    <div class="jumbotron" id="EditWalletJumbo" >
+      <h1>Edit Profile Address</h1> 
+      <p>You need an address in order to link your profile to the blockchain. If you already have an address
+          you can paste it in below or you can generate a new one.
+      </p> 
+      <div class="row nav">    
+            <div class="col-md-4"></div>
+            <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
+                <button type="button" class="btn btn-danger btn-lg btn-block">
+                    <span class="glyphicon glyphicon-edit"></span> 
+                    Add pre-existing bitcoin address.
+                </button>
+            <button type="button" class="btn btn-danger btn-lg btn-block" routerLink="/newwallet">
+                <span class="glyphicon glyphicon-plus">
+                    </span> Create New Bitcoin Address. </button>
+        </div>
+    </div>
+</div> 
+</div>
