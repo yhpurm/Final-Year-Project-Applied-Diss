@@ -23,12 +23,4 @@ export class ProfileService {
                 return msgArray;
             });
     }
-
-    createWallet(pass: string, email:string, username:string): Observable<any> {
-        return this.http.post('http://localhost:3000/api/v2/create',{ password : pass , email : email , label : username  })
-            .map( (data: Response) => {
-                const extracted = data.json();
-                console.log(extracted);
-            });
-    }
 }

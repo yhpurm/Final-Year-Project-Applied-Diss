@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Profile Page</title>
   <meta name="description" content="Profile Page">
-
 </head>
 <body>
   <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
@@ -13,12 +11,12 @@
       <div class="col-md-4 bg_blur ">
       </div>
           <div class="col-md-8  col-xs-12">
-             <img src={{imagePath}} class="img-thumbnail">
+             <img src={{imagePath}} class="img-thumbnail" width="50" height="50">
              <div class="header">
                   <h1>{{ profile.username }}</h1>
-                  <h4>About me</h4>
+                  <h4>About me:</h4>
                   <p>{{ profile.aboutMe }}</p>
-                  <h5>Contact details</h5>
+                  <h5>Contact:</h5>
                   <p>email: {{ profile.email }}</p>
              </div>
           </div>

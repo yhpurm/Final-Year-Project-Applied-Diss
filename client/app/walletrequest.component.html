@@ -9,7 +9,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your wallet label"/>
+                                <input type="text" class="form-control" name="name" [(ngModel)]="label" id="name"  placeholder="Enter your wallet label"/>
                             </div>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                                <input type="text" class="form-control" [(ngModel)]="email" name="email" id="email"  placeholder="Enter your Email"/>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                                <input type="password" class="form-control" [(ngModel)]="[(ngModel)]="password"" name="password" id="password"  placeholder="Enter your Password"/>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+                                <input type="password" class="form-control" name="confirm" [(ngModel)]="confirm" id="confirm"  placeholder="Confirm your Password"/>
                             </div>
                         </div>
                     </div>
