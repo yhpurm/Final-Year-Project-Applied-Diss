@@ -12,32 +12,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/Rx");
-var profile_model_1 = require("./profile.model");
-var ProfileService = /** @class */ (function () {
+var BlockchainService = /** @class */ (function () {
     // Http Contructor for setting up connection
-    function ProfileService(http) {
+    function BlockchainService(http) {
         this.http = http;
     }
-    ProfileService.prototype.getProfileByUsername = function (user) {
-        return this.http.get('http://localhost:3000/login/profile/' + user)
+    // create new address on blockchain
+    BlockchainService.prototype.createWallet = function (pass, email, label) {
+        return this.http.post('http://localhost:3000/api/v2/create', { password: pass, email: email, label: label })
             .map(function (data) {
             var extracted = data.json();
-            var msgArray = [];
-            var message;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
-                console.log(element.firstName);
-                message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
-                msgArray.push(message);
-            }
-            return msgArray;
+            console.log(extracted);
         });
     };
-    ProfileService = __decorate([
+    BlockchainService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
-    ], ProfileService);
-    return ProfileService;
+    ], BlockchainService);
+    return BlockchainService;
 }());
-exports.ProfileService = ProfileService;
-//# sourceMappingURL=profile.service.js.map
+exports.BlockchainService = BlockchainService;
+//# sourceMappingURL=blockchain.service.js.map

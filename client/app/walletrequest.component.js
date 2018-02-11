@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var profile_service_1 = require("./profile.service");
+var blockchain_service_1 = require("./blockchain.service");
 var NewWalletComponent = /** @class */ (function () {
     function NewWalletComponent(profileService) {
         this.profileService = profileService;
@@ -25,7 +25,11 @@ var NewWalletComponent = /** @class */ (function () {
             alert("Email must contain @ and end with .com");
             return;
         }
-        this.profileService.createWallet(this.walletpass, this.email, this.username)
+        if (this.password != this.confirm) {
+            alert("wallet passwords do not match");
+            return;
+        }
+        this.profileService.createWallet(this.walletpass, this.email, this.label)
             .subscribe(function (messages) { return _this.wallet = messages; }, function (error) { return console.error(error); });
         console.log(this.wallet);
     };
@@ -34,9 +38,9 @@ var NewWalletComponent = /** @class */ (function () {
             moduleId: module.id,
             selector: 'NewWallet',
             templateUrl: 'walletrequest.component.html',
-            providers: [profile_service_1.ProfileService]
+            providers: [blockchain_service_1.BlockchainService]
         }),
-        __metadata("design:paramtypes", [profile_service_1.ProfileService])
+        __metadata("design:paramtypes", [blockchain_service_1.BlockchainService])
     ], NewWalletComponent);
     return NewWalletComponent;
 }());
