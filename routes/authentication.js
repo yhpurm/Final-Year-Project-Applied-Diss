@@ -28,8 +28,17 @@ module.exports = (router) => {
                                     if (err.errors.email) {
                                         res.json({ success: false, message: err.errors.email.message })
                                     } else {
-                                        res.json({ success: false, message: 'Could not save user. Error: ', err
-                                    });
+                                        if (err.errors.username) {
+                                            res.json({ success: false, message: err.errors.username.message
+                                            });
+                                        } else {
+                                            if (err.errors.password) {
+                                                res.json({ success: false, message:
+                                                err.errors.password.message});
+                                            } else {
+                                                res.json({ success: false, message: 'Could not save user. Error: ', err});
+                                                }
+                                        }
                                     }
                                 }
                             }
