@@ -1,8 +1,9 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router();
 const fs = require('fs');
 const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
+const authentication = require('../routes/authentication')(router);
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
 router.get('/index', function (req, res, next) {
@@ -20,9 +21,9 @@ router.get('/donalsloginhome', function (req, res, next) {
 });
 
 // Register Page
-router.get('/register', function (req, res, next) {
+/*router.get('/register', function (req, res, next) {
     res.render('register/register.component.html');
-});
+});*/
 
 // Getting crypto profile from db
 router.get('/login/profile/:username', function(req, res, next) {
@@ -38,6 +39,11 @@ router.get('/login/profile/:username', function(req, res, next) {
         });
     });
 });
+
+var app = express();
+
+// For Register
+app.use('/authentication', authentication);
 
 // Patches below are for the Settings page
 // Update Username

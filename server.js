@@ -33,5 +33,8 @@ app.use(function (req, res, next) {
 
 app.use('/', index);
 
+// For Register
+//app.use('/authentication', authentication);
+
 app.listen(port);
 console.log('Server started on port '+port);
