@@ -44,7 +44,7 @@ module.exports = (router) => {
                             }
                             
                         } else {
-                            res.json({ success: true, message: 'User Saved'});
+                            res.json({ success: true, message: 'Account Registered'});
                         }
                     });
                 }
