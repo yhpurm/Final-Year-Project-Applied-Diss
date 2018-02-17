@@ -1,35 +1,35 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
-1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'start' ]
-2 info using npm@4.1.2
-3 info using node@v7.7.1
+2 info using npm@3.10.10
+3 info using node@v6.11.4
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle bitcoin@1.0.0~prestart: bitcoin@1.0.0
 6 silly lifecycle bitcoin@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle bitcoin@1.0.0~start: bitcoin@1.0.0
 8 verbose lifecycle bitcoin@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle bitcoin@1.0.0~start: PATH: C:\Program Files (x86)\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\root\Desktop\Final-Year-Project-Applied-Diss\client\node_modules\.bin;C:\Users\root\Downloads\cmder\bin;C:\Users\root\Downloads\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\root\Downloads\cmder\vendor\conemu-maximus5;C:\Users\root\Downloads\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files\Docker\Docker\Resources\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files (x86)\nodejs\;C:\Program Files\Git LFS;C:\Program Files\dotnet\;C:\Users\root\Anaconda3;C:\Users\root\Anaconda3\Library\mingw-w64\bin;C:\Users\root\Anaconda3\Library\usr\bin;C:\Users\root\Anaconda3\Library\bin;C:\Users\root\Anaconda3\Scripts;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\root\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\Users\root\Downloads\cmder\
-10 verbose lifecycle bitcoin@1.0.0~start: CWD: C:\Users\root\Desktop\Final-Year-Project-Applied-Diss\client
+9 verbose lifecycle bitcoin@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\dmcga\OneDrive\Documents\GitHub\Final-Year-Project-Applied-Diss\client\node_modules\.bin;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\bin;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\vendor\git-for-windows\cmd;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\vendor\conemu-maximus5\ConEmu\Scripts;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\vendor\conemu-maximus5;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files\Docker\Docker\Resources\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Dell\DW WLAN Card;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Python35\Scripts;C:\Program Files (x86)\Curl;C:\Program Files\Python35;C:\Sqlite;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\TDM-GCC-32\bin;C:\Program Files\nodejs\;C:\Program Files\MongoDB\Server\3.4\bin;C:\Users\dmcga\AppData\Roaming\npm;C:\Users\dmcga\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Racket;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\Java\jdk1.8.0_101\bin;;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\vendor\git-for-windows\usr\bin;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\vendor\git-for-windows\usr\share\vim\vim74;C:\Users\dmcga\Desktop\Donal\4th Year\cmder\
+10 verbose lifecycle bitcoin@1.0.0~start: CWD: C:\Users\dmcga\OneDrive\Documents\GitHub\Final-Year-Project-Applied-Diss\client
 11 silly lifecycle bitcoin@1.0.0~start: Args: [ '/d /s /c', 'tsc && concurrently "tsc -w" "lite-server" ' ]
 12 silly lifecycle bitcoin@1.0.0~start: Returned: code: 2  signal: null
 13 info lifecycle bitcoin@1.0.0~start: Failed to exec start script
 14 verbose stack Error: bitcoin@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
 14 verbose stack Exit status 2
-14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\lifecycle.js:279:16)
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at EventEmitter.emit (events.js:194:7)
-14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at ChildProcess.emit (events.js:194:7)
-14 verbose stack     at maybeClose (internal/child_process.js:899:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:920:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
 15 verbose pkgid bitcoin@1.0.0
-16 verbose cwd C:\Users\root\Desktop\Final-Year-Project-Applied-Diss\client
+16 verbose cwd C:\Users\dmcga\OneDrive\Documents\GitHub\Final-Year-Project-Applied-Diss\client
 17 error Windows_NT 10.0.16299
-18 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-19 error node v7.7.1
-20 error npm  v4.1.2
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+19 error node v6.11.4
+20 error npm  v3.10.10
 21 error code ELIFECYCLE
 22 error bitcoin@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
 22 error Exit status 2

@@ -8,6 +8,7 @@ import {FriendsComponent} from './friends.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { WalletComponent }  from './myWallet.component';
 import { SettingsComponent }  from './settings.component';
+import { RegisterComponent } from './components/register/register.component'
 
 const appRoutes: Routes = [
     {
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
     {
         path: 'settings',
         component: SettingsComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     }
 ];
 

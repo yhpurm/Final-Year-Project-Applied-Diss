@@ -15,12 +15,22 @@ require("rxjs/Rx");
 var tradingService = /** @class */ (function () {
     // Http Contructor for setting up connection
     function tradingService(http) {
-        var _this = this;
         this.http = http;
-        http.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-            .map(function (res) { return res.json(); })
-            .subscribe(function (trading) { return _this.trading = trading; });
     }
+    tradingService.prototype.getTrading = function () {
+        return this.http.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+            .map(function (data) {
+            var extracted = data.json();
+            var msgArray = [];
+            var trading;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                trading = new trading(element.id, element.name, element.symbol, element.rank, element.price_usd, element.price_btc, element.h24_volume_price, element.market_cap_usd, element.available_supply);
+                msgArray.push(trading);
+            }
+            return msgArray;
+        });
+    };
     tradingService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
