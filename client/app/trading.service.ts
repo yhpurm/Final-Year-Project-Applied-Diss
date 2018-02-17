@@ -15,9 +15,10 @@ export class tradingService {
                 const msgArray: trading[] = [];
                 let trading;
                 for (let element of extracted.data) {
-                    trading = new trading(element.id, element.name, element.symbol, element.rank, element.price_usd, element.price_btc, element.h24_volume_price, element.market_cap_usd, element.available_supply, );
+                    trading = new trading(element.id, element.name, element.symbol, element.rank, element.price_usd, element.price_btc, element.h24_volume_price, element.market_cap_usd, element.available_supply, element.max_supply, element.percent_change_1h, element.percent_change_24h,element.percent_change_7d, element.last_updated);
                     msgArray.push(trading);
                 }
                 return msgArray;
             });
         }
+    }
