@@ -24,6 +24,7 @@
     "mongoose-unique-validator": "^2.0.0"
   },
   "devDependencies": {
+    "@angular/cli": "^1.7.0",
     "@types/jquery": "^2.0.48"
   }
 }
