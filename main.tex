@@ -546,23 +546,27 @@ Github stuff listed here when done...
 \section{Methodologies}
 Todo!!!
 
-\section{Technologies}
+\section{Fundamental Technologies}
 \subsection{MEAN}
 the following four technologies are the fundamentals of a MEAN stack(Monge,Express,Angular,NodeJS).
 
 \subsection{Mongodb:}
 This is a NoSQL database which uses schemas to store data. The structure of the schema is like the body of a JSON file. This is what we will just to store the wallet information and user details.
 
-\subsection{Angular2:}
-This is a Typescript framework for JavaScript and HTML that was developed by Google. We built our front-end using Angular2 by using creating Angular components to represent part of HTML that can be served dynamically resulting in a high performance and reliable UI, any version of angular can be used with the MEAN stack but we decided to use Angular2 as it offers new features since the first version.
+\subsection{Angular2/5:}
+This is a Typescript framework for JavaScript and HTML that was developed by Google. We built our front-end using Angular2 by using creating Angular components to represent part of HTML that can be served dynamically resulting in a high performance and reliable UI, any version of angular can be used with the MEAN stack but we decided to use Angular2 as it offers new features since the first version. Angular2/5 is a complete framework and is not to be confused with its predecessor AngularJS a JavaScript library.
 
 \subsection{ExpressJs:}
 This is a web application framework used by NodeJS that allows JavaScript to communicate with a database, this is what we will be using to get the data in out app from the frontend to the database.
 
 \subsection{NodeJS:}
-This is a run time environment for executing server-side JavaScript. This allows us to easily install libraries and addons using the node package manager with the command line.
+This is a run time environment for executing server-side JavaScript. This allows us to easily install libraries and add-ons using the node package manager with the command line.
 
-\section{Other Technologies used:}
+\section{Other Technologies}
+
+\subsection{Docker:}
+Docker allows developers to use containers to ship and deploy there applications to system and users worldwide without having to worry about performance varying from each individual operating system or machine that the application runs on. A container can be thought of as a small virtual machine with a low resource demand that allows the application to run in a environment it has been tested and trialed on allowing the application to run in a optimized state and reducing the chances of software bugs and errors appearing.
+
 \subsection{Bootstrap:}
 Bootstrap is an open-source frontend framework which allows users to generate efficient UI components fast. We decided to use Bootstrap as it lets us create a dynamic application UI that will work on mobile, tablets, desktop etc.
 
@@ -579,10 +583,12 @@ A bitcoin can be thought of as a digital receipt, its really a list of locations
 If we where to represent a bitcoin as a design pattern like the above and included the first transaction of a bitcoin from the address that generated the value all the way to the most recent exchange from the previous address to the current address would be a good representation of what a bitcoin looks like. Representing value in this digital record approach appeals to many as it doesn't require overhead administration  to work along with no enforcing of policy's or rules of use by an administrator. There is no physical copy of the value meaning it is a lot harder to steal or go missing, it also does not take up space in the physical world. No validating of the exchange by a 3rd party or outside source means transactions can be a lot faster compared to there fiat counterpart. The autonomous method for creating bitcoins at a set rate until a certain amount exist gives a scarcity and value to the coin as more cannot be printed.
 
 \subsection{Blockchain: What is the blockchain?}
-Todo!!
-
+The block-chain is a design pattern that came about with the creation of bitcoin, this design pattern solved a problem that plagued computer scientists during the early years of the internet. The problem was how can we have people exchange services and things of value on the internet without a middleman or overseeing power having to get involved. The blockchain works by combining the collective processing power of computer systems worldwide in order to process transactions. These machines vary from high performance computers to groups of less effective computers known as mining pools. About every 10 minutes these computers, also known to the cryptocurrancy community as "miners" will collect a bunch of pending transactions and create a unsolved block. To solve the block we take the address of the previous block and combine it with a nonce which is provided by the miner’s CPU power, this this is just a newly generated hash similar to the one from the previous block. Saoshi mentions in the published paper that the two hash strings are used in a series of calculations based on Adam Back's Hashcash, a algorithm created to stop denial-of-service attacks using cryptographic hashes such as SHA1, SHA256 or SHA3. The hash that is taken as the solution is the first miner to produce a SHA256 hash that has a header starting with a specified number of 0’s set by the block-chains difficulty.  The block-chain difficulty fluctuates depending on the rate of blocks being produced. Below is a simplified representation of what the blockchain looks like.
+\includegraphics[scale=0.5]{blockchaindesign.jpg}
 \subsection{Applications interactions with the blockchain: API's}
-Todo!!
+\textbf{Blockchain.info:} This is a website that can be used to examine transactions and blocks that have been validated on the blockchain. You can also use this site to create an online wallet for storing your own bitcoins. You can apply for an API which will grant you the ability to integrate the blockchain into your application allowing you to create a wallet, send and receive bitcoins and get information on transactions. The API uses POST and GET calls to return JSON to the application which can be then used. \break
+\textbf{BlockCypher:} This is another API that returns JSON to the application. BlockCypher is for interacting with blockchains, accessed over HTTP or HTTPS from the api.blockcypher.com domain. One of the major pros of using this service is that it does not only offer just the bitcoin blockchain but also Ethereum, Litecoin and Dogecoin. \break
+\textbf{Coinbase API:} This API is offered by the one of the most popular exchanges coinbase. This is a well established site with an API that allows you to create wallets along with sending and receiving bitcoin. This API allows you to add widgets to your application allowing users to buy bitcoin.
 \section{Main Menu Design}
 
 
