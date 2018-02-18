@@ -8,6 +8,7 @@ import { HomeComponent }  from './home.component';
 import { FriendsComponent }  from './friends.component';
 import { ProfileComponent }  from './profile.component';
 import { CryptoMapComponent }  from './cryptomap.component';
+import { tradingComponent} from './trading.component';
 import { WalletComponent }  from './myWallet.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { SettingsComponent }  from './settings.component';
@@ -17,7 +18,7 @@ import { routing } from './app.routing';
   imports:      [ BrowserModule, routing, HttpModule, FormsModule],
   declarations: [AppComponent, HomeComponent, 
     ProfileComponent, CryptoMapComponent, FriendsComponent,
-    WalletComponent, NewWalletComponent, SettingsComponent ],
+    WalletComponent, NewWalletComponent,tradingComponent, SettingsComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
