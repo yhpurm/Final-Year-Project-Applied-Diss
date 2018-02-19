@@ -25,7 +25,7 @@ var tradingService = /** @class */ (function () {
             var trading;
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
-                trading = new trading(element.id, element.name, element.symbol, element.rank, element.price_usd, element.price_btc, element.h24_volume_price, element.market_cap_usd, element.available_supply);
+                trading = new trading(element.id, element.name, element.symbol, element.rank, element.price_usd, element.price_btc, element.h24_volume_price, element.market_cap_usd, element.available_supply, element.max_supply, element.percent_change_1h, element.percent_change_24h, element.percent_change_7d, element.last_updated);
                 msgArray.push(trading);
             }
             return msgArray;

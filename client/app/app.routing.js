@@ -5,9 +5,11 @@ var home_component_1 = require("./home.component");
 var cryptomap_component_1 = require("./cryptomap.component");
 var profile_component_1 = require("./profile.component");
 var friends_component_1 = require("./friends.component");
+var trading_component_1 = require("./trading.component");
 var walletrequest_component_1 = require("./walletrequest.component");
 var myWallet_component_1 = require("./myWallet.component");
 var settings_component_1 = require("./settings.component");
+var register_component_1 = require("./components/register/register.component");
 var appRoutes = [
     {
         path: '',
@@ -20,6 +22,10 @@ var appRoutes = [
     {
         path: 'map',
         component: cryptomap_component_1.CryptoMapComponent
+    },
+    {
+        path: 'trading',
+        component: trading_component_1.tradingComponent
     },
     {
         path: 'friends',
@@ -36,6 +42,10 @@ var appRoutes = [
     {
         path: 'settings',
         component: settings_component_1.SettingsComponent
+    },
+    {
+        path: 'register',
+        component: register_component_1.RegisterComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

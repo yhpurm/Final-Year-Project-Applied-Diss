@@ -18,6 +18,7 @@ var CryptoMapComponent = /** @class */ (function () {
         this.profileService = profileService;
         this.statusService = statusService;
         this.profile = [];
+        this.status = [];
     }
     CryptoMapComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -38,16 +39,25 @@ var CryptoMapComponent = /** @class */ (function () {
         //         },
         //         error => console.error(error)
         // );
+        this.statusService.getAllStatus()
+            .subscribe(function (status) {
+            _this.status = status;
+            console.log('GET from stores');
+            status.forEach(function (store) {
+                _this.onAddMarker(status.username, status.lat, status.long);
+                console.log(status.username + "added");
+            });
+        }, function (error) { return console.error(error); });
         google.maps.event.addListener(this.map, 'click', function (event) {
             console.log(event.latLng);
             var lt = event.latLng.lat;
             var ln = event.latLng.lng;
             console.log(lt());
             console.log(ln());
-            _this.onProfileMarker(event.latLng.lat(), event.latLng.lng(), _this.MyAddress, _this.TargetAddress);
+            _this.onStatusMarker(event.latLng.lat(), event.latLng.lng(), _this.MyAddress, _this.TargetAddress);
         });
     };
-    CryptoMapComponent.prototype.onProfileMarker = function (lt, ln, myAdd, targetAdd) {
+    CryptoMapComponent.prototype.onStatusMarker = function (lt, ln, myAdd, targetAdd) {
         var newStatus = prompt("Please enter your transaction status", "Status");
         console.log(newStatus);
         if (newStatus != null) {

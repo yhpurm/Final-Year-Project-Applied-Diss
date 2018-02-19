@@ -15,7 +15,6 @@ var tradingComponent = /** @class */ (function () {
     function tradingComponent(tradingService) {
         this.tradingService = tradingService;
         this.trading = [];
-        this.long = [];
     }
     tradingComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -23,7 +22,7 @@ var tradingComponent = /** @class */ (function () {
         var imagePath = "\\avatars\\" + 1 + ".png";
         console.log(imagePath);
         // This service gets the logged in users trading
-        this.tradingService.gettradingByUsername(this.username)
+        this.tradingService.getTrading()
             .subscribe(function (tradings) {
             _this.trading = tradings;
             console.log("GET this users trading");

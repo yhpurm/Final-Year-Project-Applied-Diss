@@ -20,6 +20,7 @@ export class CryptoMapComponent implements OnInit {
   // Variables
   map: any;
   profile: Profile[] = [];
+  status: Status[] = [];
   username: string;
   MyAddress: string;
   TargetAddress: string;
@@ -45,6 +46,20 @@ export class CryptoMapComponent implements OnInit {
     //         },
     //         error => console.error(error)
     // );
+
+    this.statusService.getAllStatus()
+       .subscribe(
+            status  => {
+               this.status = status;
+               console.log('GET from stores');
+               
+               status.forEach(store => {
+                  this.onAddMarker(status.username, status.lat, status.long);
+                  console.log(status.username + "added");
+               })  
+           },
+           error => console.error(error)
+    );
     
       google.maps.event.addListener(this.map, 'click', (event)=> {
         console.log(event.latLng);
@@ -52,12 +67,12 @@ export class CryptoMapComponent implements OnInit {
         var ln = event.latLng.lng;
         console.log(lt());
         console.log(ln());
-        this.onProfileMarker(event.latLng.lat(),event.latLng.lng(), this.MyAddress, this.TargetAddress);
+        this.onStatusMarker(event.latLng.lat(),event.latLng.lng(), this.MyAddress, this.TargetAddress);
     });
    
    }
    
-   onProfileMarker(lt: number,ln: number, myAdd: string, targetAdd: string) {
+   onStatusMarker(lt: number,ln: number, myAdd: string, targetAdd: string) {
        var newStatus = prompt("Please enter your transaction status", "Status");
        console.log(newStatus);
        if(newStatus != null){
