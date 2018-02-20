@@ -20,9 +20,21 @@ var RegisterComponent = /** @class */ (function () {
     };
     RegisterComponent.prototype.createForm = function () {
         this.form = this.formBuilder.group({
-            username: ['', forms_1.Validators.required],
-            email: ['', forms_1.Validators.required],
-            password: ['', forms_1.Validators.required],
+            username: ['', forms_1.Validators.compose([
+                    forms_1.Validators.required,
+                    forms_1.Validators.minLength(3),
+                    forms_1.Validators.maxLength(15)
+                ])],
+            email: ['', forms_1.Validators.compose([
+                    forms_1.Validators.required,
+                    forms_1.Validators.minLength(5),
+                    forms_1.Validators.maxLength(30)
+                ])],
+            password: ['', forms_1.Validators.compose([
+                    forms_1.Validators.required,
+                    forms_1.Validators.minLength(8),
+                    forms_1.Validators.maxLength(30)
+                ])],
             confirm: ['', forms_1.Validators.required]
         });
     };

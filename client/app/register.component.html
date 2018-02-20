@@ -7,6 +7,7 @@
         <input type="text" name="username" class="form-control" autocomplete="off" placeholder="*Username" formControlName="username" />
         <ul class="help-block">
           <li *ngIf="form.controls.username.errors?.required  && form.controls.username.dirty"> This field is required</li>
+          <li *ngIf="form.controls.username.errors?.minLength || form.controls.username.errors?.maxLength">Minimum characters: 3, Maximum characters: 15</li>
         </ul>
       </div>
     </div>
@@ -16,6 +17,8 @@
         <input type="text" name="email" class="form-control" autocomplete="off" placeholder="*E-mail" formControlName="email" />
         <ul class="help-block">
           <li *ngIf="form.controls.email.errors?.required  && form.controls.email.dirty"> This field is required</li>
+          <li *ngIf="form.controls.email.errors?.minLength ||
+          form.controls.email.errors?.maxLength"> Minimum characters: 5, Maximum characters: 30</li>
         </ul>
       </div>
     </div>
@@ -25,6 +28,8 @@
         <input type="password" name="password" class="form-control" autocomplete="off" placeholder="*Password" formControlName="password" />
         <ul class="help-block">
           <li *ngIf="form.controls.password.errors?.required  && form.controls.password.dirty"> This field is required</li>
+          <li *ngIf="form.controls.password.errors?.minLength ||
+          form.controls.password.errors?.maxLength"> Minimum characters: 8, Maximum characters: 30</li>
         </ul>
       </div>
     </div>
