@@ -3,10 +3,10 @@
 <form [formGroup]="form" (submit)="onRegisterSubmit()">
     <div class="form-group">`
       <label for="username">Username</label>
-      <div>
+      <div [ngClass]="{'has-error': (form.controls.username.errors && form.controls.username.dirty), 'has-success': !form.controls.username.errors}">
         <input type="text" name="username" class="form-control" autocomplete="off" placeholder="*Username" formControlName="username" />
         <ul class="help-block">
-          <li>This field is required</li>
+          <li *ngIf="form.controls.username.errors?.required  && form.controls.username.dirty"> This field is required</li>
         </ul>
       </div>
     </div>

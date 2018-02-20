@@ -20,7 +20,7 @@ var RegisterComponent = /** @class */ (function () {
     };
     RegisterComponent.prototype.createForm = function () {
         this.form = this.formBuilder.group({
-            username: '',
+            username: ['', forms_1.Validators.required],
             email: '',
             password: '',
             confirm: ''
