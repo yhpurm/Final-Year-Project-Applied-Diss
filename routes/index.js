@@ -23,7 +23,7 @@ router.get('/donalsloginhome', function (req, res, next) {
 
 // Register Page
 /*router.get('/register', function (req, res, next) {
-    res.render('register/register.component.html');
+    res.render('client/app/register.component.html');
 });*/
 
 // Getting crypto profile from db
