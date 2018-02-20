@@ -12,20 +12,29 @@
     </div>
     <div class="form-group">`
       <label for="email">E-mail</label>
-      <div>
+      <div [ngClass]="{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}">
         <input type="text" name="email" class="form-control" autocomplete="off" placeholder="*E-mail" formControlName="email" />
+        <ul class="help-block">
+          <li *ngIf="form.controls.email.errors?.required  && form.controls.email.dirty"> This field is required</li>
+        </ul>
       </div>
     </div>
     <div class="form-group">`
       <label for="password">Password</label>
-      <div>
+      <div [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}">
         <input type="password" name="password" class="form-control" autocomplete="off" placeholder="*Password" formControlName="password" />
+        <ul class="help-block">
+          <li *ngIf="form.controls.password.errors?.required  && form.controls.password.dirty"> This field is required</li>
+        </ul>
       </div>
     </div>
     <div class="form-group">`
       <label for="confirm">Confirm Password</label>
-      <div>
+      <div [ngClass]="{'has-error': (form.controls.confirm.errors && form.controls.confirm.dirty), 'has-success': !form.controls.confirm.errors}">
         <input type="password" name="confirm" class="form-control" autocomplete="off" placeholder="*Confirm Password" formControlName="confirm" />
+        <ul class="help-block">
+          <li *ngIf="form.controls.confirm.errors?.required  && form.controls.confirm.dirty"> This field is required</li>
+        </ul>
       </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Submit">
