@@ -20,6 +20,7 @@ var trading_component_1 = require("./trading.component");
 var myWallet_component_1 = require("./myWallet.component");
 var walletrequest_component_1 = require("./walletrequest.component");
 var settings_component_1 = require("./settings.component");
+var register_component_1 = require("./register.component");
 var app_routing_1 = require("./app.routing");
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -29,7 +30,7 @@ var AppModule = /** @class */ (function () {
             imports: [platform_browser_1.BrowserModule, app_routing_1.routing, http_1.HttpModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, home_component_1.HomeComponent,
                 profile_component_1.ProfileComponent, cryptomap_component_1.CryptoMapComponent, friends_component_1.FriendsComponent,
-                myWallet_component_1.WalletComponent, walletrequest_component_1.NewWalletComponent, trading_component_1.tradingComponent, settings_component_1.SettingsComponent],
+                myWallet_component_1.WalletComponent, walletrequest_component_1.NewWalletComponent, trading_component_1.tradingComponent, settings_component_1.SettingsComponent, register_component_1.RegisterComponent],
             exports: [],
             providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
             bootstrap: [app_component_1.AppComponent]

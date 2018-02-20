@@ -12,13 +12,14 @@ import { tradingComponent} from './trading.component';
 import { WalletComponent }  from './myWallet.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { SettingsComponent }  from './settings.component';
+import { RegisterComponent }  from './register.component';
 import { routing } from './app.routing';
 
 @NgModule({
   imports:      [ BrowserModule, routing, HttpModule, FormsModule],
   declarations: [AppComponent, HomeComponent, 
     ProfileComponent, CryptoMapComponent, FriendsComponent,
-    WalletComponent, NewWalletComponent,tradingComponent, SettingsComponent ],
+    WalletComponent, NewWalletComponent,tradingComponent, SettingsComponent, RegisterComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ var trading_component_1 = require("./trading.component");
 var walletrequest_component_1 = require("./walletrequest.component");
 var myWallet_component_1 = require("./myWallet.component");
 var settings_component_1 = require("./settings.component");
-var register_component_1 = require("./components/register/register.component");
+var register_component_1 = require("./register.component");
 var appRoutes = [
     {
         path: '',
