@@ -23,20 +23,50 @@ var RegisterComponent = /** @class */ (function () {
             username: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
                     forms_1.Validators.minLength(3),
-                    forms_1.Validators.maxLength(15)
+                    forms_1.Validators.maxLength(15),
+                    this.validateUsername
                 ])],
             email: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
                     forms_1.Validators.minLength(5),
-                    forms_1.Validators.maxLength(30)
+                    forms_1.Validators.maxLength(30),
+                    this.validateEmail
                 ])],
             password: ['', forms_1.Validators.compose([
                     forms_1.Validators.required,
                     forms_1.Validators.minLength(8),
-                    forms_1.Validators.maxLength(30)
+                    forms_1.Validators.maxLength(30),
+                    this.validatePassword
                 ])],
             confirm: ['', forms_1.Validators.required]
         });
+    };
+    RegisterComponent.prototype.validateEmail = function (controls) {
+        var regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        if (regExp.test(controls.value)) {
+            return null;
+        }
+        else {
+            return { 'validateEmail': true };
+        }
+    };
+    RegisterComponent.prototype.validateUsername = function (controls) {
+        var regExp = new RegExp(/^[a-zA-Z0-9]+$/);
+        if (regExp.test(controls.value)) {
+            return null;
+        }
+        else {
+            return { 'validateUsername': true };
+        }
+    };
+    RegisterComponent.prototype.validatePassword = function (controls) {
+        var regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+        if (regExp.test(controls.value)) {
+            return null;
+        }
+        else {
+            return { 'validatePassword': true };
+        }
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
         console.log('form submitted');
