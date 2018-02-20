@@ -40,14 +40,17 @@
         </ul>
       </div>
     </div>
-    <div class="form-group">`
-      <label for="confirm">Confirm Password</label>
-      <div [ngClass]="{'has-error': (form.controls.confirm.errors && form.controls.confirm.dirty), 'has-success': !form.controls.confirm.errors}">
-        <input type="password" name="confirm" class="form-control" autocomplete="off" placeholder="*Confirm Password" formControlName="confirm" />
-        <ul class="help-block">
-          <li *ngIf="form.controls.confirm.errors?.required  && form.controls.confirm.dirty"> This field is required</li>
-        </ul>
-      </div>
+      <!-- Confirm Password Input -->
+  <div class="form-group">
+    <label for="confirm">Confirm Password</label>
+    <div [ngClass]="{'has-error': (form.controls.confirm.errors && form.controls.confirm.dirty) || (form.errors?.matchingPasswords && form.controls.confirm.dirty), 'has-success': !form.controls.confirm.errors && !form.errors?.matchingPasswords}">
+      <input type="password" name="confirm" class="form-control" autocomplete="off" placeholder="*Confirm Password" formControlName="confirm" />
+      <!-- Validation -->
+      <ul class="help-block">
+        <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">This field is required</li>
+        <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">Password do not match</li>
+      </ul>
     </div>
+  </div>
     <input [disabled]="!form.valid" type="submit" class="btn btn-primary" value="Submit">
   </form>

@@ -39,7 +39,7 @@ var RegisterComponent = /** @class */ (function () {
                     this.validatePassword
                 ])],
             confirm: ['', forms_1.Validators.required]
-        });
+        }, { validator: this.matchingPasswords('password', 'confirm') });
     };
     RegisterComponent.prototype.validateEmail = function (controls) {
         var regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -67,6 +67,18 @@ var RegisterComponent = /** @class */ (function () {
         else {
             return { 'validatePassword': true };
         }
+    };
+    // Funciton to ensure passwords match
+    RegisterComponent.prototype.matchingPasswords = function (password, confirm) {
+        return function (group) {
+            // Check if both fields are the same
+            if (group.controls[password].value === group.controls[confirm].value) {
+                return null; // Return as a match
+            }
+            else {
+                return { 'matchingPasswords': true }; // Return as error: do not match
+            }
+        };
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
         console.log('form submitted');
