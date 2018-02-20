@@ -118,7 +118,6 @@ let passwordLengthChecker = (password) => {
     }
   ];
 
-
 const userSchema = new Schema({
   username: {type: String, required: true, unique : true},
   aboutMe: {type: String, required: true},
