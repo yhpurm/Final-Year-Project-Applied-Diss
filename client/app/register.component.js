@@ -27,7 +27,7 @@ var RegisterComponent = /** @class */ (function () {
         });
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
-        console.log(this.form);
+        console.log('form submitted');
     };
     RegisterComponent = __decorate([
         core_1.Component({
