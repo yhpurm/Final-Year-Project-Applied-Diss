@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
+var forms_2 = require("@angular/forms");
 var common_1 = require("@angular/common");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home.component");
@@ -31,7 +32,8 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_1.routing,
                 http_1.HttpModule,
-                forms_1.ReactiveFormsModule
+                forms_1.ReactiveFormsModule,
+                forms_2.FormsModule
             ],
             declarations: [app_component_1.AppComponent,
                 home_component_1.HomeComponent,

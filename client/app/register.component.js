@@ -16,15 +16,18 @@ var RegisterComponent = /** @class */ (function () {
         this.formBuilder = formBuilder;
         this.createForm();
     }
+    RegisterComponent.prototype.ngOnInit = function () {
+    };
     RegisterComponent.prototype.createForm = function () {
         this.form = this.formBuilder.group({
-            username: '',
-            email: '',
-            password: '',
-            confirm: ''
+            username: ['', forms_1.Validators.required],
+            email: ['', forms_1.Validators.required],
+            password: ['', forms_1.Validators.required],
+            confirm: ['', forms_1.Validators.required]
         });
     };
-    RegisterComponent.prototype.ngOnInit = function () {
+    RegisterComponent.prototype.onRegisterSubmit = function () {
+        console.log(this.form);
     };
     RegisterComponent = __decorate([
         core_1.Component({
