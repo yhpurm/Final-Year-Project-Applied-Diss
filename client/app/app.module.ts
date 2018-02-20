@@ -2,6 +2,7 @@ import { NgModule, ApplicationRef }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent }  from './home.component';
@@ -20,7 +21,8 @@ import { routing } from './app.routing';
      BrowserModule,
      routing,
      HttpModule,
-     ReactiveFormsModule],
+     ReactiveFormsModule,
+     FormsModule],
   declarations: 
   [ AppComponent,
     HomeComponent, 
