@@ -1,7 +1,7 @@
 import { NgModule, ApplicationRef }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule }   from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent }  from './home.component';
@@ -16,10 +16,22 @@ import { RegisterComponent }  from './register.component';
 import { routing } from './app.routing';
 
 @NgModule({
-  imports:      [ BrowserModule, routing, HttpModule, FormsModule],
-  declarations: [AppComponent, HomeComponent, 
-    ProfileComponent, CryptoMapComponent, FriendsComponent,
-    WalletComponent, NewWalletComponent,tradingComponent, SettingsComponent, RegisterComponent ],
+  imports:      [
+     BrowserModule,
+     routing,
+     HttpModule,
+     ReactiveFormsModule],
+  declarations: 
+  [ AppComponent,
+    HomeComponent, 
+    ProfileComponent,
+    CryptoMapComponent,
+    FriendsComponent,
+    WalletComponent,
+    NewWalletComponent,
+    tradingComponent,
+    SettingsComponent,
+    RegisterComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
