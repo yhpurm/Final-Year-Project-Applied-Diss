@@ -1,21 +1,33 @@
 <div style="height:100%; width:100%;">
     <div id="cryptoMap" style="clear:both; height:1000px;"></div>
 </div>
+
 <footer class="footer">
-    <div class="container">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
                 <a class="navbar-brand" href="#">Bitcoin Wallet</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a href="#"><span class="glyphicon glyphicon-plus"></span>Add Status</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-globe"></span>Get you location</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-lock"></span>Get you location</a></li>
-                <li><a href="#"><span class="glyphicon-piggy-bank"></span>Get you location</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-flag"></span>Get you location</a></li>
+                <li><a (click)="ClickButton()"><span class="glyphicon glyphicon-plus" ></span> Add Status</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-globe" ></span>> Get you location</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-lock" ></span>> Privacy mode</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-piggy-bank" ></span>> Request bitcoin</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-flag" ></span>> Mark store that accepts bitcoin</a></li>
               </ul>
             </div>
           </nav>
-    </div>
 </footer>
+
+<modal id="custom-modal-1">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" [(ngModel)]="bodyText" />
+            </p>
+            <button (click)="closeModal('custom-modal-1');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>

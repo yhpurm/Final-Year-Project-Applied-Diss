@@ -14,6 +14,8 @@ import { WalletComponent }  from './myWallet.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { SettingsComponent }  from './settings.component';
 import { RegisterComponent }  from './register.component';
+import { ModalComponent }  from './_directives/modal.component';
+import { ModalService } from './_services/index';
 import { routing } from './app.routing';
 
 @NgModule({
@@ -32,10 +34,11 @@ import { routing } from './app.routing';
     WalletComponent,
     NewWalletComponent,
     tradingComponent,
+    ModalComponent,
     SettingsComponent,
     RegisterComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
