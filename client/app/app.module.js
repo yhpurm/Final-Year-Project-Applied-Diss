@@ -24,6 +24,7 @@ var walletrequest_component_1 = require("./walletrequest.component");
 var settings_component_1 = require("./settings.component");
 var register_component_1 = require("./register.component");
 var app_routing_1 = require("./app.routing");
+var auth_service_1 = require("./services/auth.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -48,7 +49,7 @@ var AppModule = /** @class */ (function () {
                 settings_component_1.SettingsComponent,
                 register_component_1.RegisterComponent],
             exports: [],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
+            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

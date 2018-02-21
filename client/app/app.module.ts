@@ -16,6 +16,7 @@ import { NewWalletComponent }  from './walletrequest.component';
 import { SettingsComponent }  from './settings.component';
 import { RegisterComponent }  from './register.component';
 import { routing } from './app.routing';
+import { AuthService } from './services/auth.service'
 
 @NgModule({
   imports:      [
@@ -37,7 +38,7 @@ import { routing } from './app.routing';
     SettingsComponent,
     RegisterComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
