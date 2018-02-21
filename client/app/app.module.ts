@@ -7,6 +7,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent }  from './home.component';
 import { FriendsComponent }  from './friends.component';
+import {FAQComponent} from './FAQ.component';
 import { ProfileComponent }  from './profile.component';
 import { CryptoMapComponent }  from './cryptomap.component';
 import { tradingComponent} from './trading.component';
@@ -31,6 +32,7 @@ import { routing } from './app.routing';
     FriendsComponent,
     WalletComponent,
     NewWalletComponent,
+    FAQComponent,
     tradingComponent,
     SettingsComponent,
     RegisterComponent ],
