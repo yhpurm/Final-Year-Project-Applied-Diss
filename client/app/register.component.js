@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var auth_service_1 = require("./services/auth.service");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(formBuilder) {
+    function RegisterComponent(formBuilder, AuthService) {
         this.formBuilder = formBuilder;
+        this.AuthService = AuthService;
         this.createForm();
     }
     RegisterComponent.prototype.ngOnInit = function () {
@@ -81,7 +83,8 @@ var RegisterComponent = /** @class */ (function () {
         };
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
-        console.log('form submitted');
+        console.log(this.form.get('email').value);
+        console.log(this.form.get('username').value);
     };
     RegisterComponent = __decorate([
         core_1.Component({
@@ -90,7 +93,8 @@ var RegisterComponent = /** @class */ (function () {
             templateUrl: 'register.component.html',
             styleUrls: ['register.component.css']
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder])
+        __metadata("design:paramtypes", [forms_1.FormBuilder,
+            auth_service_1.AuthService])
     ], RegisterComponent);
     return RegisterComponent;
 }());
