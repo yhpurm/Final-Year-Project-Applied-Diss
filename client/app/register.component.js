@@ -83,13 +83,21 @@ var RegisterComponent = /** @class */ (function () {
         };
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
+        var _this = this;
         var user = {
             username: this.form.get('username').value,
             email: this.form.get('email').value,
             password: this.form.get('password').value
         };
         this.AuthService.registerUser(user).subscribe(function (data) {
-            console.log(data);
+            if (!data.success) {
+                _this.messageClass = 'alert alert-danger';
+                _this.message = data.message;
+            }
+            else {
+                _this.messageClass = 'alert alert-success';
+                _this.message = data.message;
+            }
         });
     };
     RegisterComponent = __decorate([

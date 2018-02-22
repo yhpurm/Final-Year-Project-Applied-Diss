@@ -11,6 +11,8 @@ import { AuthService } from './services/auth.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
+  message;
+  messageClass;
 
   constructor(
     private formBuilder:  FormBuilder,
@@ -95,7 +97,13 @@ export class RegisterComponent implements OnInit {
     }
 
     this.AuthService.registerUser(user).subscribe(data => {
-      console.log(data);
+      if(!data.success) {
+        this.messageClass = 'alert alert-danger'
+        this.message = data.message;
+      } else {
+        this.messageClass = 'alert alert-success'
+        this.message = data.message;
+      }
     });
 
   }
