@@ -43,12 +43,11 @@ router.get('/login/profile/:username', function(req, res, next) {
 });
 
 // Middleware for authenication
-var corsOptions = {
-    origin: 'http://example.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-  }
-
 var app = express();
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -56,6 +55,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/authentication', authentication);
+
+// Start Server: Listen on port 8080
+app.listen(8080, () => {
+    console.log('Listening on port 8080');
+  });
 // Middleware for authenication
 
 
