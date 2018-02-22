@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder:  FormBuilder,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private router: Router
   ) {
     this.createForm()
    }
@@ -126,6 +128,9 @@ export class RegisterComponent implements OnInit {
       } else {
         this.messageClass = 'alert alert-success'
         this.message = data.message;
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 2000)
       }
     });
 

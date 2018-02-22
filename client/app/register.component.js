@@ -12,10 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var auth_service_1 = require("./services/auth.service");
+var router_1 = require("@angular/router");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(formBuilder, AuthService) {
+    function RegisterComponent(formBuilder, AuthService, router) {
         this.formBuilder = formBuilder;
         this.AuthService = AuthService;
+        this.router = router;
         this.processing = false;
         this.createForm();
     }
@@ -114,6 +116,9 @@ var RegisterComponent = /** @class */ (function () {
             else {
                 _this.messageClass = 'alert alert-success';
                 _this.message = data.message;
+                setTimeout(function () {
+                    _this.router.navigate(['/']);
+                }, 2000);
             }
         });
     };
@@ -157,7 +162,8 @@ var RegisterComponent = /** @class */ (function () {
             styleUrls: ['register.component.css']
         }),
         __metadata("design:paramtypes", [forms_1.FormBuilder,
-            auth_service_1.AuthService])
+            auth_service_1.AuthService,
+            router_1.Router])
     ], RegisterComponent);
     return RegisterComponent;
 }());
