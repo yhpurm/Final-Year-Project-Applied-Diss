@@ -16,6 +16,7 @@ var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(formBuilder, AuthService) {
         this.formBuilder = formBuilder;
         this.AuthService = AuthService;
+        this.processing = false;
         this.createForm();
     }
     RegisterComponent.prototype.ngOnInit = function () {
@@ -84,6 +85,7 @@ var RegisterComponent = /** @class */ (function () {
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
         var _this = this;
+        this.processing = true;
         var user = {
             username: this.form.get('username').value,
             email: this.form.get('email').value,
@@ -93,6 +95,7 @@ var RegisterComponent = /** @class */ (function () {
             if (!data.success) {
                 _this.messageClass = 'alert alert-danger';
                 _this.message = data.message;
+                _this.processing = false;
             }
             else {
                 _this.messageClass = 'alert alert-success';

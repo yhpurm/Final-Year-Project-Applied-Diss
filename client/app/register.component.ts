@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   message;
   messageClass;
+  processing = false;
 
   constructor(
     private formBuilder:  FormBuilder,
@@ -89,6 +90,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit(){
+    this.processing = true;
     const user = {
       username: this.form.get('username').value,
       email: this.form.get('email').value,
@@ -100,6 +102,7 @@ export class RegisterComponent implements OnInit {
       if(!data.success) {
         this.messageClass = 'alert alert-danger'
         this.message = data.message;
+        this.processing = false;
       } else {
         this.messageClass = 'alert alert-success'
         this.message = data.message;
