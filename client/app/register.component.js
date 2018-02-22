@@ -12,10 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var auth_service_1 = require("./services/auth.service");
+var router_1 = require("@angular/router");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(formBuilder, AuthService) {
+    function RegisterComponent(formBuilder, AuthService, router) {
         this.formBuilder = formBuilder;
         this.AuthService = AuthService;
+        this.router = router;
+        this.processing = false;
         this.createForm();
     }
     RegisterComponent.prototype.ngOnInit = function () {
@@ -42,6 +45,18 @@ var RegisterComponent = /** @class */ (function () {
                 ])],
             confirm: ['', forms_1.Validators.required]
         }, { validator: this.matchingPasswords('password', 'confirm') });
+    };
+    RegisterComponent.prototype.disableForm = function () {
+        this.form.controls['email'].disable();
+        this.form.controls['username'].disable();
+        this.form.controls['password'].disable();
+        this.form.controls['confirm'].disable();
+    };
+    RegisterComponent.prototype.enableForm = function () {
+        this.form.controls['email'].enable();
+        this.form.controls['username'].enable();
+        this.form.controls['password'].enable();
+        this.form.controls['confirm'].enable();
     };
     RegisterComponent.prototype.validateEmail = function (controls) {
         var regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
@@ -83,13 +98,60 @@ var RegisterComponent = /** @class */ (function () {
         };
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
+        var _this = this;
+        this.processing = true;
+        this.disableForm();
         var user = {
             username: this.form.get('username').value,
             email: this.form.get('email').value,
             password: this.form.get('password').value
         };
         this.AuthService.registerUser(user).subscribe(function (data) {
-            console.log(data);
+            if (!data.success) {
+                _this.messageClass = 'alert alert-danger';
+                _this.message = data.message;
+                _this.processing = false;
+                _this.enableForm();
+            }
+            else {
+                _this.messageClass = 'alert alert-success';
+                _this.message = data.message;
+                setTimeout(function () {
+                    _this.router.navigate(['/']);
+                }, 2000);
+            }
+        });
+    };
+    // Function to check if e-mail is taken
+    RegisterComponent.prototype.checkEmail = function () {
+        var _this = this;
+        // Function from authentication file to check if e-mail is taken
+        this.AuthService.checkEmail(this.form.get('email').value).subscribe(function (data) {
+            // Check if success true or false was returned from API
+            if (!data.success) {
+                _this.emailValid = false; // Return email as invalid
+                _this.emailMessage = data.message; // Return error message
+            }
+            else {
+                _this.emailValid = true; // Return email as valid
+                _this.emailMessage = data.message; // Return success message
+            }
+        });
+    };
+    // Function to check if username is available
+    RegisterComponent.prototype.checkUsername = function () {
+        var _this = this;
+        // Function from authentication file to check if username is taken
+        this.AuthService.checkUsername(this.form.get('username').value).subscribe(function (data) {
+            // Check if success true or success false was returned from API
+            if (!data.success) {
+                _this.usernameValid = false; // Return username as invalid
+                _this.usernameMessage = data.message; // Return error message
+            }
+            else {
+                _this.usernameValid = true; // Return username as valid
+                _this.usernameMessage = data.message; // Return success message
+            }
         });
     };
     RegisterComponent = __decorate([
@@ -100,7 +162,8 @@ var RegisterComponent = /** @class */ (function () {
             styleUrls: ['register.component.css']
         }),
         __metadata("design:paramtypes", [forms_1.FormBuilder,
-            auth_service_1.AuthService])
+            auth_service_1.AuthService,
+            router_1.Router])
     ], RegisterComponent);
     return RegisterComponent;
 }());

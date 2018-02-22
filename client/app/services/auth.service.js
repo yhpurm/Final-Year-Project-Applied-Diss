@@ -20,6 +20,14 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.registerUser = function (user) {
         return this.http.post(this.domain + '/authentication/register', user).map(function (res) { return res.json(); });
     };
+    // Function to check if username is taken
+    AuthService.prototype.checkUsername = function (username) {
+        return this.http.get(this.domain + '/authentication/checkUsername/' + username).map(function (res) { return res.json(); });
+    };
+    // Function to check if e-mail is taken
+    AuthService.prototype.checkEmail = function (email) {
+        return this.http.get(this.domain + '/authentication/checkEmail/' + email).map(function (res) { return res.json(); });
+    };
     AuthService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

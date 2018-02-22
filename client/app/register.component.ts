@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,10 +12,18 @@ import { AuthService } from './services/auth.service';
 export class RegisterComponent implements OnInit {
 
   form: FormGroup;
+  message;
+  messageClass;
+  processing = false;
+  emailValid;
+  emailMessage;
+  usernameValid;
+  usernameMessage;
 
   constructor(
     private formBuilder:  FormBuilder,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private router: Router
   ) {
     this.createForm()
    }
@@ -45,6 +54,20 @@ export class RegisterComponent implements OnInit {
       ])],
       confirm: ['', Validators.required]
     }, { validator: this.matchingPasswords ('password' , 'confirm')})
+  }
+
+  disableForm(){
+    this.form.controls['email'].disable();
+    this.form.controls['username'].disable();
+    this.form.controls['password'].disable();
+    this.form.controls['confirm'].disable();
+  }
+
+  enableForm() {
+    this.form.controls['email'].enable();
+    this.form.controls['username'].enable();
+    this.form.controls['password'].enable();
+    this.form.controls['confirm'].enable();
   }
 
   validateEmail(controls) {
@@ -87,6 +110,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit(){
+    this.processing = true;
+    this.disableForm();
     const user = {
       username: this.form.get('username').value,
       email: this.form.get('email').value,
@@ -95,9 +120,50 @@ export class RegisterComponent implements OnInit {
     }
 
     this.AuthService.registerUser(user).subscribe(data => {
-      console.log(data);
+      if(!data.success) {
+        this.messageClass = 'alert alert-danger'
+        this.message = data.message;
+        this.processing = false;
+        this.enableForm();
+      } else {
+        this.messageClass = 'alert alert-success'
+        this.message = data.message;
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 2000)
+      }
     });
 
+  }
+
+  // Function to check if e-mail is taken
+  checkEmail() {
+    // Function from authentication file to check if e-mail is taken
+    this.AuthService.checkEmail(this.form.get('email').value).subscribe(data => {
+      // Check if success true or false was returned from API
+      if (!data.success) {
+        this.emailValid = false; // Return email as invalid
+        this.emailMessage = data.message; // Return error message
+      } else {
+        this.emailValid = true; // Return email as valid
+        this.emailMessage = data.message; // Return success message
+      }
+    });
+  }
+
+  // Function to check if username is available
+  checkUsername() {
+    // Function from authentication file to check if username is taken
+    this.AuthService.checkUsername(this.form.get('username').value).subscribe(data => {
+      // Check if success true or success false was returned from API
+      if (!data.success) {
+        this.usernameValid = false; // Return username as invalid
+        this.usernameMessage = data.message; // Return error message
+      } else {
+        this.usernameValid = true; // Return username as valid
+        this.usernameMessage = data.message; // Return success message
+      }
+    });
   }
 
 }

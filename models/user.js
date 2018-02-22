@@ -120,15 +120,15 @@ let passwordLengthChecker = (password) => {
 
 const userSchema = new Schema({
   username: {type: String, required: true, unique : true},
-  aboutMe: {type: String, required: true},
-  avatar: {type: Number, required: true},
-  statusCount: {type: Number, required: true},
-  friendCount: {type: Number, required: true},
-  isOnline: {type: Boolean, required: true},
-  bitcoinAddress: {type: String, required: true, unique : true},
+  //aboutMe: {type: String, required: true},
+  //avatar: {type: Number, required: true},
+  //statusCount: {type: Number, required: true},
+  //friendCount: {type: Number, required: true},
+  //isOnline: {type: Boolean, required: true},
+  //bitcoinAddress: {type: String, required: true, unique : true},
   email: {type: String, required: true},
-  lat: {type: Number, required: true}, 
-  long: {type: Number, required: true},
+  //lat: {type: Number, required: true}, 
+  //long: {type: Number, required: true},
   password: { type: String, required: true, validate: passwordValidators }
 });
 

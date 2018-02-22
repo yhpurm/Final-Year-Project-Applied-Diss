@@ -5,6 +5,7 @@ const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
 router.get('/index', function (req, res, next) {
@@ -43,6 +44,10 @@ router.get('/login/profile/:username', function(req, res, next) {
 
 // Middleware for authenication
 var app = express();
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -50,6 +55,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/authentication', authentication);
+
+// Start Server: Listen on port 8080
+app.listen(8080, () => {
+    console.log('Listening on port 8080');
+  });
 // Middleware for authenication
 
 
