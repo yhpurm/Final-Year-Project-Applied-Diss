@@ -26,6 +26,7 @@ var register_component_1 = require("./register.component");
 var modal_component_1 = require("./_directives/modal.component");
 var index_1 = require("./_services/index");
 var app_routing_1 = require("./app.routing");
+var auth_service_1 = require("./services/auth.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -51,7 +52,7 @@ var AppModule = /** @class */ (function () {
                 settings_component_1.SettingsComponent,
                 register_component_1.RegisterComponent],
             exports: [],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, index_1.ModalService],
+            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, index_1.ModalService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

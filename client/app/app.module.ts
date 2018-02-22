@@ -18,6 +18,7 @@ import { RegisterComponent }  from './register.component';
 import { ModalComponent }  from './_directives/modal.component';
 import { ModalService } from './_services/index';
 import { routing } from './app.routing';
+import { AuthService } from './services/auth.service'
 
 @NgModule({
   imports:      [
@@ -40,7 +41,7 @@ import { routing } from './app.routing';
     SettingsComponent,
     RegisterComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, ModalService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
