@@ -13,13 +13,14 @@
     "url": "git://github.com/Smurfgalway/Final-Year-Project-Applied-Diss.git"
   },
   "dependencies": {
+    "@angular/animations": "^5.2.6",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "blockchain.info": "^2.11.0",
     "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "jquery": "^3.1.1",
+    "jquery": "^3.3.1",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.34",
     "mongojs": "^2.4.1",

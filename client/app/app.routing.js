@@ -11,6 +11,7 @@ var walletrequest_component_1 = require("./walletrequest.component");
 var myWallet_component_1 = require("./myWallet.component");
 var settings_component_1 = require("./settings.component");
 var register_component_1 = require("./register.component");
+var mapsmenu_component_1 = require("./mapsmenu.component");
 var appRoutes = [
     {
         path: '',
@@ -19,6 +20,10 @@ var appRoutes = [
     {
         path: 'profile',
         component: profile_component_1.ProfileComponent
+    },
+    {
+        path: 'mapsmenu',
+        component: mapsmenu_component_1.MapsMenuComponent
     },
     {
         path: 'map',

@@ -13,22 +13,13 @@ var core_1 = require("@angular/core");
 var profile_service_1 = require("./profile.service");
 var status_service_1 = require("./status.service");
 var status_model_1 = require("./status.model");
-var index_1 = require("./_services/index");
 var CryptoMapComponent = /** @class */ (function () {
-    function CryptoMapComponent(profileService, statusService, modalService) {
+    function CryptoMapComponent(profileService, statusService) {
         this.profileService = profileService;
         this.statusService = statusService;
-        this.modalService = modalService;
         this.profile = [];
         this.status = [];
     }
-    CryptoMapComponent.prototype.openModal = function (id) {
-        console.log(id);
-        this.modalService.open(id);
-    };
-    CryptoMapComponent.prototype.closeModal = function (id) {
-        this.modalService.close(id);
-    };
     CryptoMapComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.username = "test";
@@ -36,7 +27,6 @@ var CryptoMapComponent = /** @class */ (function () {
             zoom: 7,
             center: { lat: 53.1424, lng: -7.6921 }
         });
-        this.bodyText = 'This text can be updated in modal 1';
         // this.profileService.getDetailsByUsername(this.username)
         //     .subscribe(
         //         userProfile => {
@@ -103,9 +93,9 @@ var CryptoMapComponent = /** @class */ (function () {
             moduleId: module.id,
             selector: 'map',
             templateUrl: 'cryptomap.component.html',
-            providers: [profile_service_1.ProfileService, status_service_1.StatusService, index_1.ModalService]
+            providers: [profile_service_1.ProfileService, status_service_1.StatusService]
         }),
-        __metadata("design:paramtypes", [profile_service_1.ProfileService, status_service_1.StatusService, index_1.ModalService])
+        __metadata("design:paramtypes", [profile_service_1.ProfileService, status_service_1.StatusService])
     ], CryptoMapComponent);
     return CryptoMapComponent;
 }());

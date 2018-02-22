@@ -11,6 +11,7 @@ import { NewWalletComponent }  from './walletrequest.component';
 import { WalletComponent }  from './myWallet.component';
 import { SettingsComponent }  from './settings.component';
 import { RegisterComponent } from './register.component'
+import { MapsMenuComponent } from './mapsmenu.component'
 
 const appRoutes: Routes = [
     {
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
     {
         path:'profile',
         component: ProfileComponent
+    },
+    {
+        path: 'mapsmenu',
+        component: MapsMenuComponent
     },
     {
         path: 'map',
