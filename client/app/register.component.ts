@@ -14,6 +14,10 @@ export class RegisterComponent implements OnInit {
   message;
   messageClass;
   processing = false;
+  emailValid;
+  emailMessage;
+  usernameValid;
+  usernameMessage;
 
   constructor(
     private formBuilder:  FormBuilder,
@@ -125,6 +129,36 @@ export class RegisterComponent implements OnInit {
       }
     });
 
+  }
+
+  // Function to check if e-mail is taken
+  checkEmail() {
+    // Function from authentication file to check if e-mail is taken
+    this.AuthService.checkEmail(this.form.get('email').value).subscribe(data => {
+      // Check if success true or false was returned from API
+      if (!data.success) {
+        this.emailValid = false; // Return email as invalid
+        this.emailMessage = data.message; // Return error message
+      } else {
+        this.emailValid = true; // Return email as valid
+        this.emailMessage = data.message; // Return success message
+      }
+    });
+  }
+
+  // Function to check if username is available
+  checkUsername() {
+    // Function from authentication file to check if username is taken
+    this.AuthService.checkUsername(this.form.get('username').value).subscribe(data => {
+      // Check if success true or success false was returned from API
+      if (!data.success) {
+        this.usernameValid = false; // Return username as invalid
+        this.usernameMessage = data.message; // Return error message
+      } else {
+        this.usernameValid = true; // Return username as valid
+        this.usernameMessage = data.message; // Return success message
+      }
+    });
   }
 
 }

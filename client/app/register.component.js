@@ -117,6 +117,38 @@ var RegisterComponent = /** @class */ (function () {
             }
         });
     };
+    // Function to check if e-mail is taken
+    RegisterComponent.prototype.checkEmail = function () {
+        var _this = this;
+        // Function from authentication file to check if e-mail is taken
+        this.AuthService.checkEmail(this.form.get('email').value).subscribe(function (data) {
+            // Check if success true or false was returned from API
+            if (!data.success) {
+                _this.emailValid = false; // Return email as invalid
+                _this.emailMessage = data.message; // Return error message
+            }
+            else {
+                _this.emailValid = true; // Return email as valid
+                _this.emailMessage = data.message; // Return success message
+            }
+        });
+    };
+    // Function to check if username is available
+    RegisterComponent.prototype.checkUsername = function () {
+        var _this = this;
+        // Function from authentication file to check if username is taken
+        this.AuthService.checkUsername(this.form.get('username').value).subscribe(function (data) {
+            // Check if success true or success false was returned from API
+            if (!data.success) {
+                _this.usernameValid = false; // Return username as invalid
+                _this.usernameMessage = data.message; // Return error message
+            }
+            else {
+                _this.usernameValid = true; // Return username as valid
+                _this.usernameMessage = data.message; // Return success message
+            }
+        });
+    };
     RegisterComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
