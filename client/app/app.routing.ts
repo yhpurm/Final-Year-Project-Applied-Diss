@@ -10,7 +10,8 @@ import {FAQComponent} from './FAQ.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { WalletComponent }  from './myWallet.component';
 import { SettingsComponent }  from './settings.component';
-import { RegisterComponent } from './register.component'
+import { RegisterComponent } from './register.component';
+import { WelcomeComponent } from './welcome.component';
 
 const appRoutes: Routes = [
     {
@@ -52,6 +53,10 @@ const appRoutes: Routes = [
     {
         path: 'FAQ',
         component: FAQComponent
+    },
+    {
+        path: 'welcome',
+        component: WelcomeComponent
     }
 ];
 

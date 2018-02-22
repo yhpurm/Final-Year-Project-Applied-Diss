@@ -18,7 +18,8 @@ import { RegisterComponent }  from './register.component';
 import { ModalComponent }  from './_directives/modal.component';
 import { ModalService } from './_services/index';
 import { routing } from './app.routing';
-import { AuthService } from './services/auth.service'
+import { AuthService } from './services/auth.service';
+import { WelcomeComponent } from './welcome.component'
 
 @NgModule({
   imports:      [
@@ -39,7 +40,8 @@ import { AuthService } from './services/auth.service'
     tradingComponent,
     ModalComponent,
     SettingsComponent,
-    RegisterComponent ],
+    RegisterComponent,
+    WelcomeComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, ModalService],
   bootstrap: [AppComponent]

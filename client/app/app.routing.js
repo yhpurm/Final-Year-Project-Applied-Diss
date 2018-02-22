@@ -11,6 +11,7 @@ var walletrequest_component_1 = require("./walletrequest.component");
 var myWallet_component_1 = require("./myWallet.component");
 var settings_component_1 = require("./settings.component");
 var register_component_1 = require("./register.component");
+var welcome_component_1 = require("./welcome.component");
 var appRoutes = [
     {
         path: '',
@@ -51,6 +52,10 @@ var appRoutes = [
     {
         path: 'FAQ',
         component: FAQ_component_1.FAQComponent
+    },
+    {
+        path: 'welcome',
+        component: welcome_component_1.WelcomeComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
