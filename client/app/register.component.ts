@@ -50,6 +50,20 @@ export class RegisterComponent implements OnInit {
     }, { validator: this.matchingPasswords ('password' , 'confirm')})
   }
 
+  disableForm(){
+    this.form.controls['email'].disable();
+    this.form.controls['username'].disable();
+    this.form.controls['password'].disable();
+    this.form.controls['confirm'].disable();
+  }
+
+  enableForm() {
+    this.form.controls['email'].enable();
+    this.form.controls['username'].enable();
+    this.form.controls['password'].enable();
+    this.form.controls['confirm'].enable();
+  }
+
   validateEmail(controls) {
     const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     if (regExp.test(controls.value)){
@@ -91,6 +105,7 @@ export class RegisterComponent implements OnInit {
 
   onRegisterSubmit(){
     this.processing = true;
+    this.disableForm();
     const user = {
       username: this.form.get('username').value,
       email: this.form.get('email').value,
@@ -103,6 +118,7 @@ export class RegisterComponent implements OnInit {
         this.messageClass = 'alert alert-danger'
         this.message = data.message;
         this.processing = false;
+        this.enableForm();
       } else {
         this.messageClass = 'alert alert-success'
         this.message = data.message;
