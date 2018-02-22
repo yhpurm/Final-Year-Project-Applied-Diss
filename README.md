@@ -1,6 +1,22 @@
 # **Bitcoin Wallet**
 
-## **Introduction**
+
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/DonalMcGahon)
+
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/ConorTighe1995)
+
+[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/Smurfgalway)
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/graphs/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/Disseration.pdf)
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
+[![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+
+
+---
+
+# **Introduction**
 Welcome to our Crypto-Currency wallet application. The focus of this application is to offer an easy to use, intuitave user experience. While offering education on the trading and buying of Crypto-Currencies. This wallet application will be mainly dealing with storing and sending [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin).
 
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
@@ -8,6 +24,7 @@ Here is a brief video to explain some questions you make have about bitcoin.
 
 [![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/35869303-a3ee46ea-0b56-11e8-8350-b5c2013def79.png)](https://www.youtube.com/watch?v=Um63OQz3bjo&t=3s_blank)
 
+---
 
 ## **Technologies**
 
@@ -42,11 +59,15 @@ Angular is a platform that makes it easy to build applications with the web. Ang
 
 Node.js is an open source server framework and it is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X,etc.) It uses JavaScript on the server. [7] Node.js enables JavaScript to be used for server-side scripting, and runs scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. [8]
 
+---
+
 ## Architecture
 
 Below is a screenshot from a presentation our team gave to our software development year. This is a basic overview of how the technologies mentioned will connect and interact from back-end to front-end, we are still investigating extra features and technologies that could be used to create these features so this design is subject to change. The full presentation slides are included in this repository. The QR code on the presentation slide is fully functional and will bring you to a link if scanned, the idea was to bring some audiance interaction to our presentation.
 
 ![Design](technologies.png)
+
+---
 
 ## **References**
 [1] - https://www.sitepoint.com/introduction-mean-stack
