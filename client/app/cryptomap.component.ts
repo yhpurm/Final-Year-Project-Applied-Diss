@@ -27,7 +27,8 @@ export class CryptoMapComponent implements OnInit {
   TargetAddress: string;
   private bodyText: string;
  
-  openModal(id: string){
+    openModal(id: string){
+        console.log(id);
         this.modalService.open(id);
     }
 

@@ -6,6 +6,7 @@ var cryptomap_component_1 = require("./cryptomap.component");
 var profile_component_1 = require("./profile.component");
 var friends_component_1 = require("./friends.component");
 var trading_component_1 = require("./trading.component");
+var FAQ_component_1 = require("./FAQ.component");
 var walletrequest_component_1 = require("./walletrequest.component");
 var myWallet_component_1 = require("./myWallet.component");
 var settings_component_1 = require("./settings.component");
@@ -46,6 +47,10 @@ var appRoutes = [
     {
         path: 'register',
         component: register_component_1.RegisterComponent
+    },
+    {
+        path: 'FAQ',
+        component: FAQ_component_1.FAQComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

@@ -15,6 +15,7 @@ var common_1 = require("@angular/common");
 var app_component_1 = require("./app.component");
 var home_component_1 = require("./home.component");
 var friends_component_1 = require("./friends.component");
+var FAQ_component_1 = require("./FAQ.component");
 var profile_component_1 = require("./profile.component");
 var cryptomap_component_1 = require("./cryptomap.component");
 var trading_component_1 = require("./trading.component");
@@ -44,6 +45,7 @@ var AppModule = /** @class */ (function () {
                 friends_component_1.FriendsComponent,
                 myWallet_component_1.WalletComponent,
                 walletrequest_component_1.NewWalletComponent,
+                FAQ_component_1.FAQComponent,
                 trading_component_1.tradingComponent,
                 modal_component_1.ModalComponent,
                 settings_component_1.SettingsComponent,

@@ -6,7 +6,8 @@
   System.config({
     paths: {
       // paths serve as alias
-      'npm:': 'node_modules/'
+      'npm:': 'node_modules/',
+      'underscore': './node_modules/underscore/underscore.js'
     },
     // map tells the System loader where to look for things
     map: {
@@ -23,7 +24,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'underscore':                 'npm:underscore',
+      'underscore':  'npm:/underscore/underscore.js',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
     },
     // packages tells the System loader how to load when no filename and/or no extension

@@ -5,7 +5,8 @@ import {HomeComponent} from './home.component';
 import {CryptoMapComponent} from './cryptomap.component';
 import {ProfileComponent} from './profile.component';
 import {FriendsComponent} from './friends.component';
-import {tradingComponent} from './trading.component'
+import {tradingComponent} from './trading.component';
+import {FAQComponent} from './FAQ.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { WalletComponent }  from './myWallet.component';
 import { SettingsComponent }  from './settings.component';
@@ -47,6 +48,10 @@ const appRoutes: Routes = [
     {
         path: 'register',
         component: RegisterComponent
+    },
+    {
+        path: 'FAQ',
+        component: FAQComponent
     }
 ];
 

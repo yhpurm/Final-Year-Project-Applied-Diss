@@ -1,0 +1,1 @@
+{"version":3,"file":"FAQ.component.js","sourceRoot":"","sources":["FAQ.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAS1C;IAAA;IAGE,CAAC;IAHU,YAAY;QAPxB,gBAAS,CAAC;YACT,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,KAAK;YACf,WAAW,EAAE,oBAAoB;YACjC,SAAS,EAAE,EAAE;SACd,CAAC;OAEW,YAAY,CAGtB;IAAD,mBAAC;CAAA,AAHH,IAGG;AAHU,oCAAY"}

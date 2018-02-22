@@ -23,6 +23,7 @@ var CryptoMapComponent = /** @class */ (function () {
         this.status = [];
     }
     CryptoMapComponent.prototype.openModal = function (id) {
+        console.log(id);
         this.modalService.open(id);
     };
     CryptoMapComponent.prototype.closeModal = function (id) {

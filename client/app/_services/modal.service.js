@@ -16,7 +16,9 @@ var ModalService = /** @class */ (function () {
     };
     ModalService.prototype.open = function (id) {
         // open modal specified by id
+        console.log(id + " Service!!!");
         var modal = _.findWhere(this.modals, { id: id });
+        console.log(modal);
         modal.open();
     };
     ModalService.prototype.close = function (id) {
