@@ -10,8 +10,13 @@ import {FAQComponent} from './FAQ.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { WalletComponent }  from './myWallet.component';
 import { SettingsComponent }  from './settings.component';
+<<<<<<< HEAD
 import { RegisterComponent } from './register.component';
 import { WelcomeComponent } from './welcome.component';
+=======
+import { RegisterComponent } from './register.component'
+import { MapsMenuComponent } from './mapsmenu.component'
+>>>>>>> ca13b771e71ee76c7c1e86d3e6a9ccb5f672eb93
 
 const appRoutes: Routes = [
     {
@@ -21,6 +26,10 @@ const appRoutes: Routes = [
     {
         path:'profile',
         component: ProfileComponent
+    },
+    {
+        path: 'mapsmenu',
+        component: MapsMenuComponent
     },
     {
         path: 'map',

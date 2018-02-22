@@ -4,7 +4,6 @@ import { ProfileService } from "./profile.service";
 import { Profile } from "./profile.model";
 import { StatusService } from "./status.service";
 import { Status } from "./status.model";
-import { ModalService } from './_services/index';
 
 declare var google: any;
 
@@ -12,12 +11,12 @@ declare var google: any;
   moduleId: module.id,
   selector: 'map',
   templateUrl: 'cryptomap.component.html',
-  providers: [ProfileService,StatusService,ModalService]
+  providers: [ProfileService,StatusService]
 })
 
 export class CryptoMapComponent implements OnInit {
 
-  constructor(private profileService: ProfileService,private statusService: StatusService,private modalService: ModalService) {}
+  constructor(private profileService: ProfileService,private statusService: StatusService) {}
   // Variables
   map: any;
   profile: Profile[] = [];
@@ -25,16 +24,6 @@ export class CryptoMapComponent implements OnInit {
   username: string;
   MyAddress: string;
   TargetAddress: string;
-  private bodyText: string;
- 
-    openModal(id: string){
-        console.log(id);
-        this.modalService.open(id);
-    }
-
-    closeModal(id: string){
-        this.modalService.close(id);
-    }
 
   ngOnInit() {
     
@@ -43,8 +32,6 @@ export class CryptoMapComponent implements OnInit {
           zoom: 7,
           center: {lat: 53.1424, lng: -7.6921}
     });
-
-    this.bodyText = 'This text can be updated in modal 1';
 
     // this.profileService.getDetailsByUsername(this.username)
     //     .subscribe(

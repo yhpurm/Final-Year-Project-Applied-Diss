@@ -22,6 +22,10 @@ var appRoutes = [
         component: profile_component_1.ProfileComponent
     },
     {
+        path: 'mapsmenu',
+        component: MapsMenuComponent
+    },
+    {
         path: 'map',
         component: cryptomap_component_1.CryptoMapComponent
     },
