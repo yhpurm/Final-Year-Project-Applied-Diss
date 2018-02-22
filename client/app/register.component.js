@@ -83,14 +83,17 @@ var RegisterComponent = /** @class */ (function () {
         };
     };
     RegisterComponent.prototype.onRegisterSubmit = function () {
-        var user = {
-            username: this.form.get('username').value,
-            email: this.form.get('email').value,
-            password: this.form.get('password').value
-        };
-        this.AuthService.registerUser(user).subscribe(function (data) {
-            console.log(data);
-        });
+        /*const user = {
+          username: this.form.get('username').value,
+          email: this.form.get('email').value,
+          password: this.form.get('password').value
+    
+        }*/
+        console.log(this.form.get('email').value);
+        console.log(this.form.get('username').value);
+        /*this.AuthService.registerUser(user).subscribe(data => {
+          console.log(data);
+        });*/
     };
     RegisterComponent = __decorate([
         core_1.Component({
