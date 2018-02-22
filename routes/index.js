@@ -8,24 +8,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
-router.get('/index', function (req, res, next) {
+router.get('/', function (req, res, next) {
     res.render('index.html');
 });
-
-// Login Page for user
-router.get('/', function (req, res, next) {
-    res.render('login/login.component.html');
-});
-
-// Opening page called home.html
-router.get('/donalsloginhome', function (req, res, next) {
-    res.render('users/home.html');
-});
-
-// Register Page
-/*router.get('/register', function (req, res, next) {
-    res.render('client/app/register.component.html');
-});*/
 
 // Getting crypto profile from db
 router.get('/login/profile/:username', function(req, res, next) {

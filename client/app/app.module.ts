@@ -16,13 +16,9 @@ import { NewWalletComponent }  from './walletrequest.component';
 import { SettingsComponent }  from './settings.component';
 import { RegisterComponent }  from './register.component';
 import { routing } from './app.routing';
-<<<<<<< HEAD
 import { AuthService } from './services/auth.service';
-import { WelcomeComponent } from './welcome.component'
-=======
-import { AuthService } from './services/auth.service'
-import { MapsMenuComponent } from './mapsmenu.component'
->>>>>>> ca13b771e71ee76c7c1e86d3e6a9ccb5f672eb93
+import { WelcomeComponent } from './welcome.component';
+import { MapsMenuComponent } from './mapsmenu.component';
 
 @NgModule({
   imports:      [

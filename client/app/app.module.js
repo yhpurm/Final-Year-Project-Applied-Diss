@@ -26,6 +26,7 @@ var register_component_1 = require("./register.component");
 var app_routing_1 = require("./app.routing");
 var auth_service_1 = require("./services/auth.service");
 var welcome_component_1 = require("./welcome.component");
+var mapsmenu_component_1 = require("./mapsmenu.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -44,7 +45,7 @@ var AppModule = /** @class */ (function () {
                 cryptomap_component_1.CryptoMapComponent,
                 friends_component_1.FriendsComponent,
                 myWallet_component_1.WalletComponent,
-                MapsMenuComponent,
+                mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,
                 FAQ_component_1.FAQComponent,
                 trading_component_1.tradingComponent,

@@ -12,9 +12,14 @@ var myWallet_component_1 = require("./myWallet.component");
 var settings_component_1 = require("./settings.component");
 var register_component_1 = require("./register.component");
 var welcome_component_1 = require("./welcome.component");
+var mapsmenu_component_1 = require("./mapsmenu.component");
 var appRoutes = [
     {
         path: '',
+        component: welcome_component_1.WelcomeComponent
+    },
+    {
+        path: 'home',
         component: home_component_1.HomeComponent
     },
     {
@@ -23,7 +28,7 @@ var appRoutes = [
     },
     {
         path: 'mapsmenu',
-        component: MapsMenuComponent
+        component: mapsmenu_component_1.MapsMenuComponent
     },
     {
         path: 'map',
@@ -56,10 +61,6 @@ var appRoutes = [
     {
         path: 'FAQ',
         component: FAQ_component_1.FAQComponent
-    },
-    {
-        path: 'welcome',
-        component: welcome_component_1.WelcomeComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
