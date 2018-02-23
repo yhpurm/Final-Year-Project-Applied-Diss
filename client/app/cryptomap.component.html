@@ -1,20 +1,61 @@
-<div style="height:100%; width:100%;">
-    <div id="cryptoMap" style="clear:both; height:1000px;"></div>
+<head>
+  <title>Maps Menu</title>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #a2d1ff;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #71677C; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #37123C; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-4 { 
+      background-color: #DDA77B; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-5 { 
+      background-color: #A99F96; /* Dark Blue */
+      color: #ffffff;
+  }
+  </style>
+</head>
+<body>
+    
+<div >
+    <div id="cryptoMap" style="clear:both; height:700px;"></div>
+</div>
+<!-- Second Container -->
+<div class="row bg-2 text-center">
+  <a routerLink="/poststatus"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
+  <p> Update a status </p>
 </div>
 
-<footer class="footer">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="#">Bitcoin Wallet</a>
-              </div>
-              <ul class="nav navbar-nav">
-                <li><a ><span class="glyphicon glyphicon-plus" ></span> Add Status</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-globe" ></span>> Get you location</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-lock" ></span>> Privacy mode</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-piggy-bank" ></span>> Request bitcoin</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-flag" ></span>> Mark store that accepts bitcoin</a></li>
-              </ul>
-            </div>
-          </nav>
-</footer>
+<!-- Second Container -->
+<div routerLink="/request" class="row bg-3 text-center">
+  <a ><span class="glyphicon glyphicon-globe" style="font-size: 100px;" ></span> Add Status</a>
+  <p> Set a location </p>
+</div>
+  
+<!-- Second Container -->
+<div class="row bg-4 text-center">
+  <a ><span class="glyphicon glyphicon-piggy-bank" style="font-size: 100px;" ></span> Add Status</a>
+  <p> Request transfer </p>
+</div>
+
+<!-- Second Container -->
+<div class="row bg-5 text-center">
+  <a ><span class="glyphicon glyphicon-flag" style="font-size: 100px;" ></span> Add Status</a>
+  <p> Mark location of intrest </p>
+</div>
+</body>

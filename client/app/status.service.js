@@ -28,7 +28,7 @@ var StatusService = /** @class */ (function () {
             var status;
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
-                status = new status_model_1.Status(element.username, element.date, element.text, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                status = new status_model_1.Status(element.username, element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                 msgArray.push(status);
             }
             return msgArray;
@@ -43,7 +43,7 @@ var StatusService = /** @class */ (function () {
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
                 console.log(element.firstName);
-                status = new status_model_1.Status(element.username, element.date, element.text, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                status = new status_model_1.Status(element.username, element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                 msgArray.push(status);
             }
             return msgArray;
@@ -58,7 +58,7 @@ var StatusService = /** @class */ (function () {
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
                 console.log(element.firstName);
-                message = new status_model_1.Status(element.username, element.text, element.date, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                message = new status_model_1.Status(element.username, element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                 msgArray.push(message);
             }
             return msgArray;

@@ -19,6 +19,8 @@ import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
 import { WelcomeComponent } from './welcome.component';
 import { MapsMenuComponent } from './mapsmenu.component';
+import { PostStatusComponent } from './poststatus.component';
+import { RequestComponent } from './requestbitcoin.component';
 
 @NgModule({
   imports:      [
@@ -34,6 +36,8 @@ import { MapsMenuComponent } from './mapsmenu.component';
     CryptoMapComponent,
     FriendsComponent,
     WalletComponent,
+    RequestComponent,
+    PostStatusComponent,
     MapsMenuComponent,
     NewWalletComponent,
     FAQComponent,

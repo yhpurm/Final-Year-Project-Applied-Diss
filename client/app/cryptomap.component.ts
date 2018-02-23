@@ -23,8 +23,11 @@ export class CryptoMapComponent implements OnInit {
   status: Status[] = [];
   username: string;
   MyAddress: string;
+  price: Number;
+  value: Number;
   TargetAddress: string;
-
+  lat: string;
+  long: string;
   ngOnInit() {
     
     this.username = "test";
@@ -83,13 +86,7 @@ export class CryptoMapComponent implements OnInit {
            title: newStatus,
        });
        
-       const d: Date = new Date();
-       const newStatusPost = new Status(this.username,newStatus,d,myAdd,targetAdd,lt,ln);
-       this.statusService.saveTx(newStatusPost)
-           .subscribe(
-               () => console.log('POST from status'),
-               error => console.error(error)
-           );
+       
            
        marker.addListener('click', ()=> {
             // Stuff for when Tx is clicked goes here

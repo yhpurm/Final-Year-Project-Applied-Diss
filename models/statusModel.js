@@ -4,8 +4,11 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 var schema = new Schema({
     username: {type: String, required: true, unique : true},
-    date: {type: Date, required: true},
+    date: {type: Number, required: true},
+    title: {type: String, required: true},
     text: {type: String, required: true},
+    valueAtTime: {type: Number},
+    sentAmount: {type: Number},
     bitcoinAddress: {type: String, required: true, unique : true},
     receivingAddress: {type: String, required: true, unique : true},
     lat: {type: Number, required: true}, 

@@ -27,6 +27,8 @@ var app_routing_1 = require("./app.routing");
 var auth_service_1 = require("./services/auth.service");
 var welcome_component_1 = require("./welcome.component");
 var mapsmenu_component_1 = require("./mapsmenu.component");
+var poststatus_component_1 = require("./poststatus.component");
+var requestbitcoin_component_1 = require("./requestbitcoin.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -45,6 +47,8 @@ var AppModule = /** @class */ (function () {
                 cryptomap_component_1.CryptoMapComponent,
                 friends_component_1.FriendsComponent,
                 myWallet_component_1.WalletComponent,
+                requestbitcoin_component_1.RequestComponent,
+                poststatus_component_1.PostStatusComponent,
                 mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,
                 FAQ_component_1.FAQComponent,

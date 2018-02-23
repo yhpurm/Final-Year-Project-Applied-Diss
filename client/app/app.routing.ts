@@ -13,6 +13,8 @@ import { SettingsComponent }  from './settings.component';
 import { RegisterComponent } from './register.component';
 import { WelcomeComponent } from './welcome.component';
 import { MapsMenuComponent } from './mapsmenu.component';
+import { PostStatusComponent } from './poststatus.component';
+import { RequestComponent } from './requestbitcoin.component';
 
 const appRoutes: Routes = [
     {
@@ -28,8 +30,16 @@ const appRoutes: Routes = [
         component: ProfileComponent
     },
     {
+        path: 'request',
+        component: RequestComponent
+    },
+    {
         path: 'mapsmenu',
         component: MapsMenuComponent
+    },
+    {
+        path: 'poststatus',
+        component: PostStatusComponent
     },
     {
         path: 'map',

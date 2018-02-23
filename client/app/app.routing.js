@@ -13,6 +13,8 @@ var settings_component_1 = require("./settings.component");
 var register_component_1 = require("./register.component");
 var welcome_component_1 = require("./welcome.component");
 var mapsmenu_component_1 = require("./mapsmenu.component");
+var poststatus_component_1 = require("./poststatus.component");
+var requestbitcoin_component_1 = require("./requestbitcoin.component");
 var appRoutes = [
     {
         path: '',
@@ -27,8 +29,16 @@ var appRoutes = [
         component: profile_component_1.ProfileComponent
     },
     {
+        path: 'request',
+        component: requestbitcoin_component_1.RequestComponent
+    },
+    {
         path: 'mapsmenu',
         component: mapsmenu_component_1.MapsMenuComponent
+    },
+    {
+        path: 'poststatus',
+        component: poststatus_component_1.PostStatusComponent
     },
     {
         path: 'map',

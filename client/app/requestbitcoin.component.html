@@ -1,0 +1,43 @@
+<script src="bundle.js"></script> 
+<script>
+    var QRCode = require('qrcode')
+    var canvas = document.getElementById('qrcanvas')
+    
+        QRCode.toCanvas(document.getElementById('canvas'), 'sample text', function (error) {
+          if (error) console.error(error)
+          console.log('success!');
+        })
+      </script> 
+<!-- Registration Form -->
+<form [formGroup]="form" (submit)="onStatusSubmit()">
+  
+        <div class="form-group">
+                <label for="inputdefault">Request Description</label>
+                <input class="form-control" id="inputdefault" type="text">
+        </div>
+
+        <canvas id="qrcanvas"></canvas>
+    
+        <p class = "tpbutton btn-toolbar text-center">
+                <a class = "btn navbar-btn btn-primary" href = "#">Use your profile address</a>
+                <a class = "btn navbar-btn btn-default" href = "#">Enter another address below</a>
+        </p>
+    
+        <div class="form-group">
+                <label for="inputlg">Se</label>
+                <input class="form-control input-lg" id="inputlg" type="text">
+        </div>
+    
+        <select (change)="selectItem($event.target.value)">
+                <option *ngFor="let value of values" value={{value.label}}>{{value.label}}</option>
+        </select>
+    
+        <p class = "tpbutton btn-toolbar text-center">
+                <a class = "btn navbar-btn btn-primary" href = "#">Use your loction</a>
+                <a class = "btn navbar-btn btn-default" href = "#">Set location by clicking map</a>
+        </p>
+      
+        <!-- Submit Input -->
+        <input [disabled]="!form.valid || processing" type="submit" class="btn btn-primary" value="Submit" />
+      
+</form>

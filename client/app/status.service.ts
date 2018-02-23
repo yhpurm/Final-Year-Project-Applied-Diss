@@ -19,7 +19,7 @@ export class StatusService {
                 console.log("got extracted here!");
                 let status;
                 for (let element of extracted.data) {
-                    status = new Status(element.username, element.date, element.text, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                    status = new Status(element.username, element.date, element.title, element.text,element.valueAtTime, element.sentAmount,  element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                     msgArray.push(status);
                 }
                 return msgArray;
@@ -34,7 +34,7 @@ export class StatusService {
                 let status;
                 for (let element of extracted.data) {
                     console.log(element.firstName);
-                    status = new Status(element.username, element.date, element.text, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                    status = new Status(element.username, element.date, element.title, element.text,element.valueAtTime, element.sentAmount,  element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                     msgArray.push(status);
                 }
                 return msgArray;
@@ -49,7 +49,7 @@ export class StatusService {
                 let message;
                 for (let element of extracted.data) {
                     console.log(element.firstName);
-                    message =new Status(element.username, element.text, element.date, element.bitcoinAddress ,element.receivingAddress , element.lat, element.long);
+                    message =new Status(element.username,  element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress ,element.receivingAddress , element.lat, element.long);
                     msgArray.push(message);
                 }
                 return msgArray;

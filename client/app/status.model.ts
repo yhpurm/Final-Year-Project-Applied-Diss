@@ -1,9 +1,12 @@
 export class Status {
     constructor(public username: string,
-        public text: string,
-        public date: Date,
-        public bitcoinAddress: string,
-        public receivingAddress: string,
-        public lat: number,
-        public long: number) {}
+        public date: Number,
+        public title: String,
+        public text: String,
+        public valueAtTime: Number,
+        public sentAmount: Number,
+        public bitcoinAddress: String,
+        public receivingAddress: String,
+        public lat: Number,
+        public long: Number) {}
 }

@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var profile_service_1 = require("./profile.service");
 var status_service_1 = require("./status.service");
-var status_model_1 = require("./status.model");
 var CryptoMapComponent = /** @class */ (function () {
     function CryptoMapComponent(profileService, statusService) {
         this.profileService = profileService;
@@ -67,10 +66,6 @@ var CryptoMapComponent = /** @class */ (function () {
                 map: this.map,
                 title: newStatus,
             });
-            var d = new Date();
-            var newStatusPost = new status_model_1.Status(this.username, newStatus, d, myAdd, targetAdd, lt, ln);
-            this.statusService.saveTx(newStatusPost)
-                .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
             marker.addListener('click', function () {
                 // Stuff for when Tx is clicked goes here
             });
