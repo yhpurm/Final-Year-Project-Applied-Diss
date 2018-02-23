@@ -7,6 +7,7 @@ const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
 router.get('/', function (req, res, next) {
     res.render('index.html');
@@ -197,5 +198,6 @@ router.put('/URL/PUT', function (req, res) {
 router.delete('/URL/DELETE', function (req, res) {
     // Delete Something
 });
+
 
 module.exports = router;

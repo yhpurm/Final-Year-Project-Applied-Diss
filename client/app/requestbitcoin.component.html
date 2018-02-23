@@ -1,13 +1,4 @@
-<script src="bundle.js"></script> 
-<script>
-    var QRCode = require('qrcode')
-    var canvas = document.getElementById('qrcanvas')
-    
-        QRCode.toCanvas(document.getElementById('canvas'), 'sample text', function (error) {
-          if (error) console.error(error)
-          console.log('success!');
-        })
-      </script> 
+
 <!-- Registration Form -->
 <form [formGroup]="form" (submit)="onStatusSubmit()">
   
@@ -16,7 +7,6 @@
                 <input class="form-control" id="inputdefault" type="text">
         </div>
 
-        <canvas id="qrcanvas"></canvas>
     
         <p class = "tpbutton btn-toolbar text-center">
                 <a class = "btn navbar-btn btn-primary" href = "#">Use your profile address</a>
