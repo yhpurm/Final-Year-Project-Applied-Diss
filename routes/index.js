@@ -6,7 +6,31 @@ var Profile = require('../models/profileModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const MLABS = require('mongoose').Mongoose;
 
+// Testing Mlabs below
+const MONGO_URL = 'mongodb://Conor:softwaregroup10@ds145438.mlab.com:45438/globalusers';
+var global = new MLABS();
+
+global.connect(MONGO_URL, function(err){
+    if(err){
+        console.error("Error! " + err);
+    }else{
+        console.log("Connected to online server");
+    }
+});
+
+router.get('/globalusers', function(req, res, next){
+    console.log('Get request for all users');
+    Profile.find({})
+    .exec(function(err, profile){
+        if(err){
+            res.send("Error retrieving users");
+        }else{
+            res.json(profile);
+        }
+    })
+});
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
 router.get('/', function (req, res, next) {

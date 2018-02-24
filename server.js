@@ -11,6 +11,7 @@ var port = 3000;
 
 var app = express();
 mongoose.connect('mongodb://localhost:27017/crypto', { useMongoClient: true });
+console.log("connected to local database!");
 mongoose.BatchSize = 300;
 //View Engine
 app.set('views', path.join(__dirname, 'views'));
