@@ -1,0 +1,1 @@
+{"version":3,"file":"blockchainActivity.component.js","sourceRoot":"","sources":["blockchainActivity.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAA0C;AAQ1C;IAAA;IAAqC,CAAC;IAAzB,qBAAqB;QANjC,gBAAS,CAAC;YACT,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,UAAU;YACpB,WAAW,EAAE,mCAAmC;SACjD,CAAC;OAEW,qBAAqB,CAAI;IAAD,4BAAC;CAAA,AAAtC,IAAsC;AAAzB,sDAAqB"}

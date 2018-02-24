@@ -15,6 +15,7 @@ var welcome_component_1 = require("./welcome.component");
 var mapsmenu_component_1 = require("./mapsmenu.component");
 var poststatus_component_1 = require("./poststatus.component");
 var requestbitcoin_component_1 = require("./requestbitcoin.component");
+var blockchainActivity_component_1 = require("./blockchainActivity.component");
 var appRoutes = [
     {
         path: '',
@@ -35,6 +36,10 @@ var appRoutes = [
     {
         path: 'mapsmenu',
         component: mapsmenu_component_1.MapsMenuComponent
+    },
+    {
+        path: 'activity',
+        component: blockchainActivity_component_1.TransactionsComponent
     },
     {
         path: 'poststatus',

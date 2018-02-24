@@ -21,6 +21,7 @@ import { WelcomeComponent } from './welcome.component';
 import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
+import { TransactionsComponent } from './blockchainActivity.component';
 
 @NgModule({
   imports:      [
@@ -38,6 +39,7 @@ import { RequestComponent } from './requestbitcoin.component';
     WalletComponent,
     RequestComponent,
     PostStatusComponent,
+    TransactionsComponent,
     MapsMenuComponent,
     NewWalletComponent,
     FAQComponent,

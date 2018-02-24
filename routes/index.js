@@ -20,7 +20,7 @@ global.connect(MONGO_URL, function(err){
     }
 });
 
-router.get('/globalusers', function(req, res, next){
+global.get('/globalusers', function(req, res, next){
     console.log('Get request for all users');
     Profile.find({})
     .exec(function(err, profile){
@@ -30,6 +30,21 @@ router.get('/globalusers', function(req, res, next){
             res.json(profile);
         }
     })
+});
+
+// Getting searched user from database
+global.get('/globalusers/:username', function(req, res, next) {
+    Profile.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
 });
 
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
@@ -195,7 +210,7 @@ node. We run it on port 4000 cause our app is already is using 3000
 */
 
 // The call for creating the a new wallet, this can be linked to the registration page
-router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
+router.post('/http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
     console.log(req.body); 
     if (err) {
         return res.status(500).json({
@@ -205,6 +220,18 @@ router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddr
     res.status(200).json({
         data: wallet
     });
+});
+
+router.get('/http://localhost:4000', function(req, res, next){
+    console.log('Get request for all users');
+    Profile.find({})
+    .exec(function(err, profile){
+        if(err){
+            res.send("Error retrieving users");
+        }else{
+            res.json(profile);
+        }
+    })
 });
 
 router.patch('/URL/PATCH', function (req, res) {
