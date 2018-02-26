@@ -19,6 +19,7 @@ import { TransactionsComponent } from './blockchainActivity.component';
 import { LoginComponent } from './login.component'
 import { MlabsSearchComponent } from './MlabsSearchResults.component';
 
+
 const appRoutes: Routes = [
     {
         path: '',
