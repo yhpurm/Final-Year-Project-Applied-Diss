@@ -22,6 +22,7 @@ import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
 import { TransactionsComponent } from './blockchainActivity.component';
+import { LoginComponent } from './login.component'
 import { MlabsSearchComponent } from './MlabsSearchResults.component';
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MlabsSearchComponent } from './MlabsSearchResults.component';
     tradingComponent,
     SettingsComponent,
     RegisterComponent,
-    WelcomeComponent ],
+    WelcomeComponent,
+    LoginComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService],
   bootstrap: [AppComponent]
