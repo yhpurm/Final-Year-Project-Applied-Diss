@@ -16,6 +16,7 @@ var mapsmenu_component_1 = require("./mapsmenu.component");
 var poststatus_component_1 = require("./poststatus.component");
 var requestbitcoin_component_1 = require("./requestbitcoin.component");
 var blockchainActivity_component_1 = require("./blockchainActivity.component");
+var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
 var appRoutes = [
     {
         path: '',
@@ -32,6 +33,10 @@ var appRoutes = [
     {
         path: 'request',
         component: requestbitcoin_component_1.RequestComponent
+    },
+    {
+        path: 'search',
+        component: MlabsSearchResults_component_1.MlabsSearchComponent
     },
     {
         path: 'mapsmenu',

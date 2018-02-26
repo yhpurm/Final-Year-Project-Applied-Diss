@@ -11,23 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(router) {
-        this.router = router;
+var profile_service_1 = require("./profile.service");
+var MlabsSearchComponent = /** @class */ (function () {
+    function MlabsSearchComponent(route) {
+        this.route = route;
     }
-    AppComponent.prototype.goToSearch = function (search) {
-        console.log(search);
-        this.router.navigateByUrl("/search?" + search);
+    MlabsSearchComponent.prototype.ngOnInit = function () {
+        this.route.queryParams.subscribe(function (params) {
+            var test = params['search'];
+            console.log(test);
+        });
     };
-    AppComponent = __decorate([
+    MlabsSearchComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html'
+            selector: 'MlabsSearchResult',
+            templateUrl: 'MlabsSearchResults.component.html',
+            providers: [profile_service_1.ProfileService]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
-    ], AppComponent);
-    return AppComponent;
+        __metadata("design:paramtypes", [router_1.ActivatedRoute])
+    ], MlabsSearchComponent);
+    return MlabsSearchComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MlabsSearchComponent = MlabsSearchComponent;
+//# sourceMappingURL=MlabsSearchResults.component.js.map

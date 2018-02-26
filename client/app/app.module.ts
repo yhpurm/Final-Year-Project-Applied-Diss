@@ -22,6 +22,7 @@ import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
 import { TransactionsComponent } from './blockchainActivity.component';
+import { MlabsSearchComponent } from './MlabsSearchResults.component';
 
 @NgModule({
   imports:      [
@@ -38,6 +39,7 @@ import { TransactionsComponent } from './blockchainActivity.component';
     FriendsComponent,
     WalletComponent,
     RequestComponent,
+    MlabsSearchComponent,
     PostStatusComponent,
     TransactionsComponent,
     MapsMenuComponent,
