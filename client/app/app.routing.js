@@ -16,6 +16,7 @@ var mapsmenu_component_1 = require("./mapsmenu.component");
 var poststatus_component_1 = require("./poststatus.component");
 var requestbitcoin_component_1 = require("./requestbitcoin.component");
 var blockchainActivity_component_1 = require("./blockchainActivity.component");
+var login_component_1 = require("./login.component");
 var appRoutes = [
     {
         path: '',
@@ -76,6 +77,10 @@ var appRoutes = [
     {
         path: 'FAQ',
         component: FAQ_component_1.FAQComponent
+    },
+    {
+        path: 'login',
+        component: login_component_1.LoginComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

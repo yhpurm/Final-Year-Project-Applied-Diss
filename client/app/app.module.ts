@@ -22,6 +22,8 @@ import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
 import { TransactionsComponent } from './blockchainActivity.component';
+import { LoginComponent } from './login.component'
+
 
 @NgModule({
   imports:      [
@@ -46,7 +48,8 @@ import { TransactionsComponent } from './blockchainActivity.component';
     tradingComponent,
     SettingsComponent,
     RegisterComponent,
-    WelcomeComponent ],
+    WelcomeComponent,
+    LoginComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService],
   bootstrap: [AppComponent]
