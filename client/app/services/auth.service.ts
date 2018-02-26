@@ -24,4 +24,6 @@ export class AuthService {
     return this.http.get(this.domain + '/authentication/checkEmail/' + email).map(res => res.json());
   }
 
+  
+
 }
