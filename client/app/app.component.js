@@ -17,7 +17,8 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent.prototype.goToSearch = function (search) {
         console.log(search);
-        this.router.navigateByUrl("/search?" + search);
+        this.word = search;
+        this.router.navigateByUrl("/search?word=" + this.word);
     };
     AppComponent = __decorate([
         core_1.Component({

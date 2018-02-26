@@ -15,11 +15,12 @@ import { ProfileService } from "./profile.service";
 export class MlabsSearchComponent implements OnInit {
 
     constructor(private route:ActivatedRoute) {}
+    test:string;
 
     ngOnInit(){
     this.route.queryParams.subscribe(params =>{
-        let test = params['search'];
-        console.log(test);
+        this.test = params['word'];
+        console.log(this.test);
         })
     }
 

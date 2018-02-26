@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 
 export class AppComponent { 
 
+  word:string;
   constructor(private router: Router){}
 
   goToSearch(search:string){
     console.log(search);
-    this.router.navigateByUrl(`/search?${search}`)
+    this.word = search;
+    this.router.navigateByUrl(`/search?word=${this.word}`)
   }
 }
 

@@ -17,9 +17,10 @@ var MlabsSearchComponent = /** @class */ (function () {
         this.route = route;
     }
     MlabsSearchComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.route.queryParams.subscribe(function (params) {
-            var test = params['search'];
-            console.log(test);
+            _this.test = params['word'];
+            console.log(_this.test);
         });
     };
     MlabsSearchComponent = __decorate([
