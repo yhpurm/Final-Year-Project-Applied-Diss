@@ -11,15 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var auth_service_1 = require("./services/auth.service");
+var router_1 = require("@angular/router");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(formBuilder) {
+    function LoginComponent(formBuilder, authService, router) {
         this.formBuilder = formBuilder;
+        this.authService = authService;
+        this.router = router;
         this.processing = false;
+        this.createForm(); // Create Login Form when component is constructed
     }
+    // Function to create login form
     LoginComponent.prototype.createForm = function () {
         this.form = this.formBuilder.group({
             username: ['', forms_1.Validators.required],
-            password: ['', forms_1.Validators.required]
+            password: ['', forms_1.Validators.required] // Password field
         });
     };
     // Function to disable form
@@ -34,6 +40,7 @@ var LoginComponent = /** @class */ (function () {
     };
     // Functiont to submit form and login user
     LoginComponent.prototype.onLoginSubmit = function () {
+        var _this = this;
         this.processing = true; // Used to submit button while is being processed
         this.disableForm(); // Disable form while being process
         // Create user object from user's input
@@ -41,6 +48,26 @@ var LoginComponent = /** @class */ (function () {
             username: this.form.get('username').value,
             password: this.form.get('password').value // Password input field
         };
+        // Function to send login data to API
+        this.authService.login(user).subscribe(function (data) {
+            // Check if response was a success or error
+            if (!data.success) {
+                _this.messageClass = 'alert alert-danger'; // Set bootstrap error class
+                _this.message = data.message; // Set error message
+                _this.processing = false; // Enable submit button
+                _this.enableForm(); // Enable form for editting
+            }
+            else {
+                _this.messageClass = 'alert alert-success'; // Set bootstrap success class
+                _this.message = data.message; // Set success message
+                // Function to store user's token in client local storage
+                _this.authService.storeUserData(data.token, data.user);
+                // After 2 seconds, redirect to welcome page
+                setTimeout(function () {
+                    _this.router.navigate(['/home']); // Navigate to welcome view
+                }, 2000);
+            }
+        });
     };
     LoginComponent.prototype.ngOnInit = function () {
     };
@@ -48,10 +75,12 @@ var LoginComponent = /** @class */ (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'app-login',
-            templateUrl: 'login.component.html',
-            styleUrls: ['login.component.css']
+            templateUrl: './login.component.html',
+            styleUrls: ['./login.component.css']
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder])
+        __metadata("design:paramtypes", [forms_1.FormBuilder,
+            auth_service_1.AuthService,
+            router_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());

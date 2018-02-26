@@ -105,32 +105,38 @@ module.exports = (router) => {
         }
       });
 
-      router.post('/login', (req,res) => {
-          if (!req.body.username) {
-              res.json({ success: false, message: "No username was provided"});
+      router.post('/login', (req, res) => {
+        // Check if username was provided
+        if (!req.body.username) {
+          res.json({ success: false, message: 'No username was provided' }); // Return error
+        } else {
+          // Check if password was provided
+          if (!req.body.password) {
+            res.json({ success: false, message: 'No password was provided.' }); // Return error
           } else {
-              if (!req.body.password) {
-                  res.json({ success: false, message: 'No password was provided'});
+            // Check if username exists in database
+            User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
+              // Check if error was found
+              if (err) {
+                res.json({ success: false, message: err }); // Return error
               } else {
-                  User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
-                      if (err) {
-                          res.json({ success: false, message: err});
-                      } else {
-                          if (!user) {
-                              res.json({ success: flase, message: 'Username not found'});
-                          } else {
-                              const validPassword = user.comparePassword(req.body.password);
-                              if (!validPassword) {
-                                  res.json({ success: false, message: 'Password invalid'});
-                              } else {
-                                const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h'});
-                                res.json({ success: true, message: 'Success!', token: token, user: { username: user.username }});
-                              }
-                          }
-                      }
-                  })
+                // Check if username was found
+                if (!user) {
+                  res.json({ success: false, message: 'Username not found.' }); // Return error
+                } else {
+                  const validPassword = user.comparePassword(req.body.password); // Compare password provided to password in database
+                  // Check if password is a match
+                  if (!validPassword) {
+                    res.json({ success: false, message: 'Password invalid' }); // Return error
+                  } else {
+                    const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); // Create a token for client
+                    res.json({ success: true, message: 'Success!', token: token, user: { username: user.username } }); // Return success and token to frontend
+                  }
+                }
               }
+            });
           }
+        }
       });
     
 

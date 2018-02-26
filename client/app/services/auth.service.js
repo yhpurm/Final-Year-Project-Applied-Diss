@@ -15,7 +15,7 @@ require("rxjs/add/operator/map");
 var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
-        this.domain = "http://localhost:8080"; // Development Domain - Not Needed in Production
+        this.domain = "http://localhost:3000"; // Development Domain - Not Needed in Production
     }
     AuthService.prototype.registerUser = function (user) {
         return this.http.post(this.domain + '/authentication/register', user).map(function (res) { return res.json(); });
@@ -27,6 +27,16 @@ var AuthService = /** @class */ (function () {
     // Function to check if e-mail is taken
     AuthService.prototype.checkEmail = function (email) {
         return this.http.get(this.domain + '/authentication/checkEmail/' + email).map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.login = function (user) {
+        return this.http.post(this.domain + '/login', user).map(function (res) { return res.json(); });
+    };
+    // Function to store user's data in client local storage
+    AuthService.prototype.storeUserData = function (token, user) {
+        localStorage.setItem('token', token); // Set token in local storage
+        localStorage.setItem('user', JSON.stringify(user)); // Set user in local storage as string
+        this.authToken = token; // Assign token to be used elsewhere
+        this.user = user; // Set user to be used elsewhere
     };
     AuthService = __decorate([
         core_1.Injectable(),
