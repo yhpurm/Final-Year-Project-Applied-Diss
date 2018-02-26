@@ -17,6 +17,7 @@ import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
 import { TransactionsComponent } from './blockchainActivity.component';
 import { LoginComponent } from './login.component'
+import { MlabsSearchComponent } from './MlabsSearchResults.component';
 
 const appRoutes: Routes = [
     {
@@ -34,6 +35,10 @@ const appRoutes: Routes = [
     {
         path: 'request',
         component: RequestComponent
+    },
+    {
+        path: 'search',
+        component: MlabsSearchComponent
     },
     {
         path: 'mapsmenu',

@@ -19,7 +19,7 @@ var MlabsService = /** @class */ (function () {
         this.http = http;
     }
     MlabsService.prototype.getGlobalUsers = function () {
-        return this.http.get('http://localhost:3000/Users')
+        return this.http.get('http://localhost:3000/globalusers')
             .map(function (data) {
             var extracted = data.json();
             var msgArray = [];
@@ -34,7 +34,7 @@ var MlabsService = /** @class */ (function () {
         });
     };
     MlabsService.prototype.searchUsers = function (user) {
-        return this.http.get('http://localhost:3000/Users/' + user)
+        return this.http.get('http://localhost:3000/globalusers/' + user)
             .map(function (data) {
             var extracted = data.json();
             var msgArray = [];

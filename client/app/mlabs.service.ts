@@ -10,7 +10,7 @@ export class MlabsService {
     constructor(private http: Http) {}
 
     getGlobalUsers() {
-        return this.http.get('http://localhost:3000/Users')
+        return this.http.get('http://localhost:3000/globalusers')
             .map( (data: Response) => {
                 const extracted = data.json();
                 const msgArray: Profile[] = [];
@@ -25,7 +25,7 @@ export class MlabsService {
     }
 
     searchUsers(user: string) {
-        return this.http.get('http://localhost:3000/Users/' + user )
+        return this.http.get('http://localhost:3000/globalusers/' + user )
             .map( (data: Response) => {
                 const extracted = data.json();
                 const msgArray: Profile[] = [];
