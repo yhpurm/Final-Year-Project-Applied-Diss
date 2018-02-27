@@ -11,19 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
 require("rxjs/Rx");
 var BlockchainService = /** @class */ (function () {
     // Http Contructor for setting up connection
     function BlockchainService(http) {
         this.http = http;
     }
-    // create new address on blockchain
-    BlockchainService.prototype.createWallet = function (pass, email, label) {
-        return this.http.post('http://localhost:3000/api/v2/create', { password: pass, email: email, label: label })
-            .map(function (data) {
-            var extracted = data.json();
-            console.log(extracted);
-        });
+    BlockchainService.prototype.saveWallet = function (wallet) {
+        console.log(wallet);
+        var body = JSON.stringify(wallet);
+        console.log(body);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.post('http://localhost:3000/newWallet', body, { headers: headers });
     };
     BlockchainService = __decorate([
         core_1.Injectable(),
@@ -32,4 +32,12 @@ var BlockchainService = /** @class */ (function () {
     return BlockchainService;
 }());
 exports.BlockchainService = BlockchainService;
+function handleError(error) {
+    // log error
+    // could be something more sofisticated
+    var errorMsg = error.message || "Problem creating the wallet!!!! try again later.";
+    console.error(errorMsg);
+    // throw an application level error
+    return Observable_1.Observable.throw(errorMsg);
+}
 //# sourceMappingURL=blockchain.service.js.map

@@ -7,10 +7,41 @@ const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const MLABS = require('mongoose').Mongoose;
+const request = require('request');
 
 // Testing Mlabs below
 const MONGO_URL = 'mongodb://Conor:softwaregroup10@ds145438.mlab.com:45438/globalusers';
 var global = new MLABS();
+ 
+
+
+router.post('/newWallet/:password/:email/:label', function (req, res, next) {
+    var response;
+    var pass = req.params.password;
+    var label = req.params.label;
+    var email = req.params.email;
+    console.log("Request new wallet pass:" + pass);
+    console.log("Request new wallet email:" + email);
+    console.log("Request new wallet label:" + label);
+
+    this.request('http://127.0.0.1:3001/api/v2/create?password=:pass&email=:emailAddress&label=:username&api_code=' + apiCode, { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
+        console.log(body.url);
+        console.log(body.explanation);
+        response = res.json();
+    });
+
+    res = response;
+    console.log("res: " + res);
+    if (err) {
+        return res.status(500).json({
+            message: 'Error while fetching new wallet!'
+        });
+    }
+    res.status(200).json({
+        data: messages
+    });
+});
 
 global.connect(MONGO_URL, function(err){
     if(err){
@@ -210,7 +241,7 @@ node. We run it on port 4000 cause our app is already is using 3000
 */
 
 // The call for creating the a new wallet, this can be linked to the registration page
-router.post('/http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
+router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
     console.log(req.body); 
     if (err) {
         return res.status(500).json({
@@ -222,6 +253,7 @@ router.post('/http://localhost:4000/api/v2/create?password=:pass&email=:emailAdd
     });
 });
 
+/*
 router.get('/http://localhost:4000', function(req, res, next){
     console.log('Get request for all users');
     Profile.find({})
@@ -232,7 +264,7 @@ router.get('/http://localhost:4000', function(req, res, next){
             res.json(profile);
         }
     })
-});
+}); */
 
 router.patch('/URL/PATCH', function (req, res) {
     // Patch Something..

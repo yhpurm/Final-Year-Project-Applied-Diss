@@ -1,1 +1,22 @@
 <h1>Search results for: {{ test }}</h1>
+<div class="container">
+    <div class="row">
+      <div class="shadow">
+        <div class="col-sm-12">
+          <div class="col-sm-2">
+            <img src="avatars/{{ profile.avatar }}" class="img-circle" width="60px">
+          </div>
+          <div class="col-sm-8">
+            <h4><a href="#">{{ profile.username}}</a></h4>
+            <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-globe"></i> {{ statusCount }} </div>
+            <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-user"></i> {{ friendCount }} </div>
+            <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-off"></i> {{ isOnline }} </div>
+          </div>
+          <div class="col-sm-2">
+            <p>View {{ profile.username }}'s profile</p>
+            <button type="button" class="btn btn-info" (click)="viewProfile(profile.username)"><span class="glyphicon glyphicon-search"></span></button>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
