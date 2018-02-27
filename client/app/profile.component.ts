@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Profile} from "./profile.model";
 import { ProfileService } from "./profile.service";
 import { OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   moduleId: module.id,
@@ -20,10 +21,17 @@ export class ProfileComponent implements OnInit {
   email: string;
   lat: Number;
   long: Number[] = [];
+  user;
 
-  constructor(private profileService: ProfileService) {}
+  constructor(
+    private profileService: ProfileService,
+    private authService: AuthService) { }
   
   ngOnInit() {
+
+    this.authService.getProfile().subscribe(profile => {
+      this.user = profile.user;
+    });
 
     // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
     var imagePath = "\\avatars\\" + 1 + ".png";

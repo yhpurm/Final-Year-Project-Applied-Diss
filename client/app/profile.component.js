@@ -11,14 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var profile_service_1 = require("./profile.service");
+var auth_service_1 = require("./services/auth.service");
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(profileService) {
+    function ProfileComponent(profileService, authService) {
         this.profileService = profileService;
+        this.authService = authService;
         this.profile = [];
         this.long = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.authService.getProfile().subscribe(function (profile) {
+            _this.user = profile.user;
+        });
         // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
         var imagePath = "\\avatars\\" + 1 + ".png";
         console.log(imagePath);
@@ -36,7 +41,8 @@ var ProfileComponent = /** @class */ (function () {
             templateUrl: 'profile.component.html',
             providers: [profile_service_1.ProfileService]
         }),
-        __metadata("design:paramtypes", [profile_service_1.ProfileService])
+        __metadata("design:paramtypes", [profile_service_1.ProfileService,
+            auth_service_1.AuthService])
     ], ProfileComponent);
     return ProfileComponent;
 }());
