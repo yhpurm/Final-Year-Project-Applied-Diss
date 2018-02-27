@@ -22,7 +22,8 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.authService.getProfile().subscribe(function (profile) {
-            _this.user = profile.user;
+            _this.username = profile.user.username;
+            _this.email = profile.user.email;
         });
         // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
         var imagePath = "\\avatars\\" + 1 + ".png";

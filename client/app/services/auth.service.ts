@@ -11,21 +11,25 @@ export class AuthService {
   user;
   options;
 
-  constructor( private http: Http ) { }
+  constructor( 
+    private http: Http 
+  ) { }
 
+  // Function to create headers, add token, to be used in HTTP requests
   createAuthenticationHeaders() {
-    this.loadToken();
+    this.loadToken(); // Get token so it can be attached to headers
+    // Headers configuration options
     this.options = new RequestOptions({
       headers: new Headers({
-        'Content-Type': 'application/json',
-        'authorization': this.authToken
+        'Content-Type': 'application/json', // Format set to JSON
+        'authorization': this.authToken // Attach token
       })
-    })
+    });
   }
 
+  // Function to get token from client local storage
   loadToken() {
-    const token = localStorage.getItem('token');
-    this.authToken = token;
+    this.authToken = localStorage.getItem('token');; // Get token and asssign to variable to be used elsewhere
   }
 
   registerUser(user) {
@@ -54,8 +58,9 @@ export class AuthService {
     this.user = user; // Set user to be used elsewhere
   }
 
+  // Function to get user's profile data
   getProfile() {
-    this.createAuthenticationHeaders();
+    this.createAuthenticationHeaders(); // Create headers before sending to API
     return this.http.get(this.domain + '/authentication/profile', this.options).map(res => res.json());
   }
 

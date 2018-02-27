@@ -17,18 +17,21 @@ var AuthService = /** @class */ (function () {
         this.http = http;
         this.domain = "http://localhost:8080"; // Development Domain - Not Needed in Production
     }
+    // Function to create headers, add token, to be used in HTTP requests
     AuthService.prototype.createAuthenticationHeaders = function () {
-        this.loadToken();
+        this.loadToken(); // Get token so it can be attached to headers
+        // Headers configuration options
         this.options = new http_1.RequestOptions({
             headers: new http_1.Headers({
                 'Content-Type': 'application/json',
-                'authorization': this.authToken
+                'authorization': this.authToken // Attach token
             })
         });
     };
+    // Function to get token from client local storage
     AuthService.prototype.loadToken = function () {
-        var token = localStorage.getItem('token');
-        this.authToken = token;
+        this.authToken = localStorage.getItem('token');
+        ; // Get token and asssign to variable to be used elsewhere
     };
     AuthService.prototype.registerUser = function (user) {
         return this.http.post(this.domain + '/authentication/register', user).map(function (res) { return res.json(); });
@@ -51,8 +54,9 @@ var AuthService = /** @class */ (function () {
         this.authToken = token; // Assign token to be used elsewhere
         this.user = user; // Set user to be used elsewhere
     };
+    // Function to get user's profile data
     AuthService.prototype.getProfile = function () {
-        this.createAuthenticationHeaders();
+        this.createAuthenticationHeaders(); // Create headers before sending to API
         return this.http.get(this.domain + '/authentication/profile', this.options).map(function (res) { return res.json(); });
     };
     AuthService = __decorate([
