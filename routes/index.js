@@ -17,9 +17,9 @@ var global = new MLABS();
 
 router.post('/newWallet', function (req, res, next) {
     var response;
-    var pass = req.params.password;
-    var label = req.params.label;
-    var email = req.params.email;
+    var pass = req.body.walletpass;
+    var label = req.body.label;
+    var email = req.body.email;
     console.log("Request new wallet pass:" + pass);
     console.log("Request new wallet email:" + email);
     console.log("Request new wallet label:" + label);

@@ -21,15 +21,12 @@ var TransactionsComponent = /** @class */ (function () {
         console.log("prices init");
         this.blockchainService.getCurrentPrice()
             .subscribe(function (prices) {
-            _this.prices = prices;
-            console.log(prices);
             console.log('GET from ticker');
-            prices.forEach(function (price) {
-                console.log(price.last);
-                console.log(price.buy);
-                console.log(price.sell);
-                console.log(price.symbol);
-            });
+            for (var _i = 0, prices_1 = prices; _i < prices_1.length; _i++) {
+                var price = prices_1[_i];
+                console.log("p" + price);
+                _this.prices.push(price);
+            }
         }, function (error) { return console.error("error:" + error); });
     };
     TransactionsComponent = __decorate([

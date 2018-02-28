@@ -18,17 +18,14 @@ export class TransactionsComponent implements OnInit {
     console.log("prices init");
     this.blockchainService.getCurrentPrice()
        .subscribe(
-        prices => {
-               this.prices = prices;
-               console.log(prices);
+        res => {
+
                console.log('GET from ticker');
                
-               prices.forEach(price => {
-                console.log(price.last);
-                console.log(price.buy);
-                console.log(price.sell);
-                console.log(price.symbol);
-               })  
+               for(let price of res){
+                  console.log("p" + price); 
+                  this.prices.push(price);
+               } 
            },
            error => console.error("error:" + error)
     );

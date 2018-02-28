@@ -6,3 +6,24 @@
         <button type="button" class="btn btn-info">Info</button>
     </div>
 </div>
+
+<div class="mdl-cell mdl-cell--4-col">
+        <div class="populate-table" [hidden]="!halls">
+            <table>
+                <tr>
+                    <th>FIAT</th>
+                    <th>PRICE</th>
+                    <th>BUY</th>
+                    <th>SELL</th>
+                    <th>MORE</th>
+                </tr>
+                <tr *ngFor="let p of prices;">
+                    <td> {{ p.symbol }} </td>
+                    <td> {{ p.last }} </td>
+                    <td> {{ p.buy }} </td>
+                    <td> {{ p.sell }} </td>
+                    <td> <a (click)="clicked(item)"> See </a> </td> <!-- MAKE CHANGE HERE -->
+                </tr>
+            </table>
+        </div>
+    </div>

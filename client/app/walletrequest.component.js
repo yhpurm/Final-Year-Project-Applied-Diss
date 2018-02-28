@@ -16,11 +16,14 @@ var NewWalletComponent = /** @class */ (function () {
     function NewWalletComponent(blockchainService) {
         this.blockchainService = blockchainService;
         this.wallet = [];
-        this.long = [];
     }
     NewWalletComponent.prototype.onCreateNewWallet = function () {
         var _this = this;
         console.log("request triggered");
+        if (this.walletpass != this.passwordValid) {
+            alert("Email must contain @ and end with .com");
+            return;
+        }
         console.log(this.walletpass);
         console.log(this.email);
         console.log(this.label);

@@ -14,25 +14,24 @@ import { BlockchainService } from "./blockchain.service";
 export class NewWalletComponent {
 
   wallet: Wallet[] = [];
-  username: string;
   walletpass: string;
-  address: string;
-  password: string;
-  confirm: string;
+  passwordValid: string;
   email: string;
   label: string;
-  phone: Number;
-  lat: Number;
-  long: Number[] = [];
 
-  constructor(private blockchainService: BlockchainService) {}
+  constructor( private blockchainService: BlockchainService) {}
   
   onCreateNewWallet() {
     console.log("request triggered");
+
+    if(this.walletpass != this.passwordValid){
+      alert("Email must contain @ and end with .com");
+      return;
+    }
+
     console.log(this.walletpass);
     console.log(this.email);
     console.log(this.label);
-
     const newWallet = new createWallet (this.walletpass,this.email,this.label);
     
     this.blockchainService.saveWallet(newWallet)
