@@ -15,7 +15,7 @@ var global = new MLABS();
  
 
 
-router.post('/newWallet/:password/:email/:label', function (req, res, next) {
+router.post('/newWallet', function (req, res, next) {
     var response;
     var pass = req.params.password;
     var label = req.params.label;
@@ -24,7 +24,7 @@ router.post('/newWallet/:password/:email/:label', function (req, res, next) {
     console.log("Request new wallet email:" + email);
     console.log("Request new wallet label:" + label);
 
-    this.request('http://127.0.0.1:3001/api/v2/create?password=:pass&email=:emailAddress&label=:username&api_code=' + apiCode, { json: true }, (err, res, body) => {
+    request('http://127.0.0.1:3001/api/v2/create?password=:pass&email=:emailAddress&label=:username&api_code=' + apiCode, { json: true }, (err, res, body) => {
         if (err) { return console.log(err); }
         console.log(body.url);
         console.log(body.explanation);

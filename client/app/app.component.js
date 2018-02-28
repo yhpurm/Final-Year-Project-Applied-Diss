@@ -11,22 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var mlabs_service_1 = require("./mlabs.service");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(router) {
+    function AppComponent(router, mlabsService) {
         this.router = router;
+        this.mlabsService = mlabsService;
+        this.profile = [];
     }
     AppComponent.prototype.goToSearch = function (search) {
+        var _this = this;
         console.log(search);
         this.word = search;
         this.router.navigateByUrl("/search?word=" + this.word);
+        this.mlabsService.searchUsers(this.word)
+            .subscribe(function (users) {
+            _this.profile = users;
+            console.log('GET from stores');
+            users.forEach(function (store) {
+                // do stuff with response
+            });
+        }, function (error) { return console.error(error); });
     };
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-app',
-            templateUrl: 'app.component.html'
+            templateUrl: 'app.component.html',
+            providers: [mlabs_service_1.MlabsService]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, mlabs_service_1.MlabsService])
     ], AppComponent);
     return AppComponent;
 }());

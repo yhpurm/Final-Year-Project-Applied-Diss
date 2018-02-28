@@ -25,6 +25,12 @@ var BlockchainService = /** @class */ (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         return this.http.post('http://localhost:3000/newWallet', body, { headers: headers });
     };
+    BlockchainService.prototype.getCurrentPrice = function () {
+        console.log("contacting ticker");
+        return this.http.get('https://blockchain.info/ticker')
+            .map(function (response) { return response.json(); })
+            .catch(handleError);
+    };
     BlockchainService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

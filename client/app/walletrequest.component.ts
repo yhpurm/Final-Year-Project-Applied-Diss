@@ -28,19 +28,7 @@ export class NewWalletComponent {
   constructor(private blockchainService: BlockchainService) {}
   
   onCreateNewWallet() {
-    var atSymbol = this.email.includes("@");
-    var dotCom = this.email.endsWith(".com");
-    
-    if(atSymbol == false || dotCom == false){
-        alert("Email must contain @ and end with .com");
-        return;
-    }
-
-    if(this.password != this.confirm){
-      alert("wallet passwords do not match");
-      return;
-    }
-
+    console.log("request triggered");
     console.log(this.walletpass);
     console.log(this.email);
     console.log(this.label);

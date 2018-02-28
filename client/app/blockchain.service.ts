@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Profile } from "./profile.model";
 import { Wallet } from "./myWallet.model";
+import { Ticker } from "./blockticker.modal";
 import { createWallet } from "./createWallet.model";
 
 @Injectable()
@@ -11,12 +12,20 @@ export class BlockchainService {
     // Http Contructor for setting up connection
     constructor(private http: Http) {}
 
+    
         saveWallet(wallet: createWallet): Observable<any> {
             console.log(wallet);
             const body = JSON.stringify(wallet);
             console.log(body);
             const headers = new Headers({'Content-Type': 'application/json'});
             return this.http.post('http://localhost:3000/newWallet', body, {headers: headers});
+        }
+
+        getCurrentPrice() {
+            console.log("contacting ticker");
+            return this.http.get('https://blockchain.info/ticker')
+            .map(response => response.json() as Ticker[])
+            .catch(handleError);
         }
     }
 

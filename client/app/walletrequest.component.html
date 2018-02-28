@@ -1,7 +1,4 @@
-<body>
-    <div class="container">
-        <div class="row main">
-            <div class="main-login main-center">
+
             <h5>Fill in the details below in to create your new wallet!.</h5>
                 <form [formGroup]="form" (submit)="onCreateNewWallet() ">
                     <div class="form-group">
@@ -45,10 +42,7 @@
                     </div>
 
                     <!-- Submit Input -->
-    <input [disabled]="!form.valid || processing || !emailValid || !usernameValid" type="submit" class="btn btn-primary" value="Submit" />
+                    <input [disabled]="!form.valid || processing || !emailValid || !usernameValid" type="submit" class="btn btn-primary" value="Submit" />
                     
                 </form>
-            </div>
-        </div>
-     </div>
-</body>
+            
