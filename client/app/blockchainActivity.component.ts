@@ -12,6 +12,7 @@ import { Ticker } from './blockticker.modal';
 export class TransactionsComponent implements OnInit {
 
   prices: Ticker[] = [];
+
   constructor(private blockchainService: BlockchainService) {}
 
   ngOnInit() {
@@ -21,10 +22,11 @@ export class TransactionsComponent implements OnInit {
         res => {
 
                console.log('GET from ticker');
-               
-               for(let price of res){
-                  console.log("p" + price); 
-                  this.prices.push(price);
+               console.log(res);
+               for(let price in res){
+                let value = res[price];
+                console.log("p: " + value.last); 
+                this.prices.push(new Ticker(value.last, value.buy, value.sell, value.symbol));
                } 
            },
            error => console.error("error:" + error)

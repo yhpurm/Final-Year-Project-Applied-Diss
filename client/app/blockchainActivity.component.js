@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var blockchain_service_1 = require("./blockchain.service");
+var blockticker_modal_1 = require("./blockticker.modal");
 var TransactionsComponent = /** @class */ (function () {
     function TransactionsComponent(blockchainService) {
         this.blockchainService = blockchainService;
@@ -20,12 +21,13 @@ var TransactionsComponent = /** @class */ (function () {
         var _this = this;
         console.log("prices init");
         this.blockchainService.getCurrentPrice()
-            .subscribe(function (prices) {
+            .subscribe(function (res) {
             console.log('GET from ticker');
-            for (var _i = 0, prices_1 = prices; _i < prices_1.length; _i++) {
-                var price = prices_1[_i];
-                console.log("p" + price);
-                _this.prices.push(price);
+            console.log(res);
+            for (var price in res) {
+                var value = res[price];
+                console.log("p: " + value.last);
+                _this.prices.push(new blockticker_modal_1.Ticker(value.last, value.buy, value.sell, value.symbol));
             }
         }, function (error) { return console.error("error:" + error); });
     };
