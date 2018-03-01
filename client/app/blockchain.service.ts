@@ -27,6 +27,20 @@ export class BlockchainService {
             .map(response => response.json() as Ticker[])
             .catch(handleError);
         }
+
+        getBlockchainStats() {
+            console.log("contacting stats");
+            return this.http.get('https://api.blockchain.info/stats')
+            .map(response => response.json() as Ticker[])
+            .catch(handleError);
+        }
+
+        getPools() {
+            console.log("contacting pools");
+            return this.http.get('https://api.blockchain.info/pools?timespan=5days')
+            .map(response => response.json() as Ticker[])
+            .catch(handleError);
+        }
     }
 
   function handleError (error: any) {
