@@ -1,46 +1,38 @@
 <h1>Post Status Page</h1>
 
-<div class = "row show-hide-message">
-  <div [ngClass]="messageClass">
-    {{ message }}
-  </div>
-</div>
+<div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                                <label for="inputdefault">Status title</label>
+                                <input class="form-control" [(ngModel)]="title" id="inputdefault" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdefault">Status text:</label>
+                                <input type="text" class="form-control" [(ngModel)]="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdefault">Amount sent:</label>
+                                <input type="number" class="form-control" [(ngModel)]="sentAmount">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdefault">Your/Sender address:</label>
+                                <input type="text" class="form-control" [(ngModel)]="bitcoinAddress">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdefault">Recieving address:</label>
+                                <input type="text" class="form-control" [(ngModel)]="receivingAddress">
+                            </div>
+                            <p class = "tpbutton btn-toolbar text-center">
+                                <a (click)="getLocation()" class = "btn navbar-btn btn-primary" href = "#">Use your loction</a>
+                                <a class = "btn navbar-btn btn-default" href = "#">Set location by clicking map</a>
+                            </p>
+                        <button id="submitBtn" class="btn btn-primary" (click)="onStatusSubmit()">Post status</button>
+                    </div>
+                </div>
+            </div>
 
+<h3>Click on the map below to set a location</h3>
 <div >
-    <div id="cryptoMap" style="clear:both; height:700px;"></div>
+        <div id="cryptoMap" style="clear:both; height:700px;"></div>
 </div>
-
-<!-- Stauts Form -->
-<form [formGroup]="form" (submit)="onStatusSubmit()">
-  
-    <div class="form-group">
-            <label for="inputdefault">Enter post title</label>
-            <input class="form-control" name="title" id="inputdefault" type="text">
-    </div>
-
-    <div class="form-group">
-            <label for="inputdefault">Enter post text</label>
-            <input class="form-control" name="text" id="inputdefault" type="text">
-    </div>
-
-    <div class="form-group">
-            <label for="inputdefault">Enter bitcoin amount</label>
-            <input class="form-control" name="price" id="inputdefault" type="text">
-    </div>
-
-    <div class="form-group">
-    <select (change)="selectItem($event.target.value)">
-            <label for="inputdefault">Enter bitcoin amount</label>
-            <option *ngFor="let value of values" value={{value.label}}>{{value.label}}</option>
-    </select>
-    </div>
-
-    <p class = "tpbutton btn-toolbar text-center">
-            <a (click)="getLocation()" class = "btn navbar-btn btn-primary" href = "#">Use your loction</a>
-            <a class = "btn navbar-btn btn-default" href = "#">Set location by clicking map</a>
-    </p>
-  
-    <!-- Submit Input -->
-    <input [disabled]="!form.valid || processing" type="submit" class="btn btn-primary" value="Submit" />
-  
-  </form>

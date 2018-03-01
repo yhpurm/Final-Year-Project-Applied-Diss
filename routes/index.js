@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
+var Status= require('../models/statusModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -81,6 +82,38 @@ global.get('/globalusers/:username', function(req, res, next) {
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
 router.get('/', function (req, res, next) {
     res.render('index.html');
+});
+
+// status routes below
+
+router.post('/Tx/Status/post', function(req, res, next) {
+   
+    var status = new Status({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.title,
+        valueAtTime: req.body.valueAtTime,
+        sentAmount: req.body.sentAmount,
+        bitcoinAddress: req.body.bitcoinAddress,
+        receivingAddress: req.body.receivingAddress,
+        lat: req.body.lat,
+        long: req.body.long,
+    });
+    console.log(status);
+    status.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
 });
 
 // Getting crypto profile from db

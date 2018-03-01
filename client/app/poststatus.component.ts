@@ -22,9 +22,9 @@ export class PostStatusComponent implements OnInit {
   text: String;
   date: Number;
   price: Number;
-  value: Number;
-  MyAddress: string;
-  TargetAddress: string;
+  sentAmount: Number;
+  bitcoinAddress: string;
+  receivingAddress: string;
   lat: Number;
   long: Number;
 
@@ -41,15 +41,11 @@ export class PostStatusComponent implements OnInit {
       var ln = event.latLng.lng;
       console.log(lt());
       console.log(ln());
-      this.onStatusMarker(event.latLng.lat(),event.latLng.lng(), this.MyAddress, this.TargetAddress);
+      this.onStatusMarker(event.latLng.lat(),event.latLng.lng());
   });
   }
-
-  selectItem(value){
-    this.TargetAddress = value;
-   }
    
-  onStatusMarker(lt: number,ln: number, myAdd: string, targetAdd: string) {
+  onStatusMarker(lt: number,ln: number) {
     this.lat = lt;
     this.long = ln;
 
@@ -70,29 +66,14 @@ getLocation() {
   }
 }
 
-
-onAddMarker(name: string,lt: string,ln: string) {
-        var lat = lt;
-        var long = ln;
-        var myLatLng = {lat: lat, lng: long},
-            map = this.map,
-            marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: name,
-            });
-            
-            marker.addListener('click', ()=> {
-                // Stuff for when Tx is clicked goes here
-        });
-    }
-
 onStatusSubmit(){
       this.date = Date.now();
-      const newStatusPost = new Status(this.username,this.date,this.title,this.text,this.price,this.value,this.MyAddress,this.TargetAddress,this.lat,this.long);
+      this.username = "test"
+      console.log(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long)
+      const newStatusPost = new Status(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long);
       this.statusService.saveTx(newStatusPost)
       .subscribe(
-          () => console.log('POST from stores'),
+          () => console.log('POST from status'),
           error => console.error(error)
       );
 }

@@ -5,6 +5,8 @@ import 'rxjs/Rx';
 import { Profile } from "./profile.model";
 import { Wallet } from "./myWallet.model";
 import { Ticker } from "./blockticker.modal";
+import { Pools } from "./pools.modal";
+import { Stats } from "./blockstats.modal";
 import { createWallet } from "./createWallet.model";
 
 @Injectable()
@@ -31,13 +33,20 @@ export class BlockchainService {
         getBlockchainStats() {
             console.log("contacting stats");
             return this.http.get('https://api.blockchain.info/stats')
-            .map(response => response.json() as Ticker[])
+            .map(response => response.json() as Stats[])
             .catch(handleError);
         }
 
         getPools() {
             console.log("contacting pools");
             return this.http.get('https://api.blockchain.info/pools?timespan=5days')
+            .map(response => response.json() as Pools[])
+            .catch(handleError);
+        }
+
+        getBalance(guid : string) {
+            console.log("getting wallet balance");
+            return this.http.get('https://api.blockchain.info/merchant/' + guid + '/balance')
             .map(response => response.json() as Ticker[])
             .catch(handleError);
         }

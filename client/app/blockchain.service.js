@@ -31,6 +31,24 @@ var BlockchainService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
+    BlockchainService.prototype.getBlockchainStats = function () {
+        console.log("contacting stats");
+        return this.http.get('https://api.blockchain.info/stats')
+            .map(function (response) { return response.json(); })
+            .catch(handleError);
+    };
+    BlockchainService.prototype.getPools = function () {
+        console.log("contacting pools");
+        return this.http.get('https://api.blockchain.info/pools?timespan=5days')
+            .map(function (response) { return response.json(); })
+            .catch(handleError);
+    };
+    BlockchainService.prototype.getBalance = function (guid) {
+        console.log("getting wallet balance");
+        return this.http.get('https://api.blockchain.info/merchant/' + guid + '/balance')
+            .map(function (response) { return response.json(); })
+            .catch(handleError);
+    };
     BlockchainService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
