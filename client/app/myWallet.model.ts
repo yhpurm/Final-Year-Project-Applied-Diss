@@ -1,5 +1,5 @@
 export class Wallet {
-    constructor(public username: string,
+    constructor(
         public guid: string,
         public address: number,
         public label: string) {}

@@ -3,14 +3,46 @@ const router = express.Router();
 const fs = require('fs');
 const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
+var Status= require('../models/statusModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const MLABS = require('mongoose').Mongoose;
+const request = require('request');
 
 // Testing Mlabs below
 const MONGO_URL = 'mongodb://Conor:softwaregroup10@ds145438.mlab.com:45438/globalusers';
 var global = new MLABS();
+ 
+
+
+router.post('/newWallet', function (req, res, next) {
+    var response;
+    var pass = req.body.walletpass;
+    var label = req.body.label;
+    var email = req.body.email;
+    console.log("Request new wallet pass:" + pass);
+    console.log("Request new wallet email:" + email);
+    console.log("Request new wallet label:" + label);
+
+    request('http://127.0.0.1:3001/api/v2/create?password=:pass&email=:emailAddress&label=:username&api_code=' + apiCode, { json: true }, (err, res, body) => {
+        if (err) { return console.log(err); }
+        console.log(body.url);
+        console.log(body.explanation);
+        response = res.json();
+    });
+
+    res = response;
+    console.log("res: " + res);
+    if (err) {
+        return res.status(500).json({
+            message: 'Error while fetching new wallet!'
+        });
+    }
+    res.status(200).json({
+        data: messages
+    });
+});
 
 global.connect(MONGO_URL, function(err){
     if(err){
@@ -20,7 +52,7 @@ global.connect(MONGO_URL, function(err){
     }
 });
 
-router.get('/globalusers', function(req, res, next){
+global.get('/globalusers', function(req, res, next){
     console.log('Get request for all users');
     Profile.find({})
     .exec(function(err, profile){
@@ -32,9 +64,56 @@ router.get('/globalusers', function(req, res, next){
     })
 });
 
+// Getting searched user from database
+global.get('/globalusers/:username', function(req, res, next) {
+    Profile.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
 // Index Page, this is the router view for angular 2 this loads all the html pages that are in the client
 router.get('/', function (req, res, next) {
     res.render('index.html');
+});
+
+// status routes below
+
+router.post('/Tx/Status/post', function(req, res, next) {
+   
+    var status = new Status({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.title,
+        valueAtTime: req.body.valueAtTime,
+        sentAmount: req.body.sentAmount,
+        bitcoinAddress: req.body.bitcoinAddress,
+        receivingAddress: req.body.receivingAddress,
+        lat: req.body.lat,
+        long: req.body.long,
+    });
+    console.log(status);
+    status.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
 });
 
 // Getting crypto profile from db
@@ -207,6 +286,19 @@ router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddr
         data: wallet
     });
 });
+
+/*
+router.get('/http://localhost:4000', function(req, res, next){
+    console.log('Get request for all users');
+    Profile.find({})
+    .exec(function(err, profile){
+        if(err){
+            res.send("Error retrieving users");
+        }else{
+            res.json(profile);
+        }
+    })
+}); */
 
 router.patch('/URL/PATCH', function (req, res) {
     // Patch Something..

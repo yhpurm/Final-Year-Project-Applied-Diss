@@ -21,6 +21,10 @@ import { WelcomeComponent } from './welcome.component';
 import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
+import { TransactionsComponent } from './blockchainActivity.component';
+import { LoginComponent } from './login.component'
+import { MlabsSearchComponent } from './MlabsSearchResults.component';
+import { ViewMapComponent } from './viewMap.component'
 
 @NgModule({
   imports:      [
@@ -37,14 +41,18 @@ import { RequestComponent } from './requestbitcoin.component';
     FriendsComponent,
     WalletComponent,
     RequestComponent,
+    MlabsSearchComponent,
     PostStatusComponent,
+    ViewMapComponent,
+    TransactionsComponent,
     MapsMenuComponent,
     NewWalletComponent,
     FAQComponent,
     tradingComponent,
     SettingsComponent,
     RegisterComponent,
-    WelcomeComponent ],
+    WelcomeComponent,
+    LoginComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService],
   bootstrap: [AppComponent]

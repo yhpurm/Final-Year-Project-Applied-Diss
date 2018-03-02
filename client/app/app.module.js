@@ -29,6 +29,10 @@ var welcome_component_1 = require("./welcome.component");
 var mapsmenu_component_1 = require("./mapsmenu.component");
 var poststatus_component_1 = require("./poststatus.component");
 var requestbitcoin_component_1 = require("./requestbitcoin.component");
+var blockchainActivity_component_1 = require("./blockchainActivity.component");
+var login_component_1 = require("./login.component");
+var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
+var viewMap_component_1 = require("./viewMap.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -48,14 +52,18 @@ var AppModule = /** @class */ (function () {
                 friends_component_1.FriendsComponent,
                 myWallet_component_1.WalletComponent,
                 requestbitcoin_component_1.RequestComponent,
+                MlabsSearchResults_component_1.MlabsSearchComponent,
                 poststatus_component_1.PostStatusComponent,
+                viewMap_component_1.ViewMapComponent,
+                blockchainActivity_component_1.TransactionsComponent,
                 mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,
                 FAQ_component_1.FAQComponent,
                 trading_component_1.tradingComponent,
                 settings_component_1.SettingsComponent,
                 register_component_1.RegisterComponent,
-                welcome_component_1.WelcomeComponent],
+                welcome_component_1.WelcomeComponent,
+                login_component_1.LoginComponent],
             exports: [],
             providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService],
             bootstrap: [app_component_1.AppComponent]

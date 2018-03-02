@@ -15,6 +15,10 @@ import { WelcomeComponent } from './welcome.component';
 import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
+import { TransactionsComponent } from './blockchainActivity.component';
+import { LoginComponent } from './login.component'
+import { MlabsSearchComponent } from './MlabsSearchResults.component';
+import { ViewMapComponent } from './viewMap.component'
 
 const appRoutes: Routes = [
     {
@@ -34,12 +38,24 @@ const appRoutes: Routes = [
         component: RequestComponent
     },
     {
+        path: 'search',
+        component: MlabsSearchComponent
+    },
+    {
         path: 'mapsmenu',
         component: MapsMenuComponent
     },
     {
+        path: 'activity',
+        component: TransactionsComponent
+    },
+    {
         path: 'poststatus',
         component: PostStatusComponent
+    },
+    {
+        path: 'viewMap',
+        component: ViewMapComponent
     },
     {
         path: 'map',
@@ -72,6 +88,10 @@ const appRoutes: Routes = [
     {
         path: 'FAQ',
         component: FAQComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     }
 ];
 

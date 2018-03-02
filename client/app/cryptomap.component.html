@@ -31,31 +31,46 @@
   </style>
 </head>
 <body>
+
+    <!-- View Map -->
+    <div class="row bg-2 text-center">
+        <a routerLink="/viewMap"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
+        <p> View bitcoin map </p>
+    </div>
+
+    <!-- Main status -->
+    <div class="row bg-2 text-center">
+    <a routerLink="/poststatus"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
+    <p> Update a status </p>
+    </div>
+
+    <!-- blockchain status -->
+    <div class="row bg-2 text-center">
+    <a routerLink="/poststats"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
+    <p> Post about blockchain performance </p>
+    </div>
+
+    <!-- Pools status -->
+    <div class="row bg-2 text-center">
+    <a routerLink="/postpools"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
+    <p> Post about pools </p>
+    </div>
+
+    <!-- Tx status -->
+    <div routerLink="/activity" class="row bg-3 text-center">
+    <a ><span class="glyphicon glyphicon-globe" style="font-size: 100px;" ></span> Add Status</a>
+    <p> Post transaction history </p>
+    </div>
     
-<div >
-    <div id="cryptoMap" style="clear:both; height:700px;"></div>
-</div>
-<!-- Second Container -->
-<div class="row bg-2 text-center">
-  <a routerLink="/poststatus"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
-  <p> Update a status </p>
-</div>
+    <!-- Request status -->
+    <div class="row bg-4 text-center">
+    <a routerLink="/request" ><span class="glyphicon glyphicon-piggy-bank" style="font-size: 100px;" ></span> Add Status</a>
+    <p> Request transfer </p>
+    </div>
 
-<!-- Second Container -->
-<div routerLink="/request" class="row bg-3 text-center">
-  <a ><span class="glyphicon glyphicon-globe" style="font-size: 100px;" ></span> Add Status</a>
-  <p> Set a location </p>
-</div>
-  
-<!-- Second Container -->
-<div class="row bg-4 text-center">
-  <a ><span class="glyphicon glyphicon-piggy-bank" style="font-size: 100px;" ></span> Add Status</a>
-  <p> Request transfer </p>
-</div>
-
-<!-- Second Container -->
-<div class="row bg-5 text-center">
-  <a ><span class="glyphicon glyphicon-flag" style="font-size: 100px;" ></span> Add Status</a>
-  <p> Mark location of intrest </p>
-</div>
+    <!-- Location status -->
+    <div class="row bg-5 text-center">
+    <a ><span class="glyphicon glyphicon-flag" style="font-size: 100px;" ></span> Add Status</a>
+    <p> Mark location of intrest </p>
+    </div>
 </body>

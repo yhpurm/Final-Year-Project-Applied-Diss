@@ -15,6 +15,10 @@ var welcome_component_1 = require("./welcome.component");
 var mapsmenu_component_1 = require("./mapsmenu.component");
 var poststatus_component_1 = require("./poststatus.component");
 var requestbitcoin_component_1 = require("./requestbitcoin.component");
+var blockchainActivity_component_1 = require("./blockchainActivity.component");
+var login_component_1 = require("./login.component");
+var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
+var viewMap_component_1 = require("./viewMap.component");
 var appRoutes = [
     {
         path: '',
@@ -33,12 +37,24 @@ var appRoutes = [
         component: requestbitcoin_component_1.RequestComponent
     },
     {
+        path: 'search',
+        component: MlabsSearchResults_component_1.MlabsSearchComponent
+    },
+    {
         path: 'mapsmenu',
         component: mapsmenu_component_1.MapsMenuComponent
     },
     {
+        path: 'activity',
+        component: blockchainActivity_component_1.TransactionsComponent
+    },
+    {
         path: 'poststatus',
         component: poststatus_component_1.PostStatusComponent
+    },
+    {
+        path: 'viewMap',
+        component: viewMap_component_1.ViewMapComponent
     },
     {
         path: 'map',
@@ -71,6 +87,10 @@ var appRoutes = [
     {
         path: 'FAQ',
         component: FAQ_component_1.FAQComponent
+    },
+    {
+        path: 'login',
+        component: login_component_1.LoginComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

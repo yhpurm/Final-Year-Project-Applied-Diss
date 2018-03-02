@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Wallet = /** @class */ (function () {
-    function Wallet(username, guid, address, label) {
-        this.username = username;
+    function Wallet(guid, address, label) {
         this.guid = guid;
         this.address = address;
         this.label = label;

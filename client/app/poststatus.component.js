@@ -29,13 +29,10 @@ var PostStatusComponent = /** @class */ (function () {
             var ln = event.latLng.lng;
             console.log(lt());
             console.log(ln());
-            _this.onStatusMarker(event.latLng.lat(), event.latLng.lng(), _this.MyAddress, _this.TargetAddress);
+            _this.onStatusMarker(event.latLng.lat(), event.latLng.lng());
         });
     };
-    PostStatusComponent.prototype.selectItem = function (value) {
-        this.TargetAddress = value;
-    };
-    PostStatusComponent.prototype.onStatusMarker = function (lt, ln, myAdd, targetAdd) {
+    PostStatusComponent.prototype.onStatusMarker = function (lt, ln) {
         this.lat = lt;
         this.long = ln;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
@@ -52,23 +49,13 @@ var PostStatusComponent = /** @class */ (function () {
             alert("Geolocation is not supported by this browser.");
         }
     };
-    PostStatusComponent.prototype.onAddMarker = function (name, lt, ln) {
-        var lat = lt;
-        var long = ln;
-        var myLatLng = { lat: lat, lng: long }, map = this.map, marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: name,
-        });
-        marker.addListener('click', function () {
-            // Stuff for when Tx is clicked goes here
-        });
-    };
     PostStatusComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
-        var newStatusPost = new status_model_1.Status(this.username, this.date, this.title, this.text, this.price, this.value, this.MyAddress, this.TargetAddress, this.lat, this.long);
+        this.username = "test";
+        console.log(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);
+        var newStatusPost = new status_model_1.Status(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);
         this.statusService.saveTx(newStatusPost)
-            .subscribe(function () { return console.log('POST from stores'); }, function (error) { return console.error(error); });
+            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
     PostStatusComponent = __decorate([
         core_1.Component({

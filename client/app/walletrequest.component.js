@@ -10,26 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var createWallet_model_1 = require("./createWallet.model");
 var blockchain_service_1 = require("./blockchain.service");
 var NewWalletComponent = /** @class */ (function () {
-    function NewWalletComponent(profileService) {
-        this.profileService = profileService;
+    function NewWalletComponent(blockchainService) {
+        this.blockchainService = blockchainService;
         this.wallet = [];
-        this.long = [];
     }
     NewWalletComponent.prototype.onCreateNewWallet = function () {
         var _this = this;
-        var atSymbol = this.email.includes("@");
-        var dotCom = this.email.endsWith(".com");
-        if (atSymbol == false || dotCom == false) {
+        console.log("request triggered");
+        if (this.walletpass != this.passwordValid) {
             alert("Email must contain @ and end with .com");
             return;
         }
-        if (this.password != this.confirm) {
-            alert("wallet passwords do not match");
-            return;
-        }
-        this.profileService.createWallet(this.walletpass, this.email, this.label)
+        console.log(this.walletpass);
+        console.log(this.email);
+        console.log(this.label);
+        var newWallet = new createWallet_model_1.createWallet(this.walletpass, this.email, this.label);
+        this.blockchainService.saveWallet(newWallet)
             .subscribe(function (messages) { return _this.wallet = messages; }, function (error) { return console.error(error); });
         console.log(this.wallet);
     };
