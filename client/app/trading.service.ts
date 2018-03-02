@@ -9,7 +9,7 @@ export class tradingService {
     // Http Contructor for setting up connection
     constructor(private http: Http) {}
     getTrading(): Observable<any> {
-        return this.http.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+        return this.http.get('https://api.coinmarketcap.com/v1/ticker/')
             .map( (data: Response) => {
                 const extracted = data.json();
                 const msgArray: trading[] = [];
