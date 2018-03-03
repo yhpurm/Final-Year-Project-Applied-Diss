@@ -33,6 +33,8 @@ var blockchainActivity_component_1 = require("./blockchainActivity.component");
 var login_component_1 = require("./login.component");
 var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
 var viewMap_component_1 = require("./viewMap.component");
+var blockstats_component_1 = require("./blockstats.component");
+var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -50,8 +52,10 @@ var AppModule = /** @class */ (function () {
                 profile_component_1.ProfileComponent,
                 cryptomap_component_1.CryptoMapComponent,
                 friends_component_1.FriendsComponent,
+                blockstats_component_1.StatsComponent,
                 myWallet_component_1.WalletComponent,
                 requestbitcoin_component_1.RequestComponent,
+                postpoolstatus_component_1.PoolComponent,
                 MlabsSearchResults_component_1.MlabsSearchComponent,
                 poststatus_component_1.PostStatusComponent,
                 viewMap_component_1.ViewMapComponent,

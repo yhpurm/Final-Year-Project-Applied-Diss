@@ -9,7 +9,7 @@
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
   .bg-1 { 
-      background-color: #1abc9c; /* Green */
+      background-color:  #ffffff; /* Green */
       color: #ffffff;
   }
   .bg-2 { 
@@ -28,12 +28,20 @@
       background-color: #A99F96; /* Dark Blue */
       color: #ffffff;
   }
+  .bg-6 { 
+      background-color: rgb(179, 54, 54); /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-7 { 
+      background-color: rgb(177, 179, 54); /* Dark Blue */
+      color: #ffffff;
+  }
   </style>
 </head>
 <body>
 
     <!-- View Map -->
-    <div class="row bg-2 text-center">
+    <div class="row bg-1 text-center">
         <a routerLink="/viewMap"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
         <p> View bitcoin map </p>
     </div>
@@ -45,31 +53,31 @@
     </div>
 
     <!-- blockchain status -->
-    <div class="row bg-2 text-center">
+    <div class="row bg-3 text-center">
     <a routerLink="/poststats"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
     <p> Post about blockchain performance </p>
     </div>
 
     <!-- Pools status -->
-    <div class="row bg-2 text-center">
+    <div class="row bg-4 text-center">
     <a routerLink="/postpools"><span class="glyphicon glyphicon-plus" style="font-size: 100px;" ></span> Add Status</a>
     <p> Post about pools </p>
     </div>
 
     <!-- Tx status -->
-    <div routerLink="/activity" class="row bg-3 text-center">
+    <div routerLink="/activity" class="row bg-5 text-center">
     <a ><span class="glyphicon glyphicon-globe" style="font-size: 100px;" ></span> Add Status</a>
     <p> Post transaction history </p>
     </div>
     
     <!-- Request status -->
-    <div class="row bg-4 text-center">
+    <div class="row bg-6 text-center">
     <a routerLink="/request" ><span class="glyphicon glyphicon-piggy-bank" style="font-size: 100px;" ></span> Add Status</a>
     <p> Request transfer </p>
     </div>
 
     <!-- Location status -->
-    <div class="row bg-5 text-center">
+    <div class="row bg-7 text-center">
     <a ><span class="glyphicon glyphicon-flag" style="font-size: 100px;" ></span> Add Status</a>
     <p> Mark location of intrest </p>
     </div>

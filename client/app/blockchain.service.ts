@@ -32,14 +32,14 @@ export class BlockchainService {
 
         getBlockchainStats() {
             console.log("contacting stats");
-            return this.http.get('https://api.blockchain.info/stats')
+            return this.http.get('https://api.blockchain.info/stats?cors=true')
             .map(response => response.json() as Stats[])
             .catch(handleError);
         }
 
         getPools() {
             console.log("contacting pools");
-            return this.http.get('https://api.blockchain.info/pools?timespan=5days')
+            return this.http.get('https://api.blockchain.info/pools?cors=true&timespan=5days')
             .map(response => response.json() as Pools[])
             .catch(handleError);
         }

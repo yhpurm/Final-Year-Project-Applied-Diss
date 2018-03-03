@@ -33,13 +33,13 @@ var BlockchainService = /** @class */ (function () {
     };
     BlockchainService.prototype.getBlockchainStats = function () {
         console.log("contacting stats");
-        return this.http.get('https://api.blockchain.info/stats')
+        return this.http.get('https://api.blockchain.info/stats?cors=true')
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
     BlockchainService.prototype.getPools = function () {
         console.log("contacting pools");
-        return this.http.get('https://api.blockchain.info/pools?timespan=5days')
+        return this.http.get('https://api.blockchain.info/pools?cors=true&timespan=5days')
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };

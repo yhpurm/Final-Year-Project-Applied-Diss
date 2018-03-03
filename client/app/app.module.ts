@@ -25,6 +25,8 @@ import { TransactionsComponent } from './blockchainActivity.component';
 import { LoginComponent } from './login.component'
 import { MlabsSearchComponent } from './MlabsSearchResults.component';
 import { ViewMapComponent } from './viewMap.component'
+import { StatsComponent } from './blockstats.component'
+import { PoolComponent } from './postpoolstatus.component'
 
 @NgModule({
   imports:      [
@@ -39,8 +41,10 @@ import { ViewMapComponent } from './viewMap.component'
     ProfileComponent,
     CryptoMapComponent,
     FriendsComponent,
+    StatsComponent,
     WalletComponent,
     RequestComponent,
+    PoolComponent,
     MlabsSearchComponent,
     PostStatusComponent,
     ViewMapComponent,

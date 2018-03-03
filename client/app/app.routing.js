@@ -19,6 +19,8 @@ var blockchainActivity_component_1 = require("./blockchainActivity.component");
 var login_component_1 = require("./login.component");
 var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
 var viewMap_component_1 = require("./viewMap.component");
+var blockstats_component_1 = require("./blockstats.component");
+var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var appRoutes = [
     {
         path: '',
@@ -41,8 +43,16 @@ var appRoutes = [
         component: MlabsSearchResults_component_1.MlabsSearchComponent
     },
     {
+        path: 'postpools',
+        component: postpoolstatus_component_1.PoolComponent
+    },
+    {
         path: 'mapsmenu',
         component: mapsmenu_component_1.MapsMenuComponent
+    },
+    {
+        path: 'poststats',
+        component: blockstats_component_1.StatsComponent
     },
     {
         path: 'activity',

@@ -19,6 +19,8 @@ import { TransactionsComponent } from './blockchainActivity.component';
 import { LoginComponent } from './login.component'
 import { MlabsSearchComponent } from './MlabsSearchResults.component';
 import { ViewMapComponent } from './viewMap.component'
+import { StatsComponent } from './blockstats.component'
+import { PoolComponent } from './postpoolstatus.component'
 
 const appRoutes: Routes = [
     {
@@ -42,8 +44,16 @@ const appRoutes: Routes = [
         component: MlabsSearchComponent
     },
     {
+        path: 'postpools',
+        component: PoolComponent
+    },
+    {
         path: 'mapsmenu',
         component: MapsMenuComponent
+    },
+    {
+        path: 'poststats',
+        component: StatsComponent
     },
     {
         path: 'activity',
