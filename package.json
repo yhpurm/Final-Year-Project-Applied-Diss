@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@angular/animations": "^5.2.6",
+    "angular-2-dropdown-multiselect": "^1.6.3",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",
     "blockchain.info": "^2.11.0",

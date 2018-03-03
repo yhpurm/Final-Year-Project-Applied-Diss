@@ -18,7 +18,7 @@ var tradingService = /** @class */ (function () {
         this.http = http;
     }
     tradingService.prototype.getTrading = function () {
-        return this.http.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
+        return this.http.get('https://api.coinmarketcap.com/v1/ticker/')
             .map(function (data) {
             var extracted = data.json();
             var msgArray = [];
