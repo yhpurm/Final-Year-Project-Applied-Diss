@@ -21,6 +21,7 @@ var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
 var viewMap_component_1 = require("./viewMap.component");
 var blockstats_component_1 = require("./blockstats.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
+var sendbtc_component_1 = require("./sendbtc.component");
 var appRoutes = [
     {
         path: '',
@@ -61,6 +62,10 @@ var appRoutes = [
     {
         path: 'poststatus',
         component: poststatus_component_1.PostStatusComponent
+    },
+    {
+        path: 'sendbtc',
+        component: sendbtc_component_1.SendBTCComponent
     },
     {
         path: 'viewMap',

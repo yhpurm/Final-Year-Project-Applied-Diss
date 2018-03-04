@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/Rx");
 var profile_model_1 = require("./profile.model");
+var mywallet_model_1 = require("./mywallet.model");
 var ProfileService = /** @class */ (function () {
     // Http Contructor for setting up connection
     function ProfileService(http) {
@@ -28,6 +29,21 @@ var ProfileService = /** @class */ (function () {
                 var element = _a[_i];
                 console.log(element.firstName);
                 message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
+                msgArray.push(message);
+            }
+            return msgArray;
+        });
+    };
+    ProfileService.prototype.getMyWallets = function () {
+        return this.http.get('http://localhost:3000/wallet')
+            .map(function (data) {
+            var extracted = data.json();
+            var msgArray = [];
+            var message;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                console.log(element.firstName);
+                message = new mywallet_model_1.Wallet(element.guid, element.bitcoinAddress, element.label);
                 msgArray.push(message);
             }
             return msgArray;

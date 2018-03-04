@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
+var Wallet = require('../models/myWalletModel');
 var Status= require('../models/statusModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
@@ -67,6 +68,21 @@ global.get('/globalusers', function(req, res, next){
 // Getting searched user from database
 global.get('/globalusers/:username', function(req, res, next) {
     Profile.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Getting use wallet
+router.get('/wallet', function(req, res, next) {
+    Wallet.find(function(err, messages) {
         console.log(messages);
         if (err) {
             return res.status(500).json({

@@ -49,6 +49,12 @@ var BlockchainService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
+    BlockchainService.prototype.sendBTC = function (guid) {
+        console.log("sending bitcoin");
+        return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment')
+            .map(function (response) { return response.json(); })
+            .catch(handleError);
+    };
     BlockchainService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

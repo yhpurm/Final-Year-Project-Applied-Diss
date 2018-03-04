@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Profile } from "./profile.model";
+import { Wallet } from './mywallet.model';
 
 @Injectable()
 export class ProfileService {
@@ -18,6 +19,21 @@ export class ProfileService {
                 for (let element of extracted.data) {
                     console.log(element.firstName);
                     message = new Profile(element.username, element.aboutMe, element.avatar, element.statusCount ,element.friendCount,element.isOnline,element.bitcoinAddress,element.email,element.lat,element.long);
+                    msgArray.push(message);
+                }
+                return msgArray;
+            });
+    }
+
+    getMyWallets() {
+        return this.http.get('http://localhost:3000/wallet')
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: Wallet[] = [];
+                let message;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    message = new Wallet(element.guid, element.bitcoinAddress, element.label);
                     msgArray.push(message);
                 }
                 return msgArray;

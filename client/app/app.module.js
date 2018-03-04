@@ -35,6 +35,7 @@ var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
 var viewMap_component_1 = require("./viewMap.component");
 var blockstats_component_1 = require("./blockstats.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
+var sendbtc_component_1 = require("./sendbtc.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -59,6 +60,7 @@ var AppModule = /** @class */ (function () {
                 MlabsSearchResults_component_1.MlabsSearchComponent,
                 poststatus_component_1.PostStatusComponent,
                 viewMap_component_1.ViewMapComponent,
+                sendbtc_component_1.SendBTCComponent,
                 blockchainActivity_component_1.TransactionsComponent,
                 mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,

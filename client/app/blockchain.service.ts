@@ -50,6 +50,13 @@ export class BlockchainService {
             .map(response => response.json() as Ticker[])
             .catch(handleError);
         }
+
+        sendBTC(guid : string) {
+            console.log("sending bitcoin");
+            return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment')
+            .map(response => response.json() as Ticker[])
+            .catch(handleError);
+        }
     }
 
   function handleError (error: any) {

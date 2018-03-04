@@ -27,6 +27,7 @@ import { MlabsSearchComponent } from './MlabsSearchResults.component';
 import { ViewMapComponent } from './viewMap.component'
 import { StatsComponent } from './blockstats.component'
 import { PoolComponent } from './postpoolstatus.component'
+import { SendBTCComponent } from './sendbtc.component'
 
 @NgModule({
   imports:      [
@@ -48,6 +49,7 @@ import { PoolComponent } from './postpoolstatus.component'
     MlabsSearchComponent,
     PostStatusComponent,
     ViewMapComponent,
+    SendBTCComponent,
     TransactionsComponent,
     MapsMenuComponent,
     NewWalletComponent,

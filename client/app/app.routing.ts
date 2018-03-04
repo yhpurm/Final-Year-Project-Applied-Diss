@@ -21,6 +21,7 @@ import { MlabsSearchComponent } from './MlabsSearchResults.component';
 import { ViewMapComponent } from './viewMap.component'
 import { StatsComponent } from './blockstats.component'
 import { PoolComponent } from './postpoolstatus.component'
+import { SendBTCComponent } from './sendbtc.component'
 
 const appRoutes: Routes = [
     {
@@ -62,6 +63,10 @@ const appRoutes: Routes = [
     {
         path: 'poststatus',
         component: PostStatusComponent
+    },
+    {
+        path: 'sendbtc',
+        component: SendBTCComponent
     },
     {
         path: 'viewMap',
