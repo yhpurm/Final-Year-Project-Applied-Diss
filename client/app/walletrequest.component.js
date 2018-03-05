@@ -25,9 +25,8 @@ var NewWalletComponent = /** @class */ (function () {
             return;
         }
         console.log(this.walletpass);
-        console.log(this.email);
         console.log(this.label);
-        var newWallet = new createWallet_model_1.createWallet(this.walletpass, this.email, this.label);
+        var newWallet = new createWallet_model_1.createWallet(this.walletpass, this.label);
         this.blockchainService.saveWallet(newWallet)
             .subscribe(function (messages) { return _this.wallet = messages; }, function (error) { return console.error(error); });
         console.log(this.wallet);

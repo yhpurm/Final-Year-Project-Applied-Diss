@@ -20,12 +20,14 @@ export class SendBTCComponent implements OnInit {
   guid: string;
 
   ngOnInit() {
+
     this.profileService.getMyWallets()
     .subscribe(
       messages => this.wallets = messages,
       error => console.error(error)
       );
     console.log(this.wallets);
+    
   }
 
   onSendBTC() {

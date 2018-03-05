@@ -15,42 +15,68 @@ const request = require('request');
 const MONGO_URL = 'mongodb://Conor:softwaregroup10@ds145438.mlab.com:45438/globalusers';
 var global = new MLABS();
  
-
-
-router.post('/newWallet', function (req, res, next) {
-    var response;
-    var pass = req.body.walletpass;
-    var label = req.body.label;
-    var email = req.body.email;
-    console.log("Request new wallet pass:" + pass);
-    console.log("Request new wallet email:" + email);
-    console.log("Request new wallet label:" + label);
-
-    request('http://127.0.0.1:3001/api/v2/create?password=:pass&email=:emailAddress&label=:username&api_code=' + apiCode, { json: true }, (err, res, body) => {
-        if (err) { return console.log(err); }
-        console.log(body.url);
-        console.log(body.explanation);
-        response = res.json();
-    });
-
-    res = response;
-    console.log("res: " + res);
-    if (err) {
-        return res.status(500).json({
-            message: 'Error while fetching new wallet!'
-        });
-    }
-    res.status(200).json({
-        data: messages
-    });
-});
-
 global.connect(MONGO_URL, function(err){
     if(err){
         console.error("Error! " + err);
     }else{
         console.log("Connected to online server");
     }
+});
+
+// Create a new wallet and add it to the wallets collection
+router.post('/newWallet', function (req, res, next) {
+    var response;
+    var pass = req.body.walletpass;
+    var label = req.body.label;
+    var walletpass;
+    var walletlabel;
+    var walletaddress;
+    var resjson;
+    wallet = new Wallet;
+    console.log("Request new wallet pass:" + pass);
+    console.log("Request new wallet label:" + label);
+
+    function processRequest(json) {
+        var j = JSON.parse(json);
+        console.log("j obj: " + j);
+        this.walletguid = j.body.guid;
+        this.walletaddress = j.body.address;
+        this.walletlabel = j.body.label; 
+
+        var wallet = new Wallet({
+            guid: this.walletguid,
+            address: this.walletaddress,
+            label: this.walletlabel
+        });
+   
+       console.log("wallet: ");
+       console.log(wallet);
+       wallet.save(function(err, result) {
+           if (err) {
+               console.log(err);
+               return res.status(500).json({
+                   message: 'Error while saving data!'
+               });
+           }
+           console.log("SUCCESS");
+           console.log(result);
+           res.status(201).json({
+               message: 'Saved data successfully'
+           });
+       });
+    }
+
+    request('http://127.0.0.1:3001/api/v2/create?password=' + pass + '&label=:' + label + '&api_code=' + apiCode, { json: true }, (err, resp, body) => {
+        if (err) { return console.log(err); }
+        response = resp;
+        console.log("json res: " + resp);
+        console.log("res label: " + resp.label);
+        this.resjson = JSON.stringify(resp);
+        console.log("json obj: " + this.resjson);
+        console.log("json obj2: " + resjson);
+        processRequest(this.resjson);
+    });
+
 });
 
 global.get('/globalusers', function(req, res, next){
@@ -67,6 +93,25 @@ global.get('/globalusers', function(req, res, next){
 
 // Getting searched user from database
 global.get('/globalusers/:username', function(req, res, next) {
+    console.log("gothere!!!");
+    var username = req.params.username;
+    console.log(username);
+    Profile.find({username: username}, function (err, messages) {
+        console.log(messages);
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });    
+    });
+});
+
+// Getting crypto profile from db
+router.get('/login/profile/:username', function(req, res, next) {
     Profile.find(function(err, messages) {
         console.log(messages);
         if (err) {

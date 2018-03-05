@@ -25,14 +25,13 @@ export class NewWalletComponent {
     console.log("request triggered");
 
     if(this.walletpass != this.passwordValid){
-      alert("Email must contain @ and end with .com");
+      alert("pass not same");
       return;
     }
 
     console.log(this.walletpass);
-    console.log(this.email);
     console.log(this.label);
-    const newWallet = new createWallet (this.walletpass,this.email,this.label);
+    const newWallet = new createWallet (this.walletpass,this.label);
     
     this.blockchainService.saveWallet(newWallet)
           .subscribe(
@@ -41,5 +40,4 @@ export class NewWalletComponent {
         );
         console.log(this.wallet);
     }
-
  }

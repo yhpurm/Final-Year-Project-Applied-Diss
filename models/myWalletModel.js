@@ -5,7 +5,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var schema = new Schema({
         guid: {type: String, required: true, unique : true},
         address: {type: String, required: true, unique : true}, 
-        label: {type: Number, required: true}
+        label: {type: String, required: true}
     },
     { collection : 'wallet' });
 

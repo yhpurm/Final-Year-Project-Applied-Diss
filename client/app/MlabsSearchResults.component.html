@@ -1,10 +1,10 @@
 <h1>Search results for: {{ test }}</h1>
-<div class="container">
+<div class="container" *ngFor="let p of profiles">
     <div class="row">
       <div class="shadow">
         <div class="col-sm-12">
           <div class="col-sm-2">
-            <img src="avatars/{{ profile.avatar }}" class="img-circle" width="60px">
+            <img src="avatars/{{ p.avatar }}" class="img-circle" width="60px">
           </div>
           <div class="col-sm-8">
             <h4><a href="#">{{ profile.username}}</a></h4>
@@ -14,7 +14,7 @@
           </div>
           <div class="col-sm-2">
             <p>View {{ profile.username }}'s profile</p>
-            <button type="button" class="btn btn-info" (click)="viewProfile(profile.username)"><span class="glyphicon glyphicon-search"></span></button>
+            <button type="button" class="btn btn-info" (click)="viewProfile(p.username)"><span class="glyphicon glyphicon-search"></span></button>
           </div>
         </div>
         </div>
