@@ -10,18 +10,23 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const MLABS = require('mongoose').Mongoose;
 const request = require('request');
+const MongoClient = require('mongodb').MongoClient;
 
 // Testing Mlabs below
 const MONGO_URL = 'mongodb://Conor:softwaregroup10@ds145438.mlab.com:45438/globalusers';
 var global = new MLABS();
- 
-global.connect(MONGO_URL, function(err){
+var database;
+
+MongoClient.connect(MONGO_URL, (err, db) => {  
     if(err){
         console.error("Error! " + err);
     }else{
         console.log("Connected to online server");
+        database = db;
+        
     }
 });
+
 
 // Create a new wallet and add it to the wallets collection
 router.post('/newWallet', function (req, res, next) {
@@ -69,11 +74,7 @@ router.post('/newWallet', function (req, res, next) {
     request('http://127.0.0.1:3001/api/v2/create?password=' + pass + '&label=:' + label + '&api_code=' + apiCode, { json: true }, (err, resp, body) => {
         if (err) { return console.log(err); }
         response = resp;
-        console.log("json res: " + resp);
-        console.log("res label: " + resp.label);
         this.resjson = JSON.stringify(resp);
-        console.log("json obj: " + this.resjson);
-        console.log("json obj2: " + resjson);
         processRequest(this.resjson);
     });
 
@@ -91,23 +92,23 @@ global.get('/globalusers', function(req, res, next){
     })
 });
 
-// Getting searched user from database
-global.get('/globalusers/:username', function(req, res, next) {
+// Getting crypto profile from db
+router.get('/globalusers/:username', function(req, res, next) {
     console.log("gothere!!!");
     var username = req.params.username;
     console.log(username);
-    Profile.find({username: username}, function (err, messages) {
-        console.log(messages);
-        if (err) {
-            console.log(err);
-            return res.status(500).json({
-                message: 'Error while fetching data!'
-            });
-        }
-        res.status(200).json({
-            data: messages
-        });    
+    profile = new Profile;
+
+    console.log(database);
+    database.collection("users").find({ username: username }, { username: 1, aboutMe: 1, bitcoinAddress: 1 }).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        profile = result;
     });
+
+    // Getting searched user from database
+    console.log("profile: " + profile);
+    console.log("process mlabs done");
 });
 
 // Getting crypto profile from db
@@ -125,8 +126,8 @@ router.get('/login/profile/:username', function(req, res, next) {
     });
 });
 
-// Getting use wallet
-router.get('/wallet', function(req, res, next) {
+// Get wallets
+router.get('/wallets/all', function(req, res, next) {
     Wallet.find(function(err, messages) {
         console.log(messages);
         if (err) {

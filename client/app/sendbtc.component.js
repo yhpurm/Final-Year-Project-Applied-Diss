@@ -21,14 +21,15 @@ var SendBTCComponent = /** @class */ (function () {
     SendBTCComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.profileService.getMyWallets()
-            .subscribe(function (messages) { return _this.wallets = messages; }, function (error) { return console.error(error); });
-        console.log(this.wallets);
+            .subscribe(function (response) {
+            _this.wallets = response;
+            console.log(_this.wallets);
+        }, function (error) { return console.error(error); });
     };
     SendBTCComponent.prototype.onSendBTC = function () {
         var _this = this;
         this.blockchainService.sendBTC(this.guid)
             .subscribe(function (messages) { return _this.wallets = messages; }, function (error) { return console.error(error); });
-        console.log(this.wallets);
     };
     SendBTCComponent = __decorate([
         core_1.Component({

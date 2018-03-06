@@ -24,8 +24,8 @@ export class MlabsService {
             });
     }
 
-    searchUsers(user: string) {
-        return this.http.get('http://localhost:3000/globalusers/' + user )
+    searchUsers(username: string) {
+        return this.http.get('http://localhost:3000/globalusers/' + username )
             .map( (data: Response) => {
                 const extracted = data.json();
                 const msgArray: Profile[] = [];

@@ -26,14 +26,16 @@ export class ProfileService {
     }
 
     getMyWallets() {
-        return this.http.get('http://localhost:3000/wallet')
+        return this.http.get('http://localhost:3000/wallets/all')
             .map( (data: Response) => {
                 const extracted = data.json();
                 const msgArray: Wallet[] = [];
                 let message;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
-                    message = new Wallet(element.guid, element.bitcoinAddress, element.label);
+                    console.log(element.guid);
+                    console.log(element.address);
+                    console.log(element.label);
+                    message = new Wallet(element.guid, element.address, element.label);
                     msgArray.push(message);
                 }
                 return msgArray;

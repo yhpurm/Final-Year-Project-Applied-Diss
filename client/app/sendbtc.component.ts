@@ -22,11 +22,13 @@ export class SendBTCComponent implements OnInit {
   ngOnInit() {
 
     this.profileService.getMyWallets()
-    .subscribe(
-      messages => this.wallets = messages,
-      error => console.error(error)
-      );
-    console.log(this.wallets);
+       .subscribe(
+           response => {
+               this.wallets = response;
+               console.log(this.wallets);
+           },
+           error => console.error(error)
+        );
     
   }
 
@@ -36,6 +38,5 @@ export class SendBTCComponent implements OnInit {
             messages => this.wallets = messages,
             error => console.error(error)
         );
-        console.log(this.wallets);
     }
 }

@@ -1,6 +1,6 @@
 export class Wallet {
     constructor(
         public guid: string,
-        public address: number,
+        public address: string,
         public label: string) {}
 }

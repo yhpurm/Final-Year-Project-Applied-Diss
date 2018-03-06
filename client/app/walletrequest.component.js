@@ -21,7 +21,7 @@ var NewWalletComponent = /** @class */ (function () {
         var _this = this;
         console.log("request triggered");
         if (this.walletpass != this.passwordValid) {
-            alert("Email must contain @ and end with .com");
+            alert("pass not same");
             return;
         }
         console.log(this.walletpass);

@@ -7,7 +7,7 @@
 
                                 <h3>Choose an address from your wallets</h3>
                                 <select title="Pick a address from your wallets" (change)="selectItem($event.target.value)">
-                                        <option *ngFor="let value of values" value={{value.label}}>{{value.label}}</option>
+                                        <option *ngFor="let value of wallets" value={{value.address}}>{{value.address}}</option>
                                 </select>
 
                                 <h3>Enter a target address or choose someone on your friends list</h3>

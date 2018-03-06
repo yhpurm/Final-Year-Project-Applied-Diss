@@ -35,15 +35,17 @@ var ProfileService = /** @class */ (function () {
         });
     };
     ProfileService.prototype.getMyWallets = function () {
-        return this.http.get('http://localhost:3000/wallet')
+        return this.http.get('http://localhost:3000/wallets/all')
             .map(function (data) {
             var extracted = data.json();
             var msgArray = [];
             var message;
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
-                console.log(element.firstName);
-                message = new mywallet_model_1.Wallet(element.guid, element.bitcoinAddress, element.label);
+                console.log(element.guid);
+                console.log(element.address);
+                console.log(element.label);
+                message = new mywallet_model_1.Wallet(element.guid, element.address, element.label);
                 msgArray.push(message);
             }
             return msgArray;
