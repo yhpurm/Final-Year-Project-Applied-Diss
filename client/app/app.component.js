@@ -12,12 +12,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var mlabs_service_1 = require("./mlabs.service");
+var auth_service_1 = require("./services/auth.service");
 var AppComponent = /** @class */ (function () {
-    function AppComponent(router, mlabsService) {
+    function AppComponent(router, mlabsService, authService) {
         this.router = router;
         this.mlabsService = mlabsService;
+        this.authService = authService;
         this.profile = [];
     }
+    AppComponent.prototype.onLogoutClick = function () {
+        this.authService.logout();
+        this.router.navigate(['/']);
+    };
     AppComponent.prototype.goToSearch = function (search) {
         var _this = this;
         console.log(search);
@@ -39,7 +45,7 @@ var AppComponent = /** @class */ (function () {
             templateUrl: 'app.component.html',
             providers: [mlabs_service_1.MlabsService]
         }),
-        __metadata("design:paramtypes", [router_1.Router, mlabs_service_1.MlabsService])
+        __metadata("design:paramtypes", [router_1.Router, mlabs_service_1.MlabsService, auth_service_1.AuthService])
     ], AppComponent);
     return AppComponent;
 }());

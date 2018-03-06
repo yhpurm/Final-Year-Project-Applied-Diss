@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MlabsService } from "./mlabs.service";
 import { Profile } from "./profile.model";
+import { AuthService } from './services/auth.service';
 
 @Component({
   moduleId: module.id,
@@ -14,7 +15,13 @@ export class AppComponent {
 
   profile: Profile[] = [];
   word:string;
-  constructor(private router: Router, private mlabsService: MlabsService){}
+  constructor(private router: Router, private mlabsService: MlabsService, private authService: AuthService){}
+
+
+  onLogoutClick() {
+    this.authService.logout();
+    this.router.navigate(['/'])
+  }
 
   goToSearch(search:string){
     console.log(search);

@@ -49,6 +49,12 @@ export class AuthService {
   login(user) {
     return this.http.post("http://localhost:3000" + '/login', user).map(res => res.json());
   }
+  
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
 
   // Function to store user's data in client local storage
   storeUserData(token, user) {
