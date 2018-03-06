@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
+//import { tokenNotExpired } from 'angular2-jwt';
 var AuthService = /** @class */ (function () {
     function AuthService(http) {
         this.http = http;
@@ -63,6 +64,10 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getProfile = function () {
         this.createAuthenticationHeaders(); // Create headers before sending to API
         return this.http.get(this.domain + '/authentication/profile', this.options).map(function (res) { return res.json(); });
+    };
+    // Function to check if user is logged in
+    AuthService.prototype.loggedIn = function () {
+        //return tokenNotExpired();
     };
     AuthService = __decorate([
         core_1.Injectable(),
