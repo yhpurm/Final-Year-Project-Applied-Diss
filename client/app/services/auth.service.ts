@@ -11,6 +11,7 @@ export class AuthService {
   authToken;
   user;
   options;
+  userData;
 
   constructor( 
     private http: Http 
@@ -58,11 +59,16 @@ export class AuthService {
   }
 
   // Function to store user's data in client local storage
-  storeUserData(token, user) {
+  storeUserData(token, user, email) {
+    console.log(token);
+    console.log(user);
+    console.log(email);
     localStorage.setItem('token', token); // Set token in local storage
     localStorage.setItem('user', JSON.stringify(user)); // Set user in local storage as string
+    localStorage.setItem('email', JSON.stringify(email)); // Set email in local storage as string
     this.authToken = token; // Assign token to be used elsewhere
     this.user = user; // Set user to be used elsewhere
+    this.storeUserData;
   }
 
   // Function to get user's profile data

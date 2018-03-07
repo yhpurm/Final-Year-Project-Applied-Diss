@@ -29,6 +29,7 @@ import { StatsComponent } from './blockstats.component'
 import { PoolComponent } from './postpoolstatus.component'
 import { SendBTCComponent } from './sendbtc.component'
 import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notauth.guard';
 
 @NgModule({
   imports:      [
@@ -61,7 +62,7 @@ import { AuthGuard } from './guards/auth.guard';
     WelcomeComponent,
     LoginComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

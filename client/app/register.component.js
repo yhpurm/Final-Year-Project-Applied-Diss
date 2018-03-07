@@ -117,7 +117,7 @@ var RegisterComponent = /** @class */ (function () {
                 _this.messageClass = 'alert alert-success';
                 _this.message = data.message;
                 setTimeout(function () {
-                    _this.router.navigate(['/']);
+                    _this.router.navigate(['/login']);
                 }, 2000);
             }
         });

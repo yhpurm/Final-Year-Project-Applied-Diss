@@ -37,6 +37,7 @@ var blockstats_component_1 = require("./blockstats.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
 var auth_guard_1 = require("./guards/auth.guard");
+var notauth_guard_1 = require("./guards/notauth.guard");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -72,7 +73,7 @@ var AppModule = /** @class */ (function () {
                 welcome_component_1.WelcomeComponent,
                 login_component_1.LoginComponent],
             exports: [],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard],
+            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

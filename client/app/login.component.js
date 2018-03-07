@@ -61,7 +61,7 @@ var LoginComponent = /** @class */ (function () {
                 _this.messageClass = 'alert alert-success'; // Set bootstrap success class
                 _this.message = data.message; // Set success message
                 // Function to store user's token in client local storage
-                _this.authService.storeUserData(data.token, data.user);
+                _this.authService.storeUserData(data.token, data.user, data.email);
                 // After 2 seconds, redirect to welcome page
                 setTimeout(function () {
                     _this.router.navigate(['/home']); // Navigate to welcome view

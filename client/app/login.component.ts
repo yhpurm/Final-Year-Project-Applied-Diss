@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         this.messageClass = 'alert alert-success'; // Set bootstrap success class
         this.message = data.message; // Set success message
         // Function to store user's token in client local storage
-        this.authService.storeUserData(data.token, data.user);
+        this.authService.storeUserData(data.token, data.user, data.email);
         // After 2 seconds, redirect to welcome page
         setTimeout(() => {
           this.router.navigate(['/home']); // Navigate to welcome view

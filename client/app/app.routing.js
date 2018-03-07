@@ -23,6 +23,7 @@ var blockstats_component_1 = require("./blockstats.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
 var auth_guard_1 = require("./guards/auth.guard");
+var notauth_guard_1 = require("./guards/notauth.guard");
 var appRoutes = [
     {
         path: '',
@@ -115,7 +116,8 @@ var appRoutes = [
     },
     {
         path: 'register',
-        component: register_component_1.RegisterComponent
+        component: register_component_1.RegisterComponent,
+        canActivate: [notauth_guard_1.NotAuthGuard]
     },
     {
         path: 'FAQ',
@@ -124,11 +126,8 @@ var appRoutes = [
     },
     {
         path: 'login',
-        component: login_component_1.LoginComponent
-    },
-    {
-        path: 'login',
-        component: login_component_1.LoginComponent
+        component: login_component_1.LoginComponent,
+        canActivate: [notauth_guard_1.NotAuthGuard]
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
