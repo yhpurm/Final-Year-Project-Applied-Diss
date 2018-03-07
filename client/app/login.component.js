@@ -13,11 +13,13 @@ var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var auth_service_1 = require("./services/auth.service");
 var router_1 = require("@angular/router");
+var auth_guard_1 = require("./guards/auth.guard");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(formBuilder, authService, router) {
+    function LoginComponent(formBuilder, authService, router, authGuard) {
         this.formBuilder = formBuilder;
         this.authService = authService;
         this.router = router;
+        this.authGuard = authGuard;
         this.processing = false;
         this.createForm(); // Create Login Form when component is constructed
     }
@@ -64,12 +66,25 @@ var LoginComponent = /** @class */ (function () {
                 _this.authService.storeUserData(data.token, data.user, data.email);
                 // After 2 seconds, redirect to welcome page
                 setTimeout(function () {
-                    _this.router.navigate(['/home']); // Navigate to welcome view
+                    // Check if user was redirected or logging in for first time
+                    if (_this.previousUrl) {
+                        _this.router.navigate([_this.previousUrl]); // Redirect to page they were trying to view before
+                    }
+                    else {
+                        _this.router.navigate(['/dashboard']); // Navigate to dashboard view
+                    }
                 }, 2000);
             }
         });
     };
     LoginComponent.prototype.ngOnInit = function () {
+        // On page load, check if user was redirected to login
+        if (this.authGuard.redirectUrl) {
+            this.messageClass = 'alert alert-danger'; // Set error message: need to login
+            this.message = 'You must be logged in to view that page.'; // Set message
+            this.previousUrl = this.authGuard.redirectUrl; // Set the previous URL user was redirected from
+            this.authGuard.redirectUrl = undefined; // Erase previous URL
+        }
     };
     LoginComponent = __decorate([
         core_1.Component({
@@ -80,7 +95,8 @@ var LoginComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [forms_1.FormBuilder,
             auth_service_1.AuthService,
-            router_1.Router])
+            router_1.Router,
+            auth_guard_1.AuthGuard])
     ], LoginComponent);
     return LoginComponent;
 }());
