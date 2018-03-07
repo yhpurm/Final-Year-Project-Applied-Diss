@@ -21,8 +21,8 @@ export class PostBalanceComponent implements OnInit {
     pass: string;
     passvalid: string;
     balance: number;
-    ngOnInit() {
 
+    ngOnInit() {
         this.profileService.getMyWallets()
         .subscribe(
             response => {

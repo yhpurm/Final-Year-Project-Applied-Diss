@@ -23,6 +23,7 @@ import { PostBalanceComponent } from './postbal.component';
 import { PoolComponent } from './postpoolstatus.component';
 import { SendBTCComponent } from './sendbtc.component';
 import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notauth.guard';
 
 const appRoutes: Routes = [
     {
@@ -121,7 +122,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [NotAuthGuard]
     },
     {
         path: 'FAQ',
@@ -130,11 +132,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [NotAuthGuard]
     }
 ];
 

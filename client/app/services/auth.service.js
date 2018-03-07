@@ -54,11 +54,16 @@ var AuthService = /** @class */ (function () {
         localStorage.clear();
     };
     // Function to store user's data in client local storage
-    AuthService.prototype.storeUserData = function (token, user) {
+    AuthService.prototype.storeUserData = function (token, user, email) {
+        console.log(token);
+        console.log(user);
+        console.log(email);
         localStorage.setItem('token', token); // Set token in local storage
         localStorage.setItem('user', JSON.stringify(user)); // Set user in local storage as string
+        localStorage.setItem('email', JSON.stringify(email)); // Set email in local storage as string
         this.authToken = token; // Assign token to be used elsewhere
         this.user = user; // Set user to be used elsewhere
+        this.storeUserData;
     };
     // Function to get user's profile data
     AuthService.prototype.getProfile = function () {
