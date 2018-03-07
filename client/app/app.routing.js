@@ -35,67 +35,83 @@ var appRoutes = [
     },
     {
         path: 'profile',
-        component: profile_component_1.ProfileComponent
+        component: profile_component_1.ProfileComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'request',
-        component: requestbitcoin_component_1.RequestComponent
+        component: requestbitcoin_component_1.RequestComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'search',
-        component: MlabsSearchResults_component_1.MlabsSearchComponent
+        component: MlabsSearchResults_component_1.MlabsSearchComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'postpools',
-        component: postpoolstatus_component_1.PoolComponent
+        component: postpoolstatus_component_1.PoolComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'mapsmenu',
-        component: mapsmenu_component_1.MapsMenuComponent
+        component: mapsmenu_component_1.MapsMenuComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'poststats',
-        component: blockstats_component_1.StatsComponent
+        component: blockstats_component_1.StatsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'activity',
-        component: blockchainActivity_component_1.TransactionsComponent
+        component: blockchainActivity_component_1.TransactionsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'poststatus',
-        component: poststatus_component_1.PostStatusComponent
+        component: poststatus_component_1.PostStatusComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'sendbtc',
-        component: sendbtc_component_1.SendBTCComponent
+        component: sendbtc_component_1.SendBTCComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'viewMap',
-        component: viewMap_component_1.ViewMapComponent
+        component: viewMap_component_1.ViewMapComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'map',
-        component: cryptomap_component_1.CryptoMapComponent
+        component: cryptomap_component_1.CryptoMapComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'trading',
-        component: trading_component_1.tradingComponent
+        component: trading_component_1.tradingComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'friends',
-        component: friends_component_1.FriendsComponent
+        component: friends_component_1.FriendsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'linkwallet',
-        component: myWallet_component_1.WalletComponent
+        component: myWallet_component_1.WalletComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'newwallet',
-        component: walletrequest_component_1.NewWalletComponent
+        component: walletrequest_component_1.NewWalletComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'settings',
-        component: settings_component_1.SettingsComponent
+        component: settings_component_1.SettingsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'register',
@@ -103,7 +119,8 @@ var appRoutes = [
     },
     {
         path: 'FAQ',
-        component: FAQ_component_1.FAQComponent
+        component: FAQ_component_1.FAQComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'login',

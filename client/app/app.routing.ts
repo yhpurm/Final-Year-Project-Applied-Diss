@@ -31,72 +31,88 @@ const appRoutes: Routes = [
     },
     {
         path:'home',
-        component: HomeComponent, // Dashboard Route,
-    canActivate: [AuthGuard] // User must be logged in to view this route
+        component: HomeComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path:'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'request',
-        component: RequestComponent
+        component: RequestComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'search',
-        component: MlabsSearchComponent
+        component: MlabsSearchComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'postpools',
-        component: PoolComponent
+        component: PoolComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'mapsmenu',
-        component: MapsMenuComponent
+        component: MapsMenuComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'poststats',
-        component: StatsComponent
+        component: StatsComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'activity',
-        component: TransactionsComponent
+        component: TransactionsComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'poststatus',
-        component: PostStatusComponent
+        component: PostStatusComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'sendbtc',
-        component: SendBTCComponent
+        component: SendBTCComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'viewMap',
-        component: ViewMapComponent
+        component: ViewMapComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'map',
-        component: CryptoMapComponent
+        component: CryptoMapComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'trading',
-        component: tradingComponent
+        component: tradingComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'friends',
-        component: FriendsComponent
+        component: FriendsComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'linkwallet',
-        component: WalletComponent
+        component: WalletComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'newwallet',
-        component: NewWalletComponent
+        component: NewWalletComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'settings',
-        component: SettingsComponent
+        component: SettingsComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'register',
@@ -104,7 +120,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'FAQ',
-        component: FAQComponent
+        component: FAQComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'login',
