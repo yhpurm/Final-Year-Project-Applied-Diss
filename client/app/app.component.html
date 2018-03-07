@@ -5,17 +5,17 @@
                 <a class="navbar-brand" href="#">Bitcoin Wallet</a>
               </div>
               <ul class="nav navbar-nav">
-                <li><a routerLink="/home">Home</a></li>
-                <li><a routerLink="/linkwallet">My Wallet</a></li>
-                <li><a routerLink="/friends">Friends</a></li>
-                <li><a routerLink="/settings">Settings</a></li>
+                <li *ngIf="authService.loggedIn()" ><a routerLink="/home">Home</a></li>
+                <li *ngIf="authService.loggedIn()"><a routerLink="/linkwallet">My Wallet</a></li>
+                <li *ngIf="authService.loggedIn()"><a routerLink="/friends">Friends</a></li>
+                <li *ngIf="authService.loggedIn()"><a routerLink="/settings">Settings</a></li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Support
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues">Report Issue</a></li>
-                    <li><a routerLink="/FAQ">FAQ and help</a></li>
-                    <li><a href="https://github.com/blockchain/service-my-wallet-v3">blockchain.info API</a></li>
+                    <li *ngIf="authService.loggedIn()"><a href="https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues">Report Issue</a></li>
+                    <li *ngIf="authService.loggedIn()"><a routerLink="/FAQ">FAQ and help</a></li>
+                    <li *ngIf="authService.loggedIn()"><a href="https://github.com/blockchain/service-my-wallet-v3">blockchain.info API</a></li>
                   </ul>
                 </li>
               </ul>
@@ -28,11 +28,11 @@
                   </form>
               </div>
               <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/sendbtc"><span class="glyphicon glyphicon-plus"></span> Send BTC</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Inbox</a></li>
-                <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="#" (click)="onLogoutClick()">Logout</a></li>
+                <li *ngIf="authService.loggedIn()"><a routerLink="/sendbtc"><span class="glyphicon glyphicon-plus"></span> Send BTC</a></li>
+                <li *ngIf="authService.loggedIn()"><a href="#"><span class="glyphicon glyphicon-envelope"></span> Inbox</a></li>
+                <li *ngIf="!authService.loggedIn()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li *ngIf="!authService.loggedIn()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li *ngIf="authService.loggedIn()"><a href="#" (click)="onLogoutClick()">Logout</a></li>
               </ul>
             </div>
           </nav>

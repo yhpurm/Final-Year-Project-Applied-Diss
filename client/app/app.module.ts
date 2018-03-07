@@ -28,6 +28,7 @@ import { ViewMapComponent } from './viewMap.component'
 import { StatsComponent } from './blockstats.component'
 import { PoolComponent } from './postpoolstatus.component'
 import { SendBTCComponent } from './sendbtc.component'
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   imports:      [
@@ -60,7 +61,7 @@ import { SendBTCComponent } from './sendbtc.component'
     WelcomeComponent,
     LoginComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

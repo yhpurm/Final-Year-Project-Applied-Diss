@@ -74,6 +74,11 @@ export class AuthService {
     // Function to check if user is logged in
     loggedIn() {
       //return tokenNotExpired();
+      if (this.authToken = localStorage.getItem('token')) { // if there is a user token in the storage
+        return true; // return true
+      } else { // otherwise 
+        return false; // return user to page
+      }
     }
 
 }

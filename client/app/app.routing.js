@@ -22,6 +22,7 @@ var viewMap_component_1 = require("./viewMap.component");
 var blockstats_component_1 = require("./blockstats.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
+var auth_guard_1 = require("./guards/auth.guard");
 var appRoutes = [
     {
         path: '',
@@ -29,7 +30,8 @@ var appRoutes = [
     },
     {
         path: 'home',
-        component: home_component_1.HomeComponent
+        component: home_component_1.HomeComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
         path: 'profile',
@@ -102,6 +104,10 @@ var appRoutes = [
     {
         path: 'FAQ',
         component: FAQ_component_1.FAQComponent
+    },
+    {
+        path: 'login',
+        component: login_component_1.LoginComponent
     },
     {
         path: 'login',

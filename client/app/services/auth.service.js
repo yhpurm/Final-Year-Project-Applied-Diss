@@ -68,6 +68,12 @@ var AuthService = /** @class */ (function () {
     // Function to check if user is logged in
     AuthService.prototype.loggedIn = function () {
         //return tokenNotExpired();
+        if (this.authToken = localStorage.getItem('token')) {
+            return true; // return true
+        }
+        else {
+            return false; // return user to page
+        }
     };
     AuthService = __decorate([
         core_1.Injectable(),

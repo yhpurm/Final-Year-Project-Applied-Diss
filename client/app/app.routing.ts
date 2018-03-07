@@ -16,12 +16,13 @@ import { MapsMenuComponent } from './mapsmenu.component';
 import { PostStatusComponent } from './poststatus.component';
 import { RequestComponent } from './requestbitcoin.component';
 import { TransactionsComponent } from './blockchainActivity.component';
-import { LoginComponent } from './login.component'
+import { LoginComponent } from './login.component';
 import { MlabsSearchComponent } from './MlabsSearchResults.component';
-import { ViewMapComponent } from './viewMap.component'
-import { StatsComponent } from './blockstats.component'
-import { PoolComponent } from './postpoolstatus.component'
-import { SendBTCComponent } from './sendbtc.component'
+import { ViewMapComponent } from './viewMap.component';
+import { StatsComponent } from './blockstats.component';
+import { PoolComponent } from './postpoolstatus.component';
+import { SendBTCComponent } from './sendbtc.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
     {
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     },
     {
         path:'home',
-        component: HomeComponent
+        component: HomeComponent, // Dashboard Route,
+    canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {
         path:'profile',
@@ -103,6 +105,10 @@ const appRoutes: Routes = [
     {
         path: 'FAQ',
         component: FAQComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: 'login',
