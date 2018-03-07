@@ -87,4 +87,12 @@ export class AuthService {
       }
     }
 
+    /*displayUsername() {
+      if (this.authToken = localStorage.getItem('user')) { // if there is a user token in the storage
+        return localStorage.setItem('user', JSON.stringify(this.user)); // return user
+      } else { // otherwise 
+        return null;
+      }
+    }*/
+
 }

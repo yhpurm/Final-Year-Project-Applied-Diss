@@ -71,7 +71,7 @@ var LoginComponent = /** @class */ (function () {
                         _this.router.navigate([_this.previousUrl]); // Redirect to page they were trying to view before
                     }
                     else {
-                        _this.router.navigate(['/dashboard']); // Navigate to dashboard view
+                        _this.router.navigate(['/home']); // Navigate to home view
                     }
                 }, 2000);
             }
