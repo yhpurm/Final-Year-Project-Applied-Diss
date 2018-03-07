@@ -48,4 +48,13 @@ export class ProfileComponent implements OnInit {
         error => console.error(error)
      );
     }
+
+    get user(): any {
+      return localStorage.getItem('user');
+    }
+
+    get useremail(): any {
+      return localStorage.getItem('email');
+    }
+
   }

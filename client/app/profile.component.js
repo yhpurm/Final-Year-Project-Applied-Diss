@@ -35,6 +35,20 @@ var ProfileComponent = /** @class */ (function () {
             console.log("GET this users profile");
         }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(ProfileComponent.prototype, "user", {
+        get: function () {
+            return localStorage.getItem('user');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ProfileComponent.prototype, "useremail", {
+        get: function () {
+            return localStorage.getItem('email');
+        },
+        enumerable: true,
+        configurable: true
+    });
     ProfileComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
