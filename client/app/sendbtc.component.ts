@@ -26,10 +26,10 @@ export class SendBTCComponent implements OnInit {
            response => {
                this.wallets = response;
                console.log(this.wallets);
+               console.log("got wallets");
            },
            error => console.error(error)
         );
-    
   }
 
   onSendBTC() {

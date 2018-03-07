@@ -1,6 +1,5 @@
 import {ModuleWithProviders, Component} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-
 import {HomeComponent} from './home.component';
 import {CryptoMapComponent} from './cryptomap.component';
 import {ProfileComponent} from './profile.component';
@@ -20,6 +19,7 @@ import { LoginComponent } from './login.component';
 import { MlabsSearchComponent } from './MlabsSearchResults.component';
 import { ViewMapComponent } from './viewMap.component';
 import { StatsComponent } from './blockstats.component';
+import { PostBalanceComponent } from './postbal.component';
 import { PoolComponent } from './postpoolstatus.component';
 import { SendBTCComponent } from './sendbtc.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -77,6 +77,11 @@ const appRoutes: Routes = [
     {
         path: 'sendbtc',
         component: SendBTCComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'postbal',
+        component: PostBalanceComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {

@@ -1,4 +1,4 @@
-export class Payments {
+export class Payment {
     constructor(
         public to: string,
         public from: number,

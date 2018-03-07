@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Payments = /** @class */ (function () {
-    function Payments(to, from, amounts, fees, txid, success) {
+var Payment = /** @class */ (function () {
+    function Payment(to, from, amounts, fees, txid, success) {
         this.to = to;
         this.from = from;
         this.amounts = amounts;
@@ -9,7 +9,7 @@ var Payments = /** @class */ (function () {
         this.txid = txid;
         this.success = success;
     }
-    return Payments;
+    return Payment;
 }());
-exports.Payments = Payments;
+exports.Payment = Payment;
 //# sourceMappingURL=payment.modal.js.map

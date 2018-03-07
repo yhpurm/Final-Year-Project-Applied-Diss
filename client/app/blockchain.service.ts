@@ -8,6 +8,9 @@ import { Ticker } from "./blockticker.modal";
 import { Pools } from "./pools.modal";
 import { Stats } from "./blockstats.modal";
 import { createWallet } from "./createWallet.model";
+import { BalanceReq } from "./bal.modal";
+import { Balance } from "./bal.modal";
+import { Payment } from "./payment.modal";
 
 @Injectable()
 export class BlockchainService {
@@ -44,17 +47,26 @@ export class BlockchainService {
             .catch(handleError);
         }
 
-        getBalance(guid : string) {
-            console.log("getting wallet balance");
-            return this.http.get('https://api.blockchain.info/merchant/' + guid + '/balance')
-            .map(response => response.json() as Ticker[])
-            .catch(handleError);
+        getBalance(balreq: BalanceReq): Observable<any> {
+            console.log(balreq);
+            const body = JSON.stringify(balreq);
+            console.log(body);
+            const headers = new Headers({'Content-Type': 'application/json'});
+            return this.http.post('http://localhost:3000/Wallet/balance', body, {headers: headers}).map( (data: Response) => {
+                console.log(data.json());
+                const extracted = data.json();
+                const msgArray: Balance[] = [];
+                var message;
+                console.log("fixed: " + extracted.balance);
+                message = extracted.balance;
+                return message;
+            });
         }
 
         sendBTC(guid : string) {
             console.log("sending bitcoin");
             return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment')
-            .map(response => response.json() as Ticker[])
+            .map(response => response.json() as Payment[])
             .catch(handleError);
         }
     }
@@ -62,7 +74,7 @@ export class BlockchainService {
   function handleError (error: any) {
     // log error
     // could be something more sofisticated
-    let errorMsg = error.message || `Problem creating the wallet!!!! try again later.`
+    let errorMsg = error.message || `Problem contacting blockchain!!!! try again later.`
     console.error(errorMsg);
   
     // throw an application level error

@@ -20,6 +20,7 @@ var login_component_1 = require("./login.component");
 var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
 var viewMap_component_1 = require("./viewMap.component");
 var blockstats_component_1 = require("./blockstats.component");
+var postbal_component_1 = require("./postbal.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
 var auth_guard_1 = require("./guards/auth.guard");
@@ -76,6 +77,11 @@ var appRoutes = [
     {
         path: 'sendbtc',
         component: sendbtc_component_1.SendBTCComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'postbal',
+        component: postbal_component_1.PostBalanceComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {

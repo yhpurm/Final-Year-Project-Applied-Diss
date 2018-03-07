@@ -1,0 +1,31 @@
+<h3>Choose an address from your wallets</h3>
+<table class="table table-hover" *ngFor="let value of wallets" >
+        <thead>
+            <tr>
+                <th>GUID</th>
+                <th>Address</th>
+                <th>Wallet label</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button type = "button" (click)="setGuid(value.guid)" class = "btn btn-primary">
+                        Set</button></td>
+                <td>{{value.address}}</td>
+                <td>{{value.label}}</td>
+            </tr>
+        </tbody>
+</table>
+<p>Click the button below to get the value of the selected address using its guid: {{guid}}</p>
+<div class="row">
+    <button type = "button" class = "btn btn-primary" (click)="onGetBal()">Show Balance</button>
+    <div class="form-group">
+            <label for="password">Wallet Password:</label>
+            <input type="password" class="form-control" [(ngModel)]="pass">
+        </div>
+        <div class="form-group">
+            <label for="password">Wallet Password validation:</label>
+            <input type="password" class="form-control" [(ngModel)]="passvalid">
+    </div>
+</div>
+<h2>balance = {{balance}}</h2>

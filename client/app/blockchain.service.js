@@ -43,11 +43,20 @@ var BlockchainService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
-    BlockchainService.prototype.getBalance = function (guid) {
-        console.log("getting wallet balance");
-        return this.http.get('https://api.blockchain.info/merchant/' + guid + '/balance')
-            .map(function (response) { return response.json(); })
-            .catch(handleError);
+    BlockchainService.prototype.getBalance = function (balreq) {
+        console.log(balreq);
+        var body = JSON.stringify(balreq);
+        console.log(body);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.post('http://localhost:3000/Wallet/balance', body, { headers: headers }).map(function (data) {
+            console.log(data.json());
+            var extracted = data.json();
+            var msgArray = [];
+            var message;
+            console.log("fixed: " + extracted.balance);
+            message = extracted.balance;
+            return message;
+        });
     };
     BlockchainService.prototype.sendBTC = function (guid) {
         console.log("sending bitcoin");
@@ -65,7 +74,7 @@ exports.BlockchainService = BlockchainService;
 function handleError(error) {
     // log error
     // could be something more sofisticated
-    var errorMsg = error.message || "Problem creating the wallet!!!! try again later.";
+    var errorMsg = error.message || "Problem contacting blockchain!!!! try again later.";
     console.error(errorMsg);
     // throw an application level error
     return Observable_1.Observable.throw(errorMsg);

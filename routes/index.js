@@ -5,6 +5,7 @@ const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
 var Wallet = require('../models/myWalletModel');
 var Status= require('../models/statusModel');
+var Balance= require('../models/balanceModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -23,7 +24,6 @@ MongoClient.connect(MONGO_URL, (err, db) => {
     }else{
         console.log("Connected to online server");
         database = db;
-        
     }
 });
 
@@ -77,6 +77,41 @@ router.post('/newWallet', function (req, res, next) {
         this.resjson = JSON.stringify(resp);
         processRequest(this.resjson);
     });
+
+});
+
+// Create a new wallet and add it to the wallets collection
+router.post('/Wallet/balance', function (req, res, next) {
+    var pass = req.body.password;
+    var guid = req.body.guid;
+    var balance = new Balance;
+    var walletbal;
+    console.log("Request pass:" + pass);
+    console.log("Request guid:" + guid);
+
+    function processRequest(json) {
+        var j = JSON.parse(json);
+        console.log("j obj: " + j);
+        this.walletbal = j.body.balance;
+
+        this.balance = ({
+            balance: this.walletbal
+        });
+   
+       console.log("balance: ");
+       console.log(this.balance);
+       res.json(this.balance);
+    }
+
+    request('http://127.0.0.1:3001/merchant/' + guid + '/balance?password=' + pass + '&api_code=' + apiCode, { json: true }, (err, resp, body) => {
+        if (err) { return console.log(err); }
+        response = resp;
+        var resjson = JSON.stringify(resp);
+        console.log(resjson);
+        processRequest(resjson);
+    });
+
+    
 
 });
 

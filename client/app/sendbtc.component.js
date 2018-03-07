@@ -24,6 +24,7 @@ var SendBTCComponent = /** @class */ (function () {
             .subscribe(function (response) {
             _this.wallets = response;
             console.log(_this.wallets);
+            console.log("got wallets");
         }, function (error) { return console.error(error); });
     };
     SendBTCComponent.prototype.onSendBTC = function () {

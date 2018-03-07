@@ -28,6 +28,7 @@ import { ViewMapComponent } from './viewMap.component'
 import { StatsComponent } from './blockstats.component'
 import { PoolComponent } from './postpoolstatus.component'
 import { SendBTCComponent } from './sendbtc.component'
+import { PostBalanceComponent } from './postbal.component';
 import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { AuthGuard } from './guards/auth.guard';
     WalletComponent,
     RequestComponent,
     PoolComponent,
+    PostBalanceComponent,
     MlabsSearchComponent,
     PostStatusComponent,
     ViewMapComponent,
