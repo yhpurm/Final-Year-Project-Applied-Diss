@@ -37,14 +37,35 @@ var ProfileComponent = /** @class */ (function () {
     };
     Object.defineProperty(ProfileComponent.prototype, "user", {
         get: function () {
-            return localStorage.getItem('user');
+            return JSON.parse(localStorage.getItem('user'));
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(ProfileComponent.prototype, "useremail", {
         get: function () {
-            return localStorage.getItem('email');
+            return JSON.parse(localStorage.getItem('email'));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ProfileComponent.prototype, "userAvatar", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('avatar'));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ProfileComponent.prototype, "useraboutMe", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('aboutMe'));
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ProfileComponent.prototype, "userisOnline", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('isOnline'));
         },
         enumerable: true,
         configurable: true

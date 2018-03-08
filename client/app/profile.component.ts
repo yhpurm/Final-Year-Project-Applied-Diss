@@ -50,11 +50,23 @@ export class ProfileComponent implements OnInit {
     }
 
     get user(): any {
-      return localStorage.getItem('user');
+      return JSON.parse(localStorage.getItem('user'));
     }
 
     get useremail(): any {
-      return localStorage.getItem('email');
+      return JSON.parse(localStorage.getItem('email'));
+    }
+
+    get userAvatar(): any {
+      return JSON.parse(localStorage.getItem('avatar'));
+    }
+
+    get useraboutMe(): any {
+      return JSON.parse(localStorage.getItem('aboutMe'));
+    }
+
+    get userisOnline(): any {
+      return JSON.parse(localStorage.getItem('isOnline'));
     }
 
   }
