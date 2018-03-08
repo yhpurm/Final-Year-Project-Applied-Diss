@@ -59,13 +59,13 @@ export class AuthService {
   }
 
   // Function to store user's data in client local storage
-  storeUserData(token, user, email) {
-    console.log(token);
-    console.log(user);
-    console.log(email);
+  storeUserData(token, user, email, avatar, isOnline, aboutMe) {
     localStorage.setItem('token', token); // Set token in local storage
     localStorage.setItem('user', JSON.stringify(user)); // Set user in local storage as string
     localStorage.setItem('email', JSON.stringify(email)); // Set email in local storage as string
+    localStorage.setItem('avatar', JSON.stringify(avatar)); // Set avatar in local storage
+    localStorage.setItem('isOnline', JSON.stringify(isOnline)); // Set isOnline in local storage 
+    localStorage.setItem('aboutMe', JSON.stringify(aboutMe)); // Set aboutMe in local storage
     this.authToken = token; // Assign token to be used elsewhere
     this.user = user; // Set user to be used elsewhere
     this.storeUserData;
