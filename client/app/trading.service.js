@@ -10,32 +10,75 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/Rx");
-var tradingService = /** @class */ (function () {
-    // Http Contructor for setting up connection
-    function tradingService(http) {
+var Subject_1 = require("rxjs/Subject");
+var http_1 = require("@angular/common/http");
+var localdata_1 = require("./localdata");
+var API_BASE_URL = 'https://api.coinmarketcap.com/v1/';
+var coins = [];
+var AppService = /** @class */ (function () {
+    function AppService(http) {
         this.http = http;
+        this.filter = [];
+        this.coinsSubject = new Subject_1.Subject();
+        this.filteredCoinsSubject = new Subject_1.Subject();
+        this.apiSubject = new Subject_1.Subject();
+        this.fiatSubject = new Subject_1.Subject();
     }
-    tradingService.prototype.getTrading = function () {
-        return this.http.get('https://api.coinmarketcap.com/v1/ticker/')
-            .map(function (data) {
-            var extracted = data.json();
-            var msgArray = [];
-            var trading;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
-                trading = new trading(element.id, element.name, element.symbol, element.rank, element.price_usd, element.price_btc, element.h24_volume_price, element.market_cap_usd, element.available_supply, element.max_supply, element.percent_change_1h, element.percent_change_24h, element.percent_change_7d, element.last_updated);
-                msgArray.push(trading);
-            }
-            return msgArray;
-        });
+    AppService.prototype.getCryptoOptions = function () {
+        return localdata_1.cryptoCurrencies;
     };
-    tradingService = __decorate([
+    AppService.prototype.loadMarketCaps = function (fiat) {
+        var _this = this;
+        this.fiatSubject.next(fiat);
+        var url = API_BASE_URL + 'ticker/';
+        var params = new http_1.HttpParams();
+        params = params.append('limit', '25');
+        if (fiat !== 'usd') {
+            // TODO: check if fiat is valid
+            params = params.append('convert', fiat);
+        }
+        this.apiSubject.next('loading...');
+        this.http
+            .get(url, { params: params })
+            .subscribe(function (data) {
+            _this.allCoins = data;
+            _this.announceCoins();
+            _this.filterMarketCaps();
+        });
+        //    this.allCoins = mock.data;
+    };
+    AppService.prototype.filterMarketCaps = function () {
+        var _this = this;
+        this.filteredCoins = [];
+        if (this.filter.length === 0) {
+            this.allCoins.forEach(function (coin) { return _this.filteredCoins.push(coin); });
+        }
+        if (this.filter.length > 0) {
+            this.filter.forEach(function (i) {
+                _this.filteredCoins.push(_this.allCoins[i]);
+            });
+        }
+        this.announceFilteredCoins();
+    };
+    AppService.prototype.announceCoins = function () {
+        this.coinsSubject.next(this.allCoins);
+    };
+    AppService.prototype.announceFilteredCoins = function () {
+        this.filteredCoinsSubject.next(this.filteredCoins);
+    };
+    AppService.prototype.updateFilter = function (filter) {
+        var _this = this;
+        this.filter = [];
+        filter.forEach(function (elem) {
+            _this.filter.push(elem);
+        });
+        this.filterMarketCaps();
+    };
+    AppService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], tradingService);
-    return tradingService;
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AppService);
+    return AppService;
 }());
-exports.tradingService = tradingService;
+exports.AppService = AppService;
 //# sourceMappingURL=trading.service.js.map
