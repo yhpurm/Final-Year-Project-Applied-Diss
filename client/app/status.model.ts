@@ -10,3 +10,13 @@ export class Status {
         public lat: Number,
         public long: Number) {}
 }
+
+export class BalStatus {
+    constructor(public username: string,
+        public date: Number,
+        public title: String,
+        public text: String,
+        public balance: Number,
+        public lat: Number,
+        public long: Number) {}
+}

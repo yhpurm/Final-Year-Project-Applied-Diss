@@ -5,6 +5,7 @@ const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
 var Wallet = require('../models/myWalletModel');
 var Status= require('../models/statusModel');
+var BalStatus= require('../models/statusBalModel');
 var Balance= require('../models/balanceModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
@@ -199,6 +200,33 @@ router.post('/Tx/Status/reg', function(req, res, next) {
     });
     console.log(status);
     status.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/bal', function(req, res, next) {
+
+    var statusBal = new BalStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        balance: req.body.balance,
+        lat: req.body.lat,
+        long: req.body.long,
+    });
+    console.log(statusBal);
+    statusBal.save(function(err, result) {
         if (err) {
             console.log(err);
             return res.status(500).json({

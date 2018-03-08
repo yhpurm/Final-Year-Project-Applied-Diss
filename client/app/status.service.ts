@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 import { Status } from "./status.model";
+import { BalStatus } from "./status.model";
 
 @Injectable()
 export class StatusService {
@@ -54,6 +55,14 @@ export class StatusService {
                 }
                 return msgArray;
             });
+    }
+
+    saveBalPost(Tx: BalStatus): Observable<any> {
+        console.log(Tx);
+        const body = JSON.stringify(Tx);
+        console.log(body);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/Tx/Status/bal', body, {headers: headers});
     }
 
     saveTx(Tx: Status): Observable<any> {

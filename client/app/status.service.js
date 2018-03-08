@@ -64,6 +64,13 @@ var StatusService = /** @class */ (function () {
             return msgArray;
         });
     };
+    StatusService.prototype.saveBalPost = function (Tx) {
+        console.log(Tx);
+        var body = JSON.stringify(Tx);
+        console.log(body);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.post('http://localhost:3000/Tx/Status/bal', body, { headers: headers });
+    };
     StatusService.prototype.saveTx = function (Tx) {
         console.log(Tx);
         var body = JSON.stringify(Tx);

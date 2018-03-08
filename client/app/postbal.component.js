@@ -12,11 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var blockchain_service_1 = require("./blockchain.service");
 var profile_service_1 = require("./profile.service");
+var status_service_1 = require("./status.service");
+var status_model_1 = require("./status.model");
 var bal_modal_1 = require("./bal.modal");
 var PostBalanceComponent = /** @class */ (function () {
-    function PostBalanceComponent(blockchainService, profileService) {
+    function PostBalanceComponent(blockchainService, profileService, statusService) {
         this.blockchainService = blockchainService;
         this.profileService = profileService;
+        this.statusService = statusService;
         this.wallets = [];
     }
     PostBalanceComponent.prototype.ngOnInit = function () {
@@ -27,6 +30,35 @@ var PostBalanceComponent = /** @class */ (function () {
             console.log(_this.wallets);
             console.log("got wallets");
         }, function (error) { return console.error(error); });
+        this.getLocation();
+    };
+    PostBalanceComponent.prototype.setPosition = function (position) {
+        this.lat = position.coords.latitude;
+        this.long = position.coords.longitude;
+        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+    };
+    PostBalanceComponent.prototype.getLocation = function () {
+        var _this = this;
+        if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(function (position) {
+                _this.geolocationPosition = position,
+                    console.log(position),
+                    _this.setPosition(position);
+            }, function (error) {
+                switch (error.code) {
+                    case 1:
+                        console.log('Permission Denied');
+                        break;
+                    case 2:
+                        console.log('Position Unavailable');
+                        break;
+                    case 3:
+                        console.log('Timeout');
+                        break;
+                }
+            });
+        }
+        ;
     };
     PostBalanceComponent.prototype.setGuid = function (gid) {
         console.log("guid: " + gid);
@@ -45,14 +77,22 @@ var PostBalanceComponent = /** @class */ (function () {
         this.blockchainService.getBalance(balrequest)
             .subscribe(function (messages) { return _this.balance = messages; }, function (error) { return console.error(error); });
     };
+    PostBalanceComponent.prototype.onStatusBalSubmit = function () {
+        this.date = Date.now();
+        this.username = "test";
+        console.log(this.username, this.date, this.title, this.text, this.balance, this.lat, this.long);
+        var newStatusPost = new status_model_1.BalStatus(this.username, this.date, this.title, this.text, this.balance, this.lat, this.long);
+        this.statusService.saveBalPost(newStatusPost)
+            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
+    };
     PostBalanceComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'balance',
             templateUrl: 'postbal.component.html',
-            providers: [blockchain_service_1.BlockchainService, profile_service_1.ProfileService]
+            providers: [blockchain_service_1.BlockchainService, profile_service_1.ProfileService, status_service_1.StatusService]
         }),
-        __metadata("design:paramtypes", [blockchain_service_1.BlockchainService, profile_service_1.ProfileService])
+        __metadata("design:paramtypes", [blockchain_service_1.BlockchainService, profile_service_1.ProfileService, status_service_1.StatusService])
     ], PostBalanceComponent);
     return PostBalanceComponent;
 }());

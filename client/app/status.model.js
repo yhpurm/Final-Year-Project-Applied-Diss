@@ -16,4 +16,17 @@ var Status = /** @class */ (function () {
     return Status;
 }());
 exports.Status = Status;
+var BalStatus = /** @class */ (function () {
+    function BalStatus(username, date, title, text, balance, lat, long) {
+        this.username = username;
+        this.date = date;
+        this.title = title;
+        this.text = text;
+        this.balance = balance;
+        this.lat = lat;
+        this.long = long;
+    }
+    return BalStatus;
+}());
+exports.BalStatus = BalStatus;
 //# sourceMappingURL=status.model.js.map
