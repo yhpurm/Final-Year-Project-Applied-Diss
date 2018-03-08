@@ -36,6 +36,7 @@ var ProfileComponent = /** @class */ (function () {
         }, function (error) { return console.error(error); });
     };
     Object.defineProperty(ProfileComponent.prototype, "user", {
+        // Functions to return what is in storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },
