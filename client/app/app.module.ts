@@ -10,7 +10,7 @@ import { FriendsComponent }  from './friends.component';
 import { FAQComponent } from './FAQ.component';
 import { ProfileComponent }  from './profile.component';
 import { CryptoMapComponent }  from './cryptomap.component';
-import { tradingComponent} from './trading.component';
+import { TradingComponent} from './trading.component';
 import { WalletComponent }  from './myWallet.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { SettingsComponent }  from './settings.component';
@@ -58,7 +58,7 @@ import { NotAuthGuard } from './guards/notauth.guard';
     MapsMenuComponent,
     NewWalletComponent,
     FAQComponent,
-    tradingComponent,
+    TradingComponent,
     SettingsComponent,
     RegisterComponent,
     WelcomeComponent,
