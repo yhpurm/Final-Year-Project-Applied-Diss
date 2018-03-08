@@ -10,34 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var trading_service_1 = require("./trading.service");
-var tradingComponent = /** @class */ (function () {
-    function tradingComponent(tradingService) {
-        this.tradingService = tradingService;
-        this.trading = [];
+var TradingComponent = /** @class */ (function () {
+    function TradingComponent() {
+        this.title = 'Trading';
     }
-    tradingComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
-        var imagePath = "\\avatars\\" + 1 + ".png";
-        console.log(imagePath);
-        // This service gets the logged in users trading
-        this.tradingService.getTrading()
-            .subscribe(function (tradings) {
-            _this.trading = tradings;
-            console.log("GET this users trading");
-        }, function (error) { return console.error(error); });
-    };
-    tradingComponent = __decorate([
+    TradingComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'trading',
             templateUrl: 'trading.component.html',
-            providers: [trading_service_1.tradingService]
+            styleUrls: ['trading.component.css']
         }),
-        __metadata("design:paramtypes", [trading_service_1.tradingService])
-    ], tradingComponent);
-    return tradingComponent;
+        __metadata("design:paramtypes", [])
+    ], TradingComponent);
+    return TradingComponent;
 }());
-exports.tradingComponent = tradingComponent;
+exports.TradingComponent = TradingComponent;
 //# sourceMappingURL=trading.component.js.map
