@@ -40,14 +40,30 @@ var PostStatusComponent = /** @class */ (function () {
     PostStatusComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
+        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
     PostStatusComponent.prototype.getLocation = function () {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(this.setPosition);
+        var _this = this;
+        if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(function (position) {
+                _this.geolocationPosition = position,
+                    console.log(position),
+                    _this.setPosition(position);
+            }, function (error) {
+                switch (error.code) {
+                    case 1:
+                        console.log('Permission Denied');
+                        break;
+                    case 2:
+                        console.log('Position Unavailable');
+                        break;
+                    case 3:
+                        console.log('Timeout');
+                        break;
+                }
+            });
         }
-        else {
-            alert("Geolocation is not supported by this browser.");
-        }
+        ;
     };
     PostStatusComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();

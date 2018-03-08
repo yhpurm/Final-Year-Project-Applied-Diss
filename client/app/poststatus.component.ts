@@ -27,6 +27,7 @@ export class PostStatusComponent implements OnInit {
   receivingAddress: string;
   lat: Number;
   long: Number;
+  geolocationPosition: Object;
 
   ngOnInit(){
 
@@ -56,14 +57,32 @@ export class PostStatusComponent implements OnInit {
 setPosition(position) {
   this.lat = position.coords.latitude;
   this.long = position.coords.longitude;
+  alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
 }
 
 getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(this.setPosition);
-  } else {
-    alert("Geolocation is not supported by this browser.");
-  }
+  if (window.navigator && window.navigator.geolocation) {
+    window.navigator.geolocation.getCurrentPosition(
+        position => {
+            this.geolocationPosition = position,
+                console.log(position),
+                this.setPosition(position)
+        },
+        error => {
+            switch (error.code) {
+                case 1:
+                    console.log('Permission Denied');
+                    break;
+                case 2:
+                    console.log('Position Unavailable');
+                    break;
+                case 3:
+                    console.log('Timeout');
+                    break;
+            }
+        }
+    );
+};
 }
 
 onStatusSubmit(){
@@ -76,6 +95,6 @@ onStatusSubmit(){
           () => console.log('POST from status'),
           error => console.error(error)
       );
-}
+  }
 }
 

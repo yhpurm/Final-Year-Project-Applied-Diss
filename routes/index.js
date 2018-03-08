@@ -183,8 +183,8 @@ router.get('/', function (req, res, next) {
 
 // status routes below
 
-router.post('/Tx/Status/post', function(req, res, next) {
-   
+router.post('/Tx/Status/reg', function(req, res, next) {
+    
     var status = new Status({
         username: req.body.username,
         date: req.body.date,
