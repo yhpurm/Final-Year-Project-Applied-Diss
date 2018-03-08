@@ -1,7 +1,9 @@
 import { Component,Input,Output,EventEmitter,ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StatusService } from "./status.service";
+import { ProfileService } from "./profile.service";
 import { Status } from "./status.model";
+import { Wallet } from "./myWallet.model";
 declare var google: any;
 var geocoder = new google.maps.Geocoder();
 
@@ -9,14 +11,15 @@ var geocoder = new google.maps.Geocoder();
   moduleId: module.id,
   selector: 'poststatus',
   templateUrl: 'poststatus.component.html',
-  providers: [StatusService]
+  providers: [StatusService,ProfileService]
 })
 
 export class PostStatusComponent implements OnInit { 
 
-  constructor(private statusService: StatusService) {}
+  constructor(private statusService: StatusService, private profileService: ProfileService) {}
   // Variables
   map: any;
+  wallets: Wallet [] = [];
   username: string;
   title: string;
   text: String;
@@ -30,6 +33,16 @@ export class PostStatusComponent implements OnInit {
   geolocationPosition: Object;
 
   ngOnInit(){
+
+    this.profileService.getMyWallets()
+        .subscribe(
+            response => {
+                this.wallets = response;
+                console.log(this.wallets);
+                console.log("got wallets");
+            },
+            error => console.error(error)
+         );
 
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
           zoom: 7,
@@ -53,6 +66,11 @@ export class PostStatusComponent implements OnInit {
     alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
 }
 
+setAddress(address: string){
+  console.log("address: " + address);
+  this.bitcoinAddress = address;
+  console.log(this.bitcoinAddress);
+}
 
 setPosition(position) {
   this.lat = position.coords.latitude;

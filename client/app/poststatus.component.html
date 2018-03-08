@@ -15,10 +15,24 @@
                                 <label for="inputdefault">Amount sent:</label>
                                 <input type="number" class="form-control" [(ngModel)]="sentAmount">
                             </div>
-                            <div class="form-group">
-                                <label for="inputdefault">Your/Sender address:</label>
-                                <input type="text" class="form-control" [(ngModel)]="bitcoinAddress">
-                            </div>
+                            <h2>Choose a wallet</h2>
+                            <table class="table table-hover" *ngFor="let value of wallets" >
+                                <thead>
+                                    <tr>
+                                        <th>SET ADDRESS</th>
+                                        <th>Address</th>
+                                        <th>Wallet label</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><button type = "button" (click)="setAddress(value.address)" class = "btn btn-primary">
+                                                Set</button></td>
+                                        <td>{{value.address}}</td>
+                                        <td>{{value.label}}</td>
+                                    </tr>
+                                </tbody>
+                           </table>
                             <div class="form-group">
                                 <label for="inputdefault">Recieving address:</label>
                                 <input type="text" class="form-control" [(ngModel)]="receivingAddress">

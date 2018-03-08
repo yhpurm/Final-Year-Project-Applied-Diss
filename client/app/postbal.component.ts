@@ -55,6 +55,5 @@ export class PostBalanceComponent implements OnInit {
             messages => this.balance = messages,
             error => console.error(error)
         );
-           
     }
 }

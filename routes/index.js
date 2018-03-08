@@ -184,12 +184,12 @@ router.get('/', function (req, res, next) {
 // status routes below
 
 router.post('/Tx/Status/reg', function(req, res, next) {
-    
+
     var status = new Status({
         username: req.body.username,
         date: req.body.date,
         title: req.body.title,
-        text: req.body.title,
+        text: req.body.text,
         valueAtTime: req.body.valueAtTime,
         sentAmount: req.body.sentAmount,
         bitcoinAddress: req.body.bitcoinAddress,
