@@ -4,7 +4,7 @@ import {HomeComponent} from './home.component';
 import {CryptoMapComponent} from './cryptomap.component';
 import {ProfileComponent} from './profile.component';
 import {FriendsComponent} from './friends.component';
-import {tradingComponent} from './trading.component';
+import {TradingComponent} from './trading.component';
 import {FAQComponent} from './FAQ.component';
 import { NewWalletComponent }  from './walletrequest.component';
 import { WalletComponent }  from './myWallet.component';
@@ -97,7 +97,7 @@ const appRoutes: Routes = [
     },
     {
         path: 'trading',
-        component: tradingComponent,
+        component: TradingComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {

@@ -97,7 +97,7 @@ var appRoutes = [
     },
     {
         path: 'trading',
-        component: trading_component_1.tradingComponent,
+        component: trading_component_1.TradingComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
