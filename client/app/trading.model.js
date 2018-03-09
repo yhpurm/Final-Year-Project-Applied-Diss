@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var trading = /** @class */ (function () {
-    function trading() {
+var Coin = /** @class */ (function () {
+    function Coin() {
     }
-    return trading;
+    return Coin;
 }());
-exports.trading = trading;
+exports.Coin = Coin;
 //# sourceMappingURL=trading.model.js.map

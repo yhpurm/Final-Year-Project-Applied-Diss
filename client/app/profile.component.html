@@ -10,38 +10,61 @@
     <div class="row panel">
       <div class="col-md-4 bg_blur ">
       </div>
-          <div class="col-md-8  col-xs-12">
-             <img src={{imagePath}} class="img-thumbnail" width="50" height="50">
-             <div class="header">
-                  <h2>{{ user }}</h2>
-                  <h4>About me:</h4>
-                  <p>{{ profile.aboutMe }}</p>
-                  <h5>Contact:</h5>
-                  <p>{{ useremail }}</p>
-             </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="well well-sm">
+                  <div class="row">
+                      <div class="col-sm-6 col-md-4">
+                          <img src="avatars/1.png" class="img-rounded img-responsive" />
+                      </div>
+                      <div class="col-sm-6 col-md-8">
+                          <h4>
+                              {{ user.username }}</h4>
+                          <p>
+                              <i class="glyphicon glyphicon-envelope"></i>{{ useremail.email }}
+                              <br />
+                              <i class="glyphicon glyphicon-globe">About Me:</i> {{ user.aboutMe }}
+                              <br />
+                          <!-- Split button -->
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-primary">
+                                  Options</button>
+                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                  <span class="caret"></span><span class="sr-only">Options</span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                  <li><a routerLink="/map" >Maps</a></li>
+                                  <li><a routerLink="/linkwallet">My Wallet</a></li>
+                                  <li><a routerLink="/settings">Settings</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
+      </div>
       </div>   
     <div class="row nav">    
           <div class="col-md-4"></div>
           <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
               <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-globe"></i> 16</div>
               <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-user"></i> 14</div>
-              <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-off"></i> Online </div>
+              <div class="col-md-4 col-xs-4 well" id="WalletJumbo"><i class="glyphicon glyphicon-off"></i> Online </div>
           </div>
       </div>
       <div>
         <h4>My Wallet</h4>
-          <div class="jumbotron" id="WalletJumbo">
+          <div class="jumbotron">
               <div class="container">
                 <h4>{{ profile.username }}'s Address</h4>
                         {{ profile.bitcoinAddress }}
               </div>
           </div>
       <h4>Status Section</h4>
-      <div class="jumbotron" id="StatusJumbo">
+      <div class="jumbotron">
           <div class="container">
             <h4>Status Name</h4>
-            Statuses goe here
+            Statuses go here
           </div>
         </div>
       </div>

@@ -69,7 +69,7 @@ var AppModule = /** @class */ (function () {
                 mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,
                 FAQ_component_1.FAQComponent,
-                trading_component_1.tradingComponent,
+                trading_component_1.TradingComponent,
                 settings_component_1.SettingsComponent,
                 register_component_1.RegisterComponent,
                 welcome_component_1.WelcomeComponent,

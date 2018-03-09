@@ -21,7 +21,10 @@ module.exports = (router) => {
                     let user = new User({
                      email: req.body.email.toLowerCase(),
                      username: req.body.username.toLowerCase(),
-                     password: req.body.password
+                     password: req.body.password,
+                     avatar: 1,
+                     aboutMe: "Hello",
+                     isOnline: true
                     });
                     user.save((err) => {
                         if (err) {
@@ -132,7 +135,8 @@ module.exports = (router) => {
                     res.json({ success: false, message: 'Password invalid' }); // Return error
                   } else {
                     const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); // Create a token for client
-                    res.json({ success: true, message: 'Success!', token: token, user: { username: user.username }, email: { email: user.email } }); // Return success and token to frontend
+                    res.json({ success: true, message: 'Success!', token: token, user: { username: user.username }, email: { email: user.email }, avatar: { avatar: user.avatar }, isOnline: { isOnline: user.isOnline }, aboutMe: { aboutMe: user.aboutMe } }); // Return success and token to frontend
+                    //res.json({ success: true, message: 'Success!', token: token, user: { user } }); // Return success and token to frontend                  
                   }
                 }
               }
@@ -140,25 +144,6 @@ module.exports = (router) => {
           }
         }
       });
-
-      /*router.use((req, res, next) => {
-        const token = req.headers['authorization']; // Create token found in headers
-        // Check if token was found in headers
-        if (!token) {
-          res.json({ success: false, message: 'No token provided' }); // Return error
-        } else {
-          // Verify the token is valid
-          jwt.verify(token, config.secret, (err, decoded) => {
-            // Check if error is expired or invalid
-            if (err) {
-              res.json({ success: false, message: 'Token invalid: ' + err }); // Return error for token validation
-            } else {
-              req.decoded = decoded; // Create global variable to use in any request beyond
-              next(); // Exit middleware
-            }
-          });
-        }
-      });*/
 
       router.get('/profile', (req, res) => {
         // Search for user in database
@@ -176,11 +161,6 @@ module.exports = (router) => {
           }
         });
       });
-
-
-      /*router.get('/profile', (req, res) => {
-        res.send('test');
-      });*/
     
 
     return router;
