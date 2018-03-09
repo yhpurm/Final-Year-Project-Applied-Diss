@@ -17,16 +17,23 @@ var ProfileComponent = /** @class */ (function () {
         this.profileService = profileService;
         this.authService = authService;
         this.profile = [];
+        this.wallets = [];
         this.long = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.profileService.getMyWallets()
+            .subscribe(function (response) {
+            _this.wallets = response;
+            console.log(_this.wallets);
+            console.log("got wallets");
+        }, function (error) { return console.error(error); });
         this.authService.getProfile().subscribe(function (profile) {
             _this.username = profile.user.username;
             _this.email = profile.user.email;
         });
         // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
-        var imagePath = "\\avatars\\" + 1 + ".png";
+        var imagePath = ".\avatars\\" + 1 + ".png";
         console.log(imagePath);
         // This service gets the logged in users profile
         this.profileService.getProfileByUsername(this.username)

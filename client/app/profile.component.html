@@ -52,20 +52,15 @@
               <div class="col-md-4 col-xs-4 well" id="WalletJumbo"><i class="glyphicon glyphicon-off"></i> Online </div>
           </div>
       </div>
-      <div>
-        <h4>My Wallet</h4>
-          <div class="jumbotron">
-              <div class="container">
-                <h4>{{ profile.username }}'s Address</h4>
-                        {{ profile.bitcoinAddress }}
-              </div>
+      <h4>{{ user.username }}'s Wallets</h4>
+        <div class="container" *ngFor="let value of wallets" >
+                {{ value.label }} : {{ value.address }} 
           </div>
-      <h4>Status Section</h4>
       <div class="jumbotron">
-          <div class="container">
+            <h4>Status Section</h4>
+            <div class="container">
             <h4>Status Name</h4>
             Statuses go here
-          </div>
         </div>
       </div>
   </div>

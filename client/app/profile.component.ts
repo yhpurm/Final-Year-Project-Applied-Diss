@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Profile} from "./profile.model";
 import { ProfileService } from "./profile.service";
 import { AuthService } from './services/auth.service';
+import { Wallet } from './mywallet.model';
 
 @Component({
   moduleId: module.id,
@@ -13,6 +14,7 @@ import { AuthService } from './services/auth.service';
 export class ProfileComponent implements OnInit { 
 
   profile: Profile[] = [];
+  wallets: Wallet[] = [];
   //username: string;
   fName: String;
   lName: String;
@@ -29,13 +31,23 @@ export class ProfileComponent implements OnInit {
   
   ngOnInit() {
 
+    this.profileService.getMyWallets()
+        .subscribe(
+            response => {
+                this.wallets = response;
+                console.log(this.wallets);
+                console.log("got wallets");
+            },
+            error => console.error(error)
+         );
+
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
       this.email = profile.user.email;
     });
     
     // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
-    var imagePath = "\\avatars\\" + 1 + ".png";
+    var imagePath = ".\avatars\\" + 1 + ".png";
     console.log(imagePath); 
 
     // This service gets the logged in users profile
