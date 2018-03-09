@@ -8,6 +8,8 @@ var Status= require('../models/statusModel');
 var BalStatus= require('../models/statusBalModel');
 var StatsStatus= require('../models/blockstatsModel');
 var Balance= require('../models/balanceModel');
+var PoolStatus= require('../models/statusPoolModel');
+var PriceStatus= require('../models/statusPriceModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -272,6 +274,68 @@ router.post('/Tx/Status/stats', function(req, res, next) {
 
     console.log(statusStats);
     statusStats.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/pool', function(req, res, next) {
+
+    var statusPool = new PoolStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        Unknown: req.body.Unknown,
+        GBMiners: req.body.GBMiners,
+        SlushPool: req.body.SlushPool,
+        KanoCKPool: req.body.KanoCKPool,
+        BitFury: req.body. BitFury,
+        AntPool: req.body.AntPool,
+        F2Pool: req.body.F2Pool,
+        ViaBTC: req.body.ViaBTC
+    });
+    console.log(statusPool);
+    statusPool.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/price', function(req, res, next) {
+
+    var statusPrice = new PriceStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        symbol: req.body.symbol,
+        last: req.body.last,
+        buy: req.body.buy,
+        sell: req.body.sell,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    console.log(statusPrice);
+    statusPrice.save(function(err, result) {
         if (err) {
             console.log(err);
             return res.status(500).json({

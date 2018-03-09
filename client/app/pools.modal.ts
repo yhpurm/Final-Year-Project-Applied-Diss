@@ -20,3 +20,19 @@ export class Pools {
         public BWCOM: number,
         public BTCcom: number) {}
 }
+
+export class PostPools {
+    constructor(
+        public username: string,
+        public date: number,
+        public title: string,
+        public text: string,
+        public Unknown: number,
+        public GBMiners: number,
+        public SlushPool: number,
+        public KanoCKPool: number,
+        public BitFury: number,
+        public AntPool: number,
+        public F2Pool: number,
+        public ViaBTC: number,) {}
+}

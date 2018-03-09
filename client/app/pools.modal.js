@@ -25,4 +25,22 @@ var Pools = /** @class */ (function () {
     return Pools;
 }());
 exports.Pools = Pools;
+var PostPools = /** @class */ (function () {
+    function PostPools(username, date, title, text, Unknown, GBMiners, SlushPool, KanoCKPool, BitFury, AntPool, F2Pool, ViaBTC) {
+        this.username = username;
+        this.date = date;
+        this.title = title;
+        this.text = text;
+        this.Unknown = Unknown;
+        this.GBMiners = GBMiners;
+        this.SlushPool = SlushPool;
+        this.KanoCKPool = KanoCKPool;
+        this.BitFury = BitFury;
+        this.AntPool = AntPool;
+        this.F2Pool = F2Pool;
+        this.ViaBTC = ViaBTC;
+    }
+    return PostPools;
+}());
+exports.PostPools = PostPools;
 //# sourceMappingURL=pools.modal.js.map

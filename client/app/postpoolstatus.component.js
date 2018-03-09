@@ -11,9 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var blockchain_service_1 = require("./blockchain.service");
+var status_service_1 = require("./status.service");
+var pools_modal_1 = require("./pools.modal");
 var PoolComponent = /** @class */ (function () {
-    function PoolComponent(blockchainService) {
+    function PoolComponent(blockchainService, statusService) {
         this.blockchainService = blockchainService;
+        this.statusService = statusService;
     }
     PoolComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -28,18 +31,25 @@ var PoolComponent = /** @class */ (function () {
             _this.BitFury = res.BitFury;
             _this.F2Pool = res.F2Pool;
             _this.ViaBTC = res.ViaBTC;
-            _this.CKPool = res.CKPool;
             _this.Unknown = res.Unknown;
         }, function (error) { return console.error("error:" + error); });
+    };
+    PoolComponent.prototype.onStatusPoolSubmit = function () {
+        this.date = Date.now();
+        this.username = "test";
+        var newStatusPost = new pools_modal_1.PostPools(this.username, this.date, this.title, this.text, this.Unknown, this.GBMiners, this.SlushPool, this.KanoPool, this.BitFury, this.AntPool, this.F2Pool, this.ViaBTC);
+        console.log(newStatusPost);
+        this.statusService.savePoolPost(newStatusPost)
+            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
     PoolComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'stats',
             templateUrl: 'postpoolstatus.component.html',
-            providers: [blockchain_service_1.BlockchainService]
+            providers: [blockchain_service_1.BlockchainService, status_service_1.StatusService]
         }),
-        __metadata("design:paramtypes", [blockchain_service_1.BlockchainService])
+        __metadata("design:paramtypes", [blockchain_service_1.BlockchainService, status_service_1.StatusService])
     ], PoolComponent);
     return PoolComponent;
 }());

@@ -7,15 +7,17 @@ var schema = new Schema({
     date: {type: Number, required: true},
     title: {type: String, required: true},
     text: {type: String, required: true},
-    valueAtTime: {type: Number},
-    sentAmount: {type: Number},
-    bitcoinAddress: {type: String, required: true},
-    receivingAddress: {type: String, required: true, unique : true},
-    lat: {type: Number, required: true}, 
-    long: {type: Number, required: true}
+    Unknown: {type: Number},
+    GBMiners: {type: Number},
+    SlushPool: {type: Number},
+    KanoCKPool: {type: Number},
+    BitFury: {type: Number},
+    AntPool: {type: Number},
+    F2Pool: {type: Number}, 
+    ViaBTC: {type: Number}
     },
-    { collection : 'Status' });
+    { collection : 'PoolStatus' });
 
 schema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('Status', schema);
+module.exports = mongoose.model('PoolStatus', schema);
