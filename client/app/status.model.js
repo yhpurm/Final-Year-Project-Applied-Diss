@@ -29,4 +29,18 @@ var BalStatus = /** @class */ (function () {
     return BalStatus;
 }());
 exports.BalStatus = BalStatus;
+var FlagStatus = /** @class */ (function () {
+    function FlagStatus(username, date, title, text, locationName, contact, lat, long) {
+        this.username = username;
+        this.date = date;
+        this.title = title;
+        this.text = text;
+        this.locationName = locationName;
+        this.contact = contact;
+        this.lat = lat;
+        this.long = long;
+    }
+    return FlagStatus;
+}());
+exports.FlagStatus = FlagStatus;
 //# sourceMappingURL=status.model.js.map

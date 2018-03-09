@@ -37,6 +37,7 @@ var blockstats_component_1 = require("./blockstats.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
 var postbal_component_1 = require("./postbal.component");
+var flag_component_1 = require("./flag.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
 var AppModule = /** @class */ (function () {
@@ -65,6 +66,7 @@ var AppModule = /** @class */ (function () {
                 poststatus_component_1.PostStatusComponent,
                 viewMap_component_1.ViewMapComponent,
                 sendbtc_component_1.SendBTCComponent,
+                flag_component_1.FlagComponent,
                 blockchainActivity_component_1.TransactionsComponent,
                 mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,

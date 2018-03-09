@@ -29,6 +29,7 @@ import { StatsComponent } from './blockstats.component'
 import { PoolComponent } from './postpoolstatus.component'
 import { SendBTCComponent } from './sendbtc.component'
 import { PostBalanceComponent } from './postbal.component';
+import { FlagComponent } from './flag.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
 
@@ -54,6 +55,7 @@ import { NotAuthGuard } from './guards/notauth.guard';
     PostStatusComponent,
     ViewMapComponent,
     SendBTCComponent,
+    FlagComponent,
     TransactionsComponent,
     MapsMenuComponent,
     NewWalletComponent,

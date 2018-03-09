@@ -8,6 +8,7 @@ import { BalStatus } from "./status.model";
 import { StatsStatus } from "./blockstats.modal";
 import { PostPools } from "./pools.modal";
 import { PostTicker } from './blockticker.modal';
+import { FlagStatus } from "./status.model";
 @Injectable()
 export class StatusService {
     // Http Contructor for setting up connection
@@ -89,6 +90,14 @@ export class StatusService {
         console.log(body);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/Tx/Status/price', body, {headers: headers});
+    }
+
+    saveFlagPost(Tx: FlagStatus): Observable<any> {
+        console.log(Tx);
+        const body = JSON.stringify(Tx);
+        console.log(body);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/Tx/Status/flag', body, {headers: headers});
     }
 
     saveTx(Tx: Status): Observable<any> {

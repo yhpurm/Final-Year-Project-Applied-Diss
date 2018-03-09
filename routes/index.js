@@ -10,6 +10,7 @@ var StatsStatus= require('../models/blockstatsModel');
 var Balance= require('../models/balanceModel');
 var PoolStatus= require('../models/statusPoolModel');
 var PriceStatus= require('../models/statusPriceModel');
+var FlagStatus= require('../models/FlagStatusModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -336,6 +337,35 @@ router.post('/Tx/Status/price', function(req, res, next) {
     });
     console.log(statusPrice);
     statusPrice.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/flag', function(req, res, next) {
+
+    var statusFlag= new FlagStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        locationName: req.body. locationName,
+        contact: req.body.contact,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    
+    console.log(statusFlag);
+    statusFlag.save(function(err, result) {
         if (err) {
             console.log(err);
             return res.status(500).json({
