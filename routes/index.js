@@ -6,6 +6,7 @@ var Profile = require('../models/profileModel');
 var Wallet = require('../models/myWalletModel');
 var Status= require('../models/statusModel');
 var BalStatus= require('../models/statusBalModel');
+var StatsStatus= require('../models/blockstatsModel');
 var Balance= require('../models/balanceModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
@@ -227,6 +228,50 @@ router.post('/Tx/Status/bal', function(req, res, next) {
     });
     console.log(statusBal);
     statusBal.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/stats', function(req, res, next) {
+    console.log(req.body.market_price_usd);
+    var statusStats = new StatsStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        market_price_usd: req.body.market_price_usd,
+        hash_rate: req.body.hash_rate,
+        total_fees_btc: req.body.total_fees_btc,
+        n_btc_mined: req.body.n_btc_mined, 
+        n_tx: req.body.n_tx,
+        n_blocks_mined: req.body.n_blocks_mined,
+        totalbc: req.body.totalbc,
+        n_blocks_total: req.body.n_blocks_total, 
+        estimated_transaction_volume_usd: req.body.estimated_transaction_volume_usd,
+        blocks_size: req.body.blocks_size,
+        miners_revenue_usd: req.body.miners_revenue_usd, 
+        nextretarget: req.body.nextretarget,
+        difficulty: req.body.difficulty,
+        estimated_btc_sent: req.body.estimated_btc_sent,
+        miners_revenue_btc: req.body.miners_revenue_btc,
+        total_btc_sent: req.body.total_btc_sent,
+        trade_volume_btc:  req.body.trade_volume_btc,
+        trade_volume_usd: req.body.trade_volume_usd,
+        timestamp: req.body.timestamp
+    });
+
+    console.log(statusStats);
+    statusStats.save(function(err, result) {
         if (err) {
             console.log(err);
             return res.status(500).json({

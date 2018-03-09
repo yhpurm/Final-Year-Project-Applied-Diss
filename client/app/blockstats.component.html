@@ -1,29 +1,35 @@
+<div class=container>
 <div class="row">
     <div class="col-md-3 col-md-offset-5">
         <p>Post about blockchain activity</p>
-        <textarea></textarea>
-              
-        <button type="button" class="btn btn-info">Info</button>
+        <div class="form-group">
+                <label for="inputdefault">Status title</label>
+                <input class="form-control" [(ngModel)]="title" id="inputdefault" type="text">
+            </div>
+            <div class="form-group">
+                <label for="inputdefault">Status text:</label>
+                <input type="text" class="form-control" [(ngModel)]="text">
+            </div>
+            <button id="submitBtn" class="btn btn-primary" (click)="onStatusSubmit()">Post status</button>
     </div>
 </div>
-
-
- <p>{{ market_price_usd }}</p>                    
- <p>{{ hash_rate }} </p>              
- <p>{{ total_fees_btc }} </p>                
- <p>{{ n_btc_mined }}  </p>             
- <p>{{ n_tx }}   </p>                   
- <p>{{ totalbc }}    </p>                     
- <p>{{ n_blocks_total }}  </p>            
- <p>{{ estimated_transaction_volume_usd }} </p> 
- <p>{{ blocks_size }}   </p>            
- <p>{{ miners_revenue_usd }}   </p>      
- <p>{{ nextretarget }}    </p> 
- <p>{{ difficulty }}    </p>            
- <p>{{ estimated_btc_sent }}    </p>        
- <p>{{ miners_revenue_btc }}    </p>  
- <p>{{ total_btc_sent }}    </p>        
- <p>{{ trade_volume_btc }}    </p>       
- <p>{{ trade_volume_usd }}    </p>      
- <p>{{ timestamp }}    </p>            
-           
+<h2>Most recent blockchain activity</h2>
+ <p>Price in USD: {{ market_price_usd }}</p>                    
+ <p>Hash rate: {{ hash_rate }} </p>              
+ <p>Total fees BTC: {{ total_fees_btc }} </p>                
+ <p>BTC Mined: {{ n_btc_mined }}  </p>             
+ <p>Transactions: {{ n_tx }}   </p>                   
+ <p>Total BTC: {{ totalbc }}    </p>                     
+ <p>Total block: {{ n_blocks_total }}  </p>            
+ <p>Trans vol{{ estimated_transaction_volume_usd }} </p> 
+ <p>Block size: {{ blocks_size }}   </p>            
+ <p>Miner rev: {{ miners_revenue_usd }}   </p>      
+ <p>Next target: {{ nextretarget }}    </p> 
+ <p>diff: {{ difficulty }}    </p>            
+ <p>BTC sent{{ estimated_btc_sent }}    </p>        
+ <p>Miner rev btc: {{ miners_revenue_btc }}    </p>  
+ <p>total btc: {{ total_btc_sent }}    </p>        
+ <p>trade vol: {{ trade_volume_btc }}    </p>       
+ <p>trade vol usd: {{ trade_volume_usd }}    </p>      
+ <p>timestamp: {{ timestamp }}    </p>   
+</div>         

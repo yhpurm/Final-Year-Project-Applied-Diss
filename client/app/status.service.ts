@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 
 import { Status } from "./status.model";
 import { BalStatus } from "./status.model";
-
+import { StatsStatus } from "./blockstats.modal";
 @Injectable()
 export class StatusService {
     // Http Contructor for setting up connection
@@ -63,6 +63,14 @@ export class StatusService {
         console.log(body);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/Tx/Status/bal', body, {headers: headers});
+    }
+
+    saveStatsPost(Tx: StatsStatus): Observable<any> {
+        console.log(Tx);
+        const body = JSON.stringify(Tx);
+        console.log(body);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/Tx/Status/stats', body, {headers: headers});
     }
 
     saveTx(Tx: Status): Observable<any> {
