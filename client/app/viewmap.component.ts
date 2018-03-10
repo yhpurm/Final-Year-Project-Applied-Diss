@@ -4,6 +4,7 @@ import { ProfileService } from "./profile.service";
 import { Profile } from "./profile.model";
 import { StatusService } from "./status.service";
 import { Status } from "./status.model";
+import { AuthService } from './services/auth.service';
 
 declare var google: any;
 
@@ -15,10 +16,12 @@ declare var google: any;
 })
 
 export class ViewMapComponent implements OnInit {
-
-  constructor(private profileService: ProfileService,private statusService: StatusService) {}
-  // Variables
   map: any;
+  username: string;
+  constructor(private profileService: ProfileService,
+    private authService: AuthService,
+    private statusService: StatusService) {}
+
   
   ngOnInit() {
     
@@ -26,6 +29,33 @@ export class ViewMapComponent implements OnInit {
           zoom: 12,
           center: {lat: 53.1424, lng: -7.6921}
     });
+
+    this.authService.getProfile().subscribe(profile => {
+      this.username = profile.user.username;
+    });
+
+    console.log(this.username);
    
+    // This service gets the logged in users profile
+    this.statusService.getStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("lat status:" + status.lat);
+            console.log("long status:" + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
    }
+
  }

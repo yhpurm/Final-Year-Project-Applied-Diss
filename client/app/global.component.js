@@ -10,35 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
 var mlabs_service_1 = require("./mlabs.service");
-var auth_service_1 = require("./services/auth.service");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(router, mlabsService, authService) {
-        this.router = router;
+var GlobalComponent = /** @class */ (function () {
+    function GlobalComponent(mlabsService) {
         this.mlabsService = mlabsService;
-        this.authService = authService;
-        this.profile = [];
+        this.profiles = [];
     }
-    AppComponent.prototype.onLogoutClick = function () {
-        this.authService.logout();
-        this.router.navigate(['/']);
+    GlobalComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.mlabsService.getGlobalUsers()
+            .subscribe(function (res) {
+            console.log(res);
+            _this.profiles = res;
+            console.log(_this.profiles);
+        }, function (error) { return console.error("error:" + error); });
     };
-    AppComponent.prototype.goToSearch = function (search) {
-        console.log(search);
-        this.word = search;
-        this.router.navigateByUrl("/search?word=" + this.word);
-    };
-    AppComponent = __decorate([
+    GlobalComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
+            selector: 'Global',
+            templateUrl: 'global.component.html',
             providers: [mlabs_service_1.MlabsService]
         }),
-        __metadata("design:paramtypes", [router_1.Router, mlabs_service_1.MlabsService, auth_service_1.AuthService])
-    ], AppComponent);
-    return AppComponent;
+        __metadata("design:paramtypes", [mlabs_service_1.MlabsService])
+    ], GlobalComponent);
+    return GlobalComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.GlobalComponent = GlobalComponent;
+//# sourceMappingURL=global.component.js.map

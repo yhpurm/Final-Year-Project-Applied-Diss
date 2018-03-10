@@ -23,6 +23,7 @@ import { PostBalanceComponent } from './postbal.component';
 import { PoolComponent } from './postpoolstatus.component';
 import { SendBTCComponent } from './sendbtc.component';
 import { FlagComponent } from './flag.component';
+import { GlobalComponent } from './global.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
 
@@ -44,6 +45,11 @@ const appRoutes: Routes = [
     {
         path:'flaglocation',
         component: FlagComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path:'global',
+        component: GlobalComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {

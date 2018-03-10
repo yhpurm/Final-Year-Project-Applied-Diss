@@ -56,11 +56,16 @@
         <div class="container" *ngFor="let value of wallets" >
                 {{ value.label }} : {{ value.address }} 
           </div>
-      <div class="jumbotron">
-            <h4>Status Section</h4>
+      <h1>Status Section</h1>
+      <div class="jumbotron" *ngFor="let value of status">
             <div class="container">
-            <h4>Status Name</h4>
-            Statuses go here
+            <h4>value.title</h4>
+            <p>value.text</p> 
+            <p>BTC value: value.valueAtTime</p> 
+            <p>from: value.bitcoinAddress</p> 
+            <p>to: value.receivingAddress</p> 
+            <p>by value.username</p> 
+            <p>by value.date</p> 
         </div>
       </div>
   </div>

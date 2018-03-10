@@ -120,16 +120,21 @@ router.post('/Wallet/balance', function (req, res, next) {
 
 });
 
-global.get('/globalusers', function(req, res, next){
-    console.log('Get request for all users');
-    Profile.find({})
-    .exec(function(err, profile){
-        if(err){
-            res.send("Error retrieving users");
-        }else{
-            res.json(profile);
-        }
-    })
+// Getting crypto profile from db
+router.get('/globalusers', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("users").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
 });
 
 // Getting crypto profile from db
@@ -137,18 +142,16 @@ router.get('/globalusers/:username', function(req, res, next) {
     console.log("gothere!!!");
     var username = req.params.username;
     console.log(username);
-    profile = new Profile;
 
-    console.log(database);
-    database.collection("users").find({ username: username }, { username: 1, aboutMe: 1, bitcoinAddress: 1 }).toArray(function(err, result) {
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("users").find({ username: username }).toArray(function(err, result) {
         if (err) throw err;
-        console.log(result);
-        profile = result;
+        processResponse(result);
     });
-
-    // Getting searched user from database
-    console.log("profile: " + profile);
-    console.log("process mlabs done");
 });
 
 // Getting crypto profile from db
@@ -376,6 +379,21 @@ router.post('/Tx/Status/flag', function(req, res, next) {
         console.log(result);
         res.status(201).json({
             message: 'Saved data successfully'
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/:user', function(req, res, next) {
+    Status.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
         });
     });
 });

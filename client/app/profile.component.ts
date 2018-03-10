@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { Profile} from "./profile.model";
 import { ProfileService } from "./profile.service";
+import { StatusService } from "./status.service";
+import { Status } from "./status.model";
 import { AuthService } from './services/auth.service';
 import { Wallet } from './mywallet.model';
 
@@ -8,13 +10,14 @@ import { Wallet } from './mywallet.model';
   moduleId: module.id,
   selector: 'Profile',
   templateUrl: 'profile.component.html',
-  providers: [ProfileService]
+  providers: [ProfileService,StatusService]
 })
 
 export class ProfileComponent implements OnInit { 
 
   profile: Profile[] = [];
   wallets: Wallet[] = [];
+  status: Status[] = [];
   //username: string;
   fName: String;
   lName: String;
@@ -27,6 +30,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
+    private statusService: StatusService,
     private authService: AuthService) { }
   
   ngOnInit() {
@@ -59,6 +63,17 @@ export class ProfileComponent implements OnInit {
         },
         error => console.error(error)
      );
+
+     // This service gets the logged in users profile
+     this.statusService.getStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.status = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
+
     }
 
     // Functions to return what is in storage
@@ -82,4 +97,5 @@ export class ProfileComponent implements OnInit {
       return JSON.parse(localStorage.getItem('isOnline'));
     }
 
+    
   }

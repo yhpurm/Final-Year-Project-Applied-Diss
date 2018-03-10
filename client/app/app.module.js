@@ -38,6 +38,7 @@ var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
 var postbal_component_1 = require("./postbal.component");
 var flag_component_1 = require("./flag.component");
+var global_component_1 = require("./global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
 var AppModule = /** @class */ (function () {
@@ -62,6 +63,7 @@ var AppModule = /** @class */ (function () {
                 requestbitcoin_component_1.RequestComponent,
                 postpoolstatus_component_1.PoolComponent,
                 postbal_component_1.PostBalanceComponent,
+                global_component_1.GlobalComponent,
                 MlabsSearchResults_component_1.MlabsSearchComponent,
                 poststatus_component_1.PostStatusComponent,
                 viewMap_component_1.ViewMapComponent,

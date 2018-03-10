@@ -29,7 +29,7 @@ export class MlabsSearchComponent implements OnInit {
         res => {
                 console.log(res);
                 this.profiles = res;
-                
+                console.log(this.profiles);
            },
            error => console.error("error:" + error)
         );

@@ -15,8 +15,8 @@ export class MlabsService {
                 const extracted = data.json();
                 const msgArray: Profile[] = [];
                 let message;
-                for (let element of extracted.data) {
-                    console.log(element.firstName);
+                for (let element of extracted) {
+                    console.log(element.username);
                     message = new Profile(element.username, element.aboutMe, element.avatar, element.statusCount ,element.friendCount,element.isOnline,element.bitcoinAddress,element.email,element.lat,element.long);
                     msgArray.push(message);
                 }
@@ -30,12 +30,14 @@ export class MlabsService {
                 const extracted = data.json();
                 const msgArray: Profile[] = [];
                 let message;
-                for (let element of extracted.data) {
-                    console.log(element.firstName);
+                console.log(extracted);
+                console.log(extracted.username);
+                for (let element of extracted) {
+                    console.log(element.username);
                     message = new Profile(element.username, element.aboutMe, element.avatar, element.statusCount ,element.friendCount,element.isOnline,element.bitcoinAddress,element.email,element.lat,element.long);
                     msgArray.push(message);
                 }
-                return msgArray;
+                return  msgArray;
             });
     }
 }

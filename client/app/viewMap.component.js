@@ -12,16 +12,40 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var profile_service_1 = require("./profile.service");
 var status_service_1 = require("./status.service");
+var auth_service_1 = require("./services/auth.service");
 var ViewMapComponent = /** @class */ (function () {
-    function ViewMapComponent(profileService, statusService) {
+    function ViewMapComponent(profileService, authService, statusService) {
         this.profileService = profileService;
+        this.authService = authService;
         this.statusService = statusService;
     }
     ViewMapComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
             zoom: 12,
             center: { lat: 53.1424, lng: -7.6921 }
         });
+        this.authService.getProfile().subscribe(function (profile) {
+            _this.username = profile.user.username;
+        });
+        console.log(this.username);
+        // This service gets the logged in users profile
+        this.statusService.getStatusByUsername(this.username)
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("lat status:" + status.lat);
+                console.log("long status:" + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("text:" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
     };
     ViewMapComponent = __decorate([
         core_1.Component({
@@ -30,7 +54,9 @@ var ViewMapComponent = /** @class */ (function () {
             templateUrl: 'viewMap.component.html',
             providers: [profile_service_1.ProfileService, status_service_1.StatusService]
         }),
-        __metadata("design:paramtypes", [profile_service_1.ProfileService, status_service_1.StatusService])
+        __metadata("design:paramtypes", [profile_service_1.ProfileService,
+            auth_service_1.AuthService,
+            status_service_1.StatusService])
     ], ViewMapComponent);
     return ViewMapComponent;
 }());

@@ -24,9 +24,9 @@ var MlabsService = /** @class */ (function () {
             var extracted = data.json();
             var msgArray = [];
             var message;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
-                console.log(element.firstName);
+            for (var _i = 0, extracted_1 = extracted; _i < extracted_1.length; _i++) {
+                var element = extracted_1[_i];
+                console.log(element.username);
                 message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
                 msgArray.push(message);
             }
@@ -39,9 +39,11 @@ var MlabsService = /** @class */ (function () {
             var extracted = data.json();
             var msgArray = [];
             var message;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
-                console.log(element.firstName);
+            console.log(extracted);
+            console.log(extracted.username);
+            for (var _i = 0, extracted_2 = extracted; _i < extracted_2.length; _i++) {
+                var element = extracted_2[_i];
+                console.log(element.username);
                 message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
                 msgArray.push(message);
             }

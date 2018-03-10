@@ -11,13 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var profile_service_1 = require("./profile.service");
+var status_service_1 = require("./status.service");
 var auth_service_1 = require("./services/auth.service");
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(profileService, authService) {
+    function ProfileComponent(profileService, statusService, authService) {
         this.profileService = profileService;
+        this.statusService = statusService;
         this.authService = authService;
         this.profile = [];
         this.wallets = [];
+        this.status = [];
         this.long = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
@@ -40,6 +43,12 @@ var ProfileComponent = /** @class */ (function () {
             .subscribe(function (profiles) {
             _this.profile = profiles;
             console.log("GET this users profile");
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.status = res;
+            console.log(_this.status);
         }, function (error) { return console.error(error); });
     };
     Object.defineProperty(ProfileComponent.prototype, "user", {
@@ -83,9 +92,10 @@ var ProfileComponent = /** @class */ (function () {
             moduleId: module.id,
             selector: 'Profile',
             templateUrl: 'profile.component.html',
-            providers: [profile_service_1.ProfileService]
+            providers: [profile_service_1.ProfileService, status_service_1.StatusService]
         }),
         __metadata("design:paramtypes", [profile_service_1.ProfileService,
+            status_service_1.StatusService,
             auth_service_1.AuthService])
     ], ProfileComponent);
     return ProfileComponent;
