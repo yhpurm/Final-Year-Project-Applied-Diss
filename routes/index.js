@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
+var Friend = require('../models/friendsModel');
 var Wallet = require('../models/myWalletModel');
 var Status= require('../models/statusModel');
 var BalStatus= require('../models/statusBalModel');
@@ -119,6 +120,62 @@ router.post('/Wallet/balance', function (req, res, next) {
     
 
 });
+
+router.post('/AddFriend', function(req, res, next) {
+    console.log(req.body.username);
+    console.log(req.body.aboutMe);
+    console.log(req.body.avater);
+    console.log(req.body.statusCount);
+    console.log(req.body.friendCount);
+    console.log(req.body.isOnline);
+    console.log(req.body.bitcoinAddress);
+    console.log(req.body.email);
+    console.log(req.body.lat);
+    console.log(req.body.long);
+
+    var friend = new Friend({
+        username: req.body.username,
+        aboutMe: req.body.aboutMe,
+        avatar: req.body.avater,
+        statusCount: req.body.statusCount,
+        friendCount: req.body.friendCount,
+        isOnline: req.body.isOnline,
+        bitcoinAddress: req.body.bitcoinAddress,
+        email: req.body.email,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    
+    friend.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+// Get wallets
+router.get('/Friends', function(req, res, next) {
+    Friend.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
 
 // Getting crypto profile from db
 router.get('/globalusers', function(req, res, next) {

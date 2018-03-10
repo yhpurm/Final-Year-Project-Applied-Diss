@@ -34,6 +34,21 @@ var ProfileService = /** @class */ (function () {
             return msgArray;
         });
     };
+    ProfileService.prototype.getFriends = function () {
+        return this.http.get('http://localhost:3000/Friends')
+            .map(function (data) {
+            var extracted = data.json();
+            var msgArray = [];
+            var message;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                console.log(element.firstName);
+                message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
+                msgArray.push(message);
+            }
+            return msgArray;
+        });
+    };
     ProfileService.prototype.getMyWallets = function () {
         return this.http.get('http://localhost:3000/wallets/all')
             .map(function (data) {
@@ -50,6 +65,13 @@ var ProfileService = /** @class */ (function () {
             }
             return msgArray;
         });
+    };
+    ProfileService.prototype.addFriend = function (friend) {
+        console.log(friend);
+        var body = JSON.stringify(friend);
+        console.log(body);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.post('http://localhost:3000/AddFriend', body, { headers: headers });
     };
     ProfileService = __decorate([
         core_1.Injectable(),
