@@ -4,8 +4,8 @@ import {IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from 'angul
 
 @Component({
   selector: 'app-search-filter',
-  templateUrl: './search-filter.component.html',
-  styleUrls: ['./search-filter.component.css'],
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css'],
   providers: []
 })
 export class SearchFilterComponent implements OnInit {

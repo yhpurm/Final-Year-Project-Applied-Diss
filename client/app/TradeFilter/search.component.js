@@ -64,8 +64,8 @@ var SearchFilterComponent = /** @class */ (function () {
     SearchFilterComponent = __decorate([
         core_1.Component({
             selector: 'app-search-filter',
-            templateUrl: './search-filter.component.html',
-            styleUrls: ['./search-filter.component.css'],
+            templateUrl: './search.component.html',
+            styleUrls: ['./search.component.css'],
             providers: []
         }),
         __metadata("design:paramtypes", [trading_service_1.AppService])

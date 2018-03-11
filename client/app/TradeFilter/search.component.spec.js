@@ -20,4 +20,4 @@ describe('SearchFilterComponent', function () {
         expect(component).toBeTruthy();
     });
 });
-//# sourceMappingURL=search.component.spect.js.map
+//# sourceMappingURL=search.component.spec.js.map
