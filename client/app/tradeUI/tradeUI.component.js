@@ -13,7 +13,7 @@ var DashboardComponent = /** @class */ (function () {
     }
     DashboardComponent = __decorate([
         core_1.Component({
-            selector: 'TradeUI',
+            selector: 'app-trade',
             templateUrl: './tradeUI.component.html',
             styleUrls: ['./tradeUi.component.css'],
             providers: [trading_service_1.AppService]
