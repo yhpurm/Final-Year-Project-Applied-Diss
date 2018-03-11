@@ -1,0 +1,19 @@
+<div class="">
+	<form>
+		<div class="form-group">
+			<select id="selectedCurrency" name="selectedCurrency" [(ngModel)]="selectedCurrency"
+				(change)="selectCurrency($event.target.value)" class="form-control"
+				id="fiat">
+				<option value="">Select fiat currency</option>
+				<option *ngFor="let currency of currencies" value="{{currency}}">{{currency.toUpperCase()}}</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<ss-multiselect-dropdown id="cryptocurrencies"
+				name="cryptocurrencies" [texts]="myTexts" [settings]="mySettings"
+				[options]="cryptoCurrOptions" [(ngModel)]="optionsModel"
+				(ngModelChange)="filterChange($event)"></ss-multiselect-dropdown>
+		</div>
+	</form>
+</div>
