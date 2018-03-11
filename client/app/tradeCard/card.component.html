@@ -1,0 +1,11 @@
+<div class="card text-center mt-4">
+	<div class="card-body">
+		<h4 class="card-title">{{ coin.id }}</h4>
+		<h6 class="mb-0 pb-1">{{fiat.toUpperCase()}} {{ coin['price_'+fiat] }}</h6>
+	</div>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item">24 hours: <span [class]="coin.percent_change_24h.charAt(0)==='-' ? 'red' : 'green' ">{{ coin.percent_change_24h
+			}}</span></li>
+		<li class="list-group-item">7 days: <span [class]="coin.percent_change_24h.charAt(0)==='-' ? 'red' : 'green' ">{{ coin.percent_change_7d }}</span></li>
+	</ul>
+</div>
