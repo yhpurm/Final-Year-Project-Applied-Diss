@@ -201,11 +201,14 @@ router.get('/globalusers/:username', function(req, res, next) {
     console.log(username);
 
     function processResponse(resp) {
+        console.log(resp);
         res.json(resp);
         console.log("process mlabs done");
     }
 
-    database.collection("users").find({ username: username }).toArray(function(err, result) {
+    var search = '.*' + username + '*.';
+    console.log(search);
+    database.collection("users").find({ username: {'$regex': search}}).toArray(function(err, result) {
         if (err) throw err;
         processResponse(result);
     });
