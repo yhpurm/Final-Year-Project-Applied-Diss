@@ -46,5 +46,7 @@ export class StatsStatus {
         public total_btc_sent: number,
         public trade_volume_btc: number,
         public trade_volume_usd: number,
-        public timestamp: number) {}
+        public timestamp: number,
+        public lat: number,
+        public long: number) {}
 }

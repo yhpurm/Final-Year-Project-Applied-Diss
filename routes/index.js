@@ -333,7 +333,9 @@ router.post('/Tx/Status/stats', function(req, res, next) {
         total_btc_sent: req.body.total_btc_sent,
         trade_volume_btc:  req.body.trade_volume_btc,
         trade_volume_usd: req.body.trade_volume_usd,
-        timestamp: req.body.timestamp
+        timestamp: req.body.timestamp,
+        lat: req.body.lat,
+        long: req.body.long
     });
 
     console.log(statusStats);
@@ -366,8 +368,11 @@ router.post('/Tx/Status/pool', function(req, res, next) {
         BitFury: req.body. BitFury,
         AntPool: req.body.AntPool,
         F2Pool: req.body.F2Pool,
-        ViaBTC: req.body.ViaBTC
+        ViaBTC: req.body.ViaBTC,
+        lat: req.body.lat,
+        long: req.body.long
     });
+
     console.log(statusPool);
     statusPool.save(function(err, result) {
         if (err) {
@@ -457,6 +462,82 @@ router.get('/Tx/Local/:user', function(req, res, next) {
         });
     });
 });
+
+// Get logged in statuses
+router.get('/Tx/Local/bal/:user', function(req, res, next) {
+    BalStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/stats/:user', function(req, res, next) {
+    StatsStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/pools/:user', function(req, res, next) {
+    StatsStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/price/:user', function(req, res, next) {
+    PriceStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/flag/:user', function(req, res, next) {
+    FlagStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
 
 // Getting crypto profile from db
 router.get('/login/profile/:username', function(req, res, next) {

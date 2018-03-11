@@ -34,5 +34,7 @@ export class PostPools {
         public BitFury: number,
         public AntPool: number,
         public F2Pool: number,
-        public ViaBTC: number,) {}
+        public ViaBTC: number,
+        public lat: number,
+        public long: number) {}
 }

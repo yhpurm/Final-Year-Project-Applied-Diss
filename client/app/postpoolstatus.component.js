@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var blockchain_service_1 = require("./blockchain.service");
 var status_service_1 = require("./status.service");
 var pools_modal_1 = require("./pools.modal");
+var geocoder = new google.maps.Geocoder();
 var PoolComponent = /** @class */ (function () {
     function PoolComponent(blockchainService, statusService) {
         this.blockchainService = blockchainService;
@@ -34,10 +35,39 @@ var PoolComponent = /** @class */ (function () {
             _this.Unknown = res.Unknown;
         }, function (error) { return console.error("error:" + error); });
     };
+    PoolComponent.prototype.setPosition = function (position) {
+        this.lat = position.coords.latitude;
+        this.long = position.coords.longitude;
+        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+    };
+    PoolComponent.prototype.getLocation = function () {
+        var _this = this;
+        if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(function (position) {
+                _this.geolocationPosition = position,
+                    console.log(position),
+                    _this.setPosition(position);
+            }, function (error) {
+                switch (error.code) {
+                    case 1:
+                        console.log('Permission Denied');
+                        break;
+                    case 2:
+                        console.log('Position Unavailable');
+                        break;
+                    case 3:
+                        console.log('Timeout');
+                        break;
+                }
+            });
+        }
+        ;
+    };
     PoolComponent.prototype.onStatusPoolSubmit = function () {
         this.date = Date.now();
+        this.getLocation();
         this.username = "test";
-        var newStatusPost = new pools_modal_1.PostPools(this.username, this.date, this.title, this.text, this.Unknown, this.GBMiners, this.SlushPool, this.KanoPool, this.BitFury, this.AntPool, this.F2Pool, this.ViaBTC);
+        var newStatusPost = new pools_modal_1.PostPools(this.username, this.date, this.title, this.text, this.Unknown, this.GBMiners, this.SlushPool, this.KanoPool, this.BitFury, this.AntPool, this.F2Pool, this.ViaBTC, this.lat, this.long);
         console.log(newStatusPost);
         this.statusService.savePoolPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });

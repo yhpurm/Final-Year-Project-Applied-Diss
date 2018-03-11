@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var blockchain_service_1 = require("./blockchain.service");
 var status_service_1 = require("./status.service");
 var blockstats_modal_1 = require("./blockstats.modal");
+var geocoder = new google.maps.Geocoder();
 var StatsComponent = /** @class */ (function () {
     function StatsComponent(blockchainService, statusService) {
         this.blockchainService = blockchainService;
@@ -44,10 +45,38 @@ var StatsComponent = /** @class */ (function () {
             _this.timestamp = res.timestamp;
         }, function (error) { return console.error("error:" + error); });
     };
+    StatsComponent.prototype.setPosition = function (position) {
+        this.lat = position.coords.latitude;
+        this.long = position.coords.longitude;
+        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+    };
+    StatsComponent.prototype.getLocation = function () {
+        var _this = this;
+        if (window.navigator && window.navigator.geolocation) {
+            window.navigator.geolocation.getCurrentPosition(function (position) {
+                _this.geolocationPosition = position,
+                    console.log(position),
+                    _this.setPosition(position);
+            }, function (error) {
+                switch (error.code) {
+                    case 1:
+                        console.log('Permission Denied');
+                        break;
+                    case 2:
+                        console.log('Position Unavailable');
+                        break;
+                    case 3:
+                        console.log('Timeout');
+                        break;
+                }
+            });
+        }
+        ;
+    };
     StatsComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
         this.username = "test";
-        var newStatusPost = new blockstats_modal_1.StatsStatus(this.username, this.date, this.title, this.text, this.market_price_usd, this.hash_rate, this.total_fees_btc, this.n_btc_mined, this.n_tx, this.n_blocks_mined, this.totalbc, this.n_blocks_total, this.estimated_transaction_volume_usd, this.blocks_size, this.miners_revenue_usd, this.nextretarget, this.difficulty, this.estimated_btc_sent, this.miners_revenue_btc, this.total_btc_sent, this.trade_volume_btc, this.trade_volume_btc, this.timestamp);
+        var newStatusPost = new blockstats_modal_1.StatsStatus(this.username, this.date, this.title, this.text, this.market_price_usd, this.hash_rate, this.total_fees_btc, this.n_btc_mined, this.n_tx, this.n_blocks_mined, this.totalbc, this.n_blocks_total, this.estimated_transaction_volume_usd, this.blocks_size, this.miners_revenue_usd, this.nextretarget, this.difficulty, this.estimated_btc_sent, this.miners_revenue_btc, this.total_btc_sent, this.trade_volume_btc, this.trade_volume_btc, this.timestamp, this.lat, this.long);
         console.log(newStatusPost);
         this.statusService.saveStatsPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });

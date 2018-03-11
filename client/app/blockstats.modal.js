@@ -27,7 +27,7 @@ var Stats = /** @class */ (function () {
 }());
 exports.Stats = Stats;
 var StatsStatus = /** @class */ (function () {
-    function StatsStatus(username, date, title, text, market_price_usd, hash_rate, total_fees_btc, n_btc_mined, n_tx, n_blocks_mined, totalbc, n_blocks_total, estimated_transaction_volume_usd, blocks_size, miners_revenue_usd, nextretarget, difficulty, estimated_btc_sent, miners_revenue_btc, total_btc_sent, trade_volume_btc, trade_volume_usd, timestamp) {
+    function StatsStatus(username, date, title, text, market_price_usd, hash_rate, total_fees_btc, n_btc_mined, n_tx, n_blocks_mined, totalbc, n_blocks_total, estimated_transaction_volume_usd, blocks_size, miners_revenue_usd, nextretarget, difficulty, estimated_btc_sent, miners_revenue_btc, total_btc_sent, trade_volume_btc, trade_volume_usd, timestamp, lat, long) {
         this.username = username;
         this.date = date;
         this.title = title;
@@ -51,6 +51,8 @@ var StatsStatus = /** @class */ (function () {
         this.trade_volume_btc = trade_volume_btc;
         this.trade_volume_usd = trade_volume_usd;
         this.timestamp = timestamp;
+        this.lat = lat;
+        this.long = long;
     }
     return StatsStatus;
 }());

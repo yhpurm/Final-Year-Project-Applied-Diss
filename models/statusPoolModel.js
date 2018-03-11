@@ -14,7 +14,9 @@ var schema = new Schema({
     BitFury: {type: Number},
     AntPool: {type: Number},
     F2Pool: {type: Number}, 
-    ViaBTC: {type: Number}
+    ViaBTC: {type: Number},
+    lat: {type: Number}, 
+    long: {type: Number}
     },
     { collection : 'PoolStatus' });
 

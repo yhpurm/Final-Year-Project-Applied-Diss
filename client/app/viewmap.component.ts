@@ -10,8 +10,8 @@ declare var google: any;
 
 @Component({
   moduleId: module.id,
-  selector: 'viewMap',
-  templateUrl: 'viewMap.component.html',
+  selector: 'viewmap',
+  templateUrl: 'viewmap.component.html',
   providers: [ProfileService,StatusService]
 })
 
@@ -36,13 +36,12 @@ export class ViewMapComponent implements OnInit {
 
     console.log(this.username);
    
-    // This service gets the logged in users profile
+    // This service gets the logged in users posted statuses
     this.statusService.getStatusByUsername(this.username)
     .subscribe(
         res => {
             res.forEach(status => {
-            console.log("lat status:" + status.lat);
-            console.log("long status:" + status.long);
+            console.log("normal status:" + status);
             var location = {lat: status.lat, lng: status.long};
             var marker = new google.maps.Marker({
             position: location, 
@@ -56,6 +55,120 @@ export class ViewMapComponent implements OnInit {
         },
         error => console.error(error)
     );
-   }
 
+    this.statusService.getBalStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("balance status:" + status);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    this.statusService.getStatsStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("stats status:" + status);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    this.statusService.getPoolStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("pool status:" + status);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+   
+
+   this.statusService.getPoolStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("pool status:" + status);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    this.statusService.getPriceStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("price status:" + status);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    this.statusService.getFlagsStatusByUsername(this.username)
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("flags status:" + status);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("text:" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+  }
  }

@@ -25,7 +25,9 @@ var schema = new Schema({
     total_btc_sent: {type: Number, required: true},
     trade_volume_btc: {type: Number, required: true},
     trade_volume_usd: {type: Number, required: true},
-    timestamp: {type: Number, required: true}
+    timestamp: {type: Number, required: true},
+    lat: {type: Number}, 
+    long: {type: Number}
     },
     { collection : 'StatsStatus' });
 

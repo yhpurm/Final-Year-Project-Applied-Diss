@@ -3,6 +3,8 @@ import { BlockchainService } from './blockchain.service';
 import { StatusService } from './status.service';
 import { Stats } from './blockstats.modal';
 import { StatsStatus } from './blockstats.modal';
+declare var google: any;
+var geocoder = new google.maps.Geocoder();
 
 @Component({
   moduleId: module.id,
@@ -37,7 +39,10 @@ export class StatsComponent implements OnInit {
   trade_volume_btc: number;
   trade_volume_usd: number;
   timestamp: number;
-  
+  lat: number;
+  long: number;
+  geolocationPosition: Object;
+
   constructor(private blockchainService: BlockchainService, private statusService: StatusService) {}
 
   ngOnInit() {
@@ -70,6 +75,37 @@ export class StatsComponent implements OnInit {
 
   }
 
+  setPosition(position) {
+    this.lat = position.coords.latitude;
+    this.long = position.coords.longitude;
+    alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+  }
+  
+  getLocation() {
+    if (window.navigator && window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+          position => {
+              this.geolocationPosition = position,
+                  console.log(position),
+                  this.setPosition(position)
+          },
+          error => {
+              switch (error.code) {
+                  case 1:
+                      console.log('Permission Denied');
+                      break;
+                  case 2:
+                      console.log('Position Unavailable');
+                      break;
+                  case 3:
+                      console.log('Timeout');
+                      break;
+              }
+          }
+      );
+  };
+  }
+
   onStatusSubmit(){
     this.date = Date.now();
     this.username = "test"
@@ -78,7 +114,7 @@ export class StatsComponent implements OnInit {
     ,this.totalbc,this.n_blocks_total,this.estimated_transaction_volume_usd,
     this.blocks_size,this.miners_revenue_usd,this.nextretarget,this.difficulty,
     this.estimated_btc_sent,this.miners_revenue_btc,this.total_btc_sent,
-  this.trade_volume_btc,this.trade_volume_btc,this.timestamp);
+  this.trade_volume_btc,this.trade_volume_btc,this.timestamp,this.lat,this.long);
   console.log(newStatusPost)
     this.statusService.saveStatsPost(newStatusPost)
     .subscribe(

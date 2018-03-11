@@ -45,6 +45,81 @@ export class StatusService {
             });
     }
 
+    getBalStatusByUsername(user: string) {
+        return this.http.get('http://localhost:3000/Tx/Local/bal/' + user)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: BalStatus[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    status = new BalStatus(element.username, element.date, element.title, element.text,element.balance, element.lat, element.long);
+                    msgArray.push(status);
+                }
+                return msgArray;
+            });
+    }
+
+    getStatsStatusByUsername(user: string) {
+        return this.http.get('http://localhost:3000/Tx/Local/stats/' + user)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: StatsStatus[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    status = new StatsStatus(element.username, element.date, element.title, element.text,element.market_price_usd, element.hash_rate, element.total_fees_btc, element.n_btc_mined, element.n_tx,element.n_blocks_mined, element.totalbc, element.n_blocks_total, element.estimated_transaction_volume_usd, element.blocks_size,element.miners_revenue_usd, element.nextretarget, element.difficulty, element.estimated_btc_sent, element.miners_revenue_btc,element.total_btc_sent, element.trade_volume_btc, element.trade_volume_usd, element.timestamp,  element.lat, element.long);
+                    msgArray.push(status);
+                }
+                return msgArray;
+            });
+    }
+
+    getPoolStatusByUsername(user: string) {
+        return this.http.get('http://localhost:3000/Tx/Local/pools/' + user)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: PostPools[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    status = new PostPools(element.username, element.date, element.title, element.text,element.Unknown, element.GBMiners, element.SlushPool, element.KanoCKPool, element.BitFury,element.AntPool, element.F2Pool, element.ViaBTC, element.lat, element.long);
+                    msgArray.push(status);
+                }
+                return msgArray;
+            });
+    }
+
+    getPriceStatusByUsername(user: string) {
+        return this.http.get('http://localhost:3000/Tx/Local/price/' + user)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: PostTicker[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    status = new PostTicker(element.username, element.date, element.title, element.text,element.last, element.buy, element.sell, element.symbol, element.lat,element.long);
+                    msgArray.push(status);
+                }
+                return msgArray;
+            });
+    }
+
+    getFlagsStatusByUsername(user: string) {
+        return this.http.get('http://localhost:3000/Tx/Local/flag/' + user)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: FlagStatus[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    console.log(element.firstName);
+                    status = new FlagStatus(element.username, element.date, element.title, element.text,element.locationName, element.contact, element.lat, element.long);
+                    msgArray.push(status);
+                }
+                return msgArray;
+            });
+    }
+
     getTxById(id: string): Observable<any> {
         return this.http.get('http://localhost:3000/Tx/' + id)
             .map( (data: Response) => {
