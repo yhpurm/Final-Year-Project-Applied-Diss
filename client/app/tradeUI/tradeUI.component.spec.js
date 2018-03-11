@@ -20,4 +20,4 @@ describe('DashboardComponent', function () {
         expect(component).toBeTruthy();
     });
 });
-//# sourceMappingURL=tradeUI.comonent.spec.js.map
+//# sourceMappingURL=tradeUI.component.spec.js.map
