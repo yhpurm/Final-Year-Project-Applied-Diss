@@ -1,0 +1,6 @@
+<div class="list-cards pb-4">
+	<app-list-card *ngFor="let coin of coins" [coin]="coin" [fiat]="fiat"></app-list-card>
+</div>
+<div *ngIf="!coins">
+{{noDataMsg || 'Nothing to display'}}
+</div>
