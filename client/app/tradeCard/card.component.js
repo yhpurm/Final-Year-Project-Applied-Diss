@@ -26,8 +26,8 @@ var ListCardComponent = /** @class */ (function () {
     ListCardComponent = __decorate([
         core_1.Component({
             selector: 'app-list-card',
-            templateUrl: './list-card.component.html',
-            styleUrls: ['./list-card.component.css']
+            templateUrl: './card.component.html',
+            styleUrls: ['./card.component.css']
         }),
         __metadata("design:paramtypes", [])
     ], ListCardComponent);
