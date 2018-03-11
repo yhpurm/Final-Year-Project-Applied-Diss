@@ -25,18 +25,9 @@ var AppComponent = /** @class */ (function () {
         this.router.navigate(['/']);
     };
     AppComponent.prototype.goToSearch = function (search) {
-        var _this = this;
         console.log(search);
         this.word = search;
         this.router.navigateByUrl("/search?word=" + this.word);
-        this.mlabsService.searchUsers(this.word)
-            .subscribe(function (users) {
-            _this.profile = users;
-            console.log('GET from stores');
-            users.forEach(function (store) {
-                // do stuff with response
-            });
-        }, function (error) { return console.error(error); });
     };
     AppComponent = __decorate([
         core_1.Component({

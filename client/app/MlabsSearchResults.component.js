@@ -28,6 +28,7 @@ var MlabsSearchComponent = /** @class */ (function () {
                 .subscribe(function (res) {
                 console.log(res);
                 _this.profiles = res;
+                console.log(_this.profiles);
             }, function (error) { return console.error("error:" + error); });
         });
     };

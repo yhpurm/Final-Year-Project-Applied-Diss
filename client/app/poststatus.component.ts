@@ -4,6 +4,7 @@ import { StatusService } from "./status.service";
 import { ProfileService } from "./profile.service";
 import { Status } from "./status.model";
 import { Wallet } from "./myWallet.model";
+import { AuthService } from './services/auth.service';
 declare var google: any;
 var geocoder = new google.maps.Geocoder();
 
@@ -16,7 +17,10 @@ var geocoder = new google.maps.Geocoder();
 
 export class PostStatusComponent implements OnInit { 
 
-  constructor(private statusService: StatusService, private profileService: ProfileService) {}
+  constructor(private statusService: StatusService,
+     private authService: AuthService,
+     private profileService: ProfileService) {}
+
   // Variables
   map: any;
   wallets: Wallet [] = [];
@@ -34,6 +38,11 @@ export class PostStatusComponent implements OnInit {
 
   ngOnInit(){
 
+    this.authService.getProfile().subscribe(profile => {
+        this.username = profile.user.username;
+      });
+
+    console.log(this.username);
     this.profileService.getMyWallets()
         .subscribe(
             response => {
@@ -105,7 +114,6 @@ getLocation() {
 
 onStatusSubmit(){
       this.date = Date.now();
-      this.username = "test"
       console.log(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long)
       const newStatusPost = new Status(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long);
       this.statusService.saveTx(newStatusPost)

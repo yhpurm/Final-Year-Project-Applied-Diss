@@ -1,9 +1,25 @@
-<p>Ant: {{AntPool}}</p>
-<p>gb: {{GBMiners}}</p>
-<p>slush: {{SlushPool}}</p>
-<p>kano: {{KanoPool}}</p>
-<p>bitfury: {{BitFury}}</p>
-<p>f2: {{F2Pool}}</p>
-<p>via: {{ViaBTC}}</p>
-<p>ck: {{CKPool}}</p>
-<p>unknown: {{Unknown}}</p>
+<div class=container>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-5">
+            <p>Post about blockchain activity</p>
+            <div class="form-group">
+                    <label for="inputdefault">Status title</label>
+                    <input class="form-control" [(ngModel)]="title" id="inputdefault" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="inputdefault">Status text:</label>
+                    <input type="text" class="form-control" [(ngModel)]="text">
+                </div>
+                <button id="submitBtn" class="btn btn-primary" (click)="onStatusPoolSubmit()">Post status</button>
+        </div>
+    </div>
+<h2>Most popular mining pools activity</h2>
+<p>AntPool: {{AntPool}}</p>
+<p>GB Miners: {{GBMiners}}</p>
+<p>SlushPool: {{SlushPool}}</p>
+<p>KanoPool: {{KanoPool}}</p>
+<p>BitFury: {{BitFury}}</p>
+<p>F2Pool: {{F2Pool}}</p>
+<p>ViaBTC: {{ViaBTC}}</p>
+<p>Unknown: {{Unknown}}</p>
+</div>

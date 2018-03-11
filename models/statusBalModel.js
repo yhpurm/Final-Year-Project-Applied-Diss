@@ -7,15 +7,12 @@ var schema = new Schema({
     date: {type: Number, required: true},
     title: {type: String, required: true},
     text: {type: String, required: true},
-    valueAtTime: {type: Number},
-    sentAmount: {type: Number},
-    bitcoinAddress: {type: String, required: true},
-    receivingAddress: {type: String, required: true, unique : true},
+    balance: {type: Number, required: true},
     lat: {type: Number, required: true}, 
     long: {type: Number, required: true}
     },
-    { collection : 'Status' });
+    { collection : 'BalStatus' });
 
 schema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('Status', schema);
+module.exports = mongoose.model('BalStatus', schema);

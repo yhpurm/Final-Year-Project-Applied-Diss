@@ -23,6 +23,8 @@ var blockstats_component_1 = require("./blockstats.component");
 var postbal_component_1 = require("./postbal.component");
 var postpoolstatus_component_1 = require("./postpoolstatus.component");
 var sendbtc_component_1 = require("./sendbtc.component");
+var flag_component_1 = require("./flag.component");
+var global_component_1 = require("./global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
 var appRoutes = [
@@ -38,6 +40,16 @@ var appRoutes = [
     {
         path: 'profile',
         component: profile_component_1.ProfileComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'flaglocation',
+        component: flag_component_1.FlagComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'global',
+        component: global_component_1.GlobalComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {

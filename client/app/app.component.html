@@ -29,7 +29,7 @@
               </div>
               <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="authService.loggedIn()"><a routerLink="/sendbtc"><span class="glyphicon glyphicon-plus"></span> Send BTC</a></li>
-                <li *ngIf="authService.loggedIn()"><a routerLink="/"><span class="glyphicon glyphicon-envelope"></span> Inbox</a></li>
+                <li *ngIf="authService.loggedIn()"><a routerLink="/global"><span class="glyphicon glyphicon-globe"></span> Users</a></li>
                 <li *ngIf="!authService.loggedIn()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li *ngIf="!authService.loggedIn()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <li *ngIf="authService.loggedIn()"><a href="#" (click)="onLogoutClick()">Logout</a></li>

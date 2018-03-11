@@ -28,18 +28,6 @@ export class AppComponent {
     this.word = search;
     this.router.navigateByUrl(`/search?word=${this.word}`)
 
-    this.mlabsService.searchUsers(this.word)
-       .subscribe(
-           users => {
-               this.profile = users;
-               console.log('GET from stores');
-               
-               users.forEach(store => {
-                  // do stuff with response
-               })  
-           },
-           error => console.error(error)
-    );
   }
 }
 

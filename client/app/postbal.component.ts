@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BlockchainService } from './blockchain.service';
 import { ProfileService } from './profile.service';
+import { StatusService } from './status.service';
 import { Wallet } from "./myWallet.model";
+import { BalStatus } from "./status.model";
 import { BalanceReq } from "./bal.modal";
 import { Balance } from "./bal.modal";
 
@@ -9,18 +11,26 @@ import { Balance } from "./bal.modal";
   moduleId: module.id,
   selector: 'balance',
   templateUrl: 'postbal.component.html',
-  providers: [BlockchainService,ProfileService]
+  providers: [BlockchainService,ProfileService,StatusService]
 })
 
 export class PostBalanceComponent implements OnInit {
 
-  constructor(private blockchainService: BlockchainService, private profileService: ProfileService) {}
+  constructor(private blockchainService: BlockchainService, private profileService: ProfileService,private statusService: StatusService) {}
 
     wallets: Wallet [] = [];
     guid: string;
     pass: string;
     passvalid: string;
     balance: number;
+    title: string;
+    text: string;
+    sentAmount: string;
+    username: string;
+    date: Number;
+    lat: number;
+    long: number;
+    geolocationPosition: Object;
 
     ngOnInit() {
         this.profileService.getMyWallets()
@@ -32,7 +42,40 @@ export class PostBalanceComponent implements OnInit {
             },
             error => console.error(error)
          );
+
+         this.getLocation();
     }
+
+    setPosition(position) {
+        this.lat = position.coords.latitude;
+        this.long = position.coords.longitude;
+        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+      }
+      
+      getLocation() {
+        if (window.navigator && window.navigator.geolocation) {
+          window.navigator.geolocation.getCurrentPosition(
+              position => {
+                  this.geolocationPosition = position,
+                      console.log(position),
+                      this.setPosition(position)
+              },
+              error => {
+                  switch (error.code) {
+                      case 1:
+                          console.log('Permission Denied');
+                          break;
+                      case 2:
+                          console.log('Position Unavailable');
+                          break;
+                      case 3:
+                          console.log('Timeout');
+                          break;
+                  }
+              }
+          );
+      };
+      }
 
     setGuid(gid: string){
         console.log("guid: " + gid);
@@ -53,6 +96,18 @@ export class PostBalanceComponent implements OnInit {
         this.blockchainService.getBalance(balrequest)
         .subscribe(
             messages => this.balance = messages,
+            error => console.error(error)
+        );
+    }
+
+    onStatusBalSubmit(){
+        this.date = Date.now();
+        this.username = "test"
+        console.log(this.username,this.date,this.title,this.text,this.balance,this.lat,this.long)
+        const newStatusPost = new BalStatus(this.username,this.date,this.title,this.text,this.balance,this.lat,this.long);
+        this.statusService.saveBalPost(newStatusPost)
+        .subscribe(
+            () => console.log('POST from status'),
             error => console.error(error)
         );
     }

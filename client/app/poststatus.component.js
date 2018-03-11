@@ -13,15 +13,21 @@ var core_1 = require("@angular/core");
 var status_service_1 = require("./status.service");
 var profile_service_1 = require("./profile.service");
 var status_model_1 = require("./status.model");
+var auth_service_1 = require("./services/auth.service");
 var geocoder = new google.maps.Geocoder();
 var PostStatusComponent = /** @class */ (function () {
-    function PostStatusComponent(statusService, profileService) {
+    function PostStatusComponent(statusService, authService, profileService) {
         this.statusService = statusService;
+        this.authService = authService;
         this.profileService = profileService;
         this.wallets = [];
     }
     PostStatusComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.authService.getProfile().subscribe(function (profile) {
+            _this.username = profile.user.username;
+        });
+        console.log(this.username);
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
@@ -81,7 +87,6 @@ var PostStatusComponent = /** @class */ (function () {
     };
     PostStatusComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
-        this.username = "test";
         console.log(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);
         var newStatusPost = new status_model_1.Status(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);
         this.statusService.saveTx(newStatusPost)
@@ -94,7 +99,9 @@ var PostStatusComponent = /** @class */ (function () {
             templateUrl: 'poststatus.component.html',
             providers: [status_service_1.StatusService, profile_service_1.ProfileService]
         }),
-        __metadata("design:paramtypes", [status_service_1.StatusService, profile_service_1.ProfileService])
+        __metadata("design:paramtypes", [status_service_1.StatusService,
+            auth_service_1.AuthService,
+            profile_service_1.ProfileService])
     ], PostStatusComponent);
     return PostStatusComponent;
 }());

@@ -3,9 +3,15 @@ const router = express.Router();
 const fs = require('fs');
 const apiCode = "2cc22b66-ee2f-43b7-a8cc-13ce557feaf4";
 var Profile = require('../models/profileModel');
+var Friend = require('../models/friendsModel');
 var Wallet = require('../models/myWalletModel');
 var Status= require('../models/statusModel');
+var BalStatus= require('../models/statusBalModel');
+var StatsStatus= require('../models/blockstatsModel');
 var Balance= require('../models/balanceModel');
+var PoolStatus= require('../models/statusPoolModel');
+var PriceStatus= require('../models/statusPriceModel');
+var FlagStatus= require('../models/FlagStatusModel');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -115,16 +121,77 @@ router.post('/Wallet/balance', function (req, res, next) {
 
 });
 
-global.get('/globalusers', function(req, res, next){
-    console.log('Get request for all users');
-    Profile.find({})
-    .exec(function(err, profile){
-        if(err){
-            res.send("Error retrieving users");
-        }else{
-            res.json(profile);
+router.post('/AddFriend', function(req, res, next) {
+    console.log(req.body.username);
+    console.log(req.body.aboutMe);
+    console.log(req.body.avater);
+    console.log(req.body.statusCount);
+    console.log(req.body.friendCount);
+    console.log(req.body.isOnline);
+    console.log(req.body.bitcoinAddress);
+    console.log(req.body.email);
+    console.log(req.body.lat);
+    console.log(req.body.long);
+
+    var friend = new Friend({
+        username: req.body.username,
+        aboutMe: req.body.aboutMe,
+        avatar: req.body.avater,
+        statusCount: req.body.statusCount,
+        friendCount: req.body.friendCount,
+        isOnline: req.body.isOnline,
+        bitcoinAddress: req.body.bitcoinAddress,
+        email: req.body.email,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    
+    friend.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
         }
-    })
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+// Get wallets
+router.get('/Friends', function(req, res, next) {
+    Friend.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+
+// Getting crypto profile from db
+router.get('/globalusers', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("users").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
 });
 
 // Getting crypto profile from db
@@ -132,18 +199,19 @@ router.get('/globalusers/:username', function(req, res, next) {
     console.log("gothere!!!");
     var username = req.params.username;
     console.log(username);
-    profile = new Profile;
 
-    console.log(database);
-    database.collection("users").find({ username: username }, { username: 1, aboutMe: 1, bitcoinAddress: 1 }).toArray(function(err, result) {
+    function processResponse(resp) {
+        console.log(resp);
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    var search = '.*' + username + '*.';
+    console.log(search);
+    database.collection("users").find({ username: {'$regex': search}}).toArray(function(err, result) {
         if (err) throw err;
-        console.log(result);
-        profile = result;
+        processResponse(result);
     });
-
-    // Getting searched user from database
-    console.log("profile: " + profile);
-    console.log("process mlabs done");
 });
 
 // Getting crypto profile from db
@@ -212,6 +280,264 @@ router.post('/Tx/Status/reg', function(req, res, next) {
         });
     });
 });
+
+router.post('/Tx/Status/bal', function(req, res, next) {
+
+    var statusBal = new BalStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        balance: req.body.balance,
+        lat: req.body.lat,
+        long: req.body.long,
+    });
+    console.log(statusBal);
+    statusBal.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/stats', function(req, res, next) {
+    console.log(req.body.market_price_usd);
+    var statusStats = new StatsStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        market_price_usd: req.body.market_price_usd,
+        hash_rate: req.body.hash_rate,
+        total_fees_btc: req.body.total_fees_btc,
+        n_btc_mined: req.body.n_btc_mined, 
+        n_tx: req.body.n_tx,
+        n_blocks_mined: req.body.n_blocks_mined,
+        totalbc: req.body.totalbc,
+        n_blocks_total: req.body.n_blocks_total, 
+        estimated_transaction_volume_usd: req.body.estimated_transaction_volume_usd,
+        blocks_size: req.body.blocks_size,
+        miners_revenue_usd: req.body.miners_revenue_usd, 
+        nextretarget: req.body.nextretarget,
+        difficulty: req.body.difficulty,
+        estimated_btc_sent: req.body.estimated_btc_sent,
+        miners_revenue_btc: req.body.miners_revenue_btc,
+        total_btc_sent: req.body.total_btc_sent,
+        trade_volume_btc:  req.body.trade_volume_btc,
+        trade_volume_usd: req.body.trade_volume_usd,
+        timestamp: req.body.timestamp,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+
+    console.log(statusStats);
+    statusStats.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/pool', function(req, res, next) {
+
+    var statusPool = new PoolStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        Unknown: req.body.Unknown,
+        GBMiners: req.body.GBMiners,
+        SlushPool: req.body.SlushPool,
+        KanoCKPool: req.body.KanoCKPool,
+        BitFury: req.body. BitFury,
+        AntPool: req.body.AntPool,
+        F2Pool: req.body.F2Pool,
+        ViaBTC: req.body.ViaBTC,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+
+    console.log(statusPool);
+    statusPool.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/price', function(req, res, next) {
+
+    var statusPrice = new PriceStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        symbol: req.body.symbol,
+        last: req.body.last,
+        buy: req.body.buy,
+        sell: req.body.sell,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    console.log(statusPrice);
+    statusPrice.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+router.post('/Tx/Status/flag', function(req, res, next) {
+
+    var statusFlag= new FlagStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        locationName: req.body. locationName,
+        contact: req.body.contact,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    
+    console.log(statusFlag);
+    statusFlag.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/:user', function(req, res, next) {
+    Status.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/bal/:user', function(req, res, next) {
+    BalStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/stats/:user', function(req, res, next) {
+    StatsStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/pools/:user', function(req, res, next) {
+    StatsStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/price/:user', function(req, res, next) {
+    PriceStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get logged in statuses
+router.get('/Tx/Local/flag/:user', function(req, res, next) {
+    FlagStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
 
 // Getting crypto profile from db
 router.get('/login/profile/:username', function(req, res, next) {
