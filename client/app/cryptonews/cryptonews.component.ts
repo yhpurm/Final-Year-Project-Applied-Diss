@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit , AfterViewInit} from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -6,5 +6,8 @@ import { Component, OnInit} from '@angular/core';
   templateUrl: './cryptonews.component.html'
 })
 
-export class CryptonewsComponent {
+export class CryptonewsComponent implements AfterViewInit { 
+  constructor() {}
+
+  ngAfterViewInit () {}
 }
