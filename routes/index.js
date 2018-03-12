@@ -208,7 +208,7 @@ router.get('/globalusers/:username', function(req, res, next) {
 
     var search = '.*' + username + '*.';
     console.log(search);
-    database.collection("users").find({ username: {'$regex': search}}).toArray(function(err, result) {
+    database.collection("users").find({ username: {'$regex': search, '$options' : 'i'}}).toArray(function(err, result) {
         if (err) throw err;
         processResponse(result);
     });
