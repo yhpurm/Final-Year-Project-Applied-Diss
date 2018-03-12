@@ -26,6 +26,7 @@ import { FlagComponent } from './flag.component';
 import { GlobalComponent } from './global.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
+import { CryptonewsComponent } from './cryptonews/cryptonews.component';
 
 const appRoutes: Routes = [
     {
@@ -146,6 +147,11 @@ const appRoutes: Routes = [
         path: 'login',
         component: LoginComponent,
         canActivate: [NotAuthGuard]
+    },
+    {
+        path: 'cryptonews',
+        component: CryptonewsComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
     }
 ];
 

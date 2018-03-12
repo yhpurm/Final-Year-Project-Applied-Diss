@@ -33,6 +33,7 @@ import { FlagComponent } from './flag.component';
 import { GlobalComponent } from './global.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
+import { CryptonewsComponent } from './cryptonews/cryptonews.component';
 
 @NgModule({
   imports:      [
@@ -66,7 +67,8 @@ import { NotAuthGuard } from './guards/notauth.guard';
     SettingsComponent,
     RegisterComponent,
     WelcomeComponent,
-    LoginComponent ],
+    LoginComponent,
+    CryptonewsComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard],
   bootstrap: [AppComponent]
