@@ -87,6 +87,9 @@ var ProfileComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    ProfileComponent.prototype.editAboutme = function () {
+        var info = JSON.parse(localStorage.getItem('aboutMe'));
+    };
     ProfileComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

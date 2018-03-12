@@ -41,6 +41,7 @@ var flag_component_1 = require("./flag.component");
 var global_component_1 = require("./global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
+var cryptonews_component_1 = require("./cryptonews/cryptonews.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -77,7 +78,8 @@ var AppModule = /** @class */ (function () {
                 settings_component_1.SettingsComponent,
                 register_component_1.RegisterComponent,
                 welcome_component_1.WelcomeComponent,
-                login_component_1.LoginComponent],
+                login_component_1.LoginComponent,
+                cryptonews_component_1.CryptonewsComponent],
             exports: [],
             providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard],
             bootstrap: [app_component_1.AppComponent]

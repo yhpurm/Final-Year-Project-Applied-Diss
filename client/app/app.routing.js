@@ -27,6 +27,7 @@ var flag_component_1 = require("./flag.component");
 var global_component_1 = require("./global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
+var cryptonews_component_1 = require("./cryptonews/cryptonews.component");
 var appRoutes = [
     {
         path: '',
@@ -146,6 +147,11 @@ var appRoutes = [
         path: 'login',
         component: login_component_1.LoginComponent,
         canActivate: [notauth_guard_1.NotAuthGuard]
+    },
+    {
+        path: 'cryptonews',
+        component: cryptonews_component_1.CryptonewsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

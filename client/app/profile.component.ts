@@ -74,6 +74,8 @@ export class ProfileComponent implements OnInit {
          error => console.error(error)
      );
 
+     
+
     }
 
     // Functions to return what is in storage
@@ -95,6 +97,11 @@ export class ProfileComponent implements OnInit {
 
     get userisOnline(): any {
       return JSON.parse(localStorage.getItem('isOnline'));
+    }
+
+    editAboutme() {
+      var info = JSON.parse(localStorage.getItem('aboutMe'));
+      
     }
 
     
