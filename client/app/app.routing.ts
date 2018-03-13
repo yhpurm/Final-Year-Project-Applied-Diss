@@ -1,32 +1,31 @@
 import {ModuleWithProviders, Component} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './home.component';
-import {CryptoMapComponent} from './cryptomap.component';
-import {ProfileComponent} from './profile.component';
-import {FriendsComponent} from './friends.component';
-import {TradingComponent} from './trading.component';
-import {FAQComponent} from './FAQ.component';
-import { NewWalletComponent }  from './walletrequest.component';
-import { WalletComponent }  from './myWallet.component';
-import { SettingsComponent }  from './settings.component';
-import { RegisterComponent } from './register.component';
-import { WelcomeComponent } from './welcome.component';
-import { MapsMenuComponent } from './mapsmenu.component';
-import { PostStatusComponent } from './poststatus.component';
-import { RequestComponent } from './requestbitcoin.component';
-import { TransactionsComponent } from './blockchainActivity.component';
-import { LoginComponent } from './login.component';
-import { MlabsSearchComponent } from './MlabsSearchResults.component';
-import { ViewMapComponent } from './viewMap.component';
-import { StatsComponent } from './blockstats.component';
-import { PostBalanceComponent } from './postbal.component';
-import { PoolComponent } from './postpoolstatus.component';
-import { SendBTCComponent } from './sendbtc.component';
-import { FlagComponent } from './flag.component';
-import { GlobalComponent } from './global.component';
+import {HomeComponent} from './LoginComponents/home.component';
+import {CryptoMapComponent} from './MapsComponents/cryptomap.component';
+import {ProfileComponent} from './ProfileComponents/profile.component';
+import {FriendsComponent} from './ProfileComponents/friends.component';
+import {TradingComponent} from './TradingComponents/trading.component';
+import {FAQComponent} from './NavBarComponents/FAQ.component';
+import { NewWalletComponent }  from './WalletComponents/walletrequest.component';
+import { WalletComponent }  from './WalletComponents/myWallet.component';
+import { SettingsComponent }  from './NavBarComponents/settings.component';
+import { RegisterComponent } from './LoginComponents/register.component';
+import { WelcomeComponent } from './LoginComponents/welcome.component';
+import { PostStatusComponent } from './StatusComponents/poststatus.component';
+import { RequestComponent } from './StatusComponents/requestbitcoin.component';
+import { TransactionsComponent } from './StatusComponents/blockchainActivity.component';
+import { LoginComponent } from './LoginComponents/login.component';
+import { MlabsSearchComponent } from './MlabsComponents/MlabsSearchResults.component';
+import { ViewMapComponent } from './MapsComponents/viewMap.component';
+import { StatsComponent } from './StatusComponents/blockstats.component';
+import { PostBalanceComponent } from './StatusComponents/postbal.component';
+import { PoolComponent } from './StatusComponents/postpoolstatus.component';
+import { SendBTCComponent } from './WalletComponents/sendbtc.component';
+import { FlagComponent } from './StatusComponents/flag.component';
+import { GlobalComponent } from './MlabsComponents/global.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
-import { CryptonewsComponent } from './cryptonews/cryptonews.component';
+import { CryptonewsComponent } from './NewsComponents/cryptonews.component';
 
 const appRoutes: Routes = [
     {
@@ -66,11 +65,6 @@ const appRoutes: Routes = [
     {
         path: 'postpools',
         component: PoolComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    },
-    {
-        path: 'mapsmenu',
-        component: MapsMenuComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {

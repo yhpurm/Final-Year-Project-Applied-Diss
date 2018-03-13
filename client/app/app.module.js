@@ -13,35 +13,34 @@ var forms_1 = require("@angular/forms");
 var forms_2 = require("@angular/forms");
 var common_1 = require("@angular/common");
 var app_component_1 = require("./app.component");
-var home_component_1 = require("./home.component");
-var friends_component_1 = require("./friends.component");
-var FAQ_component_1 = require("./FAQ.component");
-var profile_component_1 = require("./profile.component");
-var cryptomap_component_1 = require("./cryptomap.component");
-var trading_component_1 = require("./trading.component");
-var myWallet_component_1 = require("./myWallet.component");
-var walletrequest_component_1 = require("./walletrequest.component");
-var settings_component_1 = require("./settings.component");
-var register_component_1 = require("./register.component");
+var home_component_1 = require("./LoginComponents/home.component");
+var friends_component_1 = require("./ProfileComponents/friends.component");
+var FAQ_component_1 = require("./NavBarComponents/FAQ.component");
+var profile_component_1 = require("./ProfileComponents/profile.component");
+var cryptomap_component_1 = require("./MapsComponents/cryptomap.component");
+var trading_component_1 = require("./TradingComponents/trading.component");
+var myWallet_component_1 = require("./WalletComponents/myWallet.component");
+var walletrequest_component_1 = require("./WalletComponents/walletrequest.component");
+var settings_component_1 = require("./NavBarComponents/settings.component");
+var register_component_1 = require("./LoginComponents/register.component");
 var app_routing_1 = require("./app.routing");
 var auth_service_1 = require("./services/auth.service");
-var welcome_component_1 = require("./welcome.component");
-var mapsmenu_component_1 = require("./mapsmenu.component");
-var poststatus_component_1 = require("./poststatus.component");
-var requestbitcoin_component_1 = require("./requestbitcoin.component");
-var blockchainActivity_component_1 = require("./blockchainActivity.component");
-var login_component_1 = require("./login.component");
-var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
-var viewMap_component_1 = require("./viewMap.component");
-var blockstats_component_1 = require("./blockstats.component");
-var postpoolstatus_component_1 = require("./postpoolstatus.component");
-var sendbtc_component_1 = require("./sendbtc.component");
-var postbal_component_1 = require("./postbal.component");
-var flag_component_1 = require("./flag.component");
-var global_component_1 = require("./global.component");
+var welcome_component_1 = require("./LoginComponents/welcome.component");
+var poststatus_component_1 = require("./StatusComponents/poststatus.component");
+var requestbitcoin_component_1 = require("./StatusComponents/requestbitcoin.component");
+var blockchainActivity_component_1 = require("./StatusComponents/blockchainActivity.component");
+var login_component_1 = require("./LoginComponents/login.component");
+var MlabsSearchResults_component_1 = require("./MlabsComponents/MlabsSearchResults.component");
+var viewMap_component_1 = require("./MapsComponents/viewMap.component");
+var blockstats_component_1 = require("./StatusComponents/blockstats.component");
+var postpoolstatus_component_1 = require("./StatusComponents/postpoolstatus.component");
+var sendbtc_component_1 = require("./WalletComponents/sendbtc.component");
+var postbal_component_1 = require("./StatusComponents/postbal.component");
+var flag_component_1 = require("./StatusComponents/flag.component");
+var global_component_1 = require("./MlabsComponents/global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
-var cryptonews_component_1 = require("./cryptonews/cryptonews.component");
+var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -71,7 +70,6 @@ var AppModule = /** @class */ (function () {
                 sendbtc_component_1.SendBTCComponent,
                 flag_component_1.FlagComponent,
                 blockchainActivity_component_1.TransactionsComponent,
-                mapsmenu_component_1.MapsMenuComponent,
                 walletrequest_component_1.NewWalletComponent,
                 FAQ_component_1.FAQComponent,
                 trading_component_1.TradingComponent,
