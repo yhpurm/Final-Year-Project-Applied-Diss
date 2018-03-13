@@ -46,6 +46,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/euro.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {

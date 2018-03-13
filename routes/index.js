@@ -161,7 +161,7 @@ router.post('/AddFriend', function(req, res, next) {
     });
 });
 
-// Get wallets
+// Get friends
 router.get('/Friends', function(req, res, next) {
     Friend.find(function(err, messages) {
         console.log(messages);

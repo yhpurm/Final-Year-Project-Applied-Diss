@@ -52,6 +52,7 @@ export class PoolComponent implements OnInit {
            },
            error => console.error("error:" + error)
     );
+    
 }
 
 setPosition(position) {

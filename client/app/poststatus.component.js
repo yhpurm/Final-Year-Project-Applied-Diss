@@ -21,6 +21,7 @@ var PostStatusComponent = /** @class */ (function () {
         this.authService = authService;
         this.profileService = profileService;
         this.wallets = [];
+        this.friends = [];
     }
     PostStatusComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -34,6 +35,12 @@ var PostStatusComponent = /** @class */ (function () {
             console.log(_this.wallets);
             console.log("got wallets");
         }, function (error) { return console.error(error); });
+        this.profileService.getFriends()
+            .subscribe(function (res) {
+            console.log(res);
+            _this.friends = res;
+            console.log(_this.friends);
+        }, function (error) { return console.error("error:" + error); });
         this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
             zoom: 7,
             center: { lat: 53.1424, lng: -7.6921 }
@@ -56,6 +63,11 @@ var PostStatusComponent = /** @class */ (function () {
         console.log("address: " + address);
         this.bitcoinAddress = address;
         console.log(this.bitcoinAddress);
+    };
+    PostStatusComponent.prototype.setTargetAddress = function (address) {
+        console.log("address: " + address);
+        this.receivingAddress = address;
+        console.log(this.receivingAddress);
     };
     PostStatusComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;

@@ -4,6 +4,7 @@ import { StatusService } from "./status.service";
 import { ProfileService } from "./profile.service";
 import { Status } from "./status.model";
 import { Wallet } from "./myWallet.model";
+import { Profile } from "./profile.model";
 import { AuthService } from './services/auth.service';
 declare var google: any;
 var geocoder = new google.maps.Geocoder();
@@ -35,6 +36,7 @@ export class PostStatusComponent implements OnInit {
   lat: Number;
   long: Number;
   geolocationPosition: Object;
+  friends: Profile [] = [];
 
   ngOnInit(){
 
@@ -53,6 +55,15 @@ export class PostStatusComponent implements OnInit {
             error => console.error(error)
          );
 
+         this.profileService.getFriends()
+           .subscribe(
+            res => {
+                    console.log(res);
+                    this.friends = res;
+                    console.log(this.friends);
+               },
+               error => console.error("error:" + error)
+            );
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
           zoom: 7,
           center: {lat: 53.1424, lng: -7.6921}
@@ -80,6 +91,12 @@ setAddress(address: string){
   this.bitcoinAddress = address;
   console.log(this.bitcoinAddress);
 }
+
+setTargetAddress(address: string){
+    console.log("address: " + address);
+    this.receivingAddress = address;
+    console.log(this.receivingAddress);
+  }
 
 setPosition(position) {
   this.lat = position.coords.latitude;

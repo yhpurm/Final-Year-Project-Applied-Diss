@@ -33,10 +33,35 @@
                                     </tr>
                                 </tbody>
                            </table>
+                           <h3>Enter a receiving address or select an address from friends list</h3>
                             <div class="form-group">
                                 <label for="inputdefault">Recieving address:</label>
-                                <input type="text" class="form-control" [(ngModel)]="receivingAddress">
+                                <input type="text"  #targetInput>
+                                <button type="submit" class="btn btn-success" (click)="setTargetAddress(targetInput.value)">Set target address</button>
                             </div>
+                            <table class="table table-hover" *ngFor="let friend of friends" >
+                                <thead>
+                                    <tr>
+                                        <th>SET ADDRESS</th>
+                                        <th>Address</th>
+                                        <th>Username</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><button type = "button" (click)="setTargetAddress(friend.bitcoinAddress)" class = "btn btn-primary">
+                                                Set</button></td>
+                                        <td>{{friend.bitcoinAddress}}</td>
+                                        <td>{{friend.username}}</td>
+                                    </tr>
+                                </tbody>
+                           </table>
+                           <p>
+                                Set sending address: {{bitcoinAddress}}
+                           </p>
+                           <p>
+                                Set receiving address: {{receivingAddress}}
+                           </p>
                             <p class = "tpbutton btn-toolbar text-center">
                                 <a (click)="getLocation()" class = "btn navbar-btn btn-primary">Use your loction</a>
                                 or click the map below to set a custom location
