@@ -27,6 +27,7 @@ var PostStatusComponent = /** @class */ (function () {
         var _this = this;
         this.authService.getProfile().subscribe(function (profile) {
             _this.username = profile.user.username;
+            console.log(_this.username);
         });
         console.log(this.username);
         this.profileService.getMyWallets()

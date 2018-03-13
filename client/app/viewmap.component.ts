@@ -26,7 +26,7 @@ export class ViewMapComponent implements OnInit {
   ngOnInit() {
     
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
-          zoom: 12,
+          zoom: 4,
           center: {lat: 53.1424, lng: -7.6921}
     });
 

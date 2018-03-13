@@ -42,6 +42,7 @@ export class PostStatusComponent implements OnInit {
 
     this.authService.getProfile().subscribe(profile => {
         this.username = profile.user.username;
+        console.log(this.username);
       });
 
     console.log(this.username);
