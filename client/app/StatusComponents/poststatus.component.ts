@@ -40,10 +40,10 @@ export class PostStatusComponent implements OnInit {
 
   ngOnInit(){
 
-    this.authService.getProfile().subscribe(profile => {
-        this.username = profile.user.username;
-        console.log(this.username);
-      });
+   // this.authService.getProfile().subscribe(profile => {
+     //   this.username = profile.user.username;
+       // console.log(this.username);
+      //});
 
     console.log(this.username);
     this.profileService.getMyWallets()

@@ -24,11 +24,11 @@ var PostStatusComponent = /** @class */ (function () {
         this.friends = [];
     }
     PostStatusComponent.prototype.ngOnInit = function () {
+        // this.authService.getProfile().subscribe(profile => {
+        //   this.username = profile.user.username;
+        // console.log(this.username);
+        //});
         var _this = this;
-        this.authService.getProfile().subscribe(function (profile) {
-            _this.username = profile.user.username;
-            console.log(_this.username);
-        });
         console.log(this.username);
         this.profileService.getMyWallets()
             .subscribe(function (response) {
