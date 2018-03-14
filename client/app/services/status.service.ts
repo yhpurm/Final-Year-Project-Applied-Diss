@@ -39,7 +39,6 @@ export class StatusService {
                 const msgArray: Status[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
                     status = new Status(element.username, element.date, element.title, element.text,element.valueAtTime, element.sentAmount,  element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                     msgArray.push(status);
                 }
@@ -54,7 +53,6 @@ export class StatusService {
                 const msgArray: BalStatus[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
                     status = new BalStatus(element.username, element.date, element.title, element.text,element.balance, element.lat, element.long);
                     msgArray.push(status);
                 }
@@ -69,7 +67,6 @@ export class StatusService {
                 const msgArray: StatsStatus[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
                     status = new StatsStatus(element.username, element.date, element.title, element.text,element.market_price_usd, element.hash_rate, element.total_fees_btc, element.n_btc_mined, element.n_tx,element.n_blocks_mined, element.totalbc, element.n_blocks_total, element.estimated_transaction_volume_usd, element.blocks_size,element.miners_revenue_usd, element.nextretarget, element.difficulty, element.estimated_btc_sent, element.miners_revenue_btc,element.total_btc_sent, element.trade_volume_btc, element.trade_volume_usd, element.timestamp,  element.lat, element.long);
                     msgArray.push(status);
                 }
@@ -84,7 +81,7 @@ export class StatusService {
                 const msgArray: PostPools[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
+                    console.log(element);
                     status = new PostPools(element.username, element.date, element.title, element.text,element.Unknown, element.GBMiners, element.SlushPool, element.KanoCKPool, element.BitFury,element.AntPool, element.F2Pool, element.ViaBTC, element.lat, element.long);
                     msgArray.push(status);
                 }
@@ -99,7 +96,6 @@ export class StatusService {
                 const msgArray: PostTicker[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
                     status = new PostTicker(element.username, element.date, element.title, element.text,element.last, element.buy, element.sell, element.symbol, element.lat,element.long);
                     msgArray.push(status);
                 }
@@ -114,8 +110,21 @@ export class StatusService {
                 const msgArray: FlagStatus[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
                     status = new FlagStatus(element.username, element.date, element.title, element.text,element.locationName, element.contact, element.lat, element.long);
+                    msgArray.push(status);
+                }
+                return msgArray;
+            });
+    }
+
+    getReqStatusByUsername(user: string) {
+        return this.http.get('http://localhost:3000/Tx/Local/requests/' + user)
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: ReqStatus[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    status = new ReqStatus(element.username, element.date, element.title, element.text,element.amount, element.address, element.lat, element.long);
                     msgArray.push(status);
                 }
                 return msgArray;
@@ -129,7 +138,6 @@ export class StatusService {
                 const msgArray: Status[] = [];
                 let message;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
                     message =new Status(element.username,  element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress ,element.receivingAddress , element.lat, element.long);
                     msgArray.push(message);
                 }

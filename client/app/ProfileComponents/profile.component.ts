@@ -5,6 +5,12 @@ import { StatusService } from "../services/status.service";
 import { Status } from "../DataModals/status.model";
 import { AuthService } from '../services/auth.service';
 import { Wallet } from '../DataModals/mywallet.model';
+import { BalStatus } from "../DataModals/status.model";
+import { StatsStatus } from "../DataModals/blockstats.modal";
+import { PostPools } from "../DataModals/pools.modal";
+import { PostTicker } from '../DataModals/blockticker.modal';
+import { FlagStatus } from "../DataModals/status.model";
+import { ReqStatus } from "../DataModals/request.modal";
 
 @Component({
   moduleId: module.id,
@@ -18,6 +24,12 @@ export class ProfileComponent implements OnInit {
   profile: Profile[] = [];
   wallets: Wallet[] = [];
   status: Status[] = [];
+  balStatus: BalStatus [] = [];
+  statStatus: StatsStatus[] = [];
+  poolsStatus: PostPools[] = [];
+  tickerStatus: PostTicker[] = [];
+  flagStatus: FlagStatus[] = [];
+  reqStatus: ReqStatus[] = [];
   //username: string;
   fName: String;
   lName: String;
@@ -25,7 +37,7 @@ export class ProfileComponent implements OnInit {
   //email: string;
   lat: Number;
   long: Number[] = [];
-  username;
+  username: string;
   email;
 
   constructor(
@@ -35,6 +47,9 @@ export class ProfileComponent implements OnInit {
   
   ngOnInit() {
 
+    this.username = this.user.username;
+    console.log(this.username);
+    
     this.profileService.getMyWallets()
         .subscribe(
             response => {
@@ -69,7 +84,66 @@ export class ProfileComponent implements OnInit {
          error => console.error(error)
      );
 
+     // This service gets the logged in users profile
+     this.statusService.getBalStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.balStatus = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
      
+     // This service gets the logged in users profile
+     this.statusService.getStatsStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.statStatus = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
+
+     // This service gets the logged in users profile
+     this.statusService.getPoolStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.poolsStatus = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
+
+     // This service gets the logged in users profile
+     this.statusService.getPriceStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.tickerStatus = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
+
+     // This service gets the logged in users profile
+     this.statusService.getFlagsStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.flagStatus = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
+
+     // This service gets the logged in users profile
+     this.statusService.getReqStatusByUsername(this.username)
+     .subscribe(
+         res => {
+             this.reqStatus = res;
+             console.log(this.status);  
+         },
+         error => console.error(error)
+     );
+
 
     }
 

@@ -568,6 +568,21 @@ router.get('/Tx/Local/flag/:user', function(req, res, next) {
     });
 });
 
+// Get logged in statuses
+router.get('/Tx/Local/requests/:user', function(req, res, next) {
+    ReqStatus.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
 
 // Getting crypto profile from db
 router.get('/login/profile/:username', function(req, res, next) {

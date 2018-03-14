@@ -21,10 +21,18 @@ var ProfileComponent = /** @class */ (function () {
         this.profile = [];
         this.wallets = [];
         this.status = [];
+        this.balStatus = [];
+        this.statStatus = [];
+        this.poolsStatus = [];
+        this.tickerStatus = [];
+        this.flagStatus = [];
+        this.reqStatus = [];
         this.long = [];
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.username = this.user.username;
+        console.log(this.username);
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
@@ -44,6 +52,42 @@ var ProfileComponent = /** @class */ (function () {
         this.statusService.getStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.status = res;
+            console.log(_this.status);
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getBalStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.balStatus = res;
+            console.log(_this.status);
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getStatsStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.statStatus = res;
+            console.log(_this.status);
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getPoolStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.poolsStatus = res;
+            console.log(_this.status);
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getPriceStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.tickerStatus = res;
+            console.log(_this.status);
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getFlagsStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.flagStatus = res;
+            console.log(_this.status);
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users profile
+        this.statusService.getReqStatusByUsername(this.username)
+            .subscribe(function (res) {
+            _this.reqStatus = res;
             console.log(_this.status);
         }, function (error) { return console.error(error); });
     };

@@ -25,15 +25,13 @@ var ViewMapComponent = /** @class */ (function () {
             zoom: 4,
             center: { lat: 53.1424, lng: -7.6921 }
         });
-        //this.authService.getProfile().subscribe(profile => {
-        //this.username = profile.user.username;
-        //});
+        this.username = this.user.username;
         console.log(this.username);
         // This service gets the logged in users posted statuses
         this.statusService.getStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("normal status:" + status);
+                console.log("normal status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
@@ -49,11 +47,12 @@ var ViewMapComponent = /** @class */ (function () {
         this.statusService.getBalStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("balance status:" + status);
+                console.log("balance status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/mountains.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -64,11 +63,12 @@ var ViewMapComponent = /** @class */ (function () {
         this.statusService.getStatsStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("stats status:" + status);
+                console.log("stats status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/firedept.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -79,11 +79,12 @@ var ViewMapComponent = /** @class */ (function () {
         this.statusService.getPoolStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("pool status:" + status);
+                console.log("pool status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/poi.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -94,11 +95,12 @@ var ViewMapComponent = /** @class */ (function () {
         this.statusService.getPoolStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("pool status:" + status);
+                console.log("pool status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/campfire.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -109,11 +111,12 @@ var ViewMapComponent = /** @class */ (function () {
         this.statusService.getPriceStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("price status:" + status);
+                console.log("price status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/capital_big_highlight.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -124,11 +127,28 @@ var ViewMapComponent = /** @class */ (function () {
         this.statusService.getFlagsStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
-                console.log("flags status:" + status);
+                console.log("flags status:" + status.lat + status.long);
                 var location = { lat: status.lat, lng: status.long };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/earthquake.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("text:" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
+        this.statusService.getReqStatusByUsername(this.username)
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("Request status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/ferry.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -137,6 +157,13 @@ var ViewMapComponent = /** @class */ (function () {
             });
         }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(ViewMapComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     ViewMapComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
