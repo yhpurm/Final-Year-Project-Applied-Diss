@@ -1,5 +1,3 @@
-//import { decode } from 'punycode';
-
 // Imports
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');

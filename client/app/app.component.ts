@@ -29,5 +29,10 @@ export class AppComponent {
     this.router.navigateByUrl(`/search?word=${this.word}`)
 
   }
+
+      // Functions to return what is in storage
+      get user(): any {
+        return JSON.parse(localStorage.getItem('user'));
+      }
 }
 

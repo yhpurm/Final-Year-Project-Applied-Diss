@@ -29,6 +29,14 @@ var AppComponent = /** @class */ (function () {
         this.word = search;
         this.router.navigateByUrl("/search?word=" + this.word);
     };
+    Object.defineProperty(AppComponent.prototype, "user", {
+        // Functions to return what is in storage
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

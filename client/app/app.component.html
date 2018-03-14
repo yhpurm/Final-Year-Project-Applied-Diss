@@ -32,6 +32,7 @@
                 <li *ngIf="authService.loggedIn()"><a routerLink="/global"><span class="glyphicon glyphicon-globe"></span> Users</a></li>
                 <li *ngIf="!authService.loggedIn()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li *ngIf="!authService.loggedIn()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li *ngIf="authService.loggedIn()"><a routerLink="/profile"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
                 <li *ngIf="authService.loggedIn()"><a href="#" (click)="onLogoutClick()">Logout</a></li>
               </ul>
             </div>
