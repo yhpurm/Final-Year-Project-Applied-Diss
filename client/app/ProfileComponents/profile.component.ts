@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { Profile} from "../DataModals/profile.model";
 import { ProfileService } from "../services/profile.service";
 import { StatusService } from "../services/status.service";
@@ -19,7 +19,7 @@ import { ReqStatus } from "../DataModals/request.modal";
   providers: [ProfileService,StatusService]
 })
 
-export class ProfileComponent implements OnInit { 
+export class ProfileComponent implements OnInit, AfterViewInit { 
 
   profile: Profile[] = [];
   wallets: Wallet[] = [];
@@ -44,6 +44,21 @@ export class ProfileComponent implements OnInit {
     private profileService: ProfileService,
     private statusService: StatusService,
     private authService: AuthService) { }
+
+    ngAfterViewInit () {
+        !function(d,s,id){
+            var js: any,
+                fjs=d.getElementsByTagName(s)[0],
+                p='https';
+            if(!d.getElementById(id)){
+                js=d.createElement(s);
+                js.id=id;
+                js.src=p+"://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }
+        (document,"script","twitter-wjs");
+      }
   
   ngOnInit() {
 
