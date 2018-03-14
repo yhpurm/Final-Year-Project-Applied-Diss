@@ -79,6 +79,11 @@ export class PostStatusComponent implements OnInit {
       this.onStatusMarker(event.latLng.lat(),event.latLng.lng());
   });
   }
+
+  get user(): any {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
    
   onStatusMarker(lt: number,ln: number) {
     this.lat = lt;

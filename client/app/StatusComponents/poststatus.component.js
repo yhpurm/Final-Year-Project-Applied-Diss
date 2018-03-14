@@ -55,6 +55,13 @@ var PostStatusComponent = /** @class */ (function () {
             _this.onStatusMarker(event.latLng.lat(), event.latLng.lng());
         });
     };
+    Object.defineProperty(PostStatusComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     PostStatusComponent.prototype.onStatusMarker = function (lt, ln) {
         this.lat = lt;
         this.long = ln;
