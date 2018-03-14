@@ -12,6 +12,7 @@ var Balance= require('../models/balanceModel');
 var PoolStatus= require('../models/statusPoolModel');
 var PriceStatus= require('../models/statusPriceModel');
 var FlagStatus= require('../models/FlagStatusModel');
+var ReqStatus= require('../models/requestModal');
 const authentication = require('../routes/authentication')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -161,7 +162,7 @@ router.post('/AddFriend', function(req, res, next) {
     });
 });
 
-// Get wallets
+// Get friends
 router.get('/Friends', function(req, res, next) {
     Friend.find(function(err, messages) {
         console.log(messages);
@@ -208,7 +209,7 @@ router.get('/globalusers/:username', function(req, res, next) {
 
     var search = '.*' + username + '*.';
     console.log(search);
-    database.collection("users").find({ username: {'$regex': search}}).toArray(function(err, result) {
+    database.collection("users").find({ username: {'$regex': search, '$options' : 'i'}}).toArray(function(err, result) {
         if (err) throw err;
         processResponse(result);
     });
@@ -448,6 +449,35 @@ router.post('/Tx/Status/flag', function(req, res, next) {
     });
 });
 
+router.post('/Tx/Status/request', function(req, res, next) {
+
+    var statusReq= new FlagStatus({
+        username: req.body.username,
+        date: req.body.date,
+        title: req.body.title,
+        text: req.body.text,
+        amount: req.body.amount,
+        address: req.body.address,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+    
+    console.log(statusReq);
+    statusReq.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+});
+
 // Get logged in statuses
 router.get('/Tx/Local/:user', function(req, res, next) {
     Status.find(function(err, messages) {
@@ -595,7 +625,7 @@ router.patch('/login/profile/user/:aboutMe', function (req, res) {
     console.log('PATCH request to homepage');
       var aboutMe = req.params.aboutMe;
       console.log(aboutMe);
-    Products.update({aboutMe: aboutMe}, function(err, values) {
+    Proile.update({aboutMe: aboutMe}, function(err, values) {
           if (!err) {
               res.json("okay");
           } else {

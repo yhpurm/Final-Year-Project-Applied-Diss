@@ -1,0 +1,77 @@
+<h1>Post Status Page</h1>
+{{ user.username }}
+<div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label for="inputdefault">Status title</label>
+                                <input class="form-control" [(ngModel)]="title" id="inputdefault" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdefault">Status text:</label>
+                                <input type="text" class="form-control" [(ngModel)]="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdefault">Amount sent:</label>
+                                <input type="number" class="form-control" [(ngModel)]="sentAmount">
+                            </div>
+                            <h2>Choose a wallet</h2>
+                            <table class="table table-hover" *ngFor="let value of wallets" >
+                                <thead>
+                                    <tr>
+                                        <th>SET ADDRESS</th>
+                                        <th>Address</th>
+                                        <th>Wallet label</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><button type = "button" (click)="setAddress(value.address)" class = "btn btn-primary">
+                                                Set</button></td>
+                                        <td>{{value.address}}</td>
+                                        <td>{{value.label}}</td>
+                                    </tr>
+                                </tbody>
+                           </table>
+                           <h3>Enter a receiving address or select an address from friends list</h3>
+                            <div class="form-group">
+                                <label for="inputdefault">Recieving address:</label>
+                                <input type="text"  #targetInput>
+                                <button type="submit" class="btn btn-success" (click)="setTargetAddress(targetInput.value)">Set target address</button>
+                            </div>
+                            <table class="table table-hover" *ngFor="let friend of friends" >
+                                <thead>
+                                    <tr>
+                                        <th>SET ADDRESS</th>
+                                        <th>Address</th>
+                                        <th>Username</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><button type = "button" (click)="setTargetAddress(friend.bitcoinAddress)" class = "btn btn-primary">
+                                                Set</button></td>
+                                        <td>{{friend.bitcoinAddress}}</td>
+                                        <td>{{friend.username}}</td>
+                                    </tr>
+                                </tbody>
+                           </table>
+                           <p>
+                                Set sending address: {{bitcoinAddress}}
+                           </p>
+                           <p>
+                                Set receiving address: {{receivingAddress}}
+                           </p>
+                            <p class = "tpbutton btn-toolbar text-center">
+                                <a (click)="getLocation()" class = "btn navbar-btn btn-primary">Use your loction</a>
+                                or click the map below to set a custom location
+                            </p>
+                        <button id="submitBtn" class="btn btn-primary" (click)="onStatusSubmit()">Post status</button>
+                    </div>
+                </div>
+            </div>
+
+<h3>Click on the map below to set a location</h3>
+<div >
+        <div id="cryptoMap" style="clear:both; height:700px;"></div>
+</div>

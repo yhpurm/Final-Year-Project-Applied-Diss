@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MlabsService } from "./mlabs.service";
-import { Profile } from "./profile.model";
+import { MlabsService } from "./services/mlabs.service";
+import { Profile } from "./DataModals/profile.model";
 import { AuthService } from './services/auth.service';
 
 @Component({

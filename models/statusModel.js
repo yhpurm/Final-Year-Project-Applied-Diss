@@ -10,7 +10,7 @@ var schema = new Schema({
     valueAtTime: {type: Number},
     sentAmount: {type: Number},
     bitcoinAddress: {type: String, required: true},
-    receivingAddress: {type: String, required: true, unique : true},
+    receivingAddress: {type: String, required: true},
     lat: {type: Number, required: true}, 
     long: {type: Number, required: true}
     },

@@ -1,32 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = require("@angular/router");
-var home_component_1 = require("./home.component");
-var cryptomap_component_1 = require("./cryptomap.component");
-var profile_component_1 = require("./profile.component");
-var friends_component_1 = require("./friends.component");
-var trading_component_1 = require("./trading.component");
-var FAQ_component_1 = require("./FAQ.component");
-var walletrequest_component_1 = require("./walletrequest.component");
-var myWallet_component_1 = require("./myWallet.component");
-var settings_component_1 = require("./settings.component");
-var register_component_1 = require("./register.component");
-var welcome_component_1 = require("./welcome.component");
-var mapsmenu_component_1 = require("./mapsmenu.component");
-var poststatus_component_1 = require("./poststatus.component");
-var requestbitcoin_component_1 = require("./requestbitcoin.component");
-var blockchainActivity_component_1 = require("./blockchainActivity.component");
-var login_component_1 = require("./login.component");
-var MlabsSearchResults_component_1 = require("./MlabsSearchResults.component");
-var viewMap_component_1 = require("./viewMap.component");
-var blockstats_component_1 = require("./blockstats.component");
-var postbal_component_1 = require("./postbal.component");
-var postpoolstatus_component_1 = require("./postpoolstatus.component");
-var sendbtc_component_1 = require("./sendbtc.component");
-var flag_component_1 = require("./flag.component");
-var global_component_1 = require("./global.component");
+var home_component_1 = require("./LoginComponents/home.component");
+var cryptomap_component_1 = require("./MapsComponents/cryptomap.component");
+var profile_component_1 = require("./ProfileComponents/profile.component");
+var friends_component_1 = require("./ProfileComponents/friends.component");
+var trading_component_1 = require("./TradingComponents/trading.component");
+var FAQ_component_1 = require("./NavBarComponents/FAQ.component");
+var walletrequest_component_1 = require("./WalletComponents/walletrequest.component");
+var myWallet_component_1 = require("./WalletComponents/myWallet.component");
+var settings_component_1 = require("./NavBarComponents/settings.component");
+var register_component_1 = require("./LoginComponents/register.component");
+var welcome_component_1 = require("./LoginComponents/welcome.component");
+var poststatus_component_1 = require("./StatusComponents/poststatus.component");
+var requestbitcoin_component_1 = require("./StatusComponents/requestbitcoin.component");
+var blockchainActivity_component_1 = require("./StatusComponents/blockchainActivity.component");
+var login_component_1 = require("./LoginComponents/login.component");
+var MlabsSearchResults_component_1 = require("./MlabsComponents/MlabsSearchResults.component");
+var viewMap_component_1 = require("./MapsComponents/viewMap.component");
+var blockstats_component_1 = require("./StatusComponents/blockstats.component");
+var postbal_component_1 = require("./StatusComponents/postbal.component");
+var postpoolstatus_component_1 = require("./StatusComponents/postpoolstatus.component");
+var sendbtc_component_1 = require("./WalletComponents/sendbtc.component");
+var flag_component_1 = require("./StatusComponents/flag.component");
+var global_component_1 = require("./MlabsComponents/global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
+var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var appRoutes = [
     {
         path: '',
@@ -65,11 +65,6 @@ var appRoutes = [
     {
         path: 'postpools',
         component: postpoolstatus_component_1.PoolComponent,
-        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
-    },
-    {
-        path: 'mapsmenu',
-        component: mapsmenu_component_1.MapsMenuComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {
@@ -146,6 +141,11 @@ var appRoutes = [
         path: 'login',
         component: login_component_1.LoginComponent,
         canActivate: [notauth_guard_1.NotAuthGuard]
+    },
+    {
+        path: 'cryptonews',
+        component: cryptonews_component_1.CryptonewsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
