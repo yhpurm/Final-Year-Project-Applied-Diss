@@ -6,25 +6,26 @@
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
+    <style>
         body {
             width: 100%;
             height: 100%;
-            background-image: url('');
+            background-image: url('/app/img/Profilebackground.png');
             background-size: cover;
         }
-        </style>
+    </style>
   <title>Profile Page</title>
   <meta name="description" content="Profile Page">
 </head>
 <body>
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:0px">    
     <!-- The Grid -->
     <div class="w3-row">
       <!-- Left Column -->
       <div class="w3-col m3">
         <!-- Profile -->
+        <br>
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
            <h4 class="w3-center">My Profile</h4>
@@ -80,6 +81,7 @@
       </div>
       
       <!-- Middle Column -->
+      <br>
       <div class="w3-col m7">
       
         <div class="w3-row-padding">
@@ -122,31 +124,8 @@
         </div>
         <br>
         
-        <div class="w3-card w3-round w3-white w3-center">
-          <div class="w3-container">
-            <p>Friend Request</p>
-            <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
-            <span>Jane Doe</span>
-            <div class="w3-row w3-opacity">
-              <div class="w3-half">
-                <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
-              </div>
-              <div class="w3-half">
-                <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
         <br>
-        
-        <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
-          <p>ADS</p>
-        </div>
         <br>
-        
-        <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-          <p><i class="fa fa-bug w3-xxlarge"></i></p>
-        </div>
         
       <!-- End Right Column -->
       </div>
@@ -156,32 +135,5 @@
     
   <!-- End Page Container -->
   </div>
-          
-
-
-    <div class="row nav">    
-          <div class="col-md-4"></div>
-          <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
-              <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-globe"></i> 16</div>
-              <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-user"></i> 14</div>
-              <div class="col-md-4 col-xs-4 well" id="WalletJumbo"><i class="glyphicon glyphicon-off"></i> Online </div>
-          </div>
-      </div>
-      <h4>{{ user.username }}'s Wallets</h4>
-        <div class="container" *ngFor="let value of wallets" >
-                {{ value.label }} : {{ value.address }} 
-          </div>
-      <h1>Status Section</h1>
-      <h3>Regular statuses</h3>
-      <div class="jumbotron" *ngFor="let value of status">
-        <div class="container">
-            <h4>{{value.title}}</h4>
-            <p>{{value.text}}</p> 
-            <p>BTC value: {{value.valueAtTime}}</p> 
-            <p>from: {{value.bitcoinAddress}}</p> 
-            <p>to: {{value.receivingAddress}}</p> 
-            <p>by {{value.date}}</p> 
-        </div>
-      </div>
 </body>
 </html>

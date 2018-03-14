@@ -130,7 +130,7 @@ const appRoutes: Routes = [
     {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [NotAuthGuard]
+        canActivate: [NotAuthGuard] // User can only view this route if they are logged out
     },
     {
         path: 'FAQ',
@@ -140,7 +140,7 @@ const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        canActivate: [NotAuthGuard]
+        canActivate: [NotAuthGuard] // User can only view this route if they are logged out
     },
     {
         path: 'cryptonews',
