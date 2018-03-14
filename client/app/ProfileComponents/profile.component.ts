@@ -44,8 +44,7 @@ export class ProfileComponent implements OnInit {
             },
             error => console.error(error)
          );
-
-
+    
     // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
     var imagePath = ".\avatars\\" + this.userAvatar.avatar +".png";
     console.log(imagePath); 

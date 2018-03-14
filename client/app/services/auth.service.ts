@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-//import { tokenNotExpired } from 'angular2-jwt';
 
 
 @Injectable()
@@ -71,12 +70,6 @@ export class AuthService {
     this.storeUserData;
   }
 
-  // Function to get user's profile data
-  getProfile() {
-    this.createAuthenticationHeaders(); // Create headers before sending to API
-    return this.http.get(this.domain + '/authentication/profile', this.options).map(res => res.json());
-  }
-
     // Function to check if user is logged in
     loggedIn() {
       //return tokenNotExpired();
@@ -86,13 +79,5 @@ export class AuthService {
         return false; // return user to page
       }
     }
-
-    /*displayUsername() {
-      if (this.authToken = localStorage.getItem('user')) { // if there is a user token in the storage
-        return localStorage.setItem('user', JSON.stringify(this.user)); // return user
-      } else { // otherwise 
-        return null;
-      }
-    }*/
 
 }

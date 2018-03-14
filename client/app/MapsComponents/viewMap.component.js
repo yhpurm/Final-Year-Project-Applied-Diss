@@ -25,9 +25,9 @@ var ViewMapComponent = /** @class */ (function () {
             zoom: 4,
             center: { lat: 53.1424, lng: -7.6921 }
         });
-        this.authService.getProfile().subscribe(function (profile) {
-            _this.username = profile.user.username;
-        });
+        //this.authService.getProfile().subscribe(profile => {
+        //this.username = profile.user.username;
+        //});
         console.log(this.username);
         // This service gets the logged in users posted statuses
         this.statusService.getStatusByUsername(this.username)

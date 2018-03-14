@@ -30,9 +30,9 @@ export class ViewMapComponent implements OnInit {
           center: {lat: 53.1424, lng: -7.6921}
     });
 
-    this.authService.getProfile().subscribe(profile => {
-      this.username = profile.user.username;
-    });
+    //this.authService.getProfile().subscribe(profile => {
+      //this.username = profile.user.username;
+    //});
 
     console.log(this.username);
    
