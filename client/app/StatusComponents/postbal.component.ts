@@ -44,6 +44,10 @@ export class PostBalanceComponent implements OnInit {
          );
 
          this.getLocation();
+
+         // asign username from local storage
+        this.username = this.user.username;
+        console.log(this.username);
     }
 
     setPosition(position) {
@@ -111,4 +115,9 @@ export class PostBalanceComponent implements OnInit {
             error => console.error(error)
         );
     }
+
+    get user(): any {
+        return JSON.parse(localStorage.getItem('user'));
+      }
+    
 }

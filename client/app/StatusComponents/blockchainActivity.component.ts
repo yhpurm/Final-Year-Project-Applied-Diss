@@ -45,6 +45,8 @@ export class TransactionsComponent implements OnInit {
            error => console.error("error:" + error)
     );
 
+    this.username = this.user.username;
+    console.log(this.username);
   }
 
   setPosition(position) {
@@ -95,6 +97,10 @@ export class TransactionsComponent implements OnInit {
         () => console.log('POST from status'),
         error => console.error(error)
     );
-}
+    }
 
- }
+    get user(): any {
+        return JSON.parse(localStorage.getItem('user'));
+      }
+
+}

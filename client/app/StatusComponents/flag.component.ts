@@ -44,6 +44,10 @@ export class FlagComponent implements OnInit {
       console.log(ln());
       this.onStatusMarker(event.latLng.lat(),event.latLng.lng());
   });
+
+  // asign username from local storage
+  this.username = this.user.username;
+  console.log(this.username);
   }
    
   onStatusMarker(lt: number,ln: number) {
@@ -55,7 +59,6 @@ export class FlagComponent implements OnInit {
 
 onStatusSubmit(){
       this.date = Date.now();
-      this.username = "test"
       const newStatusPost = new FlagStatus(this.username,this.date,this.title,this.text,this.locationName,this.contact,this.lat,this.long);
       console.log(newStatusPost);
       this.statusService.saveFlagPost(newStatusPost)
@@ -63,6 +66,10 @@ onStatusSubmit(){
           () => console.log('POST from status'),
           error => console.error(error)
       );
+  }
+
+  get user(): any {
+    return JSON.parse(localStorage.getItem('user'));
   }
 }
 

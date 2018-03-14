@@ -31,6 +31,9 @@ var PostBalanceComponent = /** @class */ (function () {
             console.log("got wallets");
         }, function (error) { return console.error(error); });
         this.getLocation();
+        // asign username from local storage
+        this.username = this.user.username;
+        console.log(this.username);
     };
     PostBalanceComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
@@ -85,6 +88,13 @@ var PostBalanceComponent = /** @class */ (function () {
         this.statusService.saveBalPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(PostBalanceComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     PostBalanceComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

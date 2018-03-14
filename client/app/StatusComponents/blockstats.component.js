@@ -44,6 +44,9 @@ var StatsComponent = /** @class */ (function () {
             _this.trade_volume_usd = res.trade_volume_usd;
             _this.timestamp = res.timestamp;
         }, function (error) { return console.error("error:" + error); });
+        // asign username from local storage
+        this.username = this.user.username;
+        console.log(this.username);
     };
     StatsComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
@@ -75,12 +78,18 @@ var StatsComponent = /** @class */ (function () {
     };
     StatsComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
-        this.username = "test";
         var newStatusPost = new blockstats_modal_1.StatsStatus(this.username, this.date, this.title, this.text, this.market_price_usd, this.hash_rate, this.total_fees_btc, this.n_btc_mined, this.n_tx, this.n_blocks_mined, this.totalbc, this.n_blocks_total, this.estimated_transaction_volume_usd, this.blocks_size, this.miners_revenue_usd, this.nextretarget, this.difficulty, this.estimated_btc_sent, this.miners_revenue_btc, this.total_btc_sent, this.trade_volume_btc, this.trade_volume_btc, this.timestamp, this.lat, this.long);
         console.log(newStatusPost);
         this.statusService.saveStatsPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(StatsComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     StatsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

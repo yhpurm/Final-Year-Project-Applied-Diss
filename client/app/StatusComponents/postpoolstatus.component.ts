@@ -52,7 +52,9 @@ export class PoolComponent implements OnInit {
            },
            error => console.error("error:" + error)
     );
-    
+    // asign username from local storage
+    this.username = this.user.username;
+    console.log(this.username);
 }
 
 setPosition(position) {
@@ -99,5 +101,10 @@ getLocation() {
         error => console.error(error)
     );
   }
+
+  get user(): any {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
 
  }

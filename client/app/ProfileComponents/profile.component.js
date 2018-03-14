@@ -31,12 +31,8 @@ var ProfileComponent = /** @class */ (function () {
             console.log(_this.wallets);
             console.log("got wallets");
         }, function (error) { return console.error(error); });
-        this.authService.getProfile().subscribe(function (profile) {
-            _this.username = profile.user.username;
-            _this.email = profile.user.email;
-        });
         // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
-        var imagePath = ".\avatars\\" + 1 + ".png";
+        var imagePath = ".\avatars\\" + this.userAvatar.avatar + ".png";
         console.log(imagePath);
         // This service gets the logged in users profile
         this.profileService.getProfileByUsername(this.username)

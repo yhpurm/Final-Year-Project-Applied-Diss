@@ -25,7 +25,7 @@ export class PostStatusComponent implements OnInit {
   // Variables
   map: any;
   wallets: Wallet [] = [];
-  username: string;
+  username;
   title: string;
   text: String;
   date: Number;
@@ -40,12 +40,6 @@ export class PostStatusComponent implements OnInit {
 
   ngOnInit(){
 
-    this.authService.getProfile().subscribe(profile => {
-        this.username = profile.user.username;
-        console.log(this.username);
-      });
-
-    console.log(this.username);
     this.profileService.getMyWallets()
         .subscribe(
             response => {
@@ -56,6 +50,7 @@ export class PostStatusComponent implements OnInit {
             error => console.error(error)
          );
 
+         
          this.profileService.getFriends()
            .subscribe(
             res => {
@@ -65,6 +60,10 @@ export class PostStatusComponent implements OnInit {
                },
                error => console.error("error:" + error)
             );
+        
+    // asign username from local storage
+    this.username = this.user.username;
+    console.log(this.username);
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
           zoom: 7,
           center: {lat: 53.1424, lng: -7.6921}
@@ -129,6 +128,11 @@ getLocation() {
     );
 };
 }
+
+// Functions to return what is in storage
+get user(): any {
+    return JSON.parse(localStorage.getItem('user'));
+  }
 
 onStatusSubmit(){
       this.date = Date.now();

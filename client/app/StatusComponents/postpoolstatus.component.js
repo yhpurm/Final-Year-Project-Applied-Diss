@@ -34,6 +34,9 @@ var PoolComponent = /** @class */ (function () {
             _this.ViaBTC = res.ViaBTC;
             _this.Unknown = res.Unknown;
         }, function (error) { return console.error("error:" + error); });
+        // asign username from local storage
+        this.username = this.user.username;
+        console.log(this.username);
     };
     PoolComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
@@ -72,6 +75,13 @@ var PoolComponent = /** @class */ (function () {
         this.statusService.savePoolPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(PoolComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     PoolComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

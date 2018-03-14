@@ -9,6 +9,8 @@ import { StatsStatus } from "../DataModals/blockstats.modal";
 import { PostPools } from "../DataModals/pools.modal";
 import { PostTicker } from '../DataModals/blockticker.modal';
 import { FlagStatus } from "../DataModals/status.model";
+import { ReqStatus } from "../DataModals/request.modal";
+
 @Injectable()
 export class StatusService {
     // Http Contructor for setting up connection
@@ -173,6 +175,14 @@ export class StatusService {
         console.log(body);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/Tx/Status/flag', body, {headers: headers});
+    }
+
+    saveReqPost(Tx:ReqStatus): Observable<any> {
+        console.log(Tx);
+        const body = JSON.stringify(Tx);
+        console.log(body);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.post('http://localhost:3000/Tx/Status/request', body, {headers: headers});
     }
 
     saveTx(Tx: Status): Observable<any> {

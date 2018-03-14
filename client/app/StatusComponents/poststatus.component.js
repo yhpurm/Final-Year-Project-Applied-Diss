@@ -25,11 +25,6 @@ var PostStatusComponent = /** @class */ (function () {
     }
     PostStatusComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.authService.getProfile().subscribe(function (profile) {
-            _this.username = profile.user.username;
-            console.log(_this.username);
-        });
-        console.log(this.username);
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
@@ -42,6 +37,9 @@ var PostStatusComponent = /** @class */ (function () {
             _this.friends = res;
             console.log(_this.friends);
         }, function (error) { return console.error("error:" + error); });
+        // asign username from local storage
+        this.username = this.user.username;
+        console.log(this.username);
         this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
             zoom: 7,
             center: { lat: 53.1424, lng: -7.6921 }
@@ -98,6 +96,14 @@ var PostStatusComponent = /** @class */ (function () {
         }
         ;
     };
+    Object.defineProperty(PostStatusComponent.prototype, "user", {
+        // Functions to return what is in storage
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     PostStatusComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
         console.log(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);

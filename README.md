@@ -39,6 +39,7 @@ Here is a brief video to explain some questions you make have about bitcoin.
 10. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
 11. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
 12. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+
 ---
 
 ## **Technologies**

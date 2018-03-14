@@ -33,6 +33,9 @@ var FlagComponent = /** @class */ (function () {
             console.log(ln());
             _this.onStatusMarker(event.latLng.lat(), event.latLng.lng());
         });
+        // asign username from local storage
+        this.username = this.user.username;
+        console.log(this.username);
     };
     FlagComponent.prototype.onStatusMarker = function (lt, ln) {
         this.lat = lt;
@@ -41,12 +44,18 @@ var FlagComponent = /** @class */ (function () {
     };
     FlagComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
-        this.username = "test";
         var newStatusPost = new status_model_1.FlagStatus(this.username, this.date, this.title, this.text, this.locationName, this.contact, this.lat, this.long);
         console.log(newStatusPost);
         this.statusService.saveFlagPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(FlagComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     FlagComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

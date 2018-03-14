@@ -33,6 +33,8 @@ var TransactionsComponent = /** @class */ (function () {
                 _this.prices.push(new blockticker_modal_1.Ticker(value.last, value.buy, value.sell, value.symbol));
             }
         }, function (error) { return console.error("error:" + error); });
+        this.username = this.user.username;
+        console.log(this.username);
     };
     TransactionsComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
@@ -76,6 +78,13 @@ var TransactionsComponent = /** @class */ (function () {
         this.statusService.savePricePost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
+    Object.defineProperty(TransactionsComponent.prototype, "user", {
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     TransactionsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

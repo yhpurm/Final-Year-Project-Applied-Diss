@@ -73,6 +73,9 @@ export class StatsComponent implements OnInit {
            error => console.error("error:" + error)
     );
 
+    // asign username from local storage
+    this.username = this.user.username;
+    console.log(this.username);
   }
 
   setPosition(position) {
@@ -108,7 +111,6 @@ export class StatsComponent implements OnInit {
 
   onStatusSubmit(){
     this.date = Date.now();
-    this.username = "test"
     const newStatusPost = new StatsStatus(this.username,this.date,this.title,this.text,
       this.market_price_usd,this.hash_rate,this.total_fees_btc,this.n_btc_mined,this.n_tx,this.n_blocks_mined
     ,this.totalbc,this.n_blocks_total,this.estimated_transaction_volume_usd,
@@ -122,5 +124,9 @@ export class StatsComponent implements OnInit {
         error => console.error(error)
     );
 }
+
+get user(): any {
+    return JSON.parse(localStorage.getItem('user'));
+  }
 
  }
