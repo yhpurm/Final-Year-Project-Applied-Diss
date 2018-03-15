@@ -90,7 +90,6 @@ var StatusService = /** @class */ (function () {
             var status;
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
-                console.log(element);
                 status = new pools_modal_1.PostPools(element.username, element.date, element.title, element.text, element.Unknown, element.GBMiners, element.SlushPool, element.KanoCKPool, element.BitFury, element.AntPool, element.F2Pool, element.ViaBTC, element.lat, element.long);
                 msgArray.push(status);
             }

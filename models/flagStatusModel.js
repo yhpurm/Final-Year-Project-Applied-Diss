@@ -7,8 +7,8 @@ var schema = new Schema({
     date: {type: Number, required: true},
     title: {type: String, required: true},
     text: {type: String, required: true},
-    loctaionName: {type: Number},
-    contact: {type: Number},
+    locationName: {type: String},
+    contact: {type: String},
     lat: {type: Number, required: true}, 
     long: {type: Number, required: true}
     },

@@ -69,7 +69,6 @@ var PoolComponent = /** @class */ (function () {
     PoolComponent.prototype.onStatusPoolSubmit = function () {
         this.date = Date.now();
         this.getLocation();
-        this.username = "test";
         var newStatusPost = new pools_modal_1.PostPools(this.username, this.date, this.title, this.text, this.Unknown, this.GBMiners, this.SlushPool, this.KanoPool, this.BitFury, this.AntPool, this.F2Pool, this.ViaBTC, this.lat, this.long);
         console.log(newStatusPost);
         this.statusService.savePoolPost(newStatusPost)

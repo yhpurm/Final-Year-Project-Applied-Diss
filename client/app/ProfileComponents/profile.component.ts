@@ -104,7 +104,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.balStatus = res;
-             console.log(this.status);  
+             console.log(this.balStatus);  
          },
          error => console.error(error)
      );
@@ -114,7 +114,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.statStatus = res;
-             console.log(this.status);  
+             console.log(this.statStatus);  
          },
          error => console.error(error)
      );
@@ -124,7 +124,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.poolsStatus = res;
-             console.log(this.status);  
+             console.log("this.poolsStatus"); 
+             console.log(this.poolsStatus);  
          },
          error => console.error(error)
      );
@@ -134,7 +135,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.tickerStatus = res;
-             console.log(this.status);  
+             console.log(this.tickerStatus);  
          },
          error => console.error(error)
      );
@@ -144,7 +145,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.flagStatus = res;
-             console.log(this.status);  
+             console.log(this.flagStatus);  
          },
          error => console.error(error)
      );
@@ -154,7 +155,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.reqStatus = res;
-             console.log(this.status);  
+             console.log(this.reqStatus);  
          },
          error => console.error(error)
      );

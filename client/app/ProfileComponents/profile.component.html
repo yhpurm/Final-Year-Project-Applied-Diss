@@ -92,9 +92,9 @@
                     <div class="container" *ngFor="let value of wallets" >
                         {{ value.label }} : {{ value.address }} 
                     </div>
-                        <h1>Status Section</h1>
-                        <h3>Regular statuses</h3>
-                            <div class="jumbotron" *ngFor="let value of status">
+                      <h1>Status Section</h1>
+                      <h3>Regular statuses</h3>
+                        <div class="jumbotron" *ngFor="let value of status">
                             <div class="container">
                             <h4>{{value.title}}</h4>
                             <p>{{value.text}}</p> 
@@ -102,6 +102,85 @@
                             <p>from: {{value.bitcoinAddress}}</p> 
                             <p>to: {{value.receivingAddress}}</p> 
                             <p>by {{value.date}}</p> 
+                    </div>
+                </div>
+                <h3>Balance Posts</h3>
+                        <div class="jumbotron" *ngFor="let value of balStatus">
+                            <div class="container">
+                            <h4>{{value.title}}</h4>
+                            <p>{{value.text}}</p> 
+                            <p>Wallet balance: {{value.balance}}</p> 
+                            <p>by {{value.date}}</p> 
+                    </div>
+                </div>
+                <h3>Blockchain Activity Posts</h3>
+                        <div class="jumbotron" *ngFor="let value of statStatus">
+                            <div class="container">
+                            <h4>{{value.title}}</h4>
+                            <p>{{value.text}}</p> 
+                            <p>Market value USD: {{value.market_price_usd}}</p> 
+                            <p>Total fees collected: {{value.total_fees_btc}}</p> 
+                            <p>Bitcoin mined: {{value.n_btc_mined}}</p> 
+                            <p>Transactions: {{value.n_tx}}</p> 
+                            <p>Blocks mined: {{value.n_blocks_mined}}</p> 
+                            <p>Total bitcoin: {{value.totalbc}}</p> 
+                            <p>Bitcoin mined: {{value.n_btc_mined}}</p> 
+                            <p>Blocks total: {{value.n_blocks_total}}</p>
+                            <p>EST transaction volume USD: {{value.estimated_transaction_volume_usd}}</p> 
+                            <p>Blocks size: {{value.blocks_size}}</p> 
+                            <p>Miner revenue USD: {{value.miners_revenue_usd}}</p> 
+                            <p>Next target: {{value.nextretarget}}</p>
+                            <p>Difficulty: {{value.difficulty}}</p>
+                            <p>EST bitcoin sent: {{value.estimated_btc_sent}}</p> 
+                            <p>Miner revenue BTC: {{value.miners_revenue_btc}</p> 
+                            <p>Total BTC sent: {{value.total_btc_sent}}</p> 
+                            <p>Trade volume BTC: {{value.trade_volume_btc}}</p>
+                            <p>Trade volume USD: {{value.trade_volume_usd}}</p>
+                            <p>Timestamp: {{value.timestamp}}</p>  
+                    </div>
+                </div>
+                <h3>Miner Activity Posts</h3>
+                        <div class="jumbotron" *ngFor="let value of poolsStatus">
+                            <div class="container">
+                            <h4>{{value.title}}</h4>
+                            <p>{{value.text}}</p> 
+                            <p>Unknown: {{value.Unknown}}</p> 
+                            <p>GBMiner: {{value.GBMiners}}</p> 
+                            <p>SlushPool {{value.SlushPool}}</p> 
+                            <p>KanoPool: {{value.KanoCKPool}}</p> 
+                            <p>BitFury {{value.BitFury}}</p> 
+                            <p>AntPool: {{value.AntPool}}</p> 
+                            <p>F2Pool: {{value.F2Pool}}</p> 
+                            <p>ViaBTC: {{value.ViaBTC}}</p>
+                    </div>
+                </div>
+                <h3>Bitcoin Value Posts</h3>
+                        <div class="jumbotron" *ngFor="let value of tickerStatus">
+                            <div class="container">
+                            <h4>{{value.title}}</h4>
+                            <p>{{value.text}}</p> 
+                            <p>Last price sold at: {{value.last}}</p> 
+                            <p>Buy: {{value.buy}}</p> 
+                            <p>Sell: {{value.sell}}</p> 
+                            <p>FIAT: {{value.symbol}}</p> 
+                    </div>
+                </div>
+                <h3>Bitcoin Related Locations Of Intrest</h3>
+                        <div class="jumbotron" *ngFor="let value of flagStatus">
+                            <div class="container">
+                            <h4>{{value.title}}</h4>
+                            <p>{{value.text}}</p> 
+                            <p>location: {{value.locationName}}</p> 
+                            <p>Contact: {{value.contact}}</p>  
+                    </div>
+                </div>
+                <h3>Donation Requests</h3>
+                        <div class="jumbotron" *ngFor="let value of reqStatus">
+                            <div class="container">
+                            <h4>{{value.title}}</h4>
+                            <p>{{value.text}}</p> 
+                            <p>location: {{value.amount}}</p> 
+                            <p>Contact: {{value.address}}</p>  
                     </div>
                 </div>
               </div>

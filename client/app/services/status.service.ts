@@ -81,7 +81,6 @@ export class StatusService {
                 const msgArray: PostPools[] = [];
                 let status;
                 for (let element of extracted.data) {
-                    console.log(element);
                     status = new PostPools(element.username, element.date, element.title, element.text,element.Unknown, element.GBMiners, element.SlushPool, element.KanoCKPool, element.BitFury,element.AntPool, element.F2Pool, element.ViaBTC, element.lat, element.long);
                     msgArray.push(status);
                 }

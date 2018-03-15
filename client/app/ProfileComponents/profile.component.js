@@ -69,37 +69,38 @@ var ProfileComponent = /** @class */ (function () {
         this.statusService.getBalStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.balStatus = res;
-            console.log(_this.status);
+            console.log(_this.balStatus);
         }, function (error) { return console.error(error); });
         // This service gets the logged in users profile
         this.statusService.getStatsStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.statStatus = res;
-            console.log(_this.status);
+            console.log(_this.statStatus);
         }, function (error) { return console.error(error); });
         // This service gets the logged in users profile
         this.statusService.getPoolStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.poolsStatus = res;
-            console.log(_this.status);
+            console.log("this.poolsStatus");
+            console.log(_this.poolsStatus);
         }, function (error) { return console.error(error); });
         // This service gets the logged in users profile
         this.statusService.getPriceStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.tickerStatus = res;
-            console.log(_this.status);
+            console.log(_this.tickerStatus);
         }, function (error) { return console.error(error); });
         // This service gets the logged in users profile
         this.statusService.getFlagsStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.flagStatus = res;
-            console.log(_this.status);
+            console.log(_this.flagStatus);
         }, function (error) { return console.error(error); });
         // This service gets the logged in users profile
         this.statusService.getReqStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.reqStatus = res;
-            console.log(_this.status);
+            console.log(_this.reqStatus);
         }, function (error) { return console.error(error); });
     };
     Object.defineProperty(ProfileComponent.prototype, "user", {

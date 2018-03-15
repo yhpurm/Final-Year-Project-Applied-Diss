@@ -91,7 +91,6 @@ getLocation() {
   onStatusPoolSubmit(){
     this.date = Date.now();
     this.getLocation();
-    this.username = "test"
     const newStatusPost = new PostPools(this.username,this.date,this.title,this.text,this.Unknown,this.GBMiners,this.SlushPool
     ,this.KanoPool,this.BitFury,this.AntPool,this.F2Pool,this.ViaBTC,this.lat,this.long);
     console.log(newStatusPost);

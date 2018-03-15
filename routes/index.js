@@ -422,12 +422,13 @@ router.post('/Tx/Status/price', function(req, res, next) {
 
 router.post('/Tx/Status/flag', function(req, res, next) {
 
+    console.log(req.body.locationName);
     var statusFlag= new FlagStatus({
         username: req.body.username,
         date: req.body.date,
         title: req.body.title,
         text: req.body.text,
-        locationName: req.body. locationName,
+        locationName: req.body.locationName,
         contact: req.body.contact,
         lat: req.body.lat,
         long: req.body.long

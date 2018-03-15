@@ -30,8 +30,7 @@ var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var appRoutes = [
     {
         path: '',
-        component: welcome_component_1.WelcomeComponent //,
-        //canActivate: [NotAuthGuard] // User can only view this route if they are logged out
+        component: welcome_component_1.WelcomeComponent
     },
     {
         path: 'home',
