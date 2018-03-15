@@ -17,6 +17,7 @@ var SendBTCComponent = /** @class */ (function () {
         this.profileService = profileService;
         this.blockchainService = blockchainService;
         this.wallets = [];
+        this.friends = [];
     }
     SendBTCComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -26,6 +27,17 @@ var SendBTCComponent = /** @class */ (function () {
             console.log(_this.wallets);
             console.log("got wallets");
         }, function (error) { return console.error(error); });
+        this.profileService.getFriends()
+            .subscribe(function (res) {
+            console.log(res);
+            _this.friends = res;
+            console.log(_this.friends);
+        }, function (error) { return console.error("error:" + error); });
+    };
+    SendBTCComponent.prototype.setTargetAddress = function (address) {
+        console.log("address: " + address);
+        this.to = address;
+        console.log(this.to);
     };
     SendBTCComponent.prototype.onSendBTC = function () {
         var _this = this;

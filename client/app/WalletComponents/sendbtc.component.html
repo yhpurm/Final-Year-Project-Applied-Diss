@@ -15,11 +15,30 @@
                                         <a class = "btn navbar-btn btn-primary" href = "#">Use friends address</a>
                                         <a class = "btn navbar-btn btn-default" href = "#">Enter another address below</a>
                                 </p>
+                                <h3>Choose from a friends list or enter a address to send BTC to</h3>
+                                <table class="table table-hover" *ngFor="let value of friends" >
+                                    <thead>
+                                        <tr>
+                                            <th>SET ADDRESS</th>
+                                            <th>Address</th>
+                                            <th>Wallet label</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><button type = "button" (click)="setAddress(value.address)" class = "btn btn-primary">
+                                                    Set</button></td>
+                                            <td>{{value.bitcoinAddress}}</td>
+                                            <td>{{value.username}}</td>
+                                        </tr>
+                                    </tbody>
+                               </table>
                         
-                                <select (change)="selectItem($event.target.value)">
-                                        <option *ngFor="let value of values" value={{value.label}}>{{value.label}}</option>
-                                </select>
-                        
+                                <div class="form-group">
+                                    <label for="inputdefault">Recieving address:</label>
+                                    <input type="text"  #targetInput>
+                                    <button type="submit" class="btn btn-success" (click)="setTargetAddress(targetInput.value)">Set target address</button>
+                                </div>
                                 <div>
                                     <h3>Enter bitcoin below</h3>
                                     <div class="form-row">

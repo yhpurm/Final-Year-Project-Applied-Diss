@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileService } from "../services/profile.service";
 import { BlockchainService } from "../services/blockchain.service";
 import { Wallet } from "../DataModals/myWallet.model";
+import { Profile } from "../DataModals/profile.model";
 import { OnInit } from '@angular/core';
 
 
@@ -18,7 +19,10 @@ export class SendBTCComponent implements OnInit {
   
   wallets: Wallet [] = [];
   guid: string;
-
+  to: string;
+  amount: string;
+  friends: Profile [] = [];
+  
   ngOnInit() {
 
     this.profileService.getMyWallets()
@@ -30,6 +34,22 @@ export class SendBTCComponent implements OnInit {
            },
            error => console.error(error)
         );
+
+        this.profileService.getFriends()
+           .subscribe(
+            res => {
+                    console.log(res);
+                    this.friends = res;
+                    console.log(this.friends);
+               },
+               error => console.error("error:" + error)
+            );
+  }
+
+  setTargetAddress(address: string){
+    console.log("address: " + address);
+    this.to = address;
+    console.log(this.to);
   }
 
   onSendBTC() {
