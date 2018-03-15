@@ -73,6 +73,7 @@ export class StatsComponent implements OnInit {
            error => console.error("error:" + error)
     );
 
+    this.getLocation();
     // asign username from local storage
     this.username = this.user.username;
     console.log(this.username);
@@ -81,7 +82,7 @@ export class StatsComponent implements OnInit {
   setPosition(position) {
     this.lat = position.coords.latitude;
     this.long = position.coords.longitude;
-    alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+    console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
   }
   
   getLocation() {

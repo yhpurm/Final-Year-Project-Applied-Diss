@@ -44,6 +44,7 @@ var StatsComponent = /** @class */ (function () {
             _this.trade_volume_usd = res.trade_volume_usd;
             _this.timestamp = res.timestamp;
         }, function (error) { return console.error("error:" + error); });
+        this.getLocation();
         // asign username from local storage
         this.username = this.user.username;
         console.log(this.username);
@@ -51,7 +52,7 @@ var StatsComponent = /** @class */ (function () {
     StatsComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
-        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+        console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
     StatsComponent.prototype.getLocation = function () {
         var _this = this;

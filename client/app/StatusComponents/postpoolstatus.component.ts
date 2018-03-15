@@ -52,6 +52,7 @@ export class PoolComponent implements OnInit {
            },
            error => console.error("error:" + error)
     );
+    this.getLocation();
     // asign username from local storage
     this.username = this.user.username;
     console.log(this.username);
@@ -60,7 +61,7 @@ export class PoolComponent implements OnInit {
 setPosition(position) {
   this.lat = position.coords.latitude;
   this.long = position.coords.longitude;
-  alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+  console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
 }
 
 getLocation() {
@@ -90,7 +91,6 @@ getLocation() {
 
   onStatusPoolSubmit(){
     this.date = Date.now();
-    this.getLocation();
     const newStatusPost = new PostPools(this.username,this.date,this.title,this.text,this.Unknown,this.GBMiners,this.SlushPool
     ,this.KanoPool,this.BitFury,this.AntPool,this.F2Pool,this.ViaBTC,this.lat,this.long);
     console.log(newStatusPost);
