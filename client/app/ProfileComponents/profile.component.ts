@@ -193,6 +193,66 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    onDeleteStatsStatus(title: string) {
+        var proceed = confirm("Do you want to continue ?");
+        if( proceed == true ){
+           this.statusService
+          .deleteStatsStatusWithTitle(title)
+          .subscribe(
+              result => alert('DELETED ' + title),
+              error => console.error(error)
+            );
+            }else{
+                alert("Delete cancled!");
+                      return false;
+            }
+    }
+
+    onDeletePoolStatus(title: string) {
+        var proceed = confirm("Do you want to continue ?");
+        if( proceed == true ){
+           this.statusService
+          .deletePoolStatusWithTitle(title)
+          .subscribe(
+              result => alert('DELETED ' + title),
+              error => console.error(error)
+            );
+            }else{
+                alert("Delete cancled!");
+                      return false;
+            }
+    }
+
+    onDeletePriceStatus(title: string) {
+        var proceed = confirm("Do you want to continue ?");
+        if( proceed == true ){
+           this.statusService
+          .deletePriceStatusWithTitle(title)
+          .subscribe(
+              result => alert('DELETED ' + title),
+              error => console.error(error)
+            );
+            }else{
+                alert("Delete cancled!");
+                      return false;
+            }
+    }
+
+    onDeleteReqStatus(title: string) {
+        var proceed = confirm("Do you want to continue ?");
+        if( proceed == true ){
+           this.statusService
+          .deleteReqStatusWithTitle(title)
+          .subscribe(
+              result => alert('DELETED ' + title),
+              error => console.error(error)
+            );
+            }else{
+                alert("Delete cancled!");
+                      return false;
+            }
+    }
+
     // Functions to return what is in storage
     get user(): any {
       return JSON.parse(localStorage.getItem('user'));

@@ -16,6 +16,25 @@
 
 ---
 
+# Repository Table of Contents
+1. [Introduction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#introduction)
+2. [MEAN Stack](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#technologies)
+3. [Architecture](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#architecture)
+4. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
+5. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
+6. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
+7. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
+8. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
+9. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
+10. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+11. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
+12. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
+13. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
+14. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
+15. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+
+---
+
 # **Introduction**
 Welcome to our Crypto-Currency wallet application. The focus of this application is to offer an easy to use, intuitave user experience. While offering education on the trading and buying of Crypto-Currencies. This wallet application will be mainly dealing with storing and sending [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin).
 
@@ -23,22 +42,6 @@ Welcome to our Crypto-Currency wallet application. The focus of this application
 Here is a brief video to explain some questions you make have about bitcoin.
 
 [![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/35869303-a3ee46ea-0b56-11e8-8350-b5c2013def79.png)](https://www.youtube.com/watch?v=Um63OQz3bjo&t=3s_blank)
-
----
-
-# Table of Contents
-1. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
-2. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
-3. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
-4. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
-5. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
-6. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
-7. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
-8. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
-9. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
-10. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
-11. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
-12. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
 
 ---
 
