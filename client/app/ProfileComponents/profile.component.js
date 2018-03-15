@@ -103,6 +103,30 @@ var ProfileComponent = /** @class */ (function () {
             console.log(_this.reqStatus);
         }, function (error) { return console.error(error); });
     };
+    ProfileComponent.prototype.onDeleteStatus = function (title) {
+        var proceed = confirm("Do you want to continue ?");
+        if (proceed == true) {
+            this.statusService
+                .deleteStatusWithTitle(title)
+                .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
+    ProfileComponent.prototype.onDeleteBalStatus = function (title) {
+        var proceed = confirm("Do you want to continue ?");
+        if (proceed == true) {
+            this.statusService
+                .deleteBalStatusWithTitle(title)
+                .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
     Object.defineProperty(ProfileComponent.prototype, "user", {
         // Functions to return what is in storage
         get: function () {

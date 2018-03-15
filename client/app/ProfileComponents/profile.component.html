@@ -101,7 +101,8 @@
                             <p>BTC value: {{value.valueAtTime}}</p> 
                             <p>from: {{value.bitcoinAddress}}</p> 
                             <p>to: {{value.receivingAddress}}</p> 
-                            <p>by {{value.date}}</p> 
+                            <p>by {{value.date}}</p>
+                            <button type="button" class="btn btn-danger" (click)="onDeleteStatus(value.title)">Delete</button>
                     </div>
                 </div>
                 <h3>Balance Posts</h3>
@@ -111,6 +112,7 @@
                             <p>{{value.text}}</p> 
                             <p>Wallet balance: {{value.balance}}</p> 
                             <p>by {{value.date}}</p> 
+                            <button type="button" class="btn btn-danger" (click)="onDeleteBalStatus(value.title)">Delete</button>
                     </div>
                 </div>
                 <h3>Blockchain Activity Posts</h3>
@@ -137,6 +139,7 @@
                             <p>Trade volume BTC: {{value.trade_volume_btc}}</p>
                             <p>Trade volume USD: {{value.trade_volume_usd}}</p>
                             <p>Timestamp: {{value.timestamp}}</p>  
+                            <button type="button" class="btn btn-danger" (click)="onDeleteStatsStatus(value.title)">Delete</button>
                     </div>
                 </div>
                 <h3>Miner Activity Posts</h3>
@@ -152,6 +155,7 @@
                             <p>AntPool: {{value.AntPool}}</p> 
                             <p>F2Pool: {{value.F2Pool}}</p> 
                             <p>ViaBTC: {{value.ViaBTC}}</p>
+                            <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button>
                     </div>
                 </div>
                 <h3>Bitcoin Value Posts</h3>
@@ -163,6 +167,7 @@
                             <p>Buy: {{value.buy}}</p> 
                             <p>Sell: {{value.sell}}</p> 
                             <p>FIAT: {{value.symbol}}</p> 
+                            <button type="button" class="btn btn-danger" (click)="onDeletePriceStatus(value.title)">Delete</button>
                     </div>
                 </div>
                 <h3>Bitcoin Related Locations Of Intrest</h3>
@@ -171,7 +176,8 @@
                             <h4>{{value.title}}</h4>
                             <p>{{value.text}}</p> 
                             <p>location: {{value.locationName}}</p> 
-                            <p>Contact: {{value.contact}}</p>  
+                            <p>Contact: {{value.contact}}</p> 
+                            <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button> 
                     </div>
                 </div>
                 <h3>Donation Requests</h3>
@@ -181,6 +187,7 @@
                             <p>{{value.text}}</p> 
                             <p>location: {{value.amount}}</p> 
                             <p>Contact: {{value.address}}</p>  
+                            <button type="button" class="btn btn-danger" (click)="onDeleteReqStatus(value.title)">Delete</button>
                     </div>
                 </div>
               </div>

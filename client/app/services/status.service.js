@@ -201,6 +201,41 @@ var StatusService = /** @class */ (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         return this.http.post('http://localhost:3000/Tx/Status/reg', body, { headers: headers });
     };
+    StatusService.prototype.deleteStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/Status/Remove/' + t);
+    };
+    StatusService.prototype.deleteBalStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/BalStatus/Remove/' + t);
+    };
+    StatusService.prototype.deleteStatsStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/StatsStatus/Remove/' + t);
+    };
+    StatusService.prototype.deletePoolStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/PoolStatus/Remove/' + t);
+    };
+    StatusService.prototype.deletePriceStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/PriceStatus/Remove/' + t);
+    };
+    StatusService.prototype.deleteFlagStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/FlagStatus/Remove/' + t);
+    };
+    StatusService.prototype.deleteReqStatusWithTitle = function (t) {
+        console.log(t);
+        return this.http
+            .delete('http://localhost:3000/Tx/ReqStatus/Remove/' + t);
+    };
     StatusService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

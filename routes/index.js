@@ -87,6 +87,83 @@ router.post('/newWallet', function (req, res, next) {
 
 });
 
+router.delete('/Tx/Status/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    Status.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
+router.delete('/Tx/BalStatus/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    BalStatus.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
+router.delete('/Tx/StatsStatus/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    StatsStatus.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
+router.delete('/Tx/PoolStatus/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    PoolStatus.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
+router.delete('/Tx/PriceStatus/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    PriceStatus.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
+router.delete('/Tx/FlagStatus/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    FlagStatus.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
+router.delete('/Tx/ReqStatus/Remove/:title', function (req, res) {
+    console.log(req.params.title);
+    ReqStatus.remove({title: req.params.title}, function(err, message) {
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      } 
+   }); 
+});
+
 // Create a new wallet and add it to the wallets collection
 router.post('/Wallet/balance', function (req, res, next) {
     var pass = req.body.password;

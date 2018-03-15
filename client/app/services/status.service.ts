@@ -199,4 +199,46 @@ export class StatusService {
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/Tx/Status/reg', body, {headers: headers});
     }
+
+    deleteStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/Status/Remove/'+ t);
+    }
+
+    deleteBalStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/BalStatus/Remove/'+ t);
+    }
+
+    deleteStatsStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/StatsStatus/Remove/'+ t);
+    }
+
+    deletePoolStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/PoolStatus/Remove/'+ t);
+    }
+
+    deletePriceStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/PriceStatus/Remove/'+ t);
+    }
+
+    deleteFlagStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/FlagStatus/Remove/'+ t);
+    }
+
+    deleteReqStatusWithTitle(t: string): Observable<any> {
+        console.log(t);
+        return this.http
+          .delete('http://localhost:3000/Tx/ReqStatus/Remove/'+ t);
+    }
 }

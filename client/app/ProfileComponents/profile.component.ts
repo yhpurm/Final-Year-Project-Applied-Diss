@@ -163,6 +163,36 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     }
 
+    onDeleteStatus(title: string) {
+        var proceed = confirm("Do you want to continue ?");
+        if( proceed == true ){
+           this.statusService
+          .deleteStatusWithTitle(title)
+          .subscribe(
+              result => alert('DELETED ' + title),
+              error => console.error(error)
+            );
+            }else{
+                alert("Delete cancled!");
+                      return false;
+            }
+    }
+
+    onDeleteBalStatus(title: string) {
+        var proceed = confirm("Do you want to continue ?");
+        if( proceed == true ){
+           this.statusService
+          .deleteBalStatusWithTitle(title)
+          .subscribe(
+              result => alert('DELETED ' + title),
+              error => console.error(error)
+            );
+            }else{
+                alert("Delete cancled!");
+                      return false;
+            }
+    }
+
     // Functions to return what is in storage
     get user(): any {
       return JSON.parse(localStorage.getItem('user'));
