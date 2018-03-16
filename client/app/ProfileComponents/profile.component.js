@@ -50,9 +50,6 @@ var ProfileComponent = /** @class */ (function () {
             console.log(_this.wallets);
             console.log("got wallets");
         }, function (error) { return console.error(error); });
-        // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
-        var imagePath = ".\avatars\\" + this.userAvatar.avatar + ".png";
-        console.log(imagePath);
         // This service gets the logged in users profile
         this.profileService.getProfileByUsername(this.username)
             .subscribe(function (profiles) {
@@ -102,6 +99,11 @@ var ProfileComponent = /** @class */ (function () {
             _this.reqStatus = res;
             console.log(_this.reqStatus);
         }, function (error) { return console.error(error); });
+        var avatarpath = this.userAvatar.avatar;
+        console.log(avatarpath);
+        // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
+        var imagePath = "app\\avatars\\1.png";
+        console.log(imagePath);
     };
     ProfileComponent.prototype.onDeleteStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
@@ -120,6 +122,54 @@ var ProfileComponent = /** @class */ (function () {
         if (proceed == true) {
             this.statusService
                 .deleteBalStatusWithTitle(title)
+                .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
+    ProfileComponent.prototype.onDeleteStatsStatus = function (title) {
+        var proceed = confirm("Do you want to continue ?");
+        if (proceed == true) {
+            this.statusService
+                .deleteStatsStatusWithTitle(title)
+                .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
+    ProfileComponent.prototype.onDeletePoolStatus = function (title) {
+        var proceed = confirm("Do you want to continue ?");
+        if (proceed == true) {
+            this.statusService
+                .deletePoolStatusWithTitle(title)
+                .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
+    ProfileComponent.prototype.onDeletePriceStatus = function (title) {
+        var proceed = confirm("Do you want to continue ?");
+        if (proceed == true) {
+            this.statusService
+                .deletePriceStatusWithTitle(title)
+                .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
+    ProfileComponent.prototype.onDeleteReqStatus = function (title) {
+        var proceed = confirm("Do you want to continue ?");
+        if (proceed == true) {
+            this.statusService
+                .deleteReqStatusWithTitle(title)
                 .subscribe(function (result) { return alert('DELETED ' + title); }, function (error) { return console.error(error); });
         }
         else {

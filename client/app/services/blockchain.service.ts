@@ -33,6 +33,13 @@ export class BlockchainService {
             .catch(handleError);
         }
 
+        getValueAtTime(val: string) {
+            console.log("contacting ticker");
+            return this.http.get('https://blockchain.info/tobtc?currency=EUR&value=' + val)
+            .map(response => response.json() as Ticker[])
+            .catch(handleError);
+        }
+
         getBlockchainStats() {
             console.log("contacting stats");
             return this.http.get('https://api.blockchain.info/stats?cors=true')

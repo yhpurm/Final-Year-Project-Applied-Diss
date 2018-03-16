@@ -31,6 +31,12 @@ var BlockchainService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
+    BlockchainService.prototype.getValueAtTime = function (val) {
+        console.log("contacting ticker");
+        return this.http.get('https://blockchain.info/tobtc?currency=EUR&value=' + val)
+            .map(function (response) { return response.json(); })
+            .catch(handleError);
+    };
     BlockchainService.prototype.getBlockchainStats = function () {
         console.log("contacting stats");
         return this.http.get('https://api.blockchain.info/stats?cors=true')

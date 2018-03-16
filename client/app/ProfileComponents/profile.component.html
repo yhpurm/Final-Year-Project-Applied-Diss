@@ -93,33 +93,71 @@
                         {{ value.label }} : {{ value.address }} 
                     </div>
                       <h1>Status Section</h1>
-                      <h3>Regular statuses</h3>
-                        <div class="jumbotron" *ngFor="let value of status">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
-                            <p>BTC value: {{value.valueAtTime}}</p> 
-                            <p>from: {{value.bitcoinAddress}}</p> 
-                            <p>to: {{value.receivingAddress}}</p> 
-                            <p>by {{value.date}}</p>
-                            <button type="button" class="btn btn-danger" (click)="onDeleteStatus(value.title)">Delete</button>
-                    </div>
+                <h3>Regular statuses</h3>
+                <div class="container" *ngFor="let value of status">
+                <div class="col-sm-1">
+                  <div class="thumbnail">
+                  <img class="img-responsive user-photo" src={{imagepath}}>
+                  </div><!-- /thumbnail -->
+                  </div><!-- /col-sm-1 -->
+                  
+                  <div class="col-sm-5">
+                  <div class="panel panel-default">
+                  <div class="panel-heading">
+                  <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                  </div>
+                  <div class="panel-body">
+                    <h5>Description:</h5>
+                    <p>{{value.text}}</p> 
+                    <h5>Metrics:</h5>
+                    <p>from: {{value.bitcoinAddress}}</p> 
+                    <p>to: {{value.receivingAddress}}</p> 
+                    <p>created on {{value.date}}</p>
+                  </div><!-- /panel-body -->
+                  </div><!-- /panel panel-default -->
+                  </div><!-- /col-sm-5 -->
                 </div>
                 <h3>Balance Posts</h3>
-                        <div class="jumbotron" *ngFor="let value of balStatus">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
-                            <p>Wallet balance: {{value.balance}}</p> 
-                            <p>by {{value.date}}</p> 
-                            <button type="button" class="btn btn-danger" (click)="onDeleteBalStatus(value.title)">Delete</button>
+                <div class="container" *ngFor="let value of balStatus">
+                    <div class="col-sm-1">
+                      <div class="thumbnail">
+                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+                      
+                      <div class="col-sm-5">
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                      </div>
+                      <div class="panel-body">
+                        <h5>Description:</h5>
+                        <p>{{value.text}}</p> 
+                        <h5>Metrics:</h5>
+                        <p>Wallet balance: {{value.balance}}</p> 
+                        <p>by {{value.date}}</p> 
+                        <p>created on {{value.date}}</p>
+                      </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
                     </div>
-                </div>
                 <h3>Blockchain Activity Posts</h3>
-                        <div class="jumbotron" *ngFor="let value of statStatus">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
+                <div class="container" *ngFor="let value of statStatus">
+                    <div class="col-sm-1">
+                      <div class="thumbnail">
+                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+                      
+                      <div class="col-sm-5">
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                      </div>
+                      <div class="panel-body">
+                        <h5>Description:</h5>
+                        <p>{{value.text}}</p> 
+                        <h5>Metrics:</h5>
                             <p>Market value USD: {{value.market_price_usd}}</p> 
                             <p>Total fees collected: {{value.total_fees_btc}}</p> 
                             <p>Bitcoin mined: {{value.n_btc_mined}}</p> 
@@ -138,58 +176,111 @@
                             <p>Total BTC sent: {{value.total_btc_sent}}</p> 
                             <p>Trade volume BTC: {{value.trade_volume_btc}}</p>
                             <p>Trade volume USD: {{value.trade_volume_usd}}</p>
-                            <p>Timestamp: {{value.timestamp}}</p>  
-                            <button type="button" class="btn btn-danger" (click)="onDeleteStatsStatus(value.title)">Delete</button>
+                            <p>Timestamp: {{value.timestamp}}</p> 
+                      </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
                     </div>
-                </div>
                 <h3>Miner Activity Posts</h3>
-                        <div class="jumbotron" *ngFor="let value of poolsStatus">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
-                            <p>Unknown: {{value.Unknown}}</p> 
-                            <p>GBMiner: {{value.GBMiners}}</p> 
-                            <p>SlushPool {{value.SlushPool}}</p> 
-                            <p>KanoPool: {{value.KanoCKPool}}</p> 
-                            <p>BitFury {{value.BitFury}}</p> 
-                            <p>AntPool: {{value.AntPool}}</p> 
-                            <p>F2Pool: {{value.F2Pool}}</p> 
-                            <p>ViaBTC: {{value.ViaBTC}}</p>
-                            <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button>
+                <div class="container" *ngFor="let value of poolsStatus">
+                    <div class="col-sm-1">
+                      <div class="thumbnail">
+                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+                      
+                      <div class="col-sm-5">
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                      </div>
+                      <div class="panel-body">
+                        <h5>Description:</h5>
+                        <p>{{value.text}}</p> 
+                        <h5>Metrics:</h5>
+                        <p>Unknown: {{value.Unknown}}</p> 
+                        <p>GBMiner: {{value.GBMiners}}</p> 
+                        <p>SlushPool {{value.SlushPool}}</p> 
+                        <p>KanoPool: {{value.KanoCKPool}}</p> 
+                        <p>BitFury {{value.BitFury}}</p> 
+                        <p>AntPool: {{value.AntPool}}</p> 
+                        <p>F2Pool: {{value.F2Pool}}</p> 
+                        <p>ViaBTC: {{value.ViaBTC}}</p>
+                      </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
                     </div>
-                </div>
                 <h3>Bitcoin Value Posts</h3>
-                        <div class="jumbotron" *ngFor="let value of tickerStatus">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
-                            <p>Last price sold at: {{value.last}}</p> 
-                            <p>Buy: {{value.buy}}</p> 
-                            <p>Sell: {{value.sell}}</p> 
-                            <p>FIAT: {{value.symbol}}</p> 
-                            <button type="button" class="btn btn-danger" (click)="onDeletePriceStatus(value.title)">Delete</button>
+                <div class="container" *ngFor="let value of tickerStatus">
+                    <div class="col-sm-1">
+                      <div class="thumbnail">
+                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+                      
+                      <div class="col-sm-5">
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                      </div>
+                      <div class="panel-body">
+                        <h5>Description:</h5>
+                        <p>{{value.text}}</p> 
+                        <h5>Metrics:</h5>
+                        <p>Last price sold at: {{value.last}}</p> 
+                        <p>Buy: {{value.buy}}</p> 
+                        <p>Sell: {{value.sell}}</p> 
+                        <p>FIAT: {{value.symbol}}</p> 
+                      </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
                     </div>
-                </div>
                 <h3>Bitcoin Related Locations Of Intrest</h3>
-                        <div class="jumbotron" *ngFor="let value of flagStatus">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
-                            <p>location: {{value.locationName}}</p> 
-                            <p>Contact: {{value.contact}}</p> 
-                            <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button> 
+                <div class="container" *ngFor="let value of flagStatus">
+                    <div class="col-sm-1">
+                      <div class="thumbnail">
+                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+                      
+                      <div class="col-sm-5">
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                      </div>
+                      <div class="panel-body">
+                        <h5>Description:</h5>
+                        <p>{{value.text}}</p> 
+                        <h5>Metrics:</h5>
+                        <p>location: {{value.locationName}}</p> 
+                        <p>Contact: {{value.contact}}</p> 
+                      </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
                     </div>
-                </div>
                 <h3>Donation Requests</h3>
-                        <div class="jumbotron" *ngFor="let value of reqStatus">
-                            <div class="container">
-                            <h4>{{value.title}}</h4>
-                            <p>{{value.text}}</p> 
-                            <p>location: {{value.amount}}</p> 
-                            <p>Contact: {{value.address}}</p>  
-                            <button type="button" class="btn btn-danger" (click)="onDeleteReqStatus(value.title)">Delete</button>
+                <div class="container" *ngFor="let value of reqStatus">
+                    <div class="col-sm-1">
+                      <div class="thumbnail">
+                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      </div><!-- /thumbnail -->
+                      </div><!-- /col-sm-1 -->
+                      
+                      <div class="col-sm-5">
+                      <div class="panel panel-default">
+                      <div class="panel-heading">
+                      <strong>{{user.username}}</strong> <span class="text-muted"><p>{{value.title}}</p></span>
+                      </div>
+                      <div class="panel-body">
+                        <h5>Description:</h5>
+                        <p>{{value.text}}</p> 
+                        <h5>Metrics:</h5>
+                        <p>Amount requested: {{value.amount}}</p>
+                        <p>Address to send to: {{value.address}}</p> 
+                      </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                      </div><!-- /col-sm-5 -->
                     </div>
-                </div>
               </div>
             </div>
           </div>
