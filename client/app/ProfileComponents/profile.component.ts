@@ -156,7 +156,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
          error => console.error(error)
      );
 
-
     var avatarpath = this.userAvatar.avatar;
     console.log(avatarpath);
     // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend

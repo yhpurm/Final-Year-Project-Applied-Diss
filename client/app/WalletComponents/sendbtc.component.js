@@ -41,7 +41,10 @@ var SendBTCComponent = /** @class */ (function () {
     };
     SendBTCComponent.prototype.onSendBTC = function () {
         var _this = this;
-        this.blockchainService.sendBTC(this.guid)
+        if (this.password != this.passwordValid) {
+            return alert("Passwords dont match");
+        }
+        this.blockchainService.sendBTC(this.guid, this.password, this.amount, this.to)
             .subscribe(function (messages) { return _this.wallets = messages; }, function (error) { return console.error(error); });
     };
     SendBTCComponent = __decorate([

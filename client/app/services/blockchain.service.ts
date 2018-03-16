@@ -70,9 +70,9 @@ export class BlockchainService {
             });
         }
 
-        sendBTC(guid : string) {
+        sendBTC(guid : string, pass : string, amount: string, to: string) {
             console.log("sending bitcoin");
-            return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment')
+            return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to)
             .map(response => response.json() as Payment[])
             .catch(handleError);
         }

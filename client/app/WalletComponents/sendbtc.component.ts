@@ -21,6 +21,8 @@ export class SendBTCComponent implements OnInit {
   guid: string;
   to: string;
   amount: string;
+  password: string;
+  passwordValid: string;
   friends: Profile [] = [];
   
   ngOnInit() {
@@ -53,7 +55,10 @@ export class SendBTCComponent implements OnInit {
   }
 
   onSendBTC() {
-  this.blockchainService.sendBTC(this.guid)
+    if(this.password != this.passwordValid){
+        return alert("Passwords dont match");
+    }
+    this.blockchainService.sendBTC(this.guid,this.password,this.amount,this.to)
           .subscribe(
             messages => this.wallets = messages,
             error => console.error(error)

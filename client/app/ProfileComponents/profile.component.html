@@ -114,6 +114,7 @@
                     <p>to: {{value.receivingAddress}}</p> 
                     <p>created on {{value.date}}</p>
                   </div><!-- /panel-body -->
+                  <button type="button" class="btn btn-danger" (click)="onDeleteStatus(value.title)">Delete</button>
                   </div><!-- /panel panel-default -->
                   </div><!-- /col-sm-5 -->
                 </div>
@@ -138,6 +139,7 @@
                         <p>by {{value.date}}</p> 
                         <p>created on {{value.date}}</p>
                       </div><!-- /panel-body -->
+                      <button type="button" class="btn btn-danger" (click)="onDeleteBalStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
                       </div><!-- /col-sm-5 -->
                     </div>
@@ -178,6 +180,7 @@
                             <p>Trade volume USD: {{value.trade_volume_usd}}</p>
                             <p>Timestamp: {{value.timestamp}}</p> 
                       </div><!-- /panel-body -->
+                      <button type="button" class="btn btn-danger" (click)="onDeleteStatsStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
                       </div><!-- /col-sm-5 -->
                     </div>
@@ -207,6 +210,7 @@
                         <p>F2Pool: {{value.F2Pool}}</p> 
                         <p>ViaBTC: {{value.ViaBTC}}</p>
                       </div><!-- /panel-body -->
+                      <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
                       </div><!-- /col-sm-5 -->
                     </div>
@@ -232,6 +236,7 @@
                         <p>Sell: {{value.sell}}</p> 
                         <p>FIAT: {{value.symbol}}</p> 
                       </div><!-- /panel-body -->
+                      <button type="button" class="btn btn-danger" (click)="onDeletePriceStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
                       </div><!-- /col-sm-5 -->
                     </div>
@@ -255,6 +260,7 @@
                         <p>location: {{value.locationName}}</p> 
                         <p>Contact: {{value.contact}}</p> 
                       </div><!-- /panel-body -->
+                      <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button> 
                       </div><!-- /panel panel-default -->
                       </div><!-- /col-sm-5 -->
                     </div>
@@ -278,6 +284,7 @@
                         <p>Amount requested: {{value.amount}}</p>
                         <p>Address to send to: {{value.address}}</p> 
                       </div><!-- /panel-body -->
+                      <button type="button" class="btn btn-danger" (click)="onDeleteReqStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
                       </div><!-- /col-sm-5 -->
                     </div>

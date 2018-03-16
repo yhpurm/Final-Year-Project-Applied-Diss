@@ -64,9 +64,9 @@ var BlockchainService = /** @class */ (function () {
             return message;
         });
     };
-    BlockchainService.prototype.sendBTC = function (guid) {
+    BlockchainService.prototype.sendBTC = function (guid, pass, amount, to) {
         console.log("sending bitcoin");
-        return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment')
+        return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to)
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
