@@ -264,12 +264,12 @@
            <div class="col-md-4 information nopaddingleft nopaddingright hidden-sm hidden-xs">
               <h3>Social Media Posts</h3>
               <ul class="information_menu">
-                 <li class="active" data-id="1"><a href="#"><i class="fa fa-calendar-plus-o"></i> Post general status. </a></li>
-                 <li data-id="2"><a href="#"><i class="fa fa-commenting-o"></i> Post balance.</a></li>
-                 <li data-id="3"><a href="#"><i class="fa fa-medkit"></i> Post blockchain activity.</a></li>
-                 <li data-id="4"><a href="#"><i class="fa fa-heartbeat"></i> Post market value.</a></li>
-                 <li data-id="3"><a href="#"><i class="fa fa-medkit"></i> Post location of intrest.</a></li>
-                 <li data-id="4"><a href="#"><i class="fa fa-heartbeat"></i> Post donation request.</a></li>
+                 <li class="active" data-id="1"><a routerLink="/poststatus"><i class="fa fa-calendar-plus-o"></i> Post general status. </a></li>
+                 <li data-id="2"><a routerLink="/postbal"><i class="fa fa-commenting-o"></i> Post balance.</a></li>
+                 <li data-id="3"><a routerLink="/poststats"><i class="fa fa-medkit"></i> Post blockchain activity.</a></li>
+                 <li data-id="4"><a routerLink="/postpools"><i class="fa fa-heartbeat"></i> Post market value.</a></li>
+                 <li data-id="3"><a routerLink="/flaglocation"><i class="fa fa-medkit"></i> Post location of intrest.</a></li>
+                 <li data-id="4"><a routerLink="/request"><i class="fa fa-heartbeat"></i> Post donation request.</a></li>
               </ul>
            </div>
            <div class="col-md-8 nopaddingleft nopaddingright">
@@ -287,6 +287,7 @@
                             <div class="carousel-caption">
                                <h3>Your posts</h3>
                                <p>View the status posts that you've made plotted onto google maps!.</p>
+                               <button class="btn btn-success" routerLink="/viewMap"><span class="glyphicon glyphicon-globe" ></span> Continue</button>
                             </div>
                          </div>
                          <div class="item">

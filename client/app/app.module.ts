@@ -33,6 +33,7 @@ import { GlobalComponent } from './MlabsComponents/global.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
 import { CryptonewsComponent } from './NewsComponents/cryptonews.component';
+import { ConvertComponent } from './WalletComponents/convert.component';
 
 @NgModule({
   imports:      [
@@ -51,6 +52,7 @@ import { CryptonewsComponent } from './NewsComponents/cryptonews.component';
     WalletComponent,
     RequestComponent,
     PoolComponent,
+    ConvertComponent,
     PostBalanceComponent,
     GlobalComponent,
     MlabsSearchComponent,

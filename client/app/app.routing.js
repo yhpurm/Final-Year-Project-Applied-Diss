@@ -27,6 +27,7 @@ var global_component_1 = require("./MlabsComponents/global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
 var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
+var convert_component_1 = require("./WalletComponents/convert.component");
 var appRoutes = [
     {
         path: '',
@@ -50,6 +51,11 @@ var appRoutes = [
     {
         path: 'global',
         component: global_component_1.GlobalComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'convert',
+        component: convert_component_1.ConvertComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {

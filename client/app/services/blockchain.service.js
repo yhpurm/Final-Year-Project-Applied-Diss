@@ -31,9 +31,9 @@ var BlockchainService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };
-    BlockchainService.prototype.getValueAtTime = function (val) {
+    BlockchainService.prototype.getValueAtTime = function (fiat, val) {
         console.log("contacting ticker");
-        return this.http.get('https://blockchain.info/tobtc?currency=EUR&value=' + val)
+        return this.http.get('https://blockchain.info/tobtc?currency=' + fiat + '&value=' + val)
             .map(function (response) { return response.json(); })
             .catch(handleError);
     };

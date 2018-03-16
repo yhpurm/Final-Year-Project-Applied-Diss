@@ -33,9 +33,9 @@ export class BlockchainService {
             .catch(handleError);
         }
 
-        getValueAtTime(val: string) {
+        getValueAtTime(fiat:string, val: string) {
             console.log("contacting ticker");
-            return this.http.get('https://blockchain.info/tobtc?currency=EUR&value=' + val)
+            return this.http.get('https://blockchain.info/tobtc?currency=' + fiat + '&value=' + val)
             .map(response => response.json() as Ticker[])
             .catch(handleError);
         }

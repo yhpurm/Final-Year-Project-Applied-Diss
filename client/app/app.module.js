@@ -41,6 +41,7 @@ var global_component_1 = require("./MlabsComponents/global.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
 var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
+var convert_component_1 = require("./WalletComponents/convert.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -62,6 +63,7 @@ var AppModule = /** @class */ (function () {
                 myWallet_component_1.WalletComponent,
                 requestbitcoin_component_1.RequestComponent,
                 postpoolstatus_component_1.PoolComponent,
+                convert_component_1.ConvertComponent,
                 postbal_component_1.PostBalanceComponent,
                 global_component_1.GlobalComponent,
                 MlabsSearchResults_component_1.MlabsSearchComponent,
