@@ -27,6 +27,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
 import { CryptonewsComponent } from './NewsComponents/cryptonews.component';
 import { ConvertComponent } from './WalletComponents/convert.component';
+import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component';
 
 const appRoutes: Routes = [
     {
@@ -51,6 +52,11 @@ const appRoutes: Routes = [
     {
         path:'global',
         component: GlobalComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path:'globalmap',
+        component: GlobalMapComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {

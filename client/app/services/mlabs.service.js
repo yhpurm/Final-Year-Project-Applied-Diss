@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/Rx");
 var profile_model_1 = require("../DataModals/profile.model");
+var status_model_1 = require("../DataModals/status.model");
 var MlabsService = /** @class */ (function () {
     // Http Contructor for setting up connection
     function MlabsService(http) {
@@ -29,6 +30,20 @@ var MlabsService = /** @class */ (function () {
                 console.log(element.username);
                 message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
                 msgArray.push(message);
+            }
+            return msgArray;
+        });
+    };
+    MlabsService.prototype.getGlobalStatus = function () {
+        return this.http.get('http://localhost:3000/globalstatus')
+            .map(function (data) {
+            var extracted = data.json();
+            var msgArray = [];
+            var status;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                status = new status_model_1.Status(element.username, element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                msgArray.push(status);
             }
             return msgArray;
         });

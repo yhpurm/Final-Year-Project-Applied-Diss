@@ -42,6 +42,7 @@ var auth_guard_1 = require("./guards/auth.guard");
 var notauth_guard_1 = require("./guards/notauth.guard");
 var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var convert_component_1 = require("./WalletComponents/convert.component");
+var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -66,6 +67,7 @@ var AppModule = /** @class */ (function () {
                 convert_component_1.ConvertComponent,
                 postbal_component_1.PostBalanceComponent,
                 global_component_1.GlobalComponent,
+                viewGlobalMap_component_1.GlobalMapComponent,
                 MlabsSearchResults_component_1.MlabsSearchComponent,
                 poststatus_component_1.PostStatusComponent,
                 viewMap_component_1.ViewMapComponent,

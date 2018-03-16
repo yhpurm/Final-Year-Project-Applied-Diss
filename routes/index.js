@@ -254,6 +254,22 @@ router.get('/Friends', function(req, res, next) {
     });
 });
 
+// Getting crypto profile from db
+router.get('/globalstatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("status").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
 
 // Getting crypto profile from db
 router.get('/globalusers', function(req, res, next) {

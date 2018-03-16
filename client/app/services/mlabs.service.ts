@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Profile } from "../DataModals/profile.model";
+import { Status } from "../DataModals/status.model";
 
 @Injectable()
 export class MlabsService {
@@ -19,6 +20,20 @@ export class MlabsService {
                     console.log(element.username);
                     message = new Profile(element.username, element.aboutMe, element.avatar, element.statusCount ,element.friendCount,element.isOnline,element.bitcoinAddress,element.email,element.lat,element.long);
                     msgArray.push(message);
+                }
+                return msgArray;
+            });
+    }
+
+    getGlobalStatus() {
+        return this.http.get('http://localhost:3000/globalstatus')
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: Status[] = [];
+                let status;
+                for (let element of extracted.data) {
+                    status = new Status(element.username, element.date, element.title, element.text,element.valueAtTime, element.sentAmount,  element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
+                    msgArray.push(status);
                 }
                 return msgArray;
             });
