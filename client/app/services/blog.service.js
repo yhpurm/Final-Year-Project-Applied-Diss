@@ -39,6 +39,16 @@ var BlogService = /** @class */ (function () {
         this.createAuthenticationHeaders(); // Create headers
         return this.http.get("http://localhost:8080" + '/blogs/allBlogs', this.options).map(function (res) { return res.json(); });
     };
+    // Function to delete a blog
+    BlogService.prototype.deleteBlog = function (id) {
+        this.createAuthenticationHeaders(); // Create headers
+        return this.http.delete("http://localhost:8080" + '/blogs/deleteBlog/' + id, this.options).map(function (res) { return res.json(); });
+    };
+    // Function to get the blog using the id
+    BlogService.prototype.getSingleBlog = function (id) {
+        this.createAuthenticationHeaders(); // Create headers
+        return this.http.get("http://localhost:8080" + '/blogs/singleBlog/' + id, this.options).map(function (res) { return res.json(); });
+    };
     BlogService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [auth_service_1.AuthService,

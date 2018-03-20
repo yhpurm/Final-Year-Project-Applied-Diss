@@ -30,6 +30,7 @@ var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var convert_component_1 = require("./WalletComponents/convert.component");
 var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.component");
 var blog_component_1 = require("./blog/blog.component");
+var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component");
 var appRoutes = [
     {
         path: '',
@@ -163,6 +164,11 @@ var appRoutes = [
     {
         path: 'blog',
         component: blog_component_1.BlogComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'delete-blog/:id',
+        component: delete_blog_component_1.DeleteBlogComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     }
 ];

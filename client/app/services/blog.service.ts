@@ -37,4 +37,16 @@ export class BlogService {
       return this.http.get("http://localhost:8080" + '/blogs/allBlogs', this.options).map(res => res.json());
     }
 
+    // Function to delete a blog
+    deleteBlog(id) {
+      this.createAuthenticationHeaders(); // Create headers
+      return this.http.delete("http://localhost:8080" + '/blogs/deleteBlog/' + id, this.options).map(res => res.json());
+    }
+
+    // Function to get the blog using the id
+    getSingleBlog(id) {
+    this.createAuthenticationHeaders(); // Create headers
+    return this.http.get("http://localhost:8080" + '/blogs/singleBlog/' + id, this.options).map(res => res.json());
+  }
+
 }

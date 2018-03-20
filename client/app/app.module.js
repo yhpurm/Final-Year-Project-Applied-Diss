@@ -45,6 +45,7 @@ var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var convert_component_1 = require("./WalletComponents/convert.component");
 var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.component");
 var blog_component_1 = require("./blog/blog.component");
+var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -84,7 +85,8 @@ var AppModule = /** @class */ (function () {
                 welcome_component_1.WelcomeComponent,
                 login_component_1.LoginComponent,
                 cryptonews_component_1.CryptonewsComponent,
-                blog_component_1.BlogComponent],
+                blog_component_1.BlogComponent,
+                delete_blog_component_1.DeleteBlogComponent],
             exports: [],
             providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard, blog_service_1.BlogService],
             bootstrap: [app_component_1.AppComponent]

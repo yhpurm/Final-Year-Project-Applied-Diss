@@ -1,4 +1,12 @@
-<h1 class="page-header">Users Blog Feed</h1>
+<div class="container">
+    <h1 class="page-header">Cryptocurrency Blog Feed</h1>
+  
+
+<div class="Panel with panel-info class">
+    <div class="panel-heading">
+    <h3 class="panel-title">Posts are collected from all users of the Bitcoin Wallet. Please feel free to add interesting news/updates for all users of the application about the latest cryptocurrencies</h3>
+    </div>
+</div>
 
 <!-- Custom Success/Error Message -->
 <div class="row show-hide-message" *ngIf="message && newPost">
@@ -86,4 +94,4 @@
         
         <!-- Dislike Button -->
         <button type="button" name="button" class="btn btn-sm btn-warning" *ngIf="username !== blog.createdBy"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: 15</button>
-        
+      </div>

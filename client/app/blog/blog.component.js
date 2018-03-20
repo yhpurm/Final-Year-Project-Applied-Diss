@@ -45,6 +45,7 @@ var BlogComponent = /** @class */ (function () {
     BlogComponent.prototype.reloadBlogs = function () {
         var _this = this;
         this.loadingBlogs = true;
+        this.getAllBlogs();
         // Get all blogs
         setTimeout(function () {
             _this.loadingBlogs = false;
@@ -108,7 +109,7 @@ var BlogComponent = /** @class */ (function () {
         });
     };
     Object.defineProperty(BlogComponent.prototype, "user", {
-        // Functions to return what is in storage
+        // Function to return what is in storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },
