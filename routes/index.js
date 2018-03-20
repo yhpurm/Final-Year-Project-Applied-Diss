@@ -19,6 +19,7 @@ const cors = require('cors');
 const MLABS = require('mongoose').Mongoose;
 const request = require('request');
 const MongoClient = require('mongodb').MongoClient;
+const blogs = require('./blog')(router);
 
 // Testing Mlabs below
 const MONGO_URL = 'mongodb://Conor:softwaregroup10@ds145438.mlab.com:45438/globalusers';
@@ -706,6 +707,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/authentication', authentication);
+app.use('/blogs', blogs);
 
 // Start Server: Listen on port 8080
 app.listen(8080, () => {
