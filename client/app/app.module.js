@@ -25,6 +25,7 @@ var settings_component_1 = require("./NavBarComponents/settings.component");
 var register_component_1 = require("./LoginComponents/register.component");
 var app_routing_1 = require("./app.routing");
 var auth_service_1 = require("./services/auth.service");
+var blog_service_1 = require("./services/blog.service");
 var welcome_component_1 = require("./LoginComponents/welcome.component");
 var poststatus_component_1 = require("./StatusComponents/poststatus.component");
 var requestbitcoin_component_1 = require("./StatusComponents/requestbitcoin.component");
@@ -85,7 +86,7 @@ var AppModule = /** @class */ (function () {
                 cryptonews_component_1.CryptonewsComponent,
                 blog_component_1.BlogComponent],
             exports: [],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard],
+            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard, blog_service_1.BlogService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

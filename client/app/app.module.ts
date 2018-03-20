@@ -17,6 +17,7 @@ import { SettingsComponent }  from './NavBarComponents/settings.component';
 import { RegisterComponent }  from './LoginComponents/register.component';
 import { routing } from './app.routing';
 import { AuthService } from './services/auth.service';
+import { BlogService } from './services/blog.service';
 import { WelcomeComponent } from './LoginComponents/welcome.component';
 import { PostStatusComponent } from './StatusComponents/poststatus.component';
 import { RequestComponent } from './StatusComponents/requestbitcoin.component';
@@ -75,7 +76,7 @@ import { BlogComponent } from './blog/blog.component';
     CryptonewsComponent,
     BlogComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
