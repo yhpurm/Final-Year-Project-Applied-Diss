@@ -40,6 +40,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   username: string;
   email;
 
+  Timestamp(date: number){
+    var d = new Date(date);
+    return d;
+  }
+
   constructor(
     private profileService: ProfileService,
     private statusService: StatusService,

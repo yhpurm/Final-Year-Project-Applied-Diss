@@ -111,8 +111,7 @@
                     <p>{{value.text}}</p> 
                     <h5>Metrics:</h5>
                     <p>from: {{value.bitcoinAddress}}</p> 
-                    <p>to: {{value.receivingAddress}}</p> 
-                    <p>created on {{value.date}}</p>
+                    <p>{{Timestamp(value.date)}} </p>
                   </div><!-- /panel-body -->
                   <button type="button" class="btn btn-danger" (click)="onDeleteStatus(value.title)">Delete</button>
                   </div><!-- /panel panel-default -->

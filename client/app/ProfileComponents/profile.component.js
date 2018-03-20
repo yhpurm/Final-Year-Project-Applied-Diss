@@ -29,6 +29,10 @@ var ProfileComponent = /** @class */ (function () {
         this.reqStatus = [];
         this.long = [];
     }
+    ProfileComponent.prototype.Timestamp = function (date) {
+        var d = new Date(date);
+        return d;
+    };
     ProfileComponent.prototype.ngAfterViewInit = function () {
         !function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0], p = 'https';
