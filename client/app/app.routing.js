@@ -29,6 +29,7 @@ var notauth_guard_1 = require("./guards/notauth.guard");
 var cryptonews_component_1 = require("./NewsComponents/cryptonews.component");
 var convert_component_1 = require("./WalletComponents/convert.component");
 var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.component");
+var blog_component_1 = require("./blog/blog.component");
 var appRoutes = [
     {
         path: '',
@@ -157,6 +158,11 @@ var appRoutes = [
     {
         path: 'cryptonews',
         component: cryptonews_component_1.CryptonewsComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'blog',
+        component: blog_component_1.BlogComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     }
 ];

@@ -1,0 +1,53 @@
+<h1 class="page-header">Users Blog Feed</h1>
+
+
+<!-- New Post Button -->
+<button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="newBlogForm()">New Post</button>
+
+<!-- Reload Button -->
+<button [disabled]="loadingBlogs" type="button" name="button" class="btn btn-default" *ngIf="!newPost" (click)="reloadBlogs()"><span class="glyphicon glyphicon-repeat"></span>&nbsp;&nbsp;Reload</button>
+
+<br />
+<br />
+
+<!-- New Blog Form -->
+
+<!-- Panel Start -->
+<div *ngIf="!newPost">
+    <!-- Panel Outer Layer -->
+    <div class="panel panel-primary">
+  
+      <!-- Panel Title -->
+      <div class="panel-heading">
+        <h3 class="panel-title">Post Title</h3>
+      </div>
+  
+      <!-- Panel Body -->
+      <div class="panel-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+  
+      <!-- Panel Footer Start -->
+      <div class="panel-footer">
+        <strong>Posted by: </strong>gugui3z24
+        <br />
+        <strong>Date: </strong>March 20, 2018
+        <br />
+        <div>
+          <strong>Likes: </strong>50
+          <br />
+          <strong>Dislikes: </strong>25
+        </div>
+
+        <!-- Delete Button -->
+        <a href="#"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
+
+        <!-- Like Button -->
+        <button type="button" name="button" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Likes: 21</button>
+
+        <!-- Dislike Button -->
+        <button type="button" name="button" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: 15</button>
+        
+
+

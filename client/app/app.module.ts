@@ -34,7 +34,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notauth.guard';
 import { CryptonewsComponent } from './NewsComponents/cryptonews.component';
 import { ConvertComponent } from './WalletComponents/convert.component';
-import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component';
+import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component'; 
+import { BlogComponent } from './blog/blog.component';
+
 
 @NgModule({
   imports:      [
@@ -70,7 +72,8 @@ import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component';
     RegisterComponent,
     WelcomeComponent,
     LoginComponent,
-    CryptonewsComponent ],
+    CryptonewsComponent,
+    BlogComponent ],
   exports: [  ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard],
   bootstrap: [AppComponent]
