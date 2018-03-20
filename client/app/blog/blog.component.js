@@ -20,7 +20,7 @@ var BlogComponent = /** @class */ (function () {
         this.blogService = blogService;
         this.newPost = false;
         this.loadingBlogs = false;
-        this.username = localStorage.getItem('user');
+        this.username = JSON.parse(localStorage.getItem('user'));
         this.createNewBlogForm();
     }
     // Function to create new blog form
@@ -73,6 +73,7 @@ var BlogComponent = /** @class */ (function () {
             else {
                 _this.messageClass = 'alert alert-success'; // Return success class
                 _this.message = data.message; // Return success message
+                _this.getAllBlogs();
                 // Clear form data after two seconds
                 setTimeout(function () {
                     _this.newPost = false; // Hide form
@@ -98,8 +99,25 @@ var BlogComponent = /** @class */ (function () {
         this.form.get('title').disable(); // Disable title field
         this.form.get('body').disable(); // Disable body field
     };
+    // Function to get all blogs from the database
+    BlogComponent.prototype.getAllBlogs = function () {
+        var _this = this;
+        // Function to GET all blogs from database
+        this.blogService.getAllBlogs().subscribe(function (data) {
+            _this.blogPosts = data.blogs; // Assign array to use in HTML
+        });
+    };
+    Object.defineProperty(BlogComponent.prototype, "user", {
+        // Functions to return what is in storage
+        get: function () {
+            return JSON.parse(localStorage.getItem('user'));
+        },
+        enumerable: true,
+        configurable: true
+    });
     BlogComponent.prototype.ngOnInit = function () {
         this.username;
+        this.getAllBlogs();
     };
     BlogComponent = __decorate([
         core_1.Component({

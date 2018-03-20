@@ -34,6 +34,11 @@ var BlogService = /** @class */ (function () {
         this.createAuthenticationHeaders(); // Create headers
         return this.http.post("http://localhost:8080" + '/blogs/newBlog', blog, this.options).map(function (res) { return res.json(); });
     };
+    // Function to get all blogs from the database
+    BlogService.prototype.getAllBlogs = function () {
+        this.createAuthenticationHeaders(); // Create headers
+        return this.http.get("http://localhost:8080" + '/blogs/allBlogs', this.options).map(function (res) { return res.json(); });
+    };
     BlogService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [auth_service_1.AuthService,

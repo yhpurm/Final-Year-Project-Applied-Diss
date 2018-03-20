@@ -54,39 +54,36 @@
 <!-- Panel Start -->
 <div *ngIf="!newPost">
     <!-- Panel Outer Layer -->
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" *ngFor="let blog of blogPosts">
   
       <!-- Panel Title -->
       <div class="panel-heading">
-        <h3 class="panel-title">Post Title</h3>
+        <h3 class="panel-title">{{ blog.title }}</h3>
       </div>
   
       <!-- Panel Body -->
       <div class="panel-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        {{ blog.body }}
       </div>
   
       <!-- Panel Footer Start -->
       <div class="panel-footer">
-        <strong>Posted by: </strong>gugui3z24
+        <strong>Posted by: </strong>{{ blog.createdBy.username }}
         <br />
-        <strong>Date: </strong>March 20, 2018
+        <strong>Date: </strong>{{ blog.createdAt | date:'MMM dd, yyyy' }}
         <br />
-        <div>
-          <strong>Likes: </strong>50
+        <div *ngIf="username === blog.createdBy">
+          <strong>Likes: </strong>{{ blog.likes }}
           <br />
-          <strong>Dislikes: </strong>25
+          <strong>Dislikes: </strong>{{ blog.dislikes }}
         </div>
 
         <!-- Delete Button -->
-        <a href="#"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
+        <a [routerLink]="['/delete-blog/', blog._id]" *ngIf="user?.username === blog.createdBy.username"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
 
         <!-- Like Button -->
-        <button type="button" name="button" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Likes: 21</button>
-
-        <!-- Dislike Button -->
-        <button type="button" name="button" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: 15</button>
+        <button type="button" name="button" class="btn btn-sm btn-success" *ngIf="username !== blog.createdBy"><span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Likes: 21</button>
         
-
-
+        <!-- Dislike Button -->
+        <button type="button" name="button" class="btn btn-sm btn-warning" *ngIf="username !== blog.createdBy"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: 15</button>
+        

@@ -31,4 +31,10 @@ export class BlogService {
         return this.http.post("http://localhost:8080" + '/blogs/newBlog', blog, this.options).map(res => res.json());
     }
 
+    // Function to get all blogs from the database
+    getAllBlogs() {
+      this.createAuthenticationHeaders(); // Create headers
+      return this.http.get("http://localhost:8080" + '/blogs/allBlogs', this.options).map(res => res.json());
+    }
+
 }

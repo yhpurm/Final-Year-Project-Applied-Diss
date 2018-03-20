@@ -16,7 +16,8 @@ export class BlogComponent implements OnInit {
     loadingBlogs = false;
     form;
     processing;
-    username = localStorage.getItem('user');
+    username = JSON.parse(localStorage.getItem('user'));
+    blogPosts;
 
   constructor( 
     private authService: AuthService,
@@ -80,6 +81,7 @@ export class BlogComponent implements OnInit {
       } else {
         this.messageClass = 'alert alert-success'; // Return success class
         this.message = data.message; // Return success message
+        this.getAllBlogs();
         // Clear form data after two seconds
         setTimeout(() => {
           this.newPost = false; // Hide form
@@ -111,10 +113,25 @@ export class BlogComponent implements OnInit {
     this.form.get('body').disable(); // Disable body field
   }
 
+    // Function to get all blogs from the database
+    getAllBlogs() {
+      // Function to GET all blogs from database
+      this.blogService.getAllBlogs().subscribe(data => {
+        this.blogPosts = data.blogs; // Assign array to use in HTML
+      });
+    }
+
+    // Function to return what is in storage
+    get user(): any {
+      return JSON.parse(localStorage.getItem('user'));
+    }
+
 
 
   ngOnInit() {
     this.username;
+    this.getAllBlogs();
+
 
   }
 

@@ -72,7 +72,7 @@ const bodyValidators = [
 const blogSchema = new Schema({
   title: { type: String, required: true, validate: titleValidators },
   body: { type: String, required: true, validate: bodyValidators },
-  createdBy: { type: String },
+  createdBy: { type: Object },
   createdAt: { type: Date, default: Date.now() },
   likes: { type: Number, default: 0 },
   dislikes: { type: Number, default: 0 }
