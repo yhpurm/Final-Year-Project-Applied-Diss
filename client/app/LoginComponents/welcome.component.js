@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var auth_service_1 = require("../services/auth.service");
 var WelcomeComponent = /** @class */ (function () {
-    function WelcomeComponent() {
+    function WelcomeComponent(authService) {
+        this.authService = authService;
     }
     WelcomeComponent.prototype.ngOnInit = function () {
     };
@@ -21,7 +23,7 @@ var WelcomeComponent = /** @class */ (function () {
             selector: 'app-welcome',
             templateUrl: 'welcome.component.html'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [auth_service_1.AuthService])
     ], WelcomeComponent);
     return WelcomeComponent;
 }());

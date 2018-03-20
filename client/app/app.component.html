@@ -2,7 +2,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a *ngIf="!authService.loggedIn()" class="navbar-brand" routerLink="/">Bitcoin Wallet</a>
+                <a class="navbar-brand" routerLink="/">Bitcoin Wallet</a>
               </div>
               <ul class="nav navbar-nav">
                 <li *ngIf="authService.loggedIn()" ><a routerLink="/home">Home</a></li>
@@ -10,7 +10,7 @@
                 <li *ngIf="authService.loggedIn()"><a routerLink="/friends">Friends</a></li>
                 <li *ngIf="authService.loggedIn()"><a routerLink="/settings">Settings</a></li>
                 <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Support
+                  <a *ngIf="authService.loggedIn()" class="dropdown-toggle" data-toggle="dropdown" href="#">Support
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li *ngIf="authService.loggedIn()"><a href="https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues">Report Issue</a></li>

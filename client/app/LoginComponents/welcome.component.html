@@ -13,8 +13,9 @@
     <p class="lead" style="color:White;">Welcome to a User Friendly Bitcoin Wallet</p>
     <p class="lead" style="color:White;">Please Login or Register to get started</p>
     <div>
-      <a routerLink="/register" class="btn btn-primary">Register</a>
-      <a routerLink="/login" class="btn btn-default">Login</a>
+      <a *ngIf="!authService.loggedIn()" routerLink="/register" class="btn btn-primary">Register</a>
+      <a *ngIf="!authService.loggedIn()" routerLink="/login" class="btn btn-default">Login</a>
+      <a *ngIf="authService.loggedIn()" routerLink="/profile" class="btn btn-success">View Profile</a>
     </div>
     <div>
       

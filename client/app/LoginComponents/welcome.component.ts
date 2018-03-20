@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService} from "../services/auth.service";
 
 @Component({
   moduleId: module.id,
@@ -8,7 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(  ) {
+  constructor( 
+    private authService: AuthService
+   ) {
    }
 
   ngOnInit() {
