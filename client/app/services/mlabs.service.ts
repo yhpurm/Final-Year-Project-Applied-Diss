@@ -31,7 +31,8 @@ export class MlabsService {
                 const extracted = data.json();
                 const msgArray: Status[] = [];
                 let status;
-                for (let element of extracted.data) {
+                for (let element of extracted) {
+                    console.log(element.username);
                     status = new Status(element.username, element.date, element.title, element.text,element.valueAtTime, element.sentAmount,  element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                     msgArray.push(status);
                 }

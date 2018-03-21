@@ -47,7 +47,7 @@ export class GlobalMapComponent implements OnInit {
             title: status.title,
             });
             marker.addListener('click', ()=> {
-              alert("text:" + status.text);
+              alert("title:" + status.text + "\n" + status.text);
             }); 
           })  
         },

@@ -40,7 +40,7 @@ var GlobalMapComponent = /** @class */ (function () {
                     title: status.title,
                 });
                 marker.addListener('click', function () {
-                    alert("text:" + status.text);
+                    alert("title:" + status.text + " " + status.text);
                 });
             });
         }, function (error) { return console.error(error); });

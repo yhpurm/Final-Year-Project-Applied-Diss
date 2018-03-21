@@ -40,8 +40,9 @@ var MlabsService = /** @class */ (function () {
             var extracted = data.json();
             var msgArray = [];
             var status;
-            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
-                var element = _a[_i];
+            for (var _i = 0, extracted_2 = extracted; _i < extracted_2.length; _i++) {
+                var element = extracted_2[_i];
+                console.log(element.username);
                 status = new status_model_1.Status(element.username, element.date, element.title, element.text, element.valueAtTime, element.sentAmount, element.bitcoinAddress, element.receivingAddress, element.lat, element.long);
                 msgArray.push(status);
             }
@@ -56,8 +57,8 @@ var MlabsService = /** @class */ (function () {
             var message;
             console.log(extracted);
             console.log(extracted.username);
-            for (var _i = 0, extracted_2 = extracted; _i < extracted_2.length; _i++) {
-                var element = extracted_2[_i];
+            for (var _i = 0, extracted_3 = extracted; _i < extracted_3.length; _i++) {
+                var element = extracted_3[_i];
                 console.log(element.username);
                 message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
                 msgArray.push(message);
