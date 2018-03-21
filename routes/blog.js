@@ -126,8 +126,99 @@ module.exports = (router) => {
                   
                 });
               }
-            
           });
+
+          /* LIKE BLOG POST */
+          router.put('/likeBlog', (req, res) => {
+            // Check if id was passed provided in request body
+            if (!req.body.id) {
+              res.json({ success: false, message: 'No id was provided.' }); // Return error message
+            } else {
+              // Search the database with id
+              Blog.findOne({ _id: req.body.id }, (err, blog) => {
+                // Check if error was encountered
+                if (err) {
+                  res.json({ success: false, message: 'Invalid blog id' }); // Return error message
+                } else {
+                  // Check if id matched the id of a blog post in the database
+                  if (!blog) {
+                    res.json({ success: false, message: 'That blog was not found.' }); // Return error message
+                  } else {
+                    User.findOne({ username: req.params.username }, (err, user) => {
+                      // Check if error was found
+                      if (err) {
+                        res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                      } else {
+                              if (blog) {
+                                blog.likes++;
+                                blog.save((err) => {
+                                    res.json({ success: true, message: 'Blog liked!' });
+
+                                });
+                              } else {
+                                blog.likes++; 
+                                blog.save((err) => {
+                                  if (err) {
+                                    res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                                  } else {
+                                    res.json({ success: true, message: 'Blog liked!' }); // Return success message
+                                  }
+                                });
+                              }
+                            }
+                          });
+                        }
+                      }
+                    });
+                  }
+                });
+
+          /* DISLIKE BLOG POST */
+          router.put('/dislikeBlog', (req, res) => {
+            // Check if id was provided inside the request body
+            if (!req.body.id) {
+              res.json({ success: false, message: 'No id was provided.' }); // Return error message
+            } else {
+              // Search database for blog post using the id
+              Blog.findOne({ _id: req.body.id }, (err, blog) => {
+                // Check if error was found
+                if (err) {
+                  res.json({ success: false, message: 'Invalid blog id' }); // Return error message
+                } else {
+                  // Check if blog post with the id was found in the database
+                  if (!blog) {
+                    res.json({ success: false, message: 'That blog was not found.' }); // Return error message
+                  } else {
+                      if (err) {
+                        res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                      } else {
+                              if (blog) {
+                                blog.dislikes++;
+                                blog.save((err) => {
+                                  // Check if error was found
+                                  if (err) {
+                                    res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                                  } else {
+                                    res.json({ success: true, message: 'Blog disliked!' }); // Return success message
+                                  }
+                                });
+                              } else {
+                                blog.dislikes++;
+                                blog.save((err) => {
+                                  // Check if error was found
+                                  if (err) {
+                                    res.json({ success: false, message: 'Something went wrong.' }); // Return error message
+                                  } else {
+                                    res.json({ success: true, message: 'Blog disliked!' }); // Return success message
+                                  }
+                                });
+                              }
+                            }
+                          }
+                        }
+                      });
+                    }
+                  });
 
   return router;
 };

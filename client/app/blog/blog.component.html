@@ -1,4 +1,5 @@
 <div class="container">
+
     <h1 class="page-header">Cryptocurrency Blog Feed</h1>
   
 
@@ -80,18 +81,17 @@
         <br />
         <strong>Date: </strong>{{ blog.createdAt | date:'MMM dd, yyyy' }}
         <br />
-        <div *ngIf="username === blog.createdBy">
+        <div *ngIf="user?.username === blog.createdBy.username">
           <strong>Likes: </strong>{{ blog.likes }}
           <br />
           <strong>Dislikes: </strong>{{ blog.dislikes }}
         </div>
-
         <!-- Delete Button -->
         <a [routerLink]="['/delete-blog/', blog._id]" *ngIf="user?.username === blog.createdBy.username"><button type="button" name="button" class="btn btn-sm btn-danger">Delete</button></a>
 
         <!-- Like Button -->
-        <button type="button" name="button" class="btn btn-sm btn-success" *ngIf="username !== blog.createdBy"><span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Likes: 21</button>
+        <button type="button" name="button" class="btn btn-sm btn-success" (click)="likeBlog(blog._id)" *ngIf="user?.username !== blog.createdBy.username"><span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Likes: {{ blog.likes }}</button>
         
         <!-- Dislike Button -->
-        <button type="button" name="button" class="btn btn-sm btn-warning" *ngIf="username !== blog.createdBy"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: 15</button>
+        <button type="button" name="button" class="btn btn-sm btn-warning" (click)="dislikeBlog(blog._id)" *ngIf="user?.username !== blog.createdBy.username"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: {{ blog.dislikes }}</button>
       </div>

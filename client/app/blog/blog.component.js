@@ -108,6 +108,18 @@ var BlogComponent = /** @class */ (function () {
             _this.blogPosts = data.blogs; // Assign array to use in HTML
         });
     };
+    BlogComponent.prototype.likeBlog = function (id) {
+        var _this = this;
+        this.blogService.likeBlog(id).subscribe(function (data) {
+            _this.getAllBlogs();
+        });
+    };
+    BlogComponent.prototype.dislikeBlog = function (id) {
+        var _this = this;
+        this.blogService.dislikeBlog(id).subscribe(function (data) {
+            _this.getAllBlogs();
+        });
+    };
     Object.defineProperty(BlogComponent.prototype, "user", {
         // Function to return what is in storage
         get: function () {

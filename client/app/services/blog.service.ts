@@ -49,4 +49,16 @@ export class BlogService {
     return this.http.get("http://localhost:8080" + '/blogs/singleBlog/' + id, this.options).map(res => res.json());
   }
 
+    // Function to like a blog post
+    likeBlog(id) {
+      const blogData = { id: id };
+      return this.http.put("http://localhost:8080" + '/blogs/likeBlog/', blogData, this.options).map(res => res.json());
+    }
+  
+    // Function to dislike a blog post
+    dislikeBlog(id) {
+      const blogData = { id: id };
+      return this.http.put("http://localhost:8080" + '/blogs/dislikeBlog/', blogData, this.options).map(res => res.json());
+    }
+
 }

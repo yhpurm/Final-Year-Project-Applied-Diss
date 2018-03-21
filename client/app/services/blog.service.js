@@ -49,6 +49,16 @@ var BlogService = /** @class */ (function () {
         this.createAuthenticationHeaders(); // Create headers
         return this.http.get("http://localhost:8080" + '/blogs/singleBlog/' + id, this.options).map(function (res) { return res.json(); });
     };
+    // Function to like a blog post
+    BlogService.prototype.likeBlog = function (id) {
+        var blogData = { id: id };
+        return this.http.put("http://localhost:8080" + '/blogs/likeBlog/', blogData, this.options).map(function (res) { return res.json(); });
+    };
+    // Function to dislike a blog post
+    BlogService.prototype.dislikeBlog = function (id) {
+        var blogData = { id: id };
+        return this.http.put("http://localhost:8080" + '/blogs/dislikeBlog/', blogData, this.options).map(function (res) { return res.json(); });
+    };
     BlogService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [auth_service_1.AuthService,
