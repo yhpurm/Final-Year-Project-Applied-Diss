@@ -73,5 +73,61 @@ module.exports = (router) => {
           }).sort({ '_id': -1 }); // Sort blogs from newest to oldest
       });
 
+    /* GET SINGLE BLOG */
+    router.get('/singleBlog/:id', (req, res) => {
+      //res.send('test');
+      // Check if id is present in parameters
+      if (!req.params.id) {
+        res.json({ success: false, message: 'No blog ID was provided.' }); // Return error message
+      } else {
+        // Check if the blog id is found in database
+        Blog.findOne({ _id: req.params.id }, (err, blog, user) => {
+          // Check if the id is a valid ID
+          if (err) {
+            res.json({ success: false, message: 'Not a valid blog id' }); // Return error message
+          } else {
+            // Check if blog was found by id
+            if (!blog) {
+              res.json({ success: false, message: 'Blog not found.' }); // Return error message
+            } else {
+                      res.json({ success: true, blog: blog }); // Return success
+                    }
+                  }
+        });
+      }
+    });
+
+      /* DELETE BLOG POST */
+      router.delete('/deleteBlog/:id', (req, res) => {
+        // Check if ID was provided in parameters
+        if (!req.params.id) {
+          res.json({ success: false, message: 'No id provided' }); // Return error message
+        } else {
+          // Check if id is found in database
+          Blog.findOne({ _id: req.params.id }, (err, blog) => {
+            // Check if error was found
+            if (err) {
+              res.json({ success: false, message: 'Invalid id' }); // Return error message
+            } else {
+              // Check if blog was found in database
+              if (!blog) {
+                res.json({ success: false, messasge: 'Blog was not found' }); // Return error message
+              } else {
+                        // Remove the blog from database
+                        blog.remove((err) => {
+                          if (err) {
+                            res.json({ success: false, message: err }); // Return error message
+                          } else {
+                            res.json({ success: true, message: 'Blog deleted!' }); // Return success message
+                          }
+                        });
+                      }
+                    }
+                  
+                });
+              }
+            
+          });
+
   return router;
 };

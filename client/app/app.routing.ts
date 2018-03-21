@@ -29,6 +29,7 @@ import { CryptonewsComponent } from './NewsComponents/cryptonews.component';
 import { ConvertComponent } from './WalletComponents/convert.component';
 import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component'; 
 import { BlogComponent } from './blog/blog.component';
+import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
 
 const appRoutes: Routes = [
     {
@@ -163,6 +164,11 @@ const appRoutes: Routes = [
     {
         path: 'blog',
         component: BlogComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'delete-blog/:id',
+        component: DeleteBlogComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     }
 ];

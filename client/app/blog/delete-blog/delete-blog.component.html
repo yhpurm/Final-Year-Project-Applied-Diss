@@ -1,0 +1,46 @@
+<h1 class="page-header">Delete Blog</h1>
+
+<!-- Custom Success/Error Message -->
+<div class="row show-hide-message" *ngIf="message">
+        <div [ngClass]="messageClass">
+          {{ message }}
+        </div>
+</div>
+
+<div class="col-md-6" *ngIf="foundBlog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" name="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Confirm</h4>
+          </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <p>Are you sure you would like to delete this post?</p>
+          </div>
+            <!-- Footer -->
+            <div class="modal-footer">
+            <!-- Yes Button -->
+            <button [disabled]="processing" type="button" name="button" class="btn btn-success" (click)="deleteBlog()">Yes</button>
+            <!-- No Button -->
+            <a routerLink="/blog"><button [disabled]="processing" type="button" name="button" class="btn btn-danger">No</button></a>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+            <h3 class="panel-title">{{ blog.title }}</h3>
+            </div>
+            <div class="panel-body">
+            {{ blog.body }}
+            </div>
+
+            <div class="panel-footer">
+            <strong>Posted by: </strong> {{ blog.createdBy.username }}
+            <br />
+            <strong>Date: </strong> {{ blog.createdAt | date:'MMM dd, yyyy' }}
+            </div>
+        </div>
+
+</div>
