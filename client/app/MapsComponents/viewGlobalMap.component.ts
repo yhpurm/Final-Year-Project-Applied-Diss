@@ -54,6 +54,131 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
   
+    // This service gets the logged in users posted statuses
+    this.mlabsService.getBalGlobalStatus()
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("normal status:" + status.lat + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/info.png',
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("title:" + status.text + "\n" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    // This service gets the logged in users posted statuses
+    this.mlabsService.getStatsGlobalStatus()
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("normal status:" + status.lat + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/realestate.png',
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("title:" + status.text + "\n" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    // This service gets the logged in users posted statuses
+    this.mlabsService.getPoolGlobalStatus()
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("normal status:" + status.lat + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/sunny.png',
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("title:" + status.text + "\n" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    // This service gets the logged in users posted statuses
+    this.mlabsService.getPriceGlobalStatus()
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("normal status:" + status.lat + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/volcano.png',
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("title:" + status.text + "\n" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    // This service gets the logged in users posted statuses
+    this.mlabsService.getFlagGlobalStatus()
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("normal status:" + status.lat + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/shopping.png',
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("title:" + status.text + "\n" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
+    // This service gets the logged in users posted statuses
+    this.mlabsService.getReqGlobalStatus()
+    .subscribe(
+        res => {
+            res.forEach(status => {
+            console.log("normal status:" + status.lat + status.long);
+            var location = {lat: status.lat, lng: status.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/convenience.png',
+            title: status.title,
+            });
+            marker.addListener('click', ()=> {
+              alert("title:" + status.text + "\n" + status.text);
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
  }
 
 }

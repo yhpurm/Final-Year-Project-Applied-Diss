@@ -42,7 +42,7 @@ var ProfileService = /** @class */ (function () {
             var message;
             for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
                 var element = _a[_i];
-                console.log(element.firstName);
+                console.log(element.avatar);
                 message = new profile_model_1.Profile(element.username, element.aboutMe, element.avatar, element.statusCount, element.friendCount, element.isOnline, element.bitcoinAddress, element.email, element.lat, element.long);
                 msgArray.push(message);
             }

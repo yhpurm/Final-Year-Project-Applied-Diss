@@ -44,6 +44,108 @@ var GlobalMapComponent = /** @class */ (function () {
                 });
             });
         }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted statuses
+        this.mlabsService.getBalGlobalStatus()
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("normal status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/info.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("title:" + status.text + "\n" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted statuses
+        this.mlabsService.getStatsGlobalStatus()
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("normal status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/realestate.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("title:" + status.text + "\n" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted statuses
+        this.mlabsService.getPoolGlobalStatus()
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("normal status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/sunny.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("title:" + status.text + "\n" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted statuses
+        this.mlabsService.getPriceGlobalStatus()
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("normal status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/volcano.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("title:" + status.text + "\n" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted statuses
+        this.mlabsService.getFlagGlobalStatus()
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("normal status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/shopping.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("title:" + status.text + "\n" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted statuses
+        this.mlabsService.getReqGlobalStatus()
+            .subscribe(function (res) {
+            res.forEach(function (status) {
+                console.log("normal status:" + status.lat + status.long);
+                var location = { lat: status.lat, lng: status.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'https://maps.google.com/mapfiles/kml/shapes/convenience.png',
+                    title: status.title,
+                });
+                marker.addListener('click', function () {
+                    alert("title:" + status.text + "\n" + status.text);
+                });
+            });
+        }, function (error) { return console.error(error); });
     };
     GlobalMapComponent = __decorate([
         core_1.Component({
