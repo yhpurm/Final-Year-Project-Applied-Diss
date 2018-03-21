@@ -32,7 +32,7 @@ export class ProfileService {
                 const msgArray: Profile[] = [];
                 let message;
                 for (let element of extracted.data) {
-                    console.log(element.firstName);
+                    console.log(element.avatar);
                     message = new Profile(element.username, element.aboutMe, element.avatar, element.statusCount ,element.friendCount,element.isOnline,element.bitcoinAddress,element.email,element.lat,element.long);
                     msgArray.push(message);
                 }

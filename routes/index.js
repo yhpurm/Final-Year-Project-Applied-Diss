@@ -203,7 +203,7 @@ router.post('/Wallet/balance', function (req, res, next) {
 router.post('/AddFriend', function(req, res, next) {
     console.log(req.body.username);
     console.log(req.body.aboutMe);
-    console.log(req.body.avater);
+    console.log("avatar: " + req.body.avatar);
     console.log(req.body.statusCount);
     console.log(req.body.friendCount);
     console.log(req.body.isOnline);
@@ -215,7 +215,7 @@ router.post('/AddFriend', function(req, res, next) {
     var friend = new Friend({
         username: req.body.username,
         aboutMe: req.body.aboutMe,
-        avatar: req.body.avater,
+        avatar: req.body.avatar,
         statusCount: req.body.statusCount,
         friendCount: req.body.friendCount,
         isOnline: req.body.isOnline,
@@ -286,7 +286,6 @@ router.get('/globalusers', function(req, res, next) {
         console.log(result);
         processResponse(result);
     });
-
 });
 
 // Getting crypto profile from db

@@ -46,6 +46,7 @@ var convert_component_1 = require("./WalletComponents/convert.component");
 var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.component");
 var blog_component_1 = require("./blog/blog.component");
 var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component");
+var peopleMap_component_1 = require("./MapsComponents/peopleMap.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -74,6 +75,7 @@ var AppModule = /** @class */ (function () {
                 MlabsSearchResults_component_1.MlabsSearchComponent,
                 poststatus_component_1.PostStatusComponent,
                 viewMap_component_1.ViewMapComponent,
+                peopleMap_component_1.PeopleMapComponent,
                 sendbtc_component_1.SendBTCComponent,
                 flag_component_1.FlagComponent,
                 blockchainActivity_component_1.TransactionsComponent,

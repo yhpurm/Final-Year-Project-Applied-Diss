@@ -31,6 +31,7 @@ var convert_component_1 = require("./WalletComponents/convert.component");
 var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.component");
 var blog_component_1 = require("./blog/blog.component");
 var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component");
+var peopleMap_component_1 = require("./MapsComponents/peopleMap.component");
 var appRoutes = [
     {
         path: '',
@@ -109,6 +110,11 @@ var appRoutes = [
     {
         path: 'viewMap',
         component: viewMap_component_1.ViewMapComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'peopleMap',
+        component: peopleMap_component_1.PeopleMapComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {

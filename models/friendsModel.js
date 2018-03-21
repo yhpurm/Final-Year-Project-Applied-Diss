@@ -9,7 +9,7 @@ var schema = new Schema({
     statusCount: {type: Number, required: true},
     friendCount: {type: Number, required: true},
     isOnline: {type: Boolean, required: true},
-    bitcoinAddress: {type: String, required: true, unique : true},
+    bitcoinAddress: {type: String, required: true},
     email: {type: String, required: true},
     lat: {type: Number, required: true}, 
     long: {type: Number, required: true}

@@ -38,6 +38,7 @@ import { ConvertComponent } from './WalletComponents/convert.component';
 import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component'; 
 import { BlogComponent } from './blog/blog.component'; 
 import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
+import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
     MlabsSearchComponent,
     PostStatusComponent,
     ViewMapComponent,
+    PeopleMapComponent,
     SendBTCComponent,
     FlagComponent,
     TransactionsComponent,
