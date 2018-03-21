@@ -136,7 +136,7 @@
                         <h5>Metrics:</h5>
                         <p>Wallet balance: {{value.balance}}</p> 
                         <p>by {{value.date}}</p> 
-                        <p>created on {{value.date}}</p>
+                        <p>{{Timestamp(value.date)}}</p>
                       </div><!-- /panel-body -->
                       <button type="button" class="btn btn-danger" (click)="onDeleteBalStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
@@ -177,7 +177,8 @@
                             <p>Total BTC sent: {{value.total_btc_sent}}</p> 
                             <p>Trade volume BTC: {{value.trade_volume_btc}}</p>
                             <p>Trade volume USD: {{value.trade_volume_usd}}</p>
-                            <p>Timestamp: {{value.timestamp}}</p> 
+                            <p>Statistics from: {{Timestamp(value.timestamp)}}</p> 
+                            <p>{{Timestamp(value.date)}}</p> 
                       </div><!-- /panel-body -->
                       <button type="button" class="btn btn-danger" (click)="onDeleteStatsStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
@@ -208,6 +209,7 @@
                         <p>AntPool: {{value.AntPool}}</p> 
                         <p>F2Pool: {{value.F2Pool}}</p> 
                         <p>ViaBTC: {{value.ViaBTC}}</p>
+                        <p>{{Timestamp(value.date)}}</p>
                       </div><!-- /panel-body -->
                       <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
@@ -233,7 +235,8 @@
                         <p>Last price sold at: {{value.last}}</p> 
                         <p>Buy: {{value.buy}}</p> 
                         <p>Sell: {{value.sell}}</p> 
-                        <p>FIAT: {{value.symbol}}</p> 
+                        <p>FIAT: {{value.symbol}}</p>
+                        <p>{{Timestamp(value.date)}}</p>
                       </div><!-- /panel-body -->
                       <button type="button" class="btn btn-danger" (click)="onDeletePriceStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->
@@ -258,6 +261,7 @@
                         <h5>Metrics:</h5>
                         <p>location: {{value.locationName}}</p> 
                         <p>Contact: {{value.contact}}</p> 
+                        <p>{{Timestamp(value.date)}}</p>
                       </div><!-- /panel-body -->
                       <button type="button" class="btn btn-danger" (click)="onDeletePoolStatus(value.title)">Delete</button> 
                       </div><!-- /panel panel-default -->
@@ -281,6 +285,7 @@
                         <h5>Metrics:</h5>
                         <p>Amount requested: {{value.amount}}</p>
                         <p>Address to send to: {{value.address}}</p> 
+                        <p>{{Timestamp(value.date)}}</p>
                       </div><!-- /panel-body -->
                       <button type="button" class="btn btn-danger" (click)="onDeleteReqStatus(value.title)">Delete</button>
                       </div><!-- /panel panel-default -->

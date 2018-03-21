@@ -546,7 +546,7 @@ router.post('/Tx/Status/flag', function(req, res, next) {
 
 router.post('/Tx/Status/request', function(req, res, next) {
 
-    var statusReq= new FlagStatus({
+    var statusReq= new ReqStatus({
         username: req.body.username,
         date: req.body.date,
         title: req.body.title,
