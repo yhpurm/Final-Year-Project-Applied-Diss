@@ -45,6 +45,41 @@ Here is a brief video to explain some questions you make have about bitcoin.
 
 ---
 
+## **Installation**
+
+* Clone the repository onto your machine.
+
+``` git clone https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss.git ```
+
+* Install MongoDB on your machine by downloading MongoDB from this link [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) and follow the websites instructions.
+
+* Once installed run the following command on your command line.
+
+``` mongod ```
+
+* Install all dependencies in package.json file. This can be done by navigating to the root directory in the command line interface and running the following command:
+
+``` npm install ```
+
+* Next, install all of the Angular 2 development dependencies in package.json file:
+
+``` cd client ```
+
+```npm install ```
+
+* Installation is complete. Stay in the client directory and then:
+
+``` npm start  ```
+
+* Navigate to the root directory and then:
+
+``` node server.js ```
+
+Access server at: http://localhost:3000
+
+
+---
+
 ## **Technologies**
 
 ![image](https://user-images.githubusercontent.com/14197773/35832746-49148e18-0ac6-11e8-98ca-b2b42598a921.png)

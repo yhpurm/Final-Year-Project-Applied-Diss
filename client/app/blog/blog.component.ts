@@ -115,7 +115,6 @@ export class BlogComponent implements OnInit {
     this.form.get('body').disable(); // Disable body field
   }
 
-    // Function to get all blogs from the database
     getAllBlogs() {
       // Function to GET all blogs from database
       this.blogService.getAllBlogs().subscribe(data => {
