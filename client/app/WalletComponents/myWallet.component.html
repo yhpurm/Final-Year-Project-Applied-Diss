@@ -2,18 +2,31 @@
 <div class="container">
     <div class="jumbotron" id="MyWalletJumbo">
       <h1>Profile Wallet</h1> 
-      <p>This is your profiles bitcoin address, this will be publicly displayed on your profile and status posts.
+      <p>This is your profiles wallet section, all wallets created or assigned to this profile will appear here.
       </p> 
-      <div class="row nav">    
+      <div class="row nav" *ngFor="let w of wallets">    
             <div class="col-md-4"></div>
-            <h4>YOUR ADDRESS WILL BE HERE</h4>
+            <h4>{{w.label}}</h4>
+            <h4>{{w.address}}</h4>
             <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
-                <button type="button" class="btn btn-primary btn-lg btn-block">
-                    <span class="glyphicon glyphicon-floppy-disk"></span> 
-                    Click here to copy address
+            <button (click)=setGuid(w.address) type="button" class="btn btn-primary btn-lg btn-block">
+                <span class="glyphicon glyphicon-floppy-disk"></span> 
+                    Select wallet for checking balance
             </button>
-            <h4>QR CODE</h4>
         </div>
     </div>
 </div> 
 </div>
+<h2>Before submitting to check balance, enter that wallet pass below</h2>
+<div class="row">
+    <div class="form-group">
+            <label for="password">Wallet Password:</label>
+            <input type="password" class="form-control" [(ngModel)]="pass">
+        </div>
+        <div class="form-group">
+            <label for="password">Wallet Password validation:</label>
+            <input type="password" class="form-control" [(ngModel)]="passvalid">
+    </div>
+    <button type = "button" class = "btn btn-primary" (click)="onGetBal()">Retrive Balance</button>
+</div>
+<h2>Last slected wallet balance = {{balance}}</h2>

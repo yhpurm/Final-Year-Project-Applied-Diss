@@ -12,9 +12,11 @@
                     <h4 class="panel-title">
                       <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">{{ p.username }}</a>
                     </h4>
+                    <div class="container">
                     <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-globe"></i> {{ p.statusCount }} </div>
                     <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-user"></i> {{ p.friendCount }} </div>
                     <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-off"></i> {{ p.isOnline }} </div>
+                  </div>
                   </div>
                 </div>
                 </div>
@@ -23,7 +25,11 @@
           <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse">
               <div class="panel-body">
                 <span class="pull-left">
-                  <p>{{p.aboutMe}}</p>
+                  <p class="lead" >{{p.aboutMe}}</p>
+                  <ul>
+                    <li>{{p.email}}</li>
+                    <li>{{p.bitcoinAddress}}</li>
+                  </ul>
                 </span>
               </div>
           </div>
