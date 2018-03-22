@@ -5,7 +5,7 @@ Contains all the Javascript,Typescript and HTML files that create the map relate
 - [Conor Tighe](https://github.com/ConorTighe1995)
 
 ## Component description
-This component makes up the status and friends location display feature of the wallet by using google maps. The menu for viewing the maps and navigating to a status post is made up by the cryptomap component files. The viewMap and viewGlobalMap components decide what is displayed on the map with viewMap using just your status posts and viewGlobalMap showing everyone online. The peopleMap component then shows the locations of people on your friends list.
+This component makes up the status and friends location display feature of the wallet by using google maps. The menu for viewing the maps and navigating to a status post is made up by the cryptomap component files. The viewMap and viewGlobalMap components decide what is displayed on the map with viewMap using just your status posts and viewGlobalMap showing everyone online. The peopleMap component then shows the locations of people on your friends list. All the .ts files mentioned use the viewMap.component.html and the view for the map.
 
 ## Features
 - Rich GUI created with bootstrap and jQuery.
