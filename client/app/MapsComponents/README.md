@@ -17,7 +17,6 @@ This component makes up the status and friends location display feature of the w
 ## Services
 - Profile Service: This service is used to provide the locations of friends you've added in the past.
 - Status Service: This service is used to provide the locations of the statuses you've posted in the past.
-- Auth Service: This service was created by our group memeber Donal to secure all data passed to and from this component.
 
 ### Refrences
 - [Google Maps](https://developers.google.com/maps/)
