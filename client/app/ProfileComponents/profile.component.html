@@ -29,7 +29,7 @@
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
            <h4 class="w3-center">My Profile</h4>
-           <p class="w3-center"><img src="/app/avatars/1.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+           <p class="w3-center"><img src="/app/avatars/{{userAvatar.avatar}}.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
            <hr>
            <p><i class="fa fa-address-book fa-fw w3-margin-right w3-text-theme"></i> {{ user.username }}</p>
            <p><i class="fa fa-address-card-o fa-fw w3-margin-right w3-text-theme"></i> {{ useremail.email }}</p>
@@ -98,7 +98,7 @@
                 <div class="container" *ngFor="let value of status">
                 <div class="col-sm-1">
                   <div class="thumbnail">
-                  <img class="img-responsive user-photo" src={{imagepath}}>
+                  <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
                   </div><!-- /thumbnail -->
                   </div><!-- /col-sm-1 -->
                   
@@ -122,7 +122,7 @@
                 <div class="container" *ngFor="let value of balStatus">
                     <div class="col-sm-1">
                       <div class="thumbnail">
-                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
                       </div><!-- /thumbnail -->
                       </div><!-- /col-sm-1 -->
                       
@@ -147,7 +147,7 @@
                 <div class="container" *ngFor="let value of statStatus">
                     <div class="col-sm-1">
                       <div class="thumbnail">
-                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
                       </div><!-- /thumbnail -->
                       </div><!-- /col-sm-1 -->
                       
@@ -189,7 +189,7 @@
                 <div class="container" *ngFor="let value of poolsStatus">
                     <div class="col-sm-1">
                       <div class="thumbnail">
-                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
                       </div><!-- /thumbnail -->
                       </div><!-- /col-sm-1 -->
                       
@@ -220,7 +220,7 @@
                 <div class="container" *ngFor="let value of tickerStatus">
                     <div class="col-sm-1">
                       <div class="thumbnail">
-                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
                       </div><!-- /thumbnail -->
                       </div><!-- /col-sm-1 -->
                       
@@ -247,7 +247,7 @@
                 <div class="container" *ngFor="let value of flagStatus">
                     <div class="col-sm-1">
                       <div class="thumbnail">
-                      <img class="img-responsive user-photo" src={{imagepath}}>
+                      <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
                       </div><!-- /thumbnail -->
                       </div><!-- /col-sm-1 -->
                       
@@ -272,8 +272,10 @@
                 <div class="container" *ngFor="let value of reqStatus">
                     <div class="col-sm-1">
                       <div class="thumbnail">
-                      <img class="img-responsive user-photo" src={{imagepath}}>
-                      </div><!-- /thumbnail -->
+                      <img class="img-responsive user-photo" src="/app/avatars/{{userAvatar.avatar}}.png">
+                   
+                   
+                    </div><!-- /thumbnail -->
                       </div><!-- /col-sm-1 -->
                       <div class="col-sm-5">
                       <div class="panel panel-default">

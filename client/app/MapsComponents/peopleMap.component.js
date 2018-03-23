@@ -36,11 +36,17 @@ var PeopleMapComponent = /** @class */ (function () {
     };
     PeopleMapComponent.prototype.plotFriends = function (friend) {
         console.log("friend location:" + friend.lat + friend.long);
+        var icon = {
+            url: "/app/avatars/" + friend.avatar + ".png",
+            scaledSize: new google.maps.Size(50, 50),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
         var location = { lat: friend.lat, lng: friend.long };
         var marker = new google.maps.Marker({
             position: location,
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/euro.png',
+            icon: icon,
             title: friend.username,
         });
         marker.addListener('click', function () {

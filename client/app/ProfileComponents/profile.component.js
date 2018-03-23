@@ -46,6 +46,7 @@ var ProfileComponent = /** @class */ (function () {
     };
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log(this.userAvatar.avatar);
         this.username = this.user.username;
         console.log(this.username);
         this.profileService.getMyWallets()
@@ -103,11 +104,6 @@ var ProfileComponent = /** @class */ (function () {
             _this.reqStatus = res;
             console.log(_this.reqStatus);
         }, function (error) { return console.error(error); });
-        var avatarpath = this.userAvatar.avatar;
-        console.log(avatarpath);
-        // Avatars will be stored on the client side and the user option of which avatar is what we will actually be sending back and forth to he backend
-        var imagePath = "app\\avatars\\1.png";
-        console.log(imagePath);
     };
     ProfileComponent.prototype.onDeleteStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");

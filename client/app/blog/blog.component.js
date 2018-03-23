@@ -100,7 +100,6 @@ var BlogComponent = /** @class */ (function () {
         this.form.get('title').disable(); // Disable title field
         this.form.get('body').disable(); // Disable body field
     };
-    // Function to get all blogs from the database
     BlogComponent.prototype.getAllBlogs = function () {
         var _this = this;
         // Function to GET all blogs from database

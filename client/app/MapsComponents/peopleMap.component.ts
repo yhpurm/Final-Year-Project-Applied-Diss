@@ -44,11 +44,19 @@ export class PeopleMapComponent implements OnInit {
 
  plotFriends(friend: Profile){
     console.log("friend location:" + friend.lat + friend.long);
+
+    var icon = {
+      url: "/app/avatars/" + friend.avatar + ".png", // url
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
+
     var location = {lat: friend.lat, lng: friend.long};
     var marker = new google.maps.Marker({
     position: location, 
     map: this.map,
-    icon: 'https://maps.google.com/mapfiles/kml/shapes/euro.png',
+    icon: icon,
     title: friend.username,
     });
     marker.addListener('click', ()=> {
