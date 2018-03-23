@@ -273,6 +273,108 @@ router.get('/globalstatus', function(req, res, next) {
 });
 
 // Getting crypto profile from db
+router.get('/globalbalStatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("balstatus").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
+
+// Getting crypto profile from db
+router.get('/globalstatsStatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("statstatus").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
+
+// Getting crypto profile from db
+router.get('/globalpoolStatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("poolstatus").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
+
+// Getting crypto profile from db
+router.get('/globalpriceStatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp) {
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("pricestatus").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
+
+// Getting crypto profile from db
+router.get('/globalflagStatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp){
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("flagstatus").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
+
+// Getting crypto profile from db
+router.get('/globalreqStatus', function(req, res, next) {
+    console.log("gothere!!!");
+
+    function processResponse(resp){
+        res.json(resp);
+        console.log("process mlabs done");
+    }
+
+    database.collection("reqstatus").find().toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        processResponse(result);
+    });
+
+});
+
+// Getting crypto profile from db
 router.get('/globalusers', function(req, res, next) {
     console.log("gothere!!!");
 

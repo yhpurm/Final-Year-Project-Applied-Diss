@@ -18,4 +18,4 @@ This component makes up the social media features of the application, the profil
 - Status Service: This service is used to provide all the users status posts about bitcoin and the blockchain.
 - Profile Service: This service retrieves all your personal and wallet details.
 
-### Refrences
+### References

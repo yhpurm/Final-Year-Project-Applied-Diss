@@ -1,6 +1,5 @@
-<link href='https://fonts.googleapis.com/css?family=Lobster' rel='style.css'>
 <div class="container">
-    <div class="jumbotron" id="MyWalletJumbo">
+<div class="jumbotron" id="MyWalletJumbo">
       <h1>Profile Wallet</h1> 
       <p>This is your profiles wallet section, all wallets created or assigned to this profile will appear here.
       </p> 
@@ -10,13 +9,12 @@
             <h4>{{w.address}}</h4>
             <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
             <button (click)=setGuid(w.address) type="button" class="btn btn-primary btn-lg btn-block">
-                <span class="glyphicon glyphicon-floppy-disk"></span> 
                     Select wallet for checking balance
             </button>
         </div>
     </div>
 </div> 
-</div>
+<div class="jumbotron" id="EditWalletJumbo" >
 <h2>Before submitting to check balance, enter that wallet pass below</h2>
 <div class="row">
     <div class="form-group">
@@ -30,3 +28,19 @@
     <button type = "button" class = "btn btn-primary" (click)="onGetBal()">Retrive Balance</button>
 </div>
 <h2>Last slected wallet balance = {{balance}}</h2>
+</div>
+<div class="jumbotron" id="EditWalletJumbo" >
+      <h1>New wallet address</h1> 
+      <p>You need an address in order to link your profile to the blockchain. You can generate as many addresses/wallets as you like and they will
+          automatically be tied to your account.
+      </p> 
+      <div class="row nav">    
+            <div class="col-md-4"></div>
+            <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
+            <button type="button" class="btn btn-danger btn-lg btn-block" routerLink="/newwallet">
+                <span class="glyphicon glyphicon-plus">
+                    </span> Create New Bitcoin Address. </button>
+        </div>
+    </div>
+</div> 
+</div>

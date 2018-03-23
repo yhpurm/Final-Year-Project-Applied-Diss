@@ -30,10 +30,13 @@
 }
 #MyWalletJumbo{
     margin-bottom:0;
-    background: teal;
-    font-family: Lobster;
+    background: rgb(9, 185, 185);
 }
 #EditWalletJumbo{
     margin-bottom:0;
     background: #ee553a;
+}
+#BaltWalletJumbo{
+    margin-bottom:0;
+    background: #6a3aee;
 }
