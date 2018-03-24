@@ -36,7 +36,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/euro.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -52,7 +52,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/mountains.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -68,7 +68,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/firedept.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/purple-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -84,23 +84,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/poi.png',
-                    title: status.title,
-                });
-                marker.addListener('click', function () {
-                    alert("text:" + status.text);
-                });
-            });
-        }, function (error) { return console.error(error); });
-        this.statusService.getPoolStatusByUsername(this.username)
-            .subscribe(function (res) {
-            res.forEach(function (status) {
-                console.log("pool status:" + status.lat + status.long);
-                var location = { lat: status.lat, lng: status.long };
-                var marker = new google.maps.Marker({
-                    position: location,
-                    map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/campfire.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -116,7 +100,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/capital_big_highlight.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -132,7 +116,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/earthquake.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/ltblu-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {
@@ -148,7 +132,7 @@ var ViewMapComponent = /** @class */ (function () {
                 var marker = new google.maps.Marker({
                     position: location,
                     map: _this.map,
-                    icon: 'https://maps.google.com/mapfiles/kml/shapes/ferry.png',
+                    icon: 'http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png',
                     title: status.title,
                 });
                 marker.addListener('click', function () {

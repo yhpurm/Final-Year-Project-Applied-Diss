@@ -43,7 +43,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/euro.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -64,7 +64,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/info.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -85,7 +85,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/realestate.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/purple-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -106,7 +106,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/sunny.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -127,7 +127,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/volcano.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -148,7 +148,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/shopping.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/ltblu-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -169,7 +169,7 @@ export class GlobalMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/convenience.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {

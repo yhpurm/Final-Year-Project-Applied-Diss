@@ -43,7 +43,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/euro.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/wht-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -63,7 +63,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/mountains.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -83,7 +83,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/firedept.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/purple-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -93,27 +93,6 @@ export class ViewMapComponent implements OnInit {
         },
         error => console.error(error)
     );
-
-    this.statusService.getPoolStatusByUsername(this.username)
-    .subscribe(
-        res => {
-            res.forEach(status => {
-            console.log("pool status:" + status.lat + status.long);
-            var location = {lat: status.lat, lng :status.long};
-            var marker = new google.maps.Marker({
-            position: location, 
-            map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/poi.png',
-            title: status.title,
-            });
-            marker.addListener('click', ()=> {
-              alert("text:" + status.text);
-            }); 
-          })  
-        },
-        error => console.error(error)
-    );
-   
 
    this.statusService.getPoolStatusByUsername(this.username)
     .subscribe(
@@ -124,7 +103,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/campfire.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -144,7 +123,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/capital_big_highlight.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -164,7 +143,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/earthquake.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/ltblu-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
@@ -184,7 +163,7 @@ export class ViewMapComponent implements OnInit {
             var marker = new google.maps.Marker({
             position: location, 
             map: this.map,
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/ferry.png',
+            icon: 'http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png',
             title: status.title,
             });
             marker.addListener('click', ()=> {
