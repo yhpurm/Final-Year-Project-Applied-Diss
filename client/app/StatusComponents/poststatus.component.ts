@@ -38,9 +38,11 @@ export class PostStatusComponent implements OnInit {
   geolocationPosition: Object;
   friends: Profile [] = [];
 
+  // On component initialization
   ngOnInit(){
 
-    this.profileService.getMyWallets()
+        // Get wallets from profile service
+        this.profileService.getMyWallets()
         .subscribe(
             response => {
                 this.wallets = response;
@@ -50,7 +52,7 @@ export class PostStatusComponent implements OnInit {
             error => console.error(error)
          );
 
-         
+         // get friends profile 
          this.profileService.getFriends()
            .subscribe(
             res => {
@@ -61,7 +63,7 @@ export class PostStatusComponent implements OnInit {
                error => console.error("error:" + error)
             );
         
-    // asign username from local storage
+    // assign username from local storage
     this.username = this.user.username;
     console.log(this.username);
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
@@ -79,6 +81,7 @@ export class PostStatusComponent implements OnInit {
   });
   }
    
+  // add status to map as marker
   onStatusMarker(lt: number,ln: number) {
     this.lat = lt;
     this.long = ln;
@@ -86,24 +89,28 @@ export class PostStatusComponent implements OnInit {
     alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
 }
 
+// set address
 setAddress(address: string){
   console.log("address: " + address);
   this.bitcoinAddress = address;
   console.log(this.bitcoinAddress);
 }
 
+// set target address to send to
 setTargetAddress(address: string){
     console.log("address: " + address);
     this.receivingAddress = address;
     console.log(this.receivingAddress);
   }
 
+// set lat and long
 setPosition(position) {
   this.lat = position.coords.latitude;
   this.long = position.coords.longitude;
   alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
 }
 
+// get user location
 getLocation() {
   if (window.navigator && window.navigator.geolocation) {
     window.navigator.geolocation.getCurrentPosition(
@@ -132,17 +139,21 @@ getLocation() {
 // Functions to return what is in storage
 get user(): any {
     return JSON.parse(localStorage.getItem('user'));
-  }
+}
 
+// POST status
 onStatusSubmit(){
-      this.date = Date.now();
-      console.log(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long)
-      const newStatusPost = new Status(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long);
-      this.statusService.saveTx(newStatusPost)
+    // get current date
+    this.date = Date.now();
+    //console.log(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long)
+    // create new status modal
+    const newStatusPost = new Status(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long);
+    // send modal to service
+    this.statusService.saveTx(newStatusPost)
       .subscribe(
           () => console.log('POST from status'),
           error => console.error(error)
-      );
+    );
   }
 }
 

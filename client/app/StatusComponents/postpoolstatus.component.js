@@ -19,9 +19,10 @@ var PoolComponent = /** @class */ (function () {
         this.blockchainService = blockchainService;
         this.statusService = statusService;
     }
+    // On component initialization
     PoolComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("prices init");
+        // get pool data from service
         this.blockchainService.getPools()
             .subscribe(function (res) {
             console.log(res);
@@ -34,16 +35,19 @@ var PoolComponent = /** @class */ (function () {
             _this.ViaBTC = res.ViaBTC;
             _this.Unknown = res.Unknown;
         }, function (error) { return console.error("error:" + error); });
+        // get user location
         this.getLocation();
         // asign username from local storage
         this.username = this.user.username;
         console.log(this.username);
     };
+    // set lat and long
     PoolComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // get location of user
     PoolComponent.prototype.getLocation = function () {
         var _this = this;
         if (window.navigator && window.navigator.geolocation) {
@@ -67,14 +71,18 @@ var PoolComponent = /** @class */ (function () {
         }
         ;
     };
+    // POST new miner status
     PoolComponent.prototype.onStatusPoolSubmit = function () {
+        // set current date
         this.date = Date.now();
+        // set new status post with miner data
         var newStatusPost = new pools_modal_1.PostPools(this.username, this.date, this.title, this.text, this.Unknown, this.GBMiners, this.SlushPool, this.KanoPool, this.BitFury, this.AntPool, this.F2Pool, this.ViaBTC, this.lat, this.long);
-        console.log(newStatusPost);
+        // send modal to service
         this.statusService.savePoolPost(newStatusPost)
-            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
+            .subscribe(function () { return console.log('POST from miner status'); }, function (error) { return console.error(error); });
     };
     Object.defineProperty(PoolComponent.prototype, "user", {
+        // GET username from local storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },

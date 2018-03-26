@@ -23,21 +23,24 @@ var PostStatusComponent = /** @class */ (function () {
         this.wallets = [];
         this.friends = [];
     }
+    // On component initialization
     PostStatusComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // Get wallets from profile service
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
             console.log(_this.wallets);
             console.log("got wallets");
         }, function (error) { return console.error(error); });
+        // get friends profile 
         this.profileService.getFriends()
             .subscribe(function (res) {
             console.log(res);
             _this.friends = res;
             console.log(_this.friends);
         }, function (error) { return console.error("error:" + error); });
-        // asign username from local storage
+        // assign username from local storage
         this.username = this.user.username;
         console.log(this.username);
         this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
@@ -53,26 +56,31 @@ var PostStatusComponent = /** @class */ (function () {
             _this.onStatusMarker(event.latLng.lat(), event.latLng.lng());
         });
     };
+    // add status to map as marker
     PostStatusComponent.prototype.onStatusMarker = function (lt, ln) {
         this.lat = lt;
         this.long = ln;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // set address
     PostStatusComponent.prototype.setAddress = function (address) {
         console.log("address: " + address);
         this.bitcoinAddress = address;
         console.log(this.bitcoinAddress);
     };
+    // set target address to send to
     PostStatusComponent.prototype.setTargetAddress = function (address) {
         console.log("address: " + address);
         this.receivingAddress = address;
         console.log(this.receivingAddress);
     };
+    // set lat and long
     PostStatusComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // get user location
     PostStatusComponent.prototype.getLocation = function () {
         var _this = this;
         if (window.navigator && window.navigator.geolocation) {
@@ -104,10 +112,14 @@ var PostStatusComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    // POST status
     PostStatusComponent.prototype.onStatusSubmit = function () {
+        // get current date
         this.date = Date.now();
-        console.log(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);
+        //console.log(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long)
+        // create new status modal
         var newStatusPost = new status_model_1.Status(this.username, this.date, this.title, this.text, this.price, this.sentAmount, this.bitcoinAddress, this.receivingAddress, this.lat, this.long);
+        // send modal to service
         this.statusService.saveTx(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };

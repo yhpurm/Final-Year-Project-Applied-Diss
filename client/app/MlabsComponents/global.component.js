@@ -17,22 +17,26 @@ var GlobalComponent = /** @class */ (function () {
     function GlobalComponent(mlabsService, profileService) {
         this.mlabsService = mlabsService;
         this.profileService = profileService;
+        // Modals
         this.profiles = [];
     }
+    // On component initialization
     GlobalComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // MLABS Service get global users on server
         this.mlabsService.getGlobalUsers()
             .subscribe(function (res) {
-            console.log(res);
             _this.profiles = res;
-            console.log(_this.profiles);
+            console.log("results: " + _this.profiles);
         }, function (error) { return console.error("error:" + error); });
     };
+    // Add an friend event
     GlobalComponent.prototype.onAddFriend = function (username, aboutMe, avatar, statusCount, friendCount, isOnline, address, email, lat, long) {
-        console.log(username, aboutMe, avatar, statusCount, friendCount, isOnline, address, email, lat, long);
-        var newStatusPost = new profile_model_1.Profile(username, aboutMe, avatar, statusCount, friendCount, isOnline, address, email, lat, long);
-        this.profileService.addFriend(newStatusPost)
-            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
+        // Create new friend modal
+        var newFriendPost = new profile_model_1.Profile(username, aboutMe, avatar, statusCount, friendCount, isOnline, address, email, lat, long);
+        // Pass new friend modal to service
+        this.profileService.addFriend(newFriendPost)
+            .subscribe(function () { return console.log('POST to friends'); }, function (error) { return console.error(error); });
     };
     GlobalComponent = __decorate([
         core_1.Component({

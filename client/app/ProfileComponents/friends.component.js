@@ -14,15 +14,17 @@ var profile_service_1 = require("../services/profile.service");
 var FriendsComponent = /** @class */ (function () {
     function FriendsComponent(profileService) {
         this.profileService = profileService;
+        // Modals
         this.profiles = [];
     }
+    // On component initialization
     FriendsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // Get friends from service
         this.profileService.getFriends()
             .subscribe(function (res) {
-            console.log(res);
             _this.profiles = res;
-            console.log(_this.profiles);
+            console.log("results: " + _this.profiles);
         }, function (error) { return console.error("error:" + error); });
     };
     FriendsComponent = __decorate([

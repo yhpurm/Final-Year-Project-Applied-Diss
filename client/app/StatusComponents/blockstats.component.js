@@ -19,9 +19,10 @@ var StatsComponent = /** @class */ (function () {
         this.blockchainService = blockchainService;
         this.statusService = statusService;
     }
+    // On component initialization
     StatsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("prices init");
+        // get most recent stats from service
         this.blockchainService.getBlockchainStats()
             .subscribe(function (res) {
             _this.market_price_usd = res.market_price_usd;
@@ -44,16 +45,19 @@ var StatsComponent = /** @class */ (function () {
             _this.trade_volume_usd = res.trade_volume_usd;
             _this.timestamp = res.timestamp;
         }, function (error) { return console.error("error:" + error); });
+        // get location
         this.getLocation();
         // asign username from local storage
         this.username = this.user.username;
         console.log(this.username);
     };
+    // set lat and long
     StatsComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // get users location
     StatsComponent.prototype.getLocation = function () {
         var _this = this;
         if (window.navigator && window.navigator.geolocation) {
@@ -77,14 +81,18 @@ var StatsComponent = /** @class */ (function () {
         }
         ;
     };
+    // On submit new blockchain statistics status
     StatsComponent.prototype.onStatusSubmit = function () {
+        // store current date of post
         this.date = Date.now();
+        // create new status modal
         var newStatusPost = new blockstats_modal_1.StatsStatus(this.username, this.date, this.title, this.text, this.market_price_usd, this.hash_rate, this.total_fees_btc, this.n_btc_mined, this.n_tx, this.n_blocks_mined, this.totalbc, this.n_blocks_total, this.estimated_transaction_volume_usd, this.blocks_size, this.miners_revenue_usd, this.nextretarget, this.difficulty, this.estimated_btc_sent, this.miners_revenue_btc, this.total_btc_sent, this.trade_volume_btc, this.trade_volume_btc, this.timestamp, this.lat, this.long);
-        console.log(newStatusPost);
+        // POST new status
         this.statusService.saveStatsPost(newStatusPost)
-            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
+            .subscribe(function () { return console.log('POST from blockchain status'); }, function (error) { return console.error(error); });
     };
     Object.defineProperty(StatsComponent.prototype, "user", {
+        // get username from local storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },

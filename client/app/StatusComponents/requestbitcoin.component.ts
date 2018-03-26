@@ -18,29 +18,29 @@ var geocoder = new google.maps.Geocoder();
 
 export class RequestComponent implements OnInit { 
 
-    
-  profile: Profile[] = [];
-  wallets: Wallet[] = [];
-  date: number;
-  username: string;
-  title: String;
-  text: String;
-  amount: number;
-  address: String;
-  lat: Number;
-  geolocationPosition: Object;
-  long: Number;
-
-  
+    // Variable
+    profile: Profile[] = [];
+    wallets: Wallet[] = [];
+    date: number;
+    username: string;
+    title: String;
+    text: String;
+    amount: number;
+    address: String;
+    lat: Number;
+    geolocationPosition: Object;
+    long: Number;
 
   constructor(private profileService: ProfileService,private statusService: StatusService) {}
   
+  // On component initialization
   ngOnInit() {
 
-    // asign username from local storage
+    // assign username from local storage
     this.username = this.user.username;
     console.log(this.username);
 
+    // get wallets from service
     this.profileService.getMyWallets()
         .subscribe(
             response => {
@@ -54,18 +54,21 @@ export class RequestComponent implements OnInit {
          this.getLocation();
     }
 
+    // set lat and long
     setPosition(position) {
       this.lat = position.coords.latitude;
       this.long = position.coords.longitude;
       alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     }
 
+    // set address
     setAddress(address: string){
       console.log("address: " + address);
       this.address = address;
       console.log(this.address);
     }
     
+    // get location
     getLocation() {
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
@@ -91,20 +94,24 @@ export class RequestComponent implements OnInit {
     };
     }
 
+    // POST status
     onStatusSubmit(){
-      this.date = Date.now();
-      console.log(this.username,this.date,this.title,this.text,this.address,this.lat,this.long)
-      const newStatusPost = new ReqStatus(this.username,this.date,this.title,this.text,this.amount,this.address,this.lat,this.long);
-      this.statusService.saveReqPost(newStatusPost)
-      .subscribe(
-          () => console.log('POST from status'),
-          error => console.error(error)
-      );
+        // current date
+        this.date = Date.now();
+        //console.log(this.username,this.date,this.title,this.text,this.address,this.lat,this.long)
+        // new status modal
+        const newStatusPost = new ReqStatus(this.username,this.date,this.title,this.text,this.amount,this.address,this.lat,this.long);
+        // send modal to service
+        this.statusService.saveReqPost(newStatusPost)
+        .subscribe(
+            () => console.log('POST from status'),
+            error => console.error(error)
+        );
   }
 
+    // get username from storage
     get user(): any {
       return JSON.parse(localStorage.getItem('user'));
     }
-
     
   }

@@ -18,14 +18,17 @@ var RequestComponent = /** @class */ (function () {
     function RequestComponent(profileService, statusService) {
         this.profileService = profileService;
         this.statusService = statusService;
+        // Variable
         this.profile = [];
         this.wallets = [];
     }
+    // On component initialization
     RequestComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // asign username from local storage
+        // assign username from local storage
         this.username = this.user.username;
         console.log(this.username);
+        // get wallets from service
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
@@ -34,16 +37,19 @@ var RequestComponent = /** @class */ (function () {
         }, function (error) { return console.error(error); });
         this.getLocation();
     };
+    // set lat and long
     RequestComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // set address
     RequestComponent.prototype.setAddress = function (address) {
         console.log("address: " + address);
         this.address = address;
         console.log(this.address);
     };
+    // get location
     RequestComponent.prototype.getLocation = function () {
         var _this = this;
         if (window.navigator && window.navigator.geolocation) {
@@ -67,14 +73,19 @@ var RequestComponent = /** @class */ (function () {
         }
         ;
     };
+    // POST status
     RequestComponent.prototype.onStatusSubmit = function () {
+        // current date
         this.date = Date.now();
-        console.log(this.username, this.date, this.title, this.text, this.address, this.lat, this.long);
+        //console.log(this.username,this.date,this.title,this.text,this.address,this.lat,this.long)
+        // new status modal
         var newStatusPost = new request_modal_1.ReqStatus(this.username, this.date, this.title, this.text, this.amount, this.address, this.lat, this.long);
+        // send modal to service
         this.statusService.saveReqPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
     Object.defineProperty(RequestComponent.prototype, "user", {
+        // get username from storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },

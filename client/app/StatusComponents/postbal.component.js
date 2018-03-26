@@ -20,10 +20,13 @@ var PostBalanceComponent = /** @class */ (function () {
         this.blockchainService = blockchainService;
         this.profileService = profileService;
         this.statusService = statusService;
+        // Modals
         this.wallets = [];
     }
+    // On component initialization
     PostBalanceComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // get wallets from profile service
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
@@ -35,11 +38,13 @@ var PostBalanceComponent = /** @class */ (function () {
         this.username = this.user.username;
         console.log(this.username);
     };
+    // set lat and long
     PostBalanceComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // get user location
     PostBalanceComponent.prototype.getLocation = function () {
         var _this = this;
         if (window.navigator && window.navigator.geolocation) {
@@ -63,11 +68,13 @@ var PostBalanceComponent = /** @class */ (function () {
         }
         ;
     };
+    // set wallet ID
     PostBalanceComponent.prototype.setGuid = function (gid) {
         console.log("guid: " + gid);
         this.guid = gid;
         console.log(this.guid);
     };
+    // Get user balance
     PostBalanceComponent.prototype.onGetBal = function () {
         var _this = this;
         if (this.guid == null) {
@@ -76,19 +83,25 @@ var PostBalanceComponent = /** @class */ (function () {
         if (this.pass != this.passvalid) {
             return "GUID is empty please select an address";
         }
+        // create balance request modal
         var balrequest = new bal_modal_1.BalanceReq(this.guid, this.pass);
+        // pass to service
         this.blockchainService.getBalance(balrequest)
             .subscribe(function (messages) { return _this.balance = messages; }, function (error) { return console.error(error); });
     };
+    // POST status balance
     PostBalanceComponent.prototype.onStatusBalSubmit = function () {
+        // set current date
         this.date = Date.now();
-        this.username = "test";
-        console.log(this.username, this.date, this.title, this.text, this.balance, this.lat, this.long);
+        //console.log(this.username,this.date,this.title,this.text,this.balance,this.lat,this.long)
+        // create new balance modal
         var newStatusPost = new status_model_1.BalStatus(this.username, this.date, this.title, this.text, this.balance, this.lat, this.long);
+        // send modal to service
         this.statusService.saveBalPost(newStatusPost)
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
     Object.defineProperty(PostBalanceComponent.prototype, "user", {
+        // get username from local storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },

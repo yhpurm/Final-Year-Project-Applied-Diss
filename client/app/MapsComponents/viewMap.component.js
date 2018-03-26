@@ -19,12 +19,15 @@ var ViewMapComponent = /** @class */ (function () {
         this.authService = authService;
         this.statusService = statusService;
     }
+    // On component initialization
     ViewMapComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // load map view
         this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
             zoom: 4,
             center: { lat: 53.1424, lng: -7.6921 }
         });
+        // get logged in username
         this.username = this.user.username;
         console.log(this.username);
         // This service gets the logged in users posted statuses
@@ -44,6 +47,7 @@ var ViewMapComponent = /** @class */ (function () {
                 });
             });
         }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted balance statuses
         this.statusService.getBalStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
@@ -60,6 +64,7 @@ var ViewMapComponent = /** @class */ (function () {
                 });
             });
         }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted blockchain statistics statuses
         this.statusService.getStatsStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
@@ -76,6 +81,7 @@ var ViewMapComponent = /** @class */ (function () {
                 });
             });
         }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted miner related statuses
         this.statusService.getPoolStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
@@ -108,6 +114,7 @@ var ViewMapComponent = /** @class */ (function () {
                 });
             });
         }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted flagged statuses
         this.statusService.getFlagsStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
@@ -124,6 +131,7 @@ var ViewMapComponent = /** @class */ (function () {
                 });
             });
         }, function (error) { return console.error(error); });
+        // This service gets the logged in users posted requested bitcoin statuses
         this.statusService.getReqStatusByUsername(this.username)
             .subscribe(function (res) {
             res.forEach(function (status) {
@@ -142,6 +150,7 @@ var ViewMapComponent = /** @class */ (function () {
         }, function (error) { return console.error(error); });
     };
     Object.defineProperty(ViewMapComponent.prototype, "user", {
+        // returns logged in user from local storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },

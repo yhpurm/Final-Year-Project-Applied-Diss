@@ -21,10 +21,12 @@ var FlagComponent = /** @class */ (function () {
     }
     FlagComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // load view of map
         this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
             zoom: 7,
             center: { lat: 53.1424, lng: -7.6921 }
         });
+        // add listner event for marker click
         google.maps.event.addListener(this.map, 'click', function (event) {
             console.log(event.latLng);
             var lt = event.latLng.lat;
@@ -37,11 +39,13 @@ var FlagComponent = /** @class */ (function () {
         this.username = this.user.username;
         console.log(this.username);
     };
+    // show user there lat and long
     FlagComponent.prototype.onStatusMarker = function (lt, ln) {
         this.lat = lt;
         this.long = ln;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // POST status
     FlagComponent.prototype.onStatusSubmit = function () {
         this.date = Date.now();
         var newStatusPost = new status_model_1.FlagStatus(this.username, this.date, this.title, this.text, this.locationName, this.contact, this.lat, this.long);
@@ -50,6 +54,7 @@ var FlagComponent = /** @class */ (function () {
             .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
     };
     Object.defineProperty(FlagComponent.prototype, "user", {
+        // get username from local storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },

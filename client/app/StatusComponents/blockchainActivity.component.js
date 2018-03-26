@@ -18,11 +18,15 @@ var TransactionsComponent = /** @class */ (function () {
     function TransactionsComponent(blockchainService, statusService) {
         this.blockchainService = blockchainService;
         this.statusService = statusService;
+        // Modals
         this.prices = [];
     }
+    // After component initialization
     TransactionsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        // get your location
         this.getLocation();
+        // Get current price from service
         this.blockchainService.getCurrentPrice()
             .subscribe(function (res) {
             console.log('GET from ticker');
@@ -33,14 +37,17 @@ var TransactionsComponent = /** @class */ (function () {
                 _this.prices.push(new blockticker_modal_1.Ticker(value.last, value.buy, value.sell, value.symbol));
             }
         }, function (error) { return console.error("error:" + error); });
+        // get logged in user from storage
         this.username = this.user.username;
         console.log(this.username);
     };
+    // Update lat and long
     TransactionsComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
+    // get your location
     TransactionsComponent.prototype.getLocation = function () {
         var _this = this;
         if (window.navigator && window.navigator.geolocation) {
@@ -64,21 +71,25 @@ var TransactionsComponent = /** @class */ (function () {
         }
         ;
     };
+    // set values event
     TransactionsComponent.prototype.onSetValue = function (symbol, last, buy, sell) {
         this.postLast = last;
         this.postBuy = buy;
         this.postSell = sell;
         this.postSymbol = symbol;
     };
+    // POST new price status
     TransactionsComponent.prototype.onStatusPriceSubmit = function () {
+        //Get current date and time
         this.date = Date.now();
-        this.username = "test";
         //console.log(this.username,this.date,this.title,this.text,this.price,this.sentAmount,this.bitcoinAddress,this.receivingAddress,this.lat,this.long)
-        var newStatusPost = new blockticker_modal_2.PostTicker(this.username, this.date, this.title, this.text, this.postLast, this.postBuy, this.postSell, this.postSymbol, this.lat, this.long);
-        this.statusService.savePricePost(newStatusPost)
-            .subscribe(function () { return console.log('POST from status'); }, function (error) { return console.error(error); });
+        var newPricePost = new blockticker_modal_2.PostTicker(this.username, this.date, this.title, this.text, this.postLast, this.postBuy, this.postSell, this.postSymbol, this.lat, this.long);
+        // price status post
+        this.statusService.savePricePost(newPricePost)
+            .subscribe(function () { return console.log('POST from price status'); }, function (error) { return console.error(error); });
     };
     Object.defineProperty(TransactionsComponent.prototype, "user", {
+        // Get username from local storage
         get: function () {
             return JSON.parse(localStorage.getItem('user'));
         },
