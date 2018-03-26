@@ -18,7 +18,9 @@ export class PostBalanceComponent implements OnInit {
 
   constructor(private blockchainService: BlockchainService, private profileService: ProfileService,private statusService: StatusService) {}
 
+    // Modals
     wallets: Wallet [] = [];
+    // variables
     guid: string;
     pass: string;
     passvalid: string;
@@ -32,7 +34,9 @@ export class PostBalanceComponent implements OnInit {
     long: number;
     geolocationPosition: Object;
 
+    // On component initialization
     ngOnInit() {
+        // get wallets from profile service
         this.profileService.getMyWallets()
         .subscribe(
             response => {
@@ -50,13 +54,15 @@ export class PostBalanceComponent implements OnInit {
         console.log(this.username);
     }
 
+    // set lat and long
     setPosition(position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
         alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
-      }
+    }
       
-      getLocation() {
+    // get user location
+    getLocation() {
         if (window.navigator && window.navigator.geolocation) {
           window.navigator.geolocation.getCurrentPosition(
               position => {
@@ -79,14 +85,16 @@ export class PostBalanceComponent implements OnInit {
               }
           );
       };
-      }
+    }
 
+    // set wallet ID
     setGuid(gid: string){
         console.log("guid: " + gid);
         this.guid = gid;
         console.log(this.guid);
     }
 
+    // Get user balance
     onGetBal(){
         if(this.guid == null){
             return "GUID is empty please select an address"
@@ -96,7 +104,9 @@ export class PostBalanceComponent implements OnInit {
             return "GUID is empty please select an address"
         }
 
+        // create balance request modal
         const balrequest = new BalanceReq(this.guid,this.pass);
+        // pass to service
         this.blockchainService.getBalance(balrequest)
         .subscribe(
             messages => this.balance = messages,
@@ -104,11 +114,14 @@ export class PostBalanceComponent implements OnInit {
         );
     }
 
+    // POST status balance
     onStatusBalSubmit(){
+        // set current date
         this.date = Date.now();
-        this.username = "test"
-        console.log(this.username,this.date,this.title,this.text,this.balance,this.lat,this.long)
+        //console.log(this.username,this.date,this.title,this.text,this.balance,this.lat,this.long)
+        // create new balance modal
         const newStatusPost = new BalStatus(this.username,this.date,this.title,this.text,this.balance,this.lat,this.long);
+        // send modal to service
         this.statusService.saveBalPost(newStatusPost)
         .subscribe(
             () => console.log('POST from status'),
@@ -116,8 +129,8 @@ export class PostBalanceComponent implements OnInit {
         );
     }
 
+    // get username from local storage
     get user(): any {
         return JSON.parse(localStorage.getItem('user'));
-      }
-    
+    }
 }

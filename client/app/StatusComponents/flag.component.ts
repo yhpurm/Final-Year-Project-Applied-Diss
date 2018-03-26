@@ -4,6 +4,8 @@ import { StatusService } from "../services/status.service";
 import { ProfileService } from "../services/profile.service";
 import { Status } from "../DataModals/status.model";
 import { FlagStatus } from "../DataModals/status.model";
+
+// varibles for holding maps and location objects
 declare var google: any;
 var geocoder = new google.maps.Geocoder();
 
@@ -31,11 +33,13 @@ export class FlagComponent implements OnInit {
 
   ngOnInit(){
 
+    // load view of map
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
           zoom: 7,
           center: {lat: 53.1424, lng: -7.6921}
     });
 
+    // add listner event for marker click
     google.maps.event.addListener(this.map, 'click', (event)=> {
       console.log(event.latLng);
       var lt = event.latLng.lat;
@@ -50,14 +54,16 @@ export class FlagComponent implements OnInit {
   console.log(this.username);
   }
    
+  // show user there lat and long
   onStatusMarker(lt: number,ln: number) {
     this.lat = lt;
     this.long = ln;
 
     alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
-}
+  }
 
-onStatusSubmit(){
+  // POST status
+  onStatusSubmit(){
       this.date = Date.now();
       const newStatusPost = new FlagStatus(this.username,this.date,this.title,this.text,this.locationName,this.contact,this.lat,this.long);
       console.log(newStatusPost);
@@ -68,6 +74,7 @@ onStatusSubmit(){
       );
   }
 
+  // get username from local storage
   get user(): any {
     return JSON.parse(localStorage.getItem('user'));
   }
