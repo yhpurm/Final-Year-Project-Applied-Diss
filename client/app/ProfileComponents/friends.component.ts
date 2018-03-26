@@ -11,19 +11,21 @@ import { Profile } from "../DataModals/profile.model";
 
 export class FriendsComponent implements OnInit {
 
+  // Modals
   profiles: Profile [] = [];
-    constructor(
-        private profileService: ProfileService) {}
 
-  ngOnInit(){
-    this.profileService.getFriends()
+  constructor(private profileService: ProfileService) {}
+
+    // On component initialization
+    ngOnInit(){
+      // Get friends from service
+        this.profileService.getFriends()
            .subscribe(
             res => {
-                    console.log(res);
                     this.profiles = res;
-                    console.log(this.profiles);
+                    console.log("results: " + this.profiles);
                },
                error => console.error("error:" + error)
             );
-  }
- }
+      }
+}
