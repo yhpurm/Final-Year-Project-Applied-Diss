@@ -17,23 +17,22 @@ declare var google: any;
 })
 
 export class GlobalMapComponent implements OnInit {
+  // variables
   map: any;
-  username: string;
   constructor(private mlabsService: MlabsService,
     private authService: AuthService,
     private statusService: StatusService) {}
 
-  
+  // On component initialization
   ngOnInit() {
     
+    // Set up google maps view
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
           zoom: 4,
           center: {lat: 53.1424, lng: -7.6921}
     });
-
-    console.log(this.username);
    
-    // This service gets the logged in users posted statuses
+    // This service gets the general statuses
     this.mlabsService.getGlobalStatus()
     .subscribe(
         res => {
@@ -54,7 +53,7 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
   
-    // This service gets the logged in users posted statuses
+    // This service gets the balance statuses
     this.mlabsService.getBalGlobalStatus()
     .subscribe(
         res => {
@@ -75,7 +74,7 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
 
-    // This service gets the logged in users posted statuses
+    // This service gets the blockchain statistics statuses
     this.mlabsService.getStatsGlobalStatus()
     .subscribe(
         res => {
@@ -96,7 +95,7 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
 
-    // This service gets the logged in users posted statuses
+    // This service gets the miner related statuses
     this.mlabsService.getPoolGlobalStatus()
     .subscribe(
         res => {
@@ -117,7 +116,7 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
 
-    // This service gets the logged in users posted statuses
+    // This service gets the value statuses
     this.mlabsService.getPriceGlobalStatus()
     .subscribe(
         res => {
@@ -138,7 +137,7 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
 
-    // This service gets the logged in users posted statuses
+    // This service gets the flagged locations statuses
     this.mlabsService.getFlagGlobalStatus()
     .subscribe(
         res => {
@@ -159,7 +158,7 @@ export class GlobalMapComponent implements OnInit {
         error => console.error(error)
     );
 
-    // This service gets the logged in users posted statuses
+    // This service gets the requested bitcoin statuses
     this.mlabsService.getReqGlobalStatus()
     .subscribe(
         res => {

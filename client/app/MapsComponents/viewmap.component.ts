@@ -22,14 +22,16 @@ export class ViewMapComponent implements OnInit {
     private authService: AuthService,
     private statusService: StatusService) {}
 
-  
+  // On component initialization
   ngOnInit() {
     
+    // load map view
     this.map = new google.maps.Map(document.getElementById('cryptoMap'), {
           zoom: 4,
           center: {lat: 53.1424, lng: -7.6921}
     });
 
+    // get logged in username
     this.username = this.user.username;
     console.log(this.username);
    
@@ -175,6 +177,7 @@ export class ViewMapComponent implements OnInit {
     );
   }
 
+  // returns logged in user from local storage
   get user(): any {
     return JSON.parse(localStorage.getItem('user'));
   }
