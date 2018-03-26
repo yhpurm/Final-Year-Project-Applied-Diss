@@ -56,6 +56,7 @@ export class ViewMapComponent implements OnInit {
         error => console.error(error)
     );
 
+    // This service gets the logged in users posted balance statuses
     this.statusService.getBalStatusByUsername(this.username)
     .subscribe(
         res => {
@@ -76,6 +77,7 @@ export class ViewMapComponent implements OnInit {
         error => console.error(error)
     );
 
+    // This service gets the logged in users posted blockchain statistics statuses
     this.statusService.getStatsStatusByUsername(this.username)
     .subscribe(
         res => {
@@ -96,6 +98,7 @@ export class ViewMapComponent implements OnInit {
         error => console.error(error)
     );
 
+    // This service gets the logged in users posted miner related statuses
    this.statusService.getPoolStatusByUsername(this.username)
     .subscribe(
         res => {
@@ -136,6 +139,7 @@ export class ViewMapComponent implements OnInit {
         error => console.error(error)
     );
 
+    // This service gets the logged in users posted flagged statuses
     this.statusService.getFlagsStatusByUsername(this.username)
     .subscribe(
         res => {
@@ -156,6 +160,7 @@ export class ViewMapComponent implements OnInit {
         error => console.error(error)
     );
 
+    // This service gets the logged in users posted requested bitcoin statuses
     this.statusService.getReqStatusByUsername(this.username)
     .subscribe(
         res => {
