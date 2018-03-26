@@ -11,24 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var profile_service_1 = require("../services/profile.service");
 var mlabs_service_1 = require("../services/mlabs.service");
 var MlabsSearchComponent = /** @class */ (function () {
     function MlabsSearchComponent(route, mlabsService) {
         this.route = route;
         this.mlabsService = mlabsService;
+        // Modals
         this.profiles = [];
     }
+    // On component initialization
     MlabsSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.queryParams.subscribe(function (params) {
-            _this.test = params['word'];
-            console.log(_this.test);
-            _this.mlabsService.searchUsers(_this.test)
+            // Retrieve string from router parameters
+            _this.value = params['word'];
+            console.log("Searched word: " + _this.value);
+            // Contact MLABS service
+            _this.mlabsService.searchUsers(_this.value)
                 .subscribe(function (res) {
-                console.log(res);
                 _this.profiles = res;
-                console.log(_this.profiles);
+                console.log("MLABS search results: " + _this.profiles);
             }, function (error) { return console.error("error:" + error); });
         });
     };
@@ -37,7 +39,7 @@ var MlabsSearchComponent = /** @class */ (function () {
             moduleId: module.id,
             selector: 'MlabsSearchResult',
             templateUrl: 'MlabsSearchResults.component.html',
-            providers: [profile_service_1.ProfileService]
+            providers: [mlabs_service_1.MlabsService]
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute, mlabs_service_1.MlabsService])
     ], MlabsSearchComponent);
