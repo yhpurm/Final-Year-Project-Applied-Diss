@@ -3,6 +3,8 @@ import { BlockchainService } from '../services/blockchain.service';
 import { StatusService } from '../services/status.service';
 import { Stats } from '../DataModals/blockstats.modal';
 import { StatsStatus } from '../DataModals/blockstats.modal';
+
+// Map and location variables
 declare var google: any;
 var geocoder = new google.maps.Geocoder();
 
@@ -15,38 +17,40 @@ var geocoder = new google.maps.Geocoder();
 
 export class StatsComponent implements OnInit {
 
-  username: string;
-  date: number;
-  title: string;
-  text: string;
-  market_price_usd: number;
-  hash_rate: number;
-  total_fees_btc: number;
-  n_btc_mined: number;
-  n_tx: number;
-  n_blocks_mined: number;
-  minutes_between_blocks: number;
-  totalbc: number;
-  n_blocks_total: number;
-  estimated_transaction_volume_usd: number;
-  blocks_size: number;
-  miners_revenue_usd: number;
-  nextretarget: number;
-  difficulty: number;
-  estimated_btc_sent: number;
-  miners_revenue_btc: number;
-  total_btc_sent: number;
-  trade_volume_btc: number;
-  trade_volume_usd: number;
-  timestamp: number;
-  lat: number;
-  long: number;
-  geolocationPosition: Object;
+    // variables
+    username: string;
+    date: number;
+    title: string;
+    text: string;
+    market_price_usd: number;
+    hash_rate: number;
+    total_fees_btc: number;
+    n_btc_mined: number;
+    n_tx: number;
+    n_blocks_mined: number;
+    minutes_between_blocks: number;
+    totalbc: number;
+    n_blocks_total: number;
+    estimated_transaction_volume_usd: number;
+    blocks_size: number;
+    miners_revenue_usd: number;
+    nextretarget: number;
+    difficulty: number;
+    estimated_btc_sent: number;
+    miners_revenue_btc: number;
+    total_btc_sent: number;
+    trade_volume_btc: number;
+    trade_volume_usd: number;
+    timestamp: number;
+    lat: number;
+    long: number;
+    geolocationPosition: Object;
 
   constructor(private blockchainService: BlockchainService, private statusService: StatusService) {}
 
+  // On component initialization
   ngOnInit() {
-    console.log("prices init");
+    // get most recent stats from service
     this.blockchainService.getBlockchainStats()
        .subscribe(
         res => {
@@ -73,18 +77,22 @@ export class StatsComponent implements OnInit {
            error => console.error("error:" + error)
     );
 
+    // get location
     this.getLocation();
+
     // asign username from local storage
     this.username = this.user.username;
     console.log(this.username);
   }
 
+  // set lat and long
   setPosition(position) {
     this.lat = position.coords.latitude;
     this.long = position.coords.longitude;
     console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
   }
   
+  // get users location
   getLocation() {
     if (window.navigator && window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
@@ -110,24 +118,30 @@ export class StatsComponent implements OnInit {
   };
   }
 
+  // On submit new blockchain statistics status
   onStatusSubmit(){
+
+    // store current date of post
     this.date = Date.now();
+    // create new status modal
     const newStatusPost = new StatsStatus(this.username,this.date,this.title,this.text,
-      this.market_price_usd,this.hash_rate,this.total_fees_btc,this.n_btc_mined,this.n_tx,this.n_blocks_mined
-    ,this.totalbc,this.n_blocks_total,this.estimated_transaction_volume_usd,
-    this.blocks_size,this.miners_revenue_usd,this.nextretarget,this.difficulty,
-    this.estimated_btc_sent,this.miners_revenue_btc,this.total_btc_sent,
-  this.trade_volume_btc,this.trade_volume_btc,this.timestamp,this.lat,this.long);
-  console.log(newStatusPost)
+        this.market_price_usd,this.hash_rate,this.total_fees_btc,this.n_btc_mined,this.n_tx,this.n_blocks_mined
+        ,this.totalbc,this.n_blocks_total,this.estimated_transaction_volume_usd,
+        this.blocks_size,this.miners_revenue_usd,this.nextretarget,this.difficulty,
+        this.estimated_btc_sent,this.miners_revenue_btc,this.total_btc_sent,
+        this.trade_volume_btc,this.trade_volume_btc,this.timestamp,this.lat,this.long);
+
+    // POST new status
     this.statusService.saveStatsPost(newStatusPost)
     .subscribe(
-        () => console.log('POST from status'),
+        () => console.log('POST from blockchain status'),
         error => console.error(error)
     );
 }
 
-get user(): any {
-    return JSON.parse(localStorage.getItem('user'));
-  }
+    // get username from local storage
+    get user(): any {
+        return JSON.parse(localStorage.getItem('user'));
+    }
 
  }
