@@ -271,25 +271,72 @@ I started with the aesthetic of the home page first. Making a 2 by 2 grid with 4
 
 Conor informed me about Google fonts. Google fonts is a font hub offered by Google offering a free download of a endless amount of varying fonts. I browsed through the website and found multiple fonts I felt would fit the idea for the look of the app. 
 My criteria for picking a font was
+\newpage
 
 \chapter{System Design}
-As many pages as needed.
-\begin{itemize}
-\item Architecture, UML etc. An overview of the different components of the system. Diagrams etc… Screen shots etc.
-\end{itemize}
+In this section, we will cover the overall design and implementation of the application with help from screenshots, code snippets and a UML diagram to visualize the structure.
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{x{2cm}p{3cm}}
-    \toprule \\
-    Column 1 & Column 2 \\
-    \midrule \\
-    Rows 2.1 & Row 2.2 \\
-    \bottomrule
-  \end{tabular}
-  \caption{A table.}
-  \label{table:mytable}
-\end{table}
+\section{User Registration}
+
+\subsection{Overview}
+The user can register and create an account with the application through the register page. The register page is accessible through the opening page of the application by pressing the register button. This will bring you to the register page and will ask you for the necessary details in order to create an account. The information that's needed to create an account are as follows:
+Username, Email address, Password and user will be asked to reenter their password to confirm it. The user must provide this information and it is then stored to our MongoDB database. When the users password is stored to MongoDB, their password is encrypted to make the application more secure. The users information that is stored to MongoDB can then be used to Login to the application. Below is a sample of the Registration interface and user information stored in MongoDB which is being viewed through Robo 3T.
+\linebreak.
+
+
+
+\includegraphics[]{img/UserInfo.png}
+
+\includegraphics[]{img/UserInterface.png}
+
+
+
+\subsection{In-depth}
+In the HTML of the register page, I created inputs that take a type text for the users username, email address, password and confirmed password. I have ngIf statements that give back errors or success information when the user is entering information. For example if a username is already taken, the application will return and tell the user that that username is already taken by accessing the inofrmation stored in the MongoDB database. In the register.component.ts file, I created validation functions to insure the correct information was being inputted by the user. For example for the password I wanted to make sure the user created a comlplex password, so there has to be a capital letter, small letter and a symbol. Below is the code used to achieve this:
+\begin{lstlisting}
+  validatePassword(controls) {
+    const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])
+    (?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+    if (regExp.test(controls.value)){
+      return null;
+    } else {
+      return { 'validatePassword': true }
+    }
+  }
+  
+\end{lstlisting}
+
+I used a similar concept for the users email and username. I also created validators to insure a correct length was applied to the username, email and passwords. I made a minimum length of 3 characters and a max length of 15 characters for the username. A minimum length of 5 characters and a max length of 30 characters for the email address. Finally a minimum length of 8 characters and a max length of 30 characters for the password. Below is the code I used to achieve this:
+\begin{lstlisting}
+
+  createForm () {
+    this.form = this.formBuilder.group({
+      username: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15),
+        this.validateUsername
+      ])],
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30),
+        this.validateEmail
+      ])],
+      password: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(30),
+        this.validatePassword
+      ])],
+      confirm: ['', Validators.required]
+    }, { validator: this.matchingPasswords ('password' , 'confirm')})
+  }
+  
+\end{lstlisting}
+
+
+
 
 \chapter{System Evaluation}
 As many pages as needed.
