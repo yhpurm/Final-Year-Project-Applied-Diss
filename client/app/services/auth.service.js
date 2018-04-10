@@ -18,16 +18,17 @@ var AuthService = /** @class */ (function () {
         this.domain = "http://localhost:8080";
     }
     // Function to create headers, add token, to be used in HTTP requests
-    AuthService.prototype.createAuthenticationHeaders = function () {
-        this.loadToken(); // Get token so it can be attached to headers
-        // Headers configuration options
-        this.options = new http_1.RequestOptions({
-            headers: new http_1.Headers({
-                'Content-Type': 'application/json',
-                'authorization': this.authToken // Attach token
-            })
-        });
-    };
+    /*createAuthenticationHeaders() {
+      this.loadToken(); // Get token so it can be attached to headers
+      // Headers configuration options
+      this.options = new RequestOptions({
+        headers: new Headers({
+          'Content-Type': 'application/json', // Format set to JSON
+          'authorization': this.authToken // Attach token
+        })
+      });
+    }
+  */
     // Function to get token from client local storage
     AuthService.prototype.loadToken = function () {
         this.authToken = localStorage.getItem('token');

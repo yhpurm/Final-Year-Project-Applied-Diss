@@ -229,10 +229,10 @@ Username, Email address, Password and user will be asked to reenter their passwo
 
 \subsection{In-depth}
 In the HTML of the register page, I created inputs that take a type text for the users username, email address, password and confirmed password. The submit button is unusable until the user has entered all the correct information. I have ngIf statements that give back errors or success information when the user is entering information. For example if a username is already taken, the application will return and tell the user that this username is already taken by accessing the information stored in the MongoDB database. In the register.component.ts file, I created validation functions to insure the correct information was being inputted by the user. For example for the password I wanted to make sure the user created a comlplex password, so there has to be a capital letter, small letter and a symbol. Below is the code used to achieve this:
+
 \begin{lstlisting}
   validatePassword(controls) {
-    const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])
-    (?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+    const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
     if (regExp.test(controls.value)){
       return null;
     } else {
@@ -241,10 +241,9 @@ In the HTML of the register page, I created inputs that take a type text for the
   }
   
 \end{lstlisting}
-
 I used a similar concept for the users email and username. I also created validators to insure a correct length was applied to the username, email and passwords. I made a minimum length of 3 characters and a max length of 15 characters for the username. A minimum length of 5 characters and a max length of 30 characters for the email address. Finally a minimum length of 8 characters and a max length of 30 characters for the password. Below is the code I used to achieve this:
-\begin{lstlisting}
 
+\begin{lstlisting}
   createForm () {
     this.form = this.formBuilder.group({
       username: ['', Validators.compose([
@@ -311,6 +310,65 @@ const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }
 \end{lstlisting}
 
 \subsection{Auth Guards}
+Angular’s route guards are interfaces which can tell the router whether or not it should allow navigation to a requested route. They make this decision by looking for a true or false return value from a class which implements the given guard interface\cite{AngularA58}. The purpose of the Auth guards for this application is to stop unregistered uses accessing routes that they should not be able to. The Auth guards are used to stop unregistered users from accessing a route by using a url link or by accessing routes through the navbar of the application. For this project I created a auth.guard.ts file which is used to create the auth guards. To ensure a legitimate user is logged into the application I first have to check for this, and if they are logged in return true. Otherwise, if the user is not logged in, I return them to the login page and return false. Below is the code used to achieve this:
+
+\begin{lstlisting}
+    // Check if user is logged in
+    if (this.authService.loggedIn()) {
+      return true; // Return true: User is allowed to view route
+    } else {
+      this.redirectUrl = state.url; // Grab previous url
+      this.router.navigate(['/login']); // Return error and route to login page
+      return false; // Return false: user not authorized to view page
+    }
+  
+\end{lstlisting}
+If the user is logged into the application, there is certain routes that we do not want to be able to access, for example the login or registered routes. To stop this I also created a noauth.guard.ts file. This works the same way as the auth.guard.ts file works except it does the opposite. When a user is logged in and trys to access a route they should not I check to see if the user is logged in and if they are I return them to the home page of the application and return false. Otherwise they I return true and they can access these routes which means the user is not logged in. Below is the code used to achieve this:
+
+\begin{lstlisting}
+if (this.authService.loggedIn()) {
+      this.router.navigate(['/']); // Route to home
+      return false; // User not allowed to view route
+    } else {
+      return true; // Return true: user is allowed to view route }
+\end{lstlisting}
+
+To specify which Auth guards are to be used on which routes, I had to provide this information to the app.routing.ts file of the application. I had to go through each route of the application and check when a user is logged in, which routes they have access to and when they are logged out, the routes they have access to. An example of a user that has access to a route when logged in and logged out are seen below:
+
+\begin{lstlisting}
+{
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [NotAuthGuard] // User can only view this route if they are logged out
+},
+{
+    path: 'cryptonews',
+    component: CryptonewsComponent,
+    canActivate: [AuthGuard] // User must be logged in to view this route
+}
+\end{lstlisting}
+
+When a user requests a route through a URL, normally they are redirected back to the login page where they can login and then instead of returning the user to the route they originally requested they are returned to a default route for example the home page. I changed this and instead of returning the user to a default page, I redirected the user to the page they originally requested. I done this by using the RouterStateSnapshot import from angualar which takes the url that the user tried to access. I created a variable called redirectUrl which stores the previous URL the user tried to access. On the login component I check to see if the user was redirected and if they were, I display an error message 'You must be logged in to view that page.', and make the user log in. Once they do, they are then redirected to the saved route in the variable redirectUrl (which is saved as previousUrl in the login.component.ts file) and sent back to that route. I also make sure to erase the content of the redirectUrl. Below is some code snippets used to achieve this in our application:
+
+\begin{lstlisting}
+if (this.previousUrl) {
+            this.router.navigate([this.previousUrl]); // Redirect to page they were trying to view before
+          } else {
+            this.router.navigate(['/home']); // Navigate to home view
+          }
+
+  ngOnInit() {
+      // On page load, check if user was redirected to login
+      if (this.authGuard.redirectUrl) {
+        this.messageClass = 'alert alert-danger'; // Set error message: need to login
+        this.message = 'You must be logged in to view that page.'; // Set message
+        this.previousUrl = this.authGuard.redirectUrl; // Set the previous URL user was redirected from
+        this.authGuard.redirectUrl = undefined; // Erase previous URL
+      }
+\end{lstlisting}
+
+
+
 
 \subsection{Encrypted Passwords}
 
