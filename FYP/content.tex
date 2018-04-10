@@ -54,10 +54,24 @@ This chapter will outline the objectives of the project along with the scope whi
   \item Receive and forward database responses to web app.
 \end{itemize}
 
-\subsection{GitHub}
-The GitHub repository for the project can be found here at https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss, the section below explains contents of the repository.
 
-Github stuff listed here when done...
+\subsection{The rise of the first cryptocurrency}
+On the October 31, 2008 by a computer scientist, programmer or group of programmers under the name of Satoshi Nakamoto published the first digital currency also know as the first 'cryptocurrency'. This technology attracted the attention of many because of its decentralization, meaning governments or organizations could not intervene with the blockchains distribution of bitcoins or control the currency that is bitcoin. Satoshi Nakamoto also published a research paper titled \cite{Satoshi}'Bitcoin: A Peer-to-Peer Electronic Cash System' that explained how the system operates and functions. It explained how the miners power the system by solving a complicated mathematical equation using an input provided by the previous block and an input provided by the miners CPU. The miners would then announce the solution to the rest of the network so other miners could validate the new block and assuring the blockchains integrity. Users of bitcoin did not have to rely on outside intervention from a 3rd party for their online transactions as this mathematical proof-of-work approach eliminated the need for each person involved to give their identities to the 3rd party, allowing them to send bitcoin to other addresses or freely exchange bitcoin for goods and services and allowing the exchange of value to be taken care off by the system.
+
+\subsection{Bitcoin: What is a bitcoin?}
+A bitcoin can be thought of as a digital receipt, its really a list of locations starting at the block that generated the coin. Currently when a block is solved the miner is rewarded with a transaction fee collected from each transaction within the block along with newly generated bitcoin. This is the start of a bitcoins lifespan and each new address the bitcoin gets sent after being generated will be recorded. Validation of the bitcoins history and location are done using a private key and public key. When someone sends a bitcoins from one address to another the user uses their public and private key to sign the transaction and then the receiver of the bitcoins compares the public key to the address listed on the transaction. Once everything is in place the transaction is placed in a block to be validated on the blockchain. If this process was to be repesented as a design pattern it would look like the following.
+
+\includegraphics[scale=0.55]{img/bitcoindesign.png}
+
+If we where to represent a bitcoin as a design pattern like the above and included the first transaction of a bitcoin from the address that generated the value all the way to the most recent exchange from the previous address to the current address would be a good representation of what a bitcoin looks like. Representing value in this digital record approach appeals to many as it doesn't require overhead administration  to work along with no enforcing of policy's or rules of use by an administrator. There is no physical copy of the value meaning it is a lot harder to steal or go missing, it also does not take up space in the physical world. No validating of the exchange by a 3rd party or outside source means transactions can be a lot faster compared to there fiat counterpart. The autonomous method for creating bitcoins at a set rate until a certain amount exist gives a scarcity and value to the coin as more cannot be printed.
+
+\subsection{Blockchain: What is the blockchain?}
+The block-chain is a design pattern that came about with the creation of bitcoin, this design pattern solved a problem that plagued computer scientists during the early years of the internet. The problem was how can we have people exchange services and things of value on the internet without a middleman or overseeing power having to get involved. The blockchain works by combining the collective processing power of computer systems worldwide in order to process transactions. These machines vary from high performance computers to groups of less effective computers known as mining pools. About every 10 minutes these computers, also known to the cryptocurrancy community as "miners" will collect a bunch of pending transactions and create a unsolved block. To solve the block we take the address of the previous block and combine it with a nonce which is provided by the miner’s CPU power, this this is just a newly generated hash similar to the one from the previous block. Saoshi mentions in the published paper that the two hash strings are used in a series of calculations based on Adam Back's Hashcash, a algorithm created to stop denial-of-service attacks using cryptographic hashes such as SHA1, SHA256 or SHA3. The hash that is taken as the solution is the first miner to produce a SHA256 hash that has a header starting with a specified number of 0’s set by the block-chains difficulty.  The block-chain difficulty fluctuates depending on the rate of blocks being produced. Below is a simplified representation of what the blockchain looks like.
+\includegraphics[scale=0.5]{img/blockchaindesign.jpg}
+\subsection{Applications interactions with the blockchain: API's}
+\textbf{Blockchain.info:} This is a website that can be used to examine transactions and blocks that have been validated on the blockchain. You can also use this site to create an online wallet for storing your own bitcoins. You can apply for an API which will grant you the ability to integrate the blockchain into your application allowing you to create a wallet, send and receive bitcoins and get information on transactions. The API uses POST and GET calls to return JSON to the application which can be then used. \break
+\textbf{BlockCypher:} This is another API that returns JSON to the application. BlockCypher is for interacting with blockchains, accessed over HTTP or HTTPS from the api.blockcypher.com domain. One of the major pros of using this service is that it does not only offer just the bitcoin blockchain but also Ethereum, Litecoin and Dogecoin. \break
+\textbf{Coinbase API:} This API is offered by the one of the most popular exchanges coinbase. This is a well established site with an API that allows you to create wallets along with sending and receiving bitcoin. This API allows you to add widgets to your application allowing users to buy bitcoin.
 
 \chapter{Context}
 \begin{itemize}
@@ -68,27 +82,13 @@ Github stuff listed here when done...
 \end{itemize}
 
 \section{Filler}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mi enim, interdum ut elit lobortis, bibendum tempus diam. Etiam turpis ex, viverra tristique finibus nec, feugiat at metus. Curabitur tempus gravida interdum. Donec ac felis a lorem scelerisque elementum. Vestibulum sit amet gravida tortor, a iaculis orci. Nam a molestie augue. Curabitur malesuada odio at mattis molestie. In hac habitasse platea dictumst. Donec eu lectus eget risus hendrerit euismod nec at orci. Praesent porttitor aliquam diam, eu vestibulum nisl sollicitudin vel. Nullam sed egestas mi.
 
-Quisque vel erat a justo volutpat auctor a nec odio. Sed rhoncus augue sit amet nisl tincidunt, vitae cursus tellus efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque et auctor dui. Fusce ornare odio ipsum, et laoreet mi molestie sed. Cras at massa sit amet ipsum gravida aliquam. Nulla suscipit porta imperdiet. Fusce eros neque, bibendum sit amet consequat non, pulvinar quis ipsum.
 
 \subsection{More filler}
-Donec fermentum sapien ac rhoncus egestas. Nullam condimentum condimentum eros sit amet semper. Nam maximus condimentum ligula. Praesent faucibus in nisi vitae tempus. Sed pellentesque eleifend ante, ac malesuada nibh dapibus nec. Phasellus nisi erat, pulvinar vel sagittis sed, auctor et magna. Quisque finibus augue elit, consequat dignissim purus mollis nec. Duis ultricies euismod tortor, nec sodales libero pellentesque et. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
-Donec id interdum felis, in semper lacus. Mauris volutpat justo at ex dignissim, sit amet viverra massa pellentesque. Suspendisse potenti. Praesent sit amet ipsum non nibh eleifend pretium. In pretium sapien quam, nec pretium leo consequat nec. Pellentesque non dui lacus. Aenean sed massa lacinia, vehicula ante et, sagittis leo. Sed nec nisl ac tellus scelerisque consequat. Ut arcu metus, eleifend rhoncus sapien sed, consequat tincidunt erat. Cras ut vulputate ipsum.
-
-Curabitur et efficitur augue. Proin condimentum ultrices facilisis. Mauris nisi ante, ultrices sed libero eget, ultrices malesuada augue. Morbi libero magna, faucibus in nunc vitae, ultricies efficitur nisl. Donec eleifend elementum massa, sed eleifend velit aliquet gravida. In ac mattis est, quis sodales neque. Etiam finibus quis tortor eu consequat. Nullam condimentum est eget pulvinar ultricies. Suspendisse ut maximus quam, sed rhoncus urna.
 
 \section{Filler}
-Phasellus eu tellus tristique nulla porttitor convallis. Vestibulum ac est eget diam mollis consectetur. Donec egestas facilisis consectetur. Donec magna orci, dignissim vel sem quis, efficitur condimentum felis. Donec mollis leo a nulla imperdiet, in bibendum augue varius. Quisque molestie massa enim, vitae ornare lacus imperdiet non. Donec et ipsum id ante imperdiet mollis. Nullam est est, euismod sit amet cursus a, feugiat a lectus. Integer sed mauris dolor.
 
-Mauris blandit neque tortor, consequat aliquam nisi aliquam vitae. Integer urna dolor, fermentum ut iaculis ut, semper eu lacus. Curabitur mollis at lectus at venenatis. Donec fringilla diam ac risus imperdiet suscipit. Aliquam convallis quam vitae turpis interdum, quis pharetra lacus tincidunt. Nam dictum maximus lectus, vitae faucibus ante. Morbi accumsan velit nec massa tincidunt porttitor. Nullam gravida at justo id viverra. Mauris ante nulla, eleifend vitae sem vitae, porttitor lobortis eros.
-
-Cras tincidunt elit id nisi aliquam, id convallis ex bibendum. Sed vel odio fringilla, congue leo quis, aliquam metus. Nunc tempor vehicula lorem eu ultrices. Curabitur at libero luctus, gravida lectus sed, viverra mi. Cras ultrices aliquet elementum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed metus ante, suscipit sit amet finibus ut, gravida et orci. Nunc est odio, luctus quis diam in, porta molestie magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris pulvinar lacus odio, luctus tincidunt magna auctor ut. Ut fermentum nisl rhoncus, tempus nulla eget, faucibus tortor. Suspendisse eu ex nec nunc mollis pulvinar. Nunc luctus tempus tellus eleifend porta. Nulla scelerisque porttitor turpis porttitor mollis.
-
-Duis elementum efficitur auctor. Nam nisi nulla, fermentum sed arcu vel, posuere semper dui. Fusce ac imperdiet felis. Aenean quis vestibulum nisl. Integer sit amet tristique neque, at suscipit tortor. Morbi et placerat ante, vel molestie dui. Vivamus in nibh eget massa facilisis accumsan. Nunc et purus ac urna fermentum ultrices eget sit amet justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras elementum dui nunc, ac tempor odio semper et. Ut est ipsum, sollicitudin eleifend nisl eu, scelerisque cursus nunc. Nam at lectus vulputate, volutpat tellus vel, pharetra mauris. Integer at aliquam massa, at iaculis sem. Morbi nec imperdiet odio. In hac habitasse platea dictumst.
-
-Mauris a neque lobortis, venenatis erat ut, eleifend quam. Nullam tincidunt tellus quis ligula bibendum, a malesuada erat gravida. Phasellus eget tellus non risus tincidunt sagittis condimentum quis enim. Donec feugiat sapien sit amet tincidunt fringilla. Vivamus in urna accumsan, vehicula sem in, sodales mauris. Aenean odio eros, tristique non varius id, tincidunt et neque. Maecenas tempor, ipsum et sollicitudin rhoncus, nibh eros tempus dolor, vitae dictum justo massa in eros. Proin nec lorem urna. In ullamcorper vitae felis sit amet tincidunt. Maecenas consectetur iaculis est, eu finibus mi scelerisque et. Nulla id ex varius, ultrices eros nec, luctus est. Aenean ac ex eget dui pretium mattis. Ut vitae nunc lectus. Proin suscipit risus eget ligula sollicitudin vulputate et id lectus.
 
 
 \chapter{Methodology}
@@ -102,54 +102,15 @@ Describe the way you went about your project:
 \end{itemize}
 Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in Figure \ref{tikz:mydiagram}.
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}
-  \begin{scope}[every node/.style={circle,thick,draw}]
-  \node (a) at (0,2) {a};
-  \node (b) at (2,2) {b};
-  \node (c) at (2,0) {c};
-  \node (d) at (0,0) {d};
-  \end{scope}
-  \begin{scope}[every edge/.style={draw=black,thick}]
-  \path (a) edge (b);
-  \path (b) edge (c);
-  \path (b) edge (d);
-  \path (c) edge (d);
-  \end{scope}
-  \node () at (1,-1) {$G_1$};
-  \end{tikzpicture}
-  \hspace{1.5cm}
-  \begin{tikzpicture}
-  \begin{scope}[every node/.style={circle,thick,draw}]
-  \node (1) at (0,2) {a};
-  \node (2) at (2,2) {b};
-  \node (3) at (2,0) {c};
-  \node (4) at (0,0) {d};
-  \end{scope}
-  \begin{scope}[every edge/.style={draw=black,thick}]
-  \path (1) edge (2);
-  \path (1) edge (3);
-  \path (1) edge (4);
-  \path (3) edge (4);
-  \end{scope}
-  \node () at (1,-1) {$G_2$};
-  \end{tikzpicture}
-  \caption{Nice pictures}
-  \label{tikz:graphs}
-\end{figure}
+\section{Platform Design}
 
+As a group Conor, Donal and I(Stephen) met regularly each week and our first plan of action was to divide the work and objectives between the 3 of us. I offered to take on some of the front end and the primary load of the aesthetics/ overall look of the project. I had previous experience in graphic design so I photo-shopped mock designs and thumbnails for the project as we went on. I familiarized myself with how the mean stack controlled its colour scheme and look through bootstrap, CSS and HTML components. I researched a lot of different style-sheets and components to make the projects UI(user interface) stand out and be intuitive. I had working design in my head that I wanted to achieve, along with receiving creative input form Conor and Donal.
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[node distance=6cm]
-  \node (a) [rect] {A Big Blue Block};
-  \node (b) [oval, right of=a] {And His Oval Friend};
-  \draw [line] (a) -- (b);
-  \end{tikzpicture}
-  \caption{Nice pictures}
-  \label{tikz:graphs}
-\end{figure}
+I started with the aesthetic of the home page first. Making a 2 by 2 grid with 4 thumbnails that linked to different components of the project. To make this grid and to centre it I used a CSS sheet for the home component HTML page. I wanted each of these thumbnails highlight when hovered on and portray exactly what they linked to. To do so I used Adobe Photoshop for editing and graphic design. For inspiration and templates/base images I used Google images with key words to find exactly what I was looking for. I looked at various crypto-currencies wallets, stock websites and angular apps to get a feel for how this project should look. I want to take the best aspects from each and improve on areas where I felt these other platforms could have. 
+
+Conor informed me about Google fonts. Google fonts is a font hub offered by Google offering a free download of a endless amount of varying fonts. I browsed through the website and found multiple fonts I felt would fit the idea for the look of the app. 
+My criteria for picking a font was
+
 
 
 \chapter{Technology Review}
@@ -237,23 +198,6 @@ Adobe Photoshop is a photo editor developed by Adobe System for Mac and Windows 
 \subsection{Google Fonts:}
 Google Fonts is a font library API that offers over eight hundred fonts for use. It is also a interactive website that is easily browsed for finding the right font for your application or website. It helps create a dynamic UI and works across multiple platforms from mobile devices, desktop and many other devices.
 
-\subsection{Indroduction: The rise of the first cryptocurrency}
-On the October 31, 2008 by a computer scientist, programmer or group of programmers under the name of Satoshi Nakamoto published the first digital currency also know as the first 'cryptocurrency'. This technology attracted the attention of many because of its decentralization, meaning governments or organizations could not intervene with the blockchains distribution of bitcoins or control the currency that is bitcoin. Satoshi Nakamoto also published a research paper titled \cite{Satoshi}'Bitcoin: A Peer-to-Peer Electronic Cash System' that explained how the system operates and functions. It explained how the miners power the system by solving a complicated mathematical equation using an input provided by the previous block and an input provided by the miners CPU. The miners would then announce the solution to the rest of the network so other miners could validate the new block and assuring the blockchains integrity. Users of bitcoin did not have to rely on outside intervention from a 3rd party for their online transactions as this mathematical proof-of-work approach eliminated the need for each person involved to give their identities to the 3rd party, allowing them to send bitcoin to other addresses or freely exchange bitcoin for goods and services and allowing the exchange of value to be taken care off by the system.
-
-\subsection{Bitcoin: What is a bitcoin?}
-A bitcoin can be thought of as a digital receipt, its really a list of locations starting at the block that generated the coin. Currently when a block is solved the miner is rewarded with a transaction fee collected from each transaction within the block along with newly generated bitcoin. This is the start of a bitcoins lifespan and each new address the bitcoin gets sent after being generated will be recorded. Validation of the bitcoins history and location are done using a private key and public key. When someone sends a bitcoins from one address to another the user uses their public and private key to sign the transaction and then the receiver of the bitcoins compares the public key to the address listed on the transaction. Once everything is in place the transaction is placed in a block to be validated on the blockchain. If this process was to be repesented as a design pattern it would look like the following.
-
-\includegraphics[scale=0.55]{bitcoindesign.png}
-
-If we where to represent a bitcoin as a design pattern like the above and included the first transaction of a bitcoin from the address that generated the value all the way to the most recent exchange from the previous address to the current address would be a good representation of what a bitcoin looks like. Representing value in this digital record approach appeals to many as it doesn't require overhead administration  to work along with no enforcing of policy's or rules of use by an administrator. There is no physical copy of the value meaning it is a lot harder to steal or go missing, it also does not take up space in the physical world. No validating of the exchange by a 3rd party or outside source means transactions can be a lot faster compared to there fiat counterpart. The autonomous method for creating bitcoins at a set rate until a certain amount exist gives a scarcity and value to the coin as more cannot be printed.
-
-\subsection{Blockchain: What is the blockchain?}
-The block-chain is a design pattern that came about with the creation of bitcoin, this design pattern solved a problem that plagued computer scientists during the early years of the internet. The problem was how can we have people exchange services and things of value on the internet without a middleman or overseeing power having to get involved. The blockchain works by combining the collective processing power of computer systems worldwide in order to process transactions. These machines vary from high performance computers to groups of less effective computers known as mining pools. About every 10 minutes these computers, also known to the cryptocurrancy community as "miners" will collect a bunch of pending transactions and create a unsolved block. To solve the block we take the address of the previous block and combine it with a nonce which is provided by the miner’s CPU power, this this is just a newly generated hash similar to the one from the previous block. Saoshi mentions in the published paper that the two hash strings are used in a series of calculations based on Adam Back's Hashcash, a algorithm created to stop denial-of-service attacks using cryptographic hashes such as SHA1, SHA256 or SHA3. The hash that is taken as the solution is the first miner to produce a SHA256 hash that has a header starting with a specified number of 0’s set by the block-chains difficulty.  The block-chain difficulty fluctuates depending on the rate of blocks being produced. Below is a simplified representation of what the blockchain looks like.
-\includegraphics[scale=0.5]{blockchaindesign.jpg}
-\subsection{Applications interactions with the blockchain: API's}
-\textbf{Blockchain.info:} This is a website that can be used to examine transactions and blocks that have been validated on the blockchain. You can also use this site to create an online wallet for storing your own bitcoins. You can apply for an API which will grant you the ability to integrate the blockchain into your application allowing you to create a wallet, send and receive bitcoins and get information on transactions. The API uses POST and GET calls to return JSON to the application which can be then used. \break
-\textbf{BlockCypher:} This is another API that returns JSON to the application. BlockCypher is for interacting with blockchains, accessed over HTTP or HTTPS from the api.blockcypher.com domain. One of the major pros of using this service is that it does not only offer just the bitcoin blockchain but also Ethereum, Litecoin and Dogecoin. \break
-\textbf{Coinbase API:} This API is offered by the one of the most popular exchanges coinbase. This is a well established site with an API that allows you to create wallets along with sending and receiving bitcoin. This API allows you to add widgets to your application allowing users to buy bitcoin.
 
 \section{Social Media Research}
 
@@ -263,15 +207,7 @@ Facebook and Twitters ability to document users information and habits has helpe
 So taking of this into account and to bring a educational crypto-currency platform to the market it is necessary to research the information and trends out there in the market and on social media. As discussed previously Social Media influences the market. Public opinion will influence the success of your product and in this day and age social media is public opinion. To Launch any sort of app these days, there Has to be some sort of social media interaction or built in functionality. Every app these days lets you follow your friends and informs you what they are doing. Each app has a communication/messaging service between its users. FAQ services and support between the user and the developer is of the up most importance a lot of this is done through social media. Take air line's social medias often people can complain to these accounts and the issues will instantly be resolved. No company wants a negative image on social media as they know people will be swayed. 
 
 Public opinion on the topic that informs the app or the platform is based on is also hugely important. Taking this into account we can't just observe how our platform is interacts with social media and what people say about it on social media. We in fact have to look at the subject matter of our application, Bitcoin a violate crypto currency that everyone in the past year has an opinion on and has been talking about. Social media can literally affect the price of any crypto currency. From celebrities and social media personalities talking about and announcing their support or investment into a currency to people talking about the negative affects or downside of Crypto-Currencies. Bitcoin and Crypto-Currencies are a new wave and almost controversial topic. The information is out there but people aren't very well informed on the topic. With differing opinions and news flooding in on social media platforms it gets very confusing for the average person to know who to listen to and what to follow..
-\section{Platform Design}
 
-As a group Conor, Donal and I(Stephen) met regularly each week and our first plan of action was to divide the work and objectives between the 3 of us. I offered to take on some of the front end and the primary load of the aesthetics/ overall look of the project. I had previous experience in graphic design so I photo-shopped mock designs and thumbnails for the project as we went on. I familiarized myself with how the mean stack controlled its colour scheme and look through bootstrap, CSS and HTML components. I researched a lot of different style-sheets and components to make the projects UI(user interface) stand out and be intuitive. I had working design in my head that I wanted to achieve, along with receiving creative input form Conor and Donal.
-
-I started with the aesthetic of the home page first. Making a 2 by 2 grid with 4 thumbnails that linked to different components of the project. To make this grid and to centre it I used a CSS sheet for the home component HTML page. I wanted each of these thumbnails highlight when hovered on and portray exactly what they linked to. To do so I used Adobe Photoshop for editing and graphic design. For inspiration and templates/base images I used Google images with key words to find exactly what I was looking for. I looked at various crypto-currencies wallets, stock websites and angular apps to get a feel for how this project should look. I want to take the best aspects from each and improve on areas where I felt these other platforms could have. 
-
-Conor informed me about Google fonts. Google fonts is a font hub offered by Google offering a free download of a endless amount of varying fonts. I browsed through the website and found multiple fonts I felt would fit the idea for the look of the app. 
-My criteria for picking a font was
-\newpage
 
 \chapter{System Design}
 In this section, we will cover the overall design and implementation of the application with help from screenshots, code snippets and a UML diagram to visualize the structure.
@@ -292,7 +228,7 @@ Username, Email address, Password and user will be asked to reenter their passwo
 
 
 \subsection{In-depth}
-In the HTML of the register page, I created inputs that take a type text for the users username, email address, password and confirmed password. I have ngIf statements that give back errors or success information when the user is entering information. For example if a username is already taken, the application will return and tell the user that that username is already taken by accessing the inofrmation stored in the MongoDB database. In the register.component.ts file, I created validation functions to insure the correct information was being inputted by the user. For example for the password I wanted to make sure the user created a comlplex password, so there has to be a capital letter, small letter and a symbol. Below is the code used to achieve this:
+In the HTML of the register page, I created inputs that take a type text for the users username, email address, password and confirmed password. The submit button is unusable until the user has entered all the correct information. I have ngIf statements that give back errors or success information when the user is entering information. For example if a username is already taken, the application will return and tell the user that this username is already taken by accessing the information stored in the MongoDB database. In the register.component.ts file, I created validation functions to insure the correct information was being inputted by the user. For example for the password I wanted to make sure the user created a comlplex password, so there has to be a capital letter, small letter and a symbol. Below is the code used to achieve this:
 \begin{lstlisting}
   validatePassword(controls) {
     const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])
@@ -334,6 +270,54 @@ I used a similar concept for the users email and username. I also created valida
   }
   
 \end{lstlisting}
+
+\section{User Login}
+
+\subsection{Overview}
+Once a user has registered, they are navigated to the login page and can use their credentials to sign into the application. On the login page the user is greeted with two textboxes to enter their username and their password. When the user enters their information into these fields, the application checks to see if there is a registered user with these credentials in the database. If the user provides the correct credentials, a "Success" message is displayed and the user is navigated to the home page. Otherwise, if there is not, there is an error displayed at the top of the page. The error that gets displayed is based on what incorrect information the user has provided. For example, if the user has entered the incorrect username, "Username not found" will be displayed. If the username is found, but an incorrect password was given, "Password invalid" will be displayed back to the user. When a user has successfully logged into the application, they can easily logout of the application again, by clicking the Logout button on the top right hand corner of the applications nav-bar. This will log out the current user and return them to the welcome page of our application.
+
+\subsection{In-depth}
+In the HTML of the login page, I created inputs that take a type text for the users username and password. The submit button is again unusable until the user has entered all the correct information. I used ngIf statements in the HTML to inform the user that each field is required to login. In the login.component.ts file I created a form that takes in the username and password. I also have a submit function for when the user has entered their information, this submit function creates a const called user and logs the user in. Below is the function:
+
+
+\begin{lstlisting}
+  onLoginSubmit() {
+    // Create user object from user's input
+    const user = {
+      username: this.form.get('username').value, // Username input field
+      password: this.form.get('password').value // Password input field
+    }
+  
+\end{lstlisting}
+I have also a function that will store the user data to the local database. This function uses a function in the authservice.ts file that stores the user data. It stores the user information in the local database of the browser so I can use this information for other functions, for example displaying the logged in user in the application or checking weather or not their is a valid token in the system. The function is displayed below.
+\begin{lstlisting}
+  storeUserData(token, user, email) {
+    localStorage.setItem('token', token); // Set token in local storage
+    localStorage.setItem('user', JSON.stringify(user)); // Set user in local storage
+    localStorage.setItem('email', JSON.stringify(email)); // Set email in local storage
+    this.authToken = token; // Assign token to be used elsewhere
+  }
+  
+\end{lstlisting}
+
+\section{Security}
+
+\subsection{JSON Web Tokens}
+I used JSON web tokens to validate that a legitimate user is logged into the application. A JSON web token is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. The most common use of JSON Web Tokens is for authentication which is how I used them for this application\cite{JSONWebT11}. To install JSON web tokens into our project, I had to install it using the following command in root directory of the project: npm install jsonwebtoken --save. I defined the jsonwebtoken in the authentication.js file where I used it. To create the token I followed instructions from the official JSON web token website \cite{jsonwebt54}, where it explains how to create a JSON web token and how to have the token expire after 24 hours. Below is the code used to create the web token for this application:
+\begin{lstlisting}
+const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' }); // Create a token for client
+            res.json({ success: true, message: 'Success!', token: token, user: { username: user.username }, email: { email: user.email } }); // Return success and token to frontend
+  
+\end{lstlisting}
+
+\subsection{Auth Guards}
+
+\subsection{Encrypted Passwords}
+
+\section{Blog Posts}
+
+
+
 
 
 
