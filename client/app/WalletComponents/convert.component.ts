@@ -20,7 +20,7 @@ export class ConvertComponent {
   fiat: string;
   value: string;
   result: number;
-  fiatGroup: any[] = ["EUR","USD"];
+  fiatGroup: any[] = ["EUR","USD","JPY","SGD","HKD","CAD","NZD","AUD","CLP","GBP","DKK","SEK","ISK","CHF","BRL","RUB","PLN","THB","KRW","TWD"];
 
   onConvertFiat() {
     if(this.fiat == null){

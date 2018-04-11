@@ -37,7 +37,7 @@ export class SendBTCComponent implements OnInit {
            error => console.error(error)
         );
 
-        this.profileService.getFriends()
+    this.profileService.getFriends()
            .subscribe(
             res => {
                     console.log(res);

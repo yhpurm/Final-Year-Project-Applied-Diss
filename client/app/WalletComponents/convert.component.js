@@ -16,7 +16,7 @@ var ConvertComponent = /** @class */ (function () {
     function ConvertComponent(profileService, blockchainService) {
         this.profileService = profileService;
         this.blockchainService = blockchainService;
-        this.fiatGroup = ["EUR", "USD"];
+        this.fiatGroup = ["EUR", "USD", "JPY", "SGD", "HKD", "CAD", "NZD", "AUD", "CLP", "GBP", "DKK", "SEK", "ISK", "CHF", "BRL", "RUB", "PLN", "THB", "KRW", "TWD"];
     }
     ConvertComponent.prototype.onConvertFiat = function () {
         var _this = this;
