@@ -56,6 +56,7 @@ var AppModule = /** @class */ (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_1.routing,
                 http_1.HttpModule,
+                forms_2.FormsModule,
                 forms_1.ReactiveFormsModule,
                 forms_2.FormsModule
             ],

@@ -46,6 +46,7 @@ import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
      BrowserModule,
      routing,
      HttpModule,
+     FormsModule,
      ReactiveFormsModule,
      FormsModule],
   declarations: 
