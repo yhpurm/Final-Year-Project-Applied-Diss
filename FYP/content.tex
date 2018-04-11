@@ -2,7 +2,7 @@
 
 \chapter*{About this project}
 \paragraph{Abstract}
-A brief description of what the project is, in about two-hundred and fifty words.
+The aim of this project is to allow users the ability to have a user friendly bitcoin wallet to store their bitcoins. We want to have a sercue wallet that allows the users to register and log in to the application with their information safely storing to a database. 
 
 \paragraph{Authors}
 Explain here who the authors are.
@@ -61,13 +61,21 @@ On the October 31, 2008 by a computer scientist, programmer or group of programm
 \subsection{Bitcoin: What is a bitcoin?}
 A bitcoin can be thought of as a digital receipt, its really a list of locations starting at the block that generated the coin. Currently when a block is solved the miner is rewarded with a transaction fee collected from each transaction within the block along with newly generated bitcoin. This is the start of a bitcoins lifespan and each new address the bitcoin gets sent after being generated will be recorded. Validation of the bitcoins history and location are done using a private key and public key. When someone sends a bitcoins from one address to another the user uses their public and private key to sign the transaction and then the receiver of the bitcoins compares the public key to the address listed on the transaction. Once everything is in place the transaction is placed in a block to be validated on the blockchain. If this process was to be repesented as a design pattern it would look like the following.
 
+\begin{figure}[H]
+\centering
 \includegraphics[scale=0.55]{img/bitcoindesign.png}
+\caption{Design pattern.}
+\end{figure}
 
 If we where to represent a bitcoin as a design pattern like the above and included the first transaction of a bitcoin from the address that generated the value all the way to the most recent exchange from the previous address to the current address would be a good representation of what a bitcoin looks like. Representing value in this digital record approach appeals to many as it doesn't require overhead administration  to work along with no enforcing of policy's or rules of use by an administrator. There is no physical copy of the value meaning it is a lot harder to steal or go missing, it also does not take up space in the physical world. No validating of the exchange by a 3rd party or outside source means transactions can be a lot faster compared to there fiat counterpart. The autonomous method for creating bitcoins at a set rate until a certain amount exist gives a scarcity and value to the coin as more cannot be printed.
 
 \subsection{Blockchain: What is the blockchain?}
 The block-chain is a design pattern that came about with the creation of bitcoin, this design pattern solved a problem that plagued computer scientists during the early years of the internet. The problem was how can we have people exchange services and things of value on the internet without a middleman or overseeing power having to get involved. The blockchain works by combining the collective processing power of computer systems worldwide in order to process transactions. These machines vary from high performance computers to groups of less effective computers known as mining pools. About every 10 minutes these computers, also known to the cryptocurrancy community as "miners" will collect a bunch of pending transactions and create a unsolved block. To solve the block we take the address of the previous block and combine it with a nonce which is provided by the miner’s CPU power, this this is just a newly generated hash similar to the one from the previous block. Saoshi mentions in the published paper that the two hash strings are used in a series of calculations based on Adam Back's Hashcash, a algorithm created to stop denial-of-service attacks using cryptographic hashes such as SHA1, SHA256 or SHA3. The hash that is taken as the solution is the first miner to produce a SHA256 hash that has a header starting with a specified number of 0’s set by the block-chains difficulty.  The block-chain difficulty fluctuates depending on the rate of blocks being produced. Below is a simplified representation of what the blockchain looks like.
+\begin{figure}[H]
+\centering
 \includegraphics[scale=0.5]{img/blockchaindesign.jpg}
+\caption{Blockchain.}
+\end{figure}
 \subsection{Applications interactions with the blockchain: API's}
 \textbf{Blockchain.info:} This is a website that can be used to examine transactions and blocks that have been validated on the blockchain. You can also use this site to create an online wallet for storing your own bitcoins. You can apply for an API which will grant you the ability to integrate the blockchain into your application allowing you to create a wallet, send and receive bitcoins and get information on transactions. The API uses POST and GET calls to return JSON to the application which can be then used. \break
 \textbf{BlockCypher:} This is another API that returns JSON to the application. BlockCypher is for interacting with blockchains, accessed over HTTP or HTTPS from the api.blockcypher.com domain. One of the major pros of using this service is that it does not only offer just the bitcoin blockchain but also Ethereum, Litecoin and Dogecoin. \break
@@ -198,6 +206,18 @@ Adobe Photoshop is a photo editor developed by Adobe System for Mac and Windows 
 \subsection{Google Fonts:}
 Google Fonts is a font library API that offers over eight hundred fonts for use. It is also a interactive website that is easily browsed for finding the right font for your application or website. It helps create a dynamic UI and works across multiple platforms from mobile devices, desktop and many other devices.
 
+\section{JavaScript}
+JavaScript is a high-level, dynamic, programming language widely used alongside HTML and CSS employed by the majority of websites and supported by all modern web browsers. It is a small and lightweight language. It contains a standard library of objects, such as Date, Array, and Math and a core set of language elements such as operators, control structures, and statements\cite{Introduc25}.
+The following is an example of JavaScript\cite{JavaScri59}:
+\begin{lstlisting}
+// Function is called, return value will end up in x
+var x = myFunction(4, 3);   
+// Function returns the product of a and b
+function myFunction(a, b) {
+    return a * b;   
+}
+\end{lstlisting}
+
 
 \section{Social Media Research}
 
@@ -217,14 +237,17 @@ In this section, we will cover the overall design and implementation of the appl
 \subsection{Overview}
 The user can register and create an account with the application through the register page. The register page is accessible through the opening page of the application by pressing the register button. This will bring you to the register page and will ask you for the necessary details in order to create an account. The information that's needed to create an account are as follows:
 Username, Email address, Password and user will be asked to reenter their password to confirm it. The user must provide this information and it is then stored to our MongoDB database. When the users password is stored to MongoDB, their password is encrypted to make the application more secure. The users information that is stored to MongoDB can then be used to Login to the application. Below is a sample of the Registration interface and user information stored in MongoDB which is being viewed through Robo 3T.
-\linebreak.
-
-
-
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/UserInfo.png}
+\caption{Data stored in MongoDB.}
+\end{figure}
 
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/UserInterface.png}
-
+\caption{Registration interface.}
+\end{figure}
 
 
 \subsection{In-depth}
@@ -348,7 +371,7 @@ To specify which Auth guards are to be used on which routes, I had to provide th
 }
 \end{lstlisting}
 
-When a user requests a route through a URL, normally they are redirected back to the login page where they can login and then instead of returning the user to the route they originally requested they are returned to a default route for example the home page. I changed this and instead of returning the user to a default page, I redirected the user to the page they originally requested. I done this by using the RouterStateSnapshot import from angualar which takes the url that the user tried to access. I created a variable called redirectUrl which stores the previous URL the user tried to access. On the login component I check to see if the user was redirected and if they were, I display an error message 'You must be logged in to view that page.', and make the user log in. Once they do, they are then redirected to the saved route in the variable redirectUrl (which is saved as previousUrl in the login.component.ts file) and sent back to that route. I also make sure to erase the content of the redirectUrl. Below is some code snippets used to achieve this in our application:
+When a user requests a route through a URL, normally they are redirected back to the login page where they can login and then instead of returning the user to the route they originally requested they are returned to a default route, for example the home page. I changed this and instead of returning the user to a default page, I redirected the user to the page they originally requested. I done this by using the RouterStateSnapshot import from angular which allows you to take the url the user tried to access. I created a variable called redirectUrl which stores the previous URL the user tried to access. On the login component I check to see if the user was redirected and if they were, I display an error message 'You must be logged in to view that page.', and make the user log in. Once they do, they are then redirected to the saved route in the variable redirectUrl (which is saved as previousUrl in the login.component.ts file) and sent back to that route. I also make sure to erase the content of the redirectUrl. Below is some code snippets used to achieve this in our application:
 
 \begin{lstlisting}
 if (this.previousUrl) {
@@ -367,7 +390,24 @@ if (this.previousUrl) {
       }
 \end{lstlisting}
 
+\subsection{Displaying router links}
+To make sure that unwanted users could not gain access to router links they should not see, I had to ensure they were not being displayed on the applications navigation bar or elsewhere. To ensure this I had to make sure that a legitimate user was logged into the application. I created a function called loggedIn() in the auth.service.ts file. This function searches for a legitimate token in the database which is created once a user has logged into the application. The function returns true if a token is found, otherwise it will return false. Below is the function:
 
+\begin{lstlisting}
+loggedIn() {
+  //return tokenNotExpired();
+  if (this.authToken = localStorage.getItem('token')) { // if there is a user token in the storage
+    return true; // return true
+  } else { // otherwise 
+    return false; // return user to page } }
+\end{lstlisting}
+
+Within the applications HTML files, I went through each of the router links that are to be displayed when a user is logged in and when a user is logged out. I used ngIf statements that use the function above to check if the user is logged in or not. Below is an example of both when a user has logged in a route they can use and when the user has logged out a route they can not use.
+
+\begin{lstlisting}
+<li *ngIf="authService.loggedIn()"><a routerLink="/global"><span class="glyphicon glyphicon-globe"></span> Users</a></li>
+<li *ngIf="!authService.loggedIn()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+\end{lstlisting}
 
 
 \subsection{Encrypted Passwords}
