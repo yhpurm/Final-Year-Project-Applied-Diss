@@ -21,6 +21,7 @@ import { ReqStatus } from "../DataModals/request.modal";
 
 export class ProfileComponent implements OnInit, AfterViewInit { 
 
+  // Modals
   profile: Profile[] = [];
   wallets: Wallet[] = [];
   status: Status[] = [];
@@ -30,16 +31,12 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   tickerStatus: PostTicker[] = [];
   flagStatus: FlagStatus[] = [];
   reqStatus: ReqStatus[] = [];
-  //username: string;
-  fName: String;
-  lName: String;
-  address: String;
-  //email: string;
-  lat: Number;
-  long: Number[] = [];
+
+  // variables
   username: string;
   email;
 
+  // timestamp to date
   Timestamp(date: number){
     var d = new Date(date);
     return d;
@@ -50,6 +47,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     private statusService: StatusService,
     private authService: AuthService) { }
 
+    // After component initialization
     ngAfterViewInit () {
         !function(d,s,id){
             var js: any,
@@ -66,12 +64,12 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       }
   
   ngOnInit() {
-
-    console.log(this.userAvatar.avatar);
     
+    // Get username from local storage
     this.username = this.user.username;
     console.log(this.username);
     
+    // Get wallets from profile service
     this.profileService.getMyWallets()
         .subscribe(
             response => {
@@ -165,6 +163,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     }
 
+    // Delete status event
     onDeleteStatus(title: string) {
         var proceed = confirm("Do you want to continue ?");
         if( proceed == true ){
@@ -180,6 +179,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    // Delete balance status event
     onDeleteBalStatus(title: string) {
         var proceed = confirm("Do you want to continue ?");
         if( proceed == true ){
@@ -195,6 +195,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    // Delete blockchain status event
     onDeleteStatsStatus(title: string) {
         var proceed = confirm("Do you want to continue ?");
         if( proceed == true ){
@@ -210,6 +211,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    // Delete miners status event
     onDeletePoolStatus(title: string) {
         var proceed = confirm("Do you want to continue ?");
         if( proceed == true ){
@@ -225,6 +227,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    // Delete values status event
     onDeletePriceStatus(title: string) {
         var proceed = confirm("Do you want to continue ?");
         if( proceed == true ){
@@ -240,6 +243,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    // Delete donations status event
     onDeleteReqStatus(title: string) {
         var proceed = confirm("Do you want to continue ?");
         if( proceed == true ){

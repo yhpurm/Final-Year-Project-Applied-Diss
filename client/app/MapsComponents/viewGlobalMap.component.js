@@ -19,6 +19,7 @@ var GlobalMapComponent = /** @class */ (function () {
         this.mlabsService = mlabsService;
         this.authService = authService;
         this.statusService = statusService;
+        this.showmap = true;
     }
     // On component initialization
     GlobalMapComponent.prototype.ngOnInit = function () {

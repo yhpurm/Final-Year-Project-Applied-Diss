@@ -18,6 +18,7 @@ var ProfileComponent = /** @class */ (function () {
         this.profileService = profileService;
         this.statusService = statusService;
         this.authService = authService;
+        // Modals
         this.profile = [];
         this.wallets = [];
         this.status = [];
@@ -27,12 +28,13 @@ var ProfileComponent = /** @class */ (function () {
         this.tickerStatus = [];
         this.flagStatus = [];
         this.reqStatus = [];
-        this.long = [];
     }
+    // timestamp to date
     ProfileComponent.prototype.Timestamp = function (date) {
         var d = new Date(date);
         return d;
     };
+    // After component initialization
     ProfileComponent.prototype.ngAfterViewInit = function () {
         !function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0], p = 'https';
@@ -46,9 +48,10 @@ var ProfileComponent = /** @class */ (function () {
     };
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log(this.userAvatar.avatar);
+        // Get username from local storage
         this.username = this.user.username;
         console.log(this.username);
+        // Get wallets from profile service
         this.profileService.getMyWallets()
             .subscribe(function (response) {
             _this.wallets = response;
@@ -105,6 +108,7 @@ var ProfileComponent = /** @class */ (function () {
             console.log(_this.reqStatus);
         }, function (error) { return console.error(error); });
     };
+    // Delete status event
     ProfileComponent.prototype.onDeleteStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
         if (proceed == true) {
@@ -117,6 +121,7 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    // Delete balance status event
     ProfileComponent.prototype.onDeleteBalStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
         if (proceed == true) {
@@ -129,6 +134,7 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    // Delete blockchain status event
     ProfileComponent.prototype.onDeleteStatsStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
         if (proceed == true) {
@@ -141,6 +147,7 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    // Delete miners status event
     ProfileComponent.prototype.onDeletePoolStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
         if (proceed == true) {
@@ -153,6 +160,7 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    // Delete values status event
     ProfileComponent.prototype.onDeletePriceStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
         if (proceed == true) {
@@ -165,6 +173,7 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    // Delete donations status event
     ProfileComponent.prototype.onDeleteReqStatus = function (title) {
         var proceed = confirm("Do you want to continue ?");
         if (proceed == true) {

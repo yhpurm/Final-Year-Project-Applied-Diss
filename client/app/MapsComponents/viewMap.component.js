@@ -18,6 +18,7 @@ var ViewMapComponent = /** @class */ (function () {
         this.profileService = profileService;
         this.authService = authService;
         this.statusService = statusService;
+        this.showmap = true;
     }
     // On component initialization
     ViewMapComponent.prototype.ngOnInit = function () {

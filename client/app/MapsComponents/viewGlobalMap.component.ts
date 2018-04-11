@@ -22,7 +22,7 @@ export class GlobalMapComponent implements OnInit {
   constructor(private mlabsService: MlabsService,
     private authService: AuthService,
     private statusService: StatusService) {}
-
+    public showmap = true;
   // On component initialization
   ngOnInit() {
     

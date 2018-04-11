@@ -21,7 +21,7 @@ export class ViewMapComponent implements OnInit {
   constructor(private profileService: ProfileService,
     private authService: AuthService,
     private statusService: StatusService) {}
-
+    public showmap = true;
   // On component initialization
   ngOnInit() {
     

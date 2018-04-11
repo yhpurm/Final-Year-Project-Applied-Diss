@@ -18,6 +18,7 @@ var PeopleMapComponent = /** @class */ (function () {
         this.authService = authService;
         // Modals
         this.profiles = [];
+        this.showmap = false;
     }
     // On component initialization
     PeopleMapComponent.prototype.ngOnInit = function () {

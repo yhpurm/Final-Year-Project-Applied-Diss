@@ -23,7 +23,7 @@ export class PeopleMapComponent implements OnInit {
   profiles: Profile[] = [];
   constructor(private profileService: ProfileService,
     private authService: AuthService) {}
-
+    public showmap = false;
   // On component initialization
   ngOnInit() {
     
