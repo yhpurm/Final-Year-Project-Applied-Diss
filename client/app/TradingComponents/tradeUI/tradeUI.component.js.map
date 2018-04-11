@@ -1,1 +1,0 @@
-{"version":3,"file":"tradeUI.component.js","sourceRoot":"","sources":["tradeUI.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAAwC;AACxC,kEAA0D;AAQ1D;IAAA;IAAiC,CAAC;IAArB,kBAAkB;QAN9B,gBAAS,CAAC;YACT,QAAQ,EAAE,WAAW;YACrB,WAAW,EAAE,0BAA0B;YACvC,SAAS,EAAE,CAAC,yBAAyB,CAAC;YACtC,SAAS,EAAE,CAAC,4BAAU,CAAC;SACxB,CAAC;OACW,kBAAkB,CAAG;IAAD,yBAAC;CAAA,AAAlC,IAAkC;AAArB,gDAAkB"}

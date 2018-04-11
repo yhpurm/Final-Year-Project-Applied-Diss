@@ -12,14 +12,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TradingComponent = /** @class */ (function () {
     function TradingComponent() {
-        this.title = 'Trading';
     }
+    TradingComponent.prototype.ngOnInit = function () {
+        new TradingView.widget({
+            "width": 980,
+            "height": 610,
+            "symbol": "BITFINEX:BTCUSD",
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "White",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "allow_symbol_change": true,
+            "hideideas": true,
+            "show_popup_button": true,
+            "popup_width": "1000",
+            "popup_height": "650"
+        });
+    };
     TradingComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
             selector: 'trading',
-            templateUrl: 'trading.component.html',
-            styleUrls: ['trading.component.css']
+            templateUrl: './app/TradingComponents/trading.component.html',
+            styleUrls: ['./app/TradingComponents/trading.component.css']
         }),
         __metadata("design:paramtypes", [])
     ], TradingComponent);
