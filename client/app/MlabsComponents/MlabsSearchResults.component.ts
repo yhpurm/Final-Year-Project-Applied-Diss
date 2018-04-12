@@ -17,6 +17,7 @@ export class MlabsSearchComponent implements OnInit {
     constructor(private route:ActivatedRoute, private mlabsService: MlabsService) {}
     // variables
     value:string;
+    
     // Modals
     profiles: Profile [] = [];
 
