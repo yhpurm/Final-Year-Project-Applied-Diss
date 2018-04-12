@@ -57,6 +57,12 @@ export class ProfileService {
             });
     }
 
+    deleteFriend(val: string): Observable<any> {
+        console.log(val);
+        return this.http
+          .delete('http://localhost:3000/removeFriend/'+ val);
+    }
+
     addFriend(friend: Profile): Observable<any> {
         console.log(friend);
         const body = JSON.stringify(friend);

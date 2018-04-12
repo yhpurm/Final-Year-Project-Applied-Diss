@@ -965,6 +965,19 @@ router.get('/http://localhost:4000', function(req, res, next){
     })
 }); */
 
+router.delete('/removeFriend/:val', function (req, res) {
+    
+    Friend.remove({username: req.params.val}, function(err, message) {
+        console.log("Deleting friend");
+      if(err) { 
+         return res.send({status: "200", response: "fail"});
+      }else{
+          console.log("it worked?");
+      }
+        
+   }); 
+});
+
 router.patch('/URL/PATCH', function (req, res) {
     // Patch Something..
 });
