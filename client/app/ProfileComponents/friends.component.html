@@ -1,6 +1,6 @@
 <div class="container">
 <div class="bs-example">
-  <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let p of profiles; let i = index;">
+  <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let p of profiles; let i = index;" >
       <div class="panel panel-default" >
           <div class="panel-heading">
             <div class="row">
@@ -8,11 +8,12 @@
                 <div class="col-sm-12">
                   <div class="col-sm-2">
                   </div>
+                  <p class="pull-left"><img src="/app/avatars/{{p.avatar}}.png" style="height:106px;width:106px;border-radius: 60%;" alt="Avatar"></p>
                   <div class="col-sm-8">
                     <h4 class="panel-title">
                       <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">{{ p.username }}</a>
                     </h4>
-                    <div class="container">
+                    <div class="row">
                     <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-globe"></i> {{ p.statusCount }} </div>
                     <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-user"></i> {{ p.friendCount }} </div>
                     <div class="col-md-4 col-xs-4 well"><i class="glyphicon glyphicon-off"></i> {{ p.isOnline }} </div>
@@ -30,6 +31,8 @@
                     <li>{{p.email}}</li>
                     <li>{{p.bitcoinAddress}}</li>
                   </ul>
+                  <button type="button" class="btn btn-danger" aria-label="Left Align" onClick="window.location.reload()" (click)="onDeleteFriend(p.username)">- Friend</button>
+                  <a href="https://blockchain.info/address/{{p.bitcoinAddress}}"><button type="button" class="btn btn-warning">Inspect Address</button></a>
                 </span>
               </div>
           </div>

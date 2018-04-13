@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var TradingComponent = /** @class */ (function () {
     function TradingComponent() {
     }
-    TradingComponent.prototype.ngOnInit = function () {
+    TradingComponent.prototype.ngAfterViewInit = function () {
         new TradingView.widget({
             "width": 980,
             "height": 610,

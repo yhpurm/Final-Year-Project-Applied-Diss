@@ -27,6 +27,18 @@ var FriendsComponent = /** @class */ (function () {
             console.log("results: " + _this.profiles);
         }, function (error) { return console.error("error:" + error); });
     };
+    FriendsComponent.prototype.onDeleteFriend = function (name) {
+        var retVal = confirm("Do you want to continue ?");
+        if (retVal == true) {
+            this.profileService
+                .deleteFriend(name)
+                .subscribe(function (result) { return console.log('DELETE from products'); }, function (error) { return console.error(error); });
+        }
+        else {
+            alert("Delete cancled!");
+            return false;
+        }
+    };
     FriendsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

@@ -66,6 +66,11 @@ var ProfileService = /** @class */ (function () {
             return msgArray;
         });
     };
+    ProfileService.prototype.deleteFriend = function (val) {
+        console.log(val);
+        return this.http
+            .delete('http://localhost:3000/removeFriend/' + val);
+    };
     ProfileService.prototype.addFriend = function (friend) {
         console.log(friend);
         var body = JSON.stringify(friend);

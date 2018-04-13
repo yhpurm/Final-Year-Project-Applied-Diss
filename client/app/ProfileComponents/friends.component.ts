@@ -28,4 +28,19 @@ export class FriendsComponent implements OnInit {
                error => console.error("error:" + error)
             );
       }
+
+      onDeleteFriend(name: string) {
+        var retVal = confirm("Do you want to continue ?");
+        if( retVal == true ){
+            this.profileService
+            .deleteFriend(name)
+        .subscribe(
+            result => console.log('DELETE from products'),
+            error => console.error(error)
+        );
+        }else{
+            alert("Delete cancled!");
+            return false;
+        }
+    }
 }

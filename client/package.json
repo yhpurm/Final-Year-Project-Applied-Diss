@@ -1,6 +1,9 @@
 {
   "name": "bitcoin",
   "version": "1.0.0",
+  "engines": {
+    "npm": "5.6.0"
+  },
   "scripts": {
     "start": "ng serve -H 0.0.0.0",
     "lite": "lite-server",

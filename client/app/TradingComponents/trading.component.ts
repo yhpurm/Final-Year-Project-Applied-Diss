@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, AfterViewInit} from '@angular/core';
+declare const TradingView: any;
 
 
 @Component({
@@ -6,11 +7,12 @@ import { Component, OnInit} from '@angular/core';
   templateUrl: './app/TradingComponents/trading.component.html',
   styleUrls: ['./app/TradingComponents/trading.component.css']
 })
-export class TradingComponent implements OnInit {
+export class TradingComponent implements AfterViewInit {
 
     constructor() { }
   
-    ngOnInit() {
+    
+    ngAfterViewInit() {
     new TradingView.widget({
           "width": 980,
           "height": 610,
