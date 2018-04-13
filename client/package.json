@@ -5,7 +5,7 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "ng serve -H 0.0.0.0",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
