@@ -107,12 +107,14 @@ var BlogComponent = /** @class */ (function () {
             _this.blogPosts = data.blogs; // Assign array to use in HTML
         });
     };
+    // Function to like blog
     BlogComponent.prototype.likeBlog = function (id) {
         var _this = this;
         this.blogService.likeBlog(id).subscribe(function (data) {
             _this.getAllBlogs();
         });
     };
+    // Function to dislike blog
     BlogComponent.prototype.dislikeBlog = function (id) {
         var _this = this;
         this.blogService.dislikeBlog(id).subscribe(function (data) {
