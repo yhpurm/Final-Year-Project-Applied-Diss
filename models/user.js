@@ -132,16 +132,17 @@ userSchema.pre('save', function(next) {
     if (!this.isModified('password'))
     return next();
 
+    // Apply encryption
     bcrypt.hash(this.password, null, null, (err, hash) => {
         if (err) return next(err);
-        this.password = hash;
-        next();
+        this.password = hash; // Apply encryption to password
+        next(); // Exit middleware
     })
 });
 
 // Matching up Encryted Passwords
 userSchema.methods.comparePassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
+    return bcrypt.compareSync(password, this.password); // Return comparison of login password to password in database (true or false)
 };
 
 module.exports = mongoose.model('User', userSchema);

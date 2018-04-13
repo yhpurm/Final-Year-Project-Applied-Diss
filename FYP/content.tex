@@ -5,7 +5,10 @@
 The aim of this project is to allow users the ability to have a user friendly bitcoin wallet to store their bitcoins. We want to have a sercue wallet that allows the users to register and log in to the application with their information safely storing to a database. 
 
 \paragraph{Authors}
-Explain here who the authors are.
+This project has been developed by fourth year students: Conor Tighe, Donal McGahon and Stephen Murphy. We developed this project for our Bachelors of Science Honours Degree in Software Development. We divided up the work into sections. Conor worked on "Say what you work on here". Donal worked on the authentication and security of the project. Also he worked on created a blog post feature and a cryptocurrency news feature to the application. Stephen worked on "Say what you work on here". We all collaborated on the look of the application as well as the dissertation.
+
+\chapter*{Acknowledgements}
+We would like to acknowledge our team supervisor Gerard Harrison for support and understanding as well as all GMIT teachers for helping us to get this far.
 
 
 \chapter{Introduction}
@@ -410,6 +413,26 @@ Within the applications HTML files, I went through each of the router links that
 
 
 \subsection{Encrypted Passwords}
+One of the most crucial parts of security is the users details. To insure maximum security I created encrypted passwords that are created when a user creates a password. These encrypted passwords are stored in the mongo database. To create these encrypted passwords I used a middleware called bcrypt-nodejs. Bcrypt is a password hashing function. Its slowness and multiple rounds ensures that an attacker must deploy massive funds and hardware to be able to crack a passwords. In addition to that per-password salts which is random data that is used as an additional input to a one-way function that "hashes" a password, an attacker will not be able to break into this without a massive amount of funds or hardware\cite{Whatisbc86}. Below is some code snippets used to encrypt the passwords with also how I matched up the encrypted passwords to the passwords stored in the database:
+
+\begin{lstlisting}
+const bcrypt = require('bcrypt-nodejs');
+
+// Middleware to encrypt passwords
+userSchema.pre('save', function(next) {
+    // Apply encryption
+    bcrypt.hash(this.password, null, null, (err, hash) => {
+        if (err) return next(err);
+        this.password = hash; // Apply encryption to password
+        next(); // Exit middleware
+    })
+});
+
+// Matching up Encryted Passwords
+userSchema.methods.comparePassword = function(password) {
+    return bcrypt.compareSync(password, this.password); // Return comparison of login password to password in database (true or false)
+};
+\end{lstlisting}
 
 \section{Blog Posts}
 
@@ -546,6 +569,13 @@ In the HTML, there is two buttons that represent the likes and another that repr
 \end{lstlisting}
 
 \subsection{Mongo Database used to store blog posts}
+To store all the blog posts from all users of the application I used MongoDB. This was the best database to store the users blog posts and because I already used MongoDB to store the users account details I had experience using it. The title, body, user who created the blog post, the amount of likes and dislikes and also the time and date when the blog post was created are all stored in the mongo database. Using the application Robo 3T, you can see an example blog post that was saved to the database.
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/blogpost-database.png}
+\caption{Blog-Post Database.}
+\end{figure}
 
 
 
