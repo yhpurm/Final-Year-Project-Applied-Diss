@@ -98,10 +98,10 @@ export class BlogComponent implements OnInit {
 
 
 
-    // Function to go back to previous page
-    goBack() {
-        window.location.reload(); // Clear all variable states
-        }
+  // Function to go back to previous page
+  goBack() {
+      window.location.reload(); // Clear all variable states
+      }
 
   // Enable new blog form
   enableFormNewBlogForm() {
@@ -122,13 +122,14 @@ export class BlogComponent implements OnInit {
       });
     }
 
+    // Function to like blog
     likeBlog(id){
       this.blogService.likeBlog(id).subscribe(data => {
         this.getAllBlogs();
       });
       
     }
-
+    // Function to dislike blog
     dislikeBlog(id){
       this.blogService.dislikeBlog(id).subscribe(data => {
         this.getAllBlogs();

@@ -413,6 +413,142 @@ Within the applications HTML files, I went through each of the router links that
 
 \section{Blog Posts}
 
+\subsection{Overview}
+We wanted to have a way of allowing the users to interact with each other through the application. We also wanted to have a way for them to share and inform each other on the latest news or information relating to different cryptocurrencies. A good way to allow this was to create a blog feature to the application. This would allow users to interact while also informing each other about cryptocurrencies. The blog feature grants the users to create a blog post title related to any topic they wish, and to post a relatively short paragraph about the topic. Their topic is then displayed in a list from the newest to oldest blog posts on the blog post page. The user will be able to view their posts and information related to it. Other users can see these posts and interact with them by liking the post or disliking the post. By allowing the users to like and dislike posts it lets the author of the post know weather or not their post was useful to other users. If a user who has posted a blog post wants to delete their post, they can easily do so by pressing the delete button under the post they wish to delete. It will prompt the user to ensure they are sure they want to delete this post, and the user can simply press yes or no.
+
+\subsection{Create Post}
+For the user to create a post, they can simply click the new post button at the top of the blog post page. This button will navigate them to a new form that asks the user to enter a title of their blog post and then the blog post itself in the body section. Once the user has entered the information and are happy with it, the submit button and the blog post is saved and displayed on the blog post page. The user is redirected back to the blog page and will be able to see their new post. Restrictions were added to the length of the post the users can have on the title and the body of their blog posts. This was to avoid any spanning of the blog post feature. The minimum title length is five characters and the maximum is fifty. For the body of the post the maximum is five hundred characters long and the minimum again is five characters long. To achieve this I created a form with validators. The code can be seen below:
+
+\begin{lstlisting}
+// Function to create new blog form
+createNewBlogForm() {
+this.form = this.formBuilder.group({
+  title: ['', Validators.compose([
+    Validators.required,
+    Validators.maxLength(50),
+    Validators.minLength(5)
+  ])],
+  body: ['', Validators.compose([
+    Validators.required,
+    Validators.maxLength(500),
+    Validators.minLength(5)
+  ])]
+})
+}
+\end{lstlisting}
+
+Once the title and body of the post have been written and meet the requirements of the validators, the user then presses the submit button. The submit button works as follows, it creates a new const called blog that contains the content of the users post, which is the title and body and also it takes in the name of the logged in user of the application so we can tell which user has posted this blog. The submit button also disables the button after it is pressed and locks the form. The code is below:
+
+\begin{lstlisting}
+// Function to submit a new blog post
+onBlogSubmit() {
+this.processing = true; // Disable submit button
+this.disableFormNewBlogForm(); // Lock form
+// Create blog object from form fields
+const blog = {
+  title: this.form.get('title').value, // Title field
+  body: this.form.get('body').value, // Body field
+  createdBy: this.username // CreatedBy field
+}
+\end{lstlisting}
+
+\subsection{Delete Post}
+When a user wants to delete a post they can do so very easily. The user can press the delete button which is displayed directly under their post. This button will navigate them to a new page. On this page the post they wish to delete will be displayed with a confirmation, "Are you sure you would like to delete this post?". The user then has two options, they can press the yes button and delete their post or press the no button and they will be navigated back to the blog post page. To grabe the post the user wants to delete and display it on the delete blog page, I create a function that takes the users post. It first checks to see if it has successfully grabbed the users post and if not it will display an error. Otherwise the function creates a blog object that can be used in the HTML of the delete page. The code can be seen below:
+
+
+\begin{lstlisting}
+this.blogService.getSingleBlog(this.currentUrl.id).subscribe(data => {
+  // Check if request was successful
+  if (!data.success) {
+    this.messageClass = 'alert alert-danger'; 
+    this.message = data.message; 
+  } else {
+    // Create the blog object to use in HTML
+    this.blog = {
+      title: data.blog.title,
+      body: data.blog.body,
+      createdBy: data.blog.createdBy,
+      createdAt: data.blog.createdAt
+    }
+    this.foundBlog = true;
+  }
+});
+\end{lstlisting}
+
+To display the users posts in the HTML I simply used the object that was created, for example to display the blog post body I can use "{{ blog.body }}". The below code is the HTML that displays the users blog post on the delete page:
+\begin{lstlisting}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+    <h3 class="panel-title">{{ blog.title }}</h3>
+    </div>
+    <div class="panel-body">
+    {{ blog.body }}
+    </div>
+
+    <div class="panel-footer">
+    <strong>Posted by: </strong> {{ blog.createdBy.username }}
+    <br />
+    <strong>Date: </strong> {{ blog.createdAt | date:'MMM dd, yyyy' }}
+    </div>
+</div>
+\end{lstlisting}
+
+When the user clicks the yes button and confirms they wish to delete their blog post, the post is deleted from the blog post page and is also deleted from the database. The code used to achieve this is shown below:
+
+\begin{lstlisting}
+deleteBlog() {
+this.processing = true; // Disable buttons
+// Function for DELETE request
+this.blogService.deleteBlog(this.currentUrl.id).subscribe(data => {
+  // Check if delete request worked
+  if (!data.success) {
+    this.messageClass = 'alert alert-danger'; 
+    this.message = data.message; 
+  } else {
+    this.messageClass = 'alert alert-success'; 
+    this.message = data.message; 
+    // After two second timeout, route to blog page
+    setTimeout(() => {
+      this.router.navigate(['/blog']);
+    }, 1500);
+  }
+});
+}
+\end{lstlisting}
+
+\subsection{Like and dislike posts}
+Each blog post has a feature that allows other users to like and dislike a post. A user cannot like or dislike their own blog post but they can like and dislike others. The number of likes and dislikes are displayed under the the logged in users blog posts. Other blog posts that do not belong to the user that is logged in, they're likes and dislikes are displayed on the corresponding buttons under there own posts. The likes and dislikes are saved to the MongoDB database and keeps track of the amount of dislikes and likes on a post. Each time the like or dislike button is pressed its amount is increased by one. To achieve this a created two functions, one called likeBlog and the other called dislikeBlog with their number of like or dislikes being stored in the id. Below are the functions:
+
+\begin{lstlisting}
+// Function to like blog
+likeBlog(id){
+  this.blogService.likeBlog(id).subscribe(data => {
+    this.getAllBlogs();
+  });
+  
+}
+// Function to dislike blog
+dislikeBlog(id){
+  this.blogService.dislikeBlog(id).subscribe(data => {
+    this.getAllBlogs();
+  });
+}
+\end{lstlisting}
+
+In the HTML, there is two buttons that represent the likes and another that represents the dislikes. Both of these buttons when clicked, call their corresponding function in the typescript file. For example, when the like button is clicked it calls the likeBlog(id) function displayed above and adds a like to the database and displays the new amount of like to the page. These buttons are only displayed under posts that do not belong to the user logged into the application. To achieve this I used ngIf statements that compare the name of the user logged in and the name of the user that created the blog post. If these comparisons are the same, the buttons are not displayed but if not, the buttons are displayed. Below is the code used to achieve this:
+
+\begin{lstlisting}
+<!-- Like Button -->
+<button type="button" name="button" class="btn btn-sm btn-success" (click)="likeBlog(blog._id)" *ngIf="user?.username !== blog.createdBy.username"><span class="glyphicon glyphicon-thumbs-up">&nbsp;</span>Likes: {{ blog.likes }}</button>
+
+<!-- Dislike Button -->
+<button type="button" name="button" class="btn btn-sm btn-warning" (click)="dislikeBlog(blog._id)" *ngIf="user?.username !== blog.createdBy.username"><span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: {{ blog.dislikes }}</button>
+\end{lstlisting}
+
+\subsection{Mongo Database used to store blog posts}
+
+
+
 \section{Profiles and user customization}
 
 \subsection{Overview}

@@ -2,7 +2,7 @@
   "name": "bitcoin",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "ng serve -H 0.0.0.0",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
