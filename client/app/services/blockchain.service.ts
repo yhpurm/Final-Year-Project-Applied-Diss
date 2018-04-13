@@ -17,7 +17,6 @@ export class BlockchainService {
     // Http Contructor for setting up connection
     constructor(private http: Http) {}
 
-    
         saveWallet(wallet: createWallet): Observable<any> {
             console.log(wallet);
             const body = JSON.stringify(wallet);

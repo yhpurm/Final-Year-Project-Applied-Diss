@@ -37,7 +37,7 @@
                 <li *ngIf="authService.loggedIn()"><a routerLink="/profile"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
                 <li *ngIf="authService.loggedIn()"><a href="#" (click)="onLogoutClick()">Logout</a></li>
               </ul>
-            </div>
-          </nav>
         </div>
+      </nav>
+    </div>
     <router-outlet></router-outlet>
