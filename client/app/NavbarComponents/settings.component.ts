@@ -22,15 +22,25 @@ import { ProfileService } from "../services/profile.service";
 export class SettingsComponent {
 
   constructor(private profileService: ProfileService) {}
-  imagePaths: string [] = ['/app/avatars/0.png', '/app/avatars/1.png', '/app/avatars/2.png'];
+  imagePaths: string [] = ['/app/avatars/0.png', '/app/avatars/1.png', '/app/avatars/2.png',
+'/app/avatars/3.png','/app/avatars/4.png','/app/avatars/5.png',
+'/app/avatars/6.png', '/app/avatars/7.png', '/app/avatars/8.png',
+'/app/avatars/9.png', '/app/avatars/10.png','/app/avatars/11.png',
+'/app/avatars/12.png','/app/avatars/13.png','/app/avatars/14.png',
+'/app/avatars/15.png'];
 
   onImgClick(img: number){
     console.log(img)
+    var retVal = confirm("Do you want to update your bio ?");
+    if( retVal == true ){
     this.profileService.patchAvatar(img)
             .subscribe(
                 () => alert('Avatar changed!'),
                 error => console.error(error)
             );
+          }else{
+            alert("submission cancled");
+        }
   }
 
   onEnter(text: string){

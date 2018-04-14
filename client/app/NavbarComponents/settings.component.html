@@ -7,7 +7,7 @@
                     
                     <h2>Change avatar:</h2>
                         <ul id="thumbnailsList">
-                           <li *ngFor="let image of imagePaths" >
+                           <li *ngFor="let image of imagePaths; let i = index" >
                               <img src="{{image}}" class="tn"
                               width="191" class="img-thumbnail" height="146"  
                                     (click)=onImgClick(i);>
