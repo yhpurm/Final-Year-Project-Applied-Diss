@@ -14,6 +14,7 @@ var PriceStatus= require('../models/statusPriceModel');
 var FlagStatus= require('../models/FlagStatusModel');
 var ReqStatus= require('../models/requestModal');
 const authentication = require('../routes/authentication')(router);
+const User = require('../models/user');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const MLABS = require('mongoose').Mongoose;
@@ -978,6 +979,31 @@ router.delete('/removeFriend/:val', function (req, res) {
    }); 
 });
 
+router.patch('/settings/avatar/:img', function (req, res) {
+    console.log('PATCH request to user');
+      var avatar = req.params.img;
+      console.log(avatar);
+      User.update({avatar: avatar}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
+
+  router.patch('/settings/bio/:text', function (req, res) {
+    console.log('PATCH request to user bio');
+      var bio = req.params.text;
+      console.log(bio);
+      User.update({aboutMe: bio}, function(err, values) {
+          if (!err) {
+              res.json("okay");
+          } else {
+              res.write("fail");
+          }
+      });
+  });
 router.patch('/URL/PATCH', function (req, res) {
     // Patch Something..
 });

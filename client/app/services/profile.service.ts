@@ -70,4 +70,16 @@ export class ProfileService {
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.post('http://localhost:3000/AddFriend', body, {headers: headers});
     }
+
+    patchAvatar(img: number): Observable<any> {
+        console.log(img);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.patch('http://localhost:3000/settings/avatar/' + img, {headers: headers});
+    }
+
+    patchBio(text: string): Observable<any> {
+        console.log(text);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.patch('http://localhost:3000/settings/bio/' + text, {headers: headers});
+    }
 }

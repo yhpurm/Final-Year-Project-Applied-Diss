@@ -4,79 +4,24 @@
             <div class="main-login main-center">
             <h5>You cane change your profile detail, add a wallet or create a new wallet here.</h5>
                 <form class="" method="post" action="#">
-                    <div class="form-group">
-                        <label for="name" class="cols-sm-2 control-label">Change Profile Username</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your new username"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group ">
-                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit username</a>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="cols-sm-2 control-label">Change Email</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group ">
-                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit email</a>
-                    </div>
+                    
+                    <h2>Change avatar:</h2>
+                        <ul id="thumbnailsList">
+                           <li *ngFor="let image of imagePaths" >
+                              <img src="{{image}}" class="tn"
+                              width="191" class="img-thumbnail" height="146"  
+                                    (click)=onImgClick(i);>
+                           </li>
+                        </ul>
 
                     <div class="form-group">
                         <label for="email" class="cols-sm-2 control-label">Change About me</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="aboutMe" id="aboutMe"  placeholder="Enter your new bio"/>
+                                <input type="text" #bioval class="form-control" (keyup.enter)="onEnter(bioval.value)"  placeholder="Enter your new bio and press enter"/>
+                                <p>New Bio: {{bioval.value}}</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group ">
-                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit About me</a>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" class="cols-sm-2 control-label"> Change Password</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                        <div class="cols-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group ">
-                        <a target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Submit password</a>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="cols-sm-2 control-label">Appear offline to other users</label>
-                        <div class="cols-sm-10">
-                            <button type="button" class="btn btn-danger btn-lg btn-block">
-                                <span class="glyphicon glyphicon-edit"></span> 
-                                Appear offline
-                            </button>
                         </div>
                     </div>
                     

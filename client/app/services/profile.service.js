@@ -78,6 +78,16 @@ var ProfileService = /** @class */ (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         return this.http.post('http://localhost:3000/AddFriend', body, { headers: headers });
     };
+    ProfileService.prototype.patchAvatar = function (img) {
+        console.log(img);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.patch('http://localhost:3000/settings/avatar/' + img, { headers: headers });
+    };
+    ProfileService.prototype.patchBio = function (text) {
+        console.log(text);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.patch('http://localhost:3000/settings/bio/' + text, { headers: headers });
+    };
     ProfileService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
