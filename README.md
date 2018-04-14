@@ -16,33 +16,44 @@
 
 ---
 
-# Repository Table of Contents
-1. [Introduction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#introduction)
-1. [Installation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#installation)
-1. [MEAN Stack](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#technologies)
+# Application Code Structure
 1. [Architecture](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#architecture)
-1. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
-1. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
-1. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
-1. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
-1. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
-1. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
-1. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
-1. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
-1. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
-1. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
-1. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
-1. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+2. [Main components](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+3. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
+4. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
+5. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
+6. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
+7. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
+8. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
+9. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+10. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
+11. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
+12. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
+13. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
+14. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
 
 ---
 
-# **Introduction**
-Welcome to our Crypto-Currency wallet application. The focus of this application is to offer an easy to use, intuitave user experience. While offering education on the trading and buying of Crypto-Currencies. This wallet application will be mainly dealing with storing and sending [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin).
+# Overview
+This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for recieving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the lasted statics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regulars refrence or discuss. Users can customize thir pofiles to use diffenet avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 6 different types of stautus post,one for general posts with no data attached, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of intrest and one for donation requests. The application also has charts to display the  latest bitcoin prices and how it compares to other cryptocurrencys.
+
+# User Guide
+## Creating a account and my first wallet
+Before a user can start using the application they must register with our system. The user must give a valid username and suitable password before they can gain access to the platform. Once logged in the user can now create a wallet by navigating to the wallet section in the naviagation bar. User must enter a wallet label/name and give a pin. The user must enter this pin everytime they attempt to interact with the wallet, simplar to the finacial apps created by banks to maximize security.
+
+## Interacting with other users
+Once they have a wallet is set up they view all the users currenly online with the global button or search for users. Once they find the user they are looking for they can click the '+ friend button' to add that person to there friends list. Now the user can send bitcoin to their friends address by clicking the send bitcoin button, inpect that users address with the 'inpect address button' or go view that users location on the map.
+
+## Making status posts
+First navigate to the map menu, from here you can view you own stautus on the map or other statuses made by friends. You can choose one of the 6 types of stauts post on the left, depending on the action if it involves a wallet then you must enter the wallet pin to share that information. The application may also ask you for your devices location or to mark a location on the map, to do this simply click the map to set your latitude and longitude.
 
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
 Here is a brief video to explain some questions you make have about bitcoin.
 
 [![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/35869303-a3ee46ea-0b56-11e8-8350-b5c2013def79.png)](https://www.youtube.com/watch?v=Um63OQz3bjo&t=3s_blank)
+
+## Blockchain.info Business API
+Blockchain.info are the largest site for blockchain statisics in the world, we already where planning to use there public API for blockchain statistics and live updates, but then we decided to email them about there private API with soecial permissions and explained what we wanted it for. They replied granting access to the blockchain client, a processor for blockchain requests along with an api code that access the client. This allowed us to devlope ways to create wallets, send bitcoin, check balances and more by using ExpressJs to send and recieve requests from the client running on port 4000 of the machine.
 
 ---
 
@@ -54,7 +65,7 @@ Here is a brief video to explain some questions you make have about bitcoin.
 
 * Install MongoDB on your machine by downloading MongoDB from this link [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) and follow the websites instructions.
 
-* Once installed run the following command on your command line.
+* Once installed run the following command on your command line from directory monogo is installed in.
 
 ``` mongod ```
 
@@ -71,6 +82,10 @@ Here is a brief video to explain some questions you make have about bitcoin.
 * Installation is complete. Stay in the client directory and then:
 
 ``` npm start  ```
+
+* Run the blockchain client in a seperate command line window on port 4000:
+
+``` blockchain-wallet-service start --port 4000  ```
 
 * Navigate to the root directory and then:
 
@@ -140,3 +155,5 @@ Below is a screenshot from a presentation our team gave to our software developm
 [7] - https://www.w3schools.com/nodejs/nodejs_intro.asp
 
 [8] - https://en.wikipedia.org/wiki/Node.js
+
+[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin).
