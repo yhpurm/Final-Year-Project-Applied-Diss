@@ -204,14 +204,24 @@
       height: 100%;
   }
   .item:nth-child(1) {
-      background: url('/app/img/Profilebackground.png');
+      background: url('/app/img/mapmenu1.jpg');
   }
   .item:nth-child(2) {
-      background: #51BCE8;
+      background: url('/app/img/mapmenu2.jpg');
   }
   .item:nth-child(3) {
-      background: #E46653;
+      background: url('/app/img/mapmenu3.jpg');
   }
+  .strokeme
+    {
+        color: white;
+        text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+        
+    }   
   @-webkit-keyframes animate-stripes {
       0% {
           background-position: 0 0;
@@ -285,23 +295,29 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <div class="carousel-caption" >
-                               <h3>Your posts</h3>
-                               <p>View the status posts that you've made plotted onto google maps!.</p>
-                               <button class="btn btn-success" routerLink="/viewMap"><span class="glyphicon glyphicon-globe" ></span> Continue</button>
+                              <div class="strokeme">
+                                <h3>Your posts</h3>
+                                <p>View the status posts that you've made plotted onto google maps!.</p>
+                                <button class="btn btn-success" routerLink="/viewMap"><span class="glyphicon glyphicon-globe" ></span> Continue</button>
+                              </div>
                             </div>
                          </div>
                          <div class="item">
                             <div class="carousel-caption">
-                               <h3>Global posts</h3>
-                               <p>View the status posts that people around the world have made plotted onto google maps!</p>
-                               <button class="btn btn-success" routerLink="/globalmap"><span class="glyphicon glyphicon-globe" ></span> Continue</button>
+                                <div class="strokeme">
+                                    <h3>Global posts</h3>
+                                    <p>View the status posts that people around the world have made plotted onto google maps!</p>
+                                    <button class="btn btn-success" routerLink="/globalmap"><span class="glyphicon glyphicon-globe" ></span> Continue</button>
+                                </div>
                             </div>
                          </div>
                        <div class="item">
                           <div class="carousel-caption">
-                             <h3>Friend Locations</h3>
-                             <p>View the latest location updates of people on your friends lists!</p>
-                             <button class="btn btn-success" routerLink="/peopleMap"><span class="glyphicon glyphicon-user" ></span> Continue</button>
+                            <div class="strokeme">
+                                <h3>Friend Locations</h3>
+                                <p>View the latest location updates of people on your friends lists!</p>
+                                <button class="btn btn-success" routerLink="/peopleMap"><span class="glyphicon glyphicon-user" ></span> Continue</button>
+                            </div>
                           </div>
                        </div>
                     </div>

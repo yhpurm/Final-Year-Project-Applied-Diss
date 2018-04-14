@@ -92,8 +92,17 @@
                 <h4>{{ user.username }}'s Wallets</h4>
                     <div class="container" *ngFor="let value of wallets" >
                         {{ value.label }} : {{ value.address }} 
+                        <div class="row">
+                          <img id='QRCode' 
+                          [src]=generateBarCode(value.address)
+                          alt="" 
+                          title={{value.label}}
+                          width="200" 
+                          height="200" />
+                       </div>
                     </div>
-                      <h1>Status Section</h1>
+
+                <h1>Status Section</h1>
                 <h3>Regular statuses</h3>
                 <div class="container" *ngFor="let value of status">
                 <div class="col-sm-1">

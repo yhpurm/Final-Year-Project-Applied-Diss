@@ -42,5 +42,14 @@ export class FriendsComponent implements OnInit {
             alert("Delete cancled!");
             return false;
         }
+
+        
+    }
+
+    generateBarCode(addr: string)
+    {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + addr + '&amp;size=200x200';
+        console.log(addr);
+        return url;
     }
 }

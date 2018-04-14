@@ -45,6 +45,11 @@ var WalletComponent = /** @class */ (function () {
         this.blockchainService.getBalance(balrequest)
             .subscribe(function (messages) { return _this.balance = messages; }, function (error) { return console.error(error); });
     };
+    WalletComponent.prototype.generateBarCode = function (addr) {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + addr + '&amp;size=200x200';
+        console.log(addr);
+        return url;
+    };
     WalletComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

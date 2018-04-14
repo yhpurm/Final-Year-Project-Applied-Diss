@@ -186,6 +186,11 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    ProfileComponent.prototype.generateBarCode = function (addr) {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + addr + '&amp;size=200x200';
+        console.log(addr);
+        return url;
+    };
     Object.defineProperty(ProfileComponent.prototype, "user", {
         // Functions to return what is in storage
         get: function () {

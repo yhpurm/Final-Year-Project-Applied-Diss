@@ -39,6 +39,11 @@ var FriendsComponent = /** @class */ (function () {
             return false;
         }
     };
+    FriendsComponent.prototype.generateBarCode = function (addr) {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + addr + '&amp;size=200x200';
+        console.log(addr);
+        return url;
+    };
     FriendsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

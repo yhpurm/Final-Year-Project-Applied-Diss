@@ -259,6 +259,13 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             }
     }
 
+    generateBarCode(addr: string)
+    {
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + addr + '&amp;size=200x200';
+        console.log(addr);
+        return url;
+    }
+
     // Functions to return what is in storage
     get user(): any {
       return JSON.parse(localStorage.getItem('user'));
