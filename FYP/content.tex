@@ -440,10 +440,15 @@ userSchema.methods.comparePassword = function(password) {
 \subsection{Overview}
 Easy navigation around any web service or mobile application has become more and more important in recent years with companies like Apple or Facebook dominating the market and a lot of that success being credited to there products being easy to use plus learn. The navigation bar is designed to allow users to not just move through the routes easily but to be able to access key features of our application fast regardless if they are viewing bitcoin statistics or reading friends posts. On the left side of the tool bar the focus is navigation, from left to right you can go to the welcome page, home page, your wallets, your friends list, your profile setting and then there is a drop down for support options. In the middle of the toolbar we have the search bar for searching though users. Then beside the search bar we have a navigation option to a blogs post feature between users. Following this is the two utility features allow us to convert from a choice of 20 FIAT currencies to bitcoin or send bitcoin to an address. There is the global users button to show all the users online followed by who is currently logged in.
 
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/ToolBar.png}
+\caption{Utility bar.}
+\end{figure}
 
-\subsection{In-depth}
-The routing system available to angular2 offers a great deal of flex ability allowing us to create a reliable light-weight navigation system while still having consistent and fast system performance. Our application routing is managed by the app.routing file, here we can import our built components and then assign them to a route on the localhost. This is all made available through the Anuglar2 Route and RouteModule objects in '@angular/router'.Once the routes are defined the ForRoot constructor is set for the Angular Module by passing them to it. The tool bar is created by using the NavBar component from bootstrap as a starting point and then expanded on using HTML and CSS. The profile currently logged in to the app is tracked and displayed using Angular data binding. The Navbar Component contains the setting file which allows us to edit profile information and also includes the code for a FAQ page. In the app,main file we define a platformBrowserDynamic() object and set it up in a way to assure that when a user holding a authentication token refreshes the page the app will return to its last state without crashing or losing data of the current session. Below is a screen shot of the app routing system followed by other navigation and tool bar related examples:
+
+\subsection{Application routing:}
+The routing system available to angular2 offers a great deal of flex ability allowing us to create a reliable light-weight navigation system while still having consistent and fast system performance. Our application routing is managed by the app.routing file, here we can import our built components and then assign them to a route on the localhost. This is all made available through the Anuglar2 Route and RouteModule objects in '@angular/router'.Once the routes are defined the ForRoot constructor is set for the Angular Module by passing them to it. In the app,main file we define a platformBrowserDynamic() object and set it up in a way to assure that when a user holding a authentication token refreshes the page the app will return to its last state without crashing or losing data of the current session.
 
 \begin{lstlisting}
 const appRoutes: Routes = [
@@ -488,51 +493,9 @@ const appRoutes: Routes = [
     
 \end{lstlisting}
 
-\begin{lstlisting}
-const appRoutes: Routes = [
-    {
-        path: '',
-        component: WelcomeComponent
-    },
-    {
-        path:'home',
-        component: HomeComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    },
-    {
-        path:'profile',
-        component: ProfileComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    },
-    {
-        path:'flaglocation',
-        component: FlagComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    },
-    
-    ...
-    
-    {
-        path: 'cryptonews',
-        component: CryptonewsComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    },
-    {
-        path: 'blog',
-        component: BlogComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    },
-    {
-        path: 'delete-blog/:id',
-        component: DeleteBlogComponent,
-        canActivate: [AuthGuard] // User must be logged in to view this route
-    }
-];
-    
-    export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
-\end{lstlisting}
+\subsection{Tool bar aesthetics:}
+The tool bar is created by using the NavBar component from bootstrap as a starting point and then expanded on using HTML and CSS. The profile currently logged in to the app is tracked and displayed using Angular data binding. The Navbar Component contains the setting file which allows us to edit profile information and also includes the code for a FAQ page. The icons used for the navigation buttons are bootstrap glyphicons, icons offered in bootstraps library that are easy to recognize symbols, increasing usability. Below are some protected buttons on right of tool bar followed by more code from the tool bar front-end:
 
-Protected buttons on right of tool bar:
 \begin{lstlisting}
 <ul class="nav navbar-nav navbar-right">
                 <li *ngIf="authService.loggedIn()"><a routerLink="/blog"><span class="	glyphicon glyphicon-envelope"></span> Posts</a></li>
@@ -578,6 +541,18 @@ Protected buttons and dropdown on left:
       </ul>
     </li>
 </ul>
+\end{lstlisting}
+
+Display avatars that user can change to:
+\begin{lstlisting}
+<h2>Change avatar:</h2>
+    <ul id="thumbnailsList">
+       <li *ngFor="let image of imagePaths; let i = index" >
+          <img src="{{image}}" class="tn"
+          width="191" class="img-thumbnail" height="146"  
+                (click)=onImgClick(i);>
+       </li>
+    </ul>
 \end{lstlisting}
 
 \section{Blog Posts}
@@ -730,12 +705,23 @@ To store all the blog posts from all users of the application I used MongoDB. Th
 \subsection{Overview}
 The goal of the profile and social media aspects of this project was to create a system that would allow some individuality among users along with all the benefits of a typical social media platform like networking and maintaining contact with other people. While designing with this intent we also didn't want to expose too much personal information that could make the profile venerable to an extent for security reasons as the application does involve dealing with financial assets. Each profile displays a user-name, an about me section, shows a custom image, the number of statuses they have posted, friends count, if there online there main bitcoin address, and there email. All of the details are displayed in a rich GUI for the user so the can easily see a users details and information while navigating the status posts. Profiles can be easily connected together in order to send bitcoin from on address to another, users can navigate to there friends lists in order to easily see their information.
 
+\subsection{Displaying user information}
+The profile and social interaction features are separated into multiple components as they are a major aspect of the application. If you navigate to the profile component in the Angular2 app folder you will  in the app see a list of HTML,Typescript and Javascript files stored inside. This profile component uses the information entered by the user during registration and displays it on a modern GUI. The profile component reaches into the different status collections stored in mongodb and lists them on the profile page using a ngFor loop combined with status and profile services imported using the providers feature of angular2. From here they can be deleted if the user decided they no longer want that post publicly displayed on the page.
+
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/UserProfile.png}
+\caption{Profile.}
+\end{figure}
 
-\includegraphics[]{img/Friendslist.png}
+\subsection{Friends and networking}
+The friends components take all the users added to the collection of the profile friends lists and displays them with ngFor and an accordion list to expose information the logged in user cannot see about the account before they added them. The benefits of adding a user to your friends list is that there address can easily be selected for a action in another part of the app, like sending bitcoin or inspecting there address.
 
-\subsection{In-depth}
-The profile and social interaction features are separated into multiple components as they are a major aspect of the application. If you navigate to the profile component in the Angular2 app folder you will  in the app see a list of HTML,Typescript and Javascript files stored inside. This profile component uses the information entered by the user during registration and displays it on a modern GUI. The profile component reaches into the different status collections stored in mongodb and lists them on the profile page using a ngFor loop combined with status and profile services imported using the providers feature of angular2. From here they can be deleted if the user decided they no longer want that post publicly displayed on the page. The friends components take all the users added to the collection of the profile friends lists and displays them with ngFor and an accordion list to expose information the logged in user cannot see about the account before they added them. The total service calls to construct the profile and friend list pages is 17, below are some examples of how these are executed in typescript:
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/FriendsList.png}
+\caption{Friend list.}
+\end{figure}
 
 This service gets the logged in users profile:
 \begin{lstlisting}
@@ -797,20 +783,53 @@ How we convert the timestamp values coming from mongodb:
 The status system is very similar to other social media feeds someone would see one twitter or facebook, except since the feature is designed around sharing information the blockchain,bitcoin and the cryptocurrency community. People who own bitcoin or follow the technology know there is a major focus on the most recent blockchain statics and bitcoin price down to the milliseconds. This is because bitcoins price by nature is volatile and the blockchain grows at a rapid pace everyday as a result of the miners contribution and the transactions of bitcoin owners. This was the reason behinf creating a feature in the application that would allow a user to post updates about there spending, bitcoin metrics, miner metrics, bitcoin value, their wallet balance, bitcoin related locations, blockchain performance and donation requests. Depending on the type of post you make the app will record your location or have you click a location on the the map to set the latitude and longitude to show the status post on the map later. These components use the blockchain.info API to pull the most recent data on bitcoin and the blockchain, these are the most up to date metric and highest quality metrics available to the public right now and they can be easily shared with friends and family thanks to this system in the wallet.
 
 
-\includegraphics[]{img/Statuspost1.png}
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/post1.png}
+\caption{Status Post General.}
+\end{figure}
 
-\includegraphics[]{img/Statuspost2.png}
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/post2.png}
+\caption{Status Post Balance.}
+\end{figure}
 
-\includegraphics[]{img/Statuspost3.png}
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/post3.png}
+\caption{Status Post Metrics.}
+\end{figure}
 
-\includegraphics[]{img/Statuspost4.png}
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/post4.png}
+\caption{Status Post Location.}
+\end{figure}
 
-\includegraphics[]{img/Statuspost5.png}
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/post5.png}
+\caption{Status Post Donation.}
+\end{figure}
 
-\subsection{In-depth}
-In the Angular 2 app folder if you navigate to the StatusComponent folder you will see all the HTML,Javascript and Typescript files that make up the status system for users. The blockchainActivity files provide the current price values for bitcoins on the blockchain in different currency's. The blockstats provide all the main metadata of the blockchains recent performance like blockchain mining difficulty, bitcoins mined so far and more which are shown below. The flag files allow users to mark bitcoin related places of interest using your location or a marked location using the map. The postbal files allow users to share the balance of a particular address assigned to the user. The poststatus files allow just a general post with no metadata tied to the post.The requestbitcoin is for donation requests to certain addresses. All the addresses are time-stamped from the date the user posts them. The profile service is what allows the status component to access the users addresses or the friends addresses using the providers. The Angular GeoLocation is what we use to retrieve the the device latitude and longitude. Below we show how we get the prices for the price status posts followed by more code examples of tasks:
+\subsection{General statuses and sharing user activity}
+In the Angular 2 app folder if you navigate to the StatusComponent folder you will see all the HTML,Javascript and Typescript files that make up the status system for users. The poststatus files allow just a general post with no metadata tied to the post. All the addresses are time-stamped from the date the user posts them. The profile service is what allows the status component to access the users addresses or the friends addresses using the providers. The Angular GeoLocation is what we use to retrieve the the device latitude and longitude.
 
+\subsection{Block-chain Statuses}
+The blockchainActivity files provide the current price values for bitcoins on the blockchain in different currency's. The blockstats provide all the main metadata of the blockchains recent performance like blockchain mining difficulty, bitcoins mined so far and more which are shown below. This is a user-friendly way of creating discussion o the current blockchain performance and state, something commonly talked about on cryptocurrency forms.
 
+\subsection{Wallet balance Statuses}
+ The postbal files allow users to share the balance of a particular address assigned to the user. This requires the users pin just like any other interaction with the wallet on our system and involves doing a GET request to the blockchain-client service on port 4000.
+
+\subsection{Bitcoin Price Statuses}
+This allows you to make a status post about the current value of bitcoin and any predictions you have for the future of the coin. A table of the latest conversions of bitcoin to FIAT currency will be posted with the status so that people from around the world will instantly understand your post regardless of the currency there country uses.
+
+\subsection{Flag Location Statuses}
+The flag files allow users to mark bitcoin related places of interest using your location or a marked location using the map. This is a easy way to mark bitcoin related event locations or upcoming bitoin meet-ups.
+
+\subsection{Donation Statuses}
+The requestbitcoin is for donation requests to certain addresses. This could be used by a charity or a way of a shared group of individuals could raise money for a cause. It could also be used for fundraising something like a startup.
 \begin{lstlisting}
     this.blockchainService.getCurrentPrice()
        .subscribe(
@@ -917,16 +936,35 @@ Posting a status to Mongodb:
 \subsection{Overview}
 The inspiration of this feature was snapchats map feature which shows the users latest activity. I wanted to integrate a way so that the user could not just post about bitcoin but also use there location in the post or set a location using google maps. The map can also be used to show your friends locations depending where they set it to. All the status posts have a latitude and longitude tied to them so the appear on the map. At the bottom of the map there is a map legend that shows users the status icons and what they mean. This feature could be used for anything from post reviews of transactions of services to events that accept bitcoin and many more as the abstract design puts the power in the users hand. Below we show the menu that give the user the option to view the maps or post statuses that cant be plotted:
 
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/mapmenu.png}
+\caption{Map and status menu.}
+\end{figure}
 
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/map1.png}
+\caption{Your statuses mapped.}
+\end{figure}
 
+\begin{figure}[H]
+\centering
 \includegraphics[]{img/map2.png}
+\caption{Global statuses.}
+\end{figure}
 
-\includegraphics[]{img/map3.png}
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/mapfooter.png}
+\caption{Map icons.}
+\end{figure}
 
-\subsection{In-depth}
-The MapsComponent folder consists of the components that makes up the status and friends location display feature of the wallet by using google maps. The menu for viewing the maps and navigating to a status post is made up by the cryptomap component files. The viewMap and viewGlobalMap components decide what is displayed on the map with viewMap using just your status posts and viewGlobalMap showing everyone online. The peopleMap component then shows the locations of people on your friends list. All the .ts files mentioned use the viewMap.component.html and the view for the map. The reason behind this design is to reinforce the conecpt of re usability that is so important when designing large applications or working on embedded systems. The Google maps object is what I used to genereate the map withing in the html files, then this is bind-ed to my own custom maps object withing in the typescript files. The showmap variable is the typescript controler used to hide the status footer when on the people map by using a ngIf data binding statment. The Profile and Status services and what provide the vieMap component with the useres personal status posts for display and information, the PeopleMap and GlobalMap use the Profle combined with the Mlabs service to retrieve data from the mongo server hosted on amazon web service to plot online user data on those maps like the user location, their status posts or dipslay there custom avatar. Below is the HTML and typescript object that we use to create the map, followed by more examples related to what I've covered here:
+\subsection{Building features over google maps}
+The MapsComponent folder consists of the components that makes up the status and friends location display feature of the wallet by using google maps. The menu for viewing the maps and navigating to a status post is made up by the cryptomap component files. The viewMap and viewGlobalMap components decide what is displayed on the map with viewMap using just your status posts and viewGlobalMap showing everyone online. The peopleMap component then shows the locations of people on your friends list. All the .ts files mentioned use the viewMap.component.html and the view for the map. The reason behind this design is to reinforce the conecpt of re usability that is so important when designing large applications or working on embedded systems. The Google maps object is what I used to genereate the map withing in the html files, then this is bind-ed to my own custom maps object withing in the typescript files. The showmap variable is the typescript controler used to hide the status footer when on the people map by using a ngIf data binding statment.
+
+\subsection{Connecting the map to the external server}
+ The Profile and Status services and what provide the vieMap component with the useres personal status posts for display and information, the PeopleMap and GlobalMap use the Profle combined with the Mlabs service to retrieve data from the mongo server hosted on amazon web service to plot online user data on those maps like the user location, their status posts or dipslay there custom avatar. Below is the HTML and typescript object that we use to create the map. The maps used the latest lat and longs written to the users online profile to represent them on the map.
 
 \begin{lstlisting}
     <div id="cryptoMap" style="clear:both; height:700px;"></div>
@@ -1036,9 +1074,32 @@ Get the global general status posts from the online service:
 \subsection{Overview}
 One of the main features of this wallet is the ability to create and manage bitcoin address form the application. You can access the social elements of the system without needing to run the blockchain client, but to assure maximum security all exchanges of assets or interactions with wallets must pass thought the blockchain-wallet-service which runs in a separate command line process. Once in operation the user can create wallets and store the GUID in mongo along with the adderess and a label which will be used as a ID for the wallet. We made the design decision to keep all this information on the local database only as bitcoin is a decentralized technology so all vanrible information should be kept on the users hard drive and only there for maximum security. We dont save the users password as this is typically a standard when creating bitcoin wallets to enforce cryptography standards. We would prefer that a user must enter there pin every time to ensure they do not leave there device variable to others around them or simple accidentally sent the wont amount by entering a typo in the BTC value box/send to the wrong person. The user has a password to the social media features that is stored and encrypted through the client, this is separate the login password that donal created with the user login system covered in the authentication section. Access to the pin allows users to request a new wallet, check the balance of an existing wallet and sent bitcoin to another address that is or isn't on our platform.
 
-\subsection{In-depth}
-The WalletComponet folder with-in the application is what controls the front end side of the features listed above. The walletrequest.component files allow users to create wallets by contacting the block-client by using a the blockchain service passed with the Angular2/5 component promises to activate a route on the server-side code which the passed the submitted wallet details to the block chain client process for processing. The blockclient performs a security check on the values and then contacts the API which will return a new address and GUID. The new wallet details mentioned are saved to the MyWallet collection in mongodb to be used later in the application. The user can easily share the address stored but the GUID cannot be shared as this is important information that needs to be protected. Once the user has access to a wallet in there logged in profile they can then send BTC with the sendbtc.components. This is done by passing an entered pin to our block chain service along with a assigned GUID stored in mongodb that will be retrieve when the user selects the appropriate label(ID user gave to the wallet). Users can navigate to myWallet.components which make up a page listing the users wallets and allows them to check there balance for a selected wallet by passing a pin the user must enter each time and using a GUID that is retrieved from the backed that matched the users selected label. The convert.components allow users to convert the value of a FIAT currency to bitcoin through the block chain service that contacts the blockchain service API which will return the latest value of the selected currency entered which is used as a parameter. The send bitcoin feature is done using the sendbtc.component.ts files. This allows you to easily send BTC to friends through the profile service after you've entered your pin twice and the validation has been complete on the front through a string comparison check. Below is an example of how we execute this bitcoin transaction followed by other relevant code snippets:
+\subsection{Blockchain client and Creating a new wallet}
+The WalletComponet folder with-in the application is what controls the front end side of the features listed above. The walletrequest.component files allow users to create wallets by contacting the block-client by using a the blockchain service passed with the Angular2/5 component promises to activate a route on the server-side code which the passed the submitted wallet details to the block chain client process for ensure its a valid request for the blockchain. The blockclient performs a security check on the values and then contacts the API which will return a new address and GUID. The new wallet details mentioned are saved to the MyWallet collection in mongodb to be used later in the application. The user can easily share the address stored but the GUID cannot be shared as this is important information that needs to be protected. Users can navigate to myWallet.components which make up a page listing the users wallets and allows them to check there balance for a selected wallet by passing a pin the user must enter each time and using a GUID that is retrieved from the backed that matched the users selected label. Users can own as many wallets as the client will allow.
 
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/wallets.png}
+\caption{Wallets.}
+\end{figure}
+
+\subsection{Transactions}
+Once the user has access to a wallet in there logged in profile they can then send BTC with the sendbtc.components. This is done by passing an entered pin to our block chain service along with a assigned GUID stored in mongodb that will be retrieve when the user selects the appropriate label(ID user gave to the wallet). If wallet does not have the appropriate funds to complete the transaction then the appropriate error will be returned. Linking a profile to a wallet allows you to easily send BTC to friends through the profile service after you've entered your pin twice and the validation has been complete on the front through a string comparison check. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/sendbtc.png}
+\caption{Send btc.}
+\end{figure}
+
+\subsection{Converting to FIAT}
+The convert.components allow users to convert the value of a FIAT currency to bitcoin through the block chain service that contacts the blockchain service API which will return the latest value of the selected currency entered as a parameter when the user selects a current from the drop down.
+
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/fiat.png}
+\caption{fiat conversion.}
+\end{figure}
 
 \begin{lstlisting}
   setTargetAddress(address: string){
@@ -1163,7 +1224,7 @@ onCreateNewWallet() {
 \subsection{Overview}
 As social interaction is a major part of our application we allow the user to instantly move through out the current online profile by selecting the global option from the navigation bar, this lists all the users online. We can search through all the users on the Mlabs database from the navigation bar. you can add one of these users to your friends list by clicks this plus button. The will be added to your local database and listed on your friends list. Mlabs also provides all the online user status posts so you can view the most up to date posts from users around the world.
 
-\subsection{In-depth}
+\subsection{Creating an online community}
 Since there is a heavy focus the social aspects of this application it was important to put a lot of design and thought into the execution of user interaction. Since our applications local database was MongoDB we knew that using another NoSQL database would be a good move to ensure data integrity , system performance and minimize the middle ware used when passing the data from a local level to the online server. When looking at candidates I came across Mlabs, this is a MongoDB database that allows you to choose a cloud service provider to host the database. After talking to the others in the group(donal,stephan) we decided amazon web service would be the best option as we have experience with that provider from previous modules. Mabls now would act as a global server for our application by storing all the online user details and post as JSON. Mlabs is conntated through the Mlabs service in Angular where that sends GET request to the appropriate ExpressJs URL route, that route then triggers this uses a process request method to prepare the information and then uses a MongoClient to contct Mblabs. The MongoClient that is uses is configured differently to the Mongoose client that we used to contact the local database and uses a login to interact with our online server. Below is and example of how I call to the service to diplay the online users along with other examples of executing tasks in code:
     
 \begin{lstlisting}
@@ -1271,7 +1332,7 @@ router.get('/globalusers', function(req, res, next) {
 \subsection{Overview}
 As data and the way it is transferred to each respected component of the system is a major concern for us as protection of user information is crucial for development of a social media application given the controversy other top social media platforms have faced in the recent years. We wanted to keep the data intended to share online completely separate to the users wallet details so it seemed like a good idea to have two databases for both purposes. But in doing this we had to take into account the times we would need to display or exchange data from the respected databases or combine the two services for features in our application. This is why we have a folder known as DataModels. These are interfaces that allow us to convert objects and data from the cooperating technologies and APIs.These are used to make sense of the informaion recieved from the API requests in the Angular services and the send them to our local database or online server. The also used to set a standard of required transaction data for sending a payment request or wallet request that the blockchain will accept while also allowing us to extend on the message variable we will use to track the transaction for the user on the machine so the response can be processed or saved. Angular2 Services are used to eliminate repitition from applcations by taking care of small tasks for components, typically ones that involve retrieving or sending data.
 
-\subsection{In-depth}
+\subsection{Interfaces and heterogeneous computing}
 If you look inside the DataModels folder and look at the files you will see that eact file has one or more interfaces defined depending on the goal of that file. These are called at the appropriate time to mainly process or send JSON.An Angular 2 service is simply a javascript function, along with its associated properties and methods, that can be included (via dependency injection) into Angular 2 components. An Angular 2 service in this application are mainly used to eliminate the tasks of retrieving or sending information from technology to technology and making calls for blockchain data, bitcoin value statistics or saving/posting new information. If you go to the service folder to see the defined service files youl notice that have been abstracted to cover certain tasks for features of the application like blockchain tasks or Mlabs tasks. If you inspect on of the files you will see that the required data models for that task are imported at the top of the service along withe required components for building an angular2 service like the Observable object and the Http, Headers, Response modules for the requests. Once @Injectable is defined over the class and the Http module is passed in the constructor we are now ready to set up the service methods. Below are some examples how we used services to interact with the blockchain and the models paired with it:
 
 \begin{lstlisting}
