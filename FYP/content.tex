@@ -14,17 +14,6 @@ We would like to acknowledge our team supervisor Gerard Harrison for support and
 \chapter{Introduction}
 This chapter will outline the objectives of the project along with the scope which we plan to complete those objectives in. An analysis of each of the chapters found in this dissertation along with a summary Github repository containing the project can be found below. This application will aim to satisfy the standards for a Software Development Level 8 project by surpassing the expectation of cryptocurrency wallets currently offered online. Bitcoin has received vast media coverage in the recent months because of its record high price. This brought a lot of new attention towards the technology, but to invest in or use this decentralized currency a benchmark of software and economic knowledge must be met. The members of this group have taken it upon themselves to create an application that not only allows users to use the cryptocurrency in a practical sense, but will also educate the users about the coins and offer feature relevant to members of the bitcoin community. Proper authentication and login will be applied to the app to allowing users to easily assess there coins securely and associate relevant information to an address that will be stored in a NoSql database. Most of the technologies discussed here are emerging technologies that are not taught in the Software Development in GMIT.
 
-\subsection{Objectives:}
-\begin{itemize}
-  \item Make the UI user friendly and appealing to new users of Bitcoin.
-  \item Educate user on the technology bitcoin and how it works, display real time value.
-  \item Strong authentication that’s simple to use yet secure so users will trust us with their coins.
-  \item Google Maps integration to show users bitcoin related locations like exchanges or stores that accept the currency.
-  \item Blog post feature to allow users to interact and educate each other about the latest cryptocurrency news and information.
-  \item News feature to keep users up to date with the latest news in the world of cryptocurrencies.
-  \item Allow users to add one another as friends with the bitcoin wallet.
-\end{itemize}
-
 \section{Specifications}
 \subsection{Web application:}
 \begin{itemize}
@@ -57,7 +46,7 @@ This chapter will outline the objectives of the project along with the scope whi
   \item Receive and forward database responses to web app.
 \end{itemize}
 
-
+\section{Bitcoin Research}
 \subsection{The rise of the first cryptocurrency}
 On the October 31, 2008 by a computer scientist, programmer or group of programmers under the name of Satoshi Nakamoto published the first digital currency also know as the first 'cryptocurrency'. This technology attracted the attention of many because of its decentralization, meaning governments or organizations could not intervene with the blockchains distribution of bitcoins or control the currency that is bitcoin. Satoshi Nakamoto also published a research paper titled \cite{Satoshi}'Bitcoin: A Peer-to-Peer Electronic Cash System' that explained how the system operates and functions. It explained how the miners power the system by solving a complicated mathematical equation using an input provided by the previous block and an input provided by the miners CPU. The miners would then announce the solution to the rest of the network so other miners could validate the new block and assuring the blockchains integrity. Users of bitcoin did not have to rely on outside intervention from a 3rd party for their online transactions as this mathematical proof-of-work approach eliminated the need for each person involved to give their identities to the 3rd party, allowing them to send bitcoin to other addresses or freely exchange bitcoin for goods and services and allowing the exchange of value to be taken care off by the system.
 
@@ -85,20 +74,73 @@ The block-chain is a design pattern that came about with the creation of bitcoin
 \textbf{Coinbase API:} This API is offered by the one of the most popular exchanges coinbase. This is a well established site with an API that allows you to create wallets along with sending and receiving bitcoin. This API allows you to add widgets to your application allowing users to buy bitcoin.
 
 \chapter{Context}
-\begin{itemize}
-\item Provide a context for your project.
-\item Set out the objectives of the project
-\item Briefly list each chapter / section and provide a 1-2 line description of what each section contains.
-\item List the resource URL (GitHub address) for the project and provide a brief list of the main elements at the URL.
-\end{itemize}
-
-\section{Filler}
+The general context of this project is a system that provides several but relative services to users of Bitcoin to help them store their Bitcoins and interact with fellow users of the cryptocurrency. Users of the bitcoin wallet will be able to store their bitcoins in our system and send and recieve bitcoins to and from other users. They will be able to see their friends uses of their bitcoins through the google maps integrated solution in the project. Users can also be sure, due to the steps taking with security, that their bitcoins will be safe as the application has a strong authentication service. Users will also be able to interact through a blog post style feature that allows users to keep each other up to date with the latest news and information about bitcoin or other cryptocurrency news. Users will also be able to find the value of bitcoin in their own currency with the bitcoin currency converter feature. Users will be able to keep up to date with the latest news about cryptocurrenies with the cryptocurrency news feature and also keep the user up to date with the latest stocks and trading of cryptocurrenies with the trading feature. Each user will have their own profile page which will contain information about themselves, status's relating to their bitcoin activity and a twitter feed about cryptocurrency.
 
 
-\subsection{More filler}
+\section{Objectives:}
+The overall objective of our project is to provide users of bitcoin a convenient way to store their bitcoins and interact with other users of the cryptocurrency. Below is a list of the main features of our application.
+
+\begin{enumerate}
+
+\item \textbf{Login / Register feature:}
+The idea behind this feature is to add users to the application as well as providing a secure and safe service where users can store their bitcoins. Users can easily register with the application by providing a username, email address and password and using that information again to log in to the application. This objective created more sub objectives which are as follows:
+    \begin{itemize}
+        \item Database Creation (MongoDB)
+        \item Password Encryption
+        \item Logout Option
+    \end{itemize}
+    \paragraph{Created-by:} Donal McGahon
+
+\item \textbf{Blog feature:}
+The idea behind the blog post feature is to allow users of the wallet to interact. With a blog post feature the users are able to update fellow users with information and news relating to cryptocurrencies. The user will be able to create a blog post with a title and body and post it to the blog post page. Extra features to the blog posts include:
+    \begin{itemize}
+        \item Database Creation (MongoDB)
+        \item Deletion of posts
+        \item Like / Dislike posts
+    \end{itemize}
+    \paragraph{Created-by:} Donal McGahon
+
+\item \textbf{Cryptocurrency News feature:}
+The idea behind this feature is to keep the users up to date with current news of cryptocurrencies. The feature integrates a live twitter feed that keep the users up to date with any news relating to cryptocurrency.
+\paragraph{Created-by:} Donal McGahon
+
+\item \textbf{Profile page:}
+The idea behind the profile page was to give each user an individual profile where they can see their bitcoin related statues, news about cryptocurrency via twitter feed, have their own information about themselves being displayed on the page and finally user friendly navigation features that allow them to maneuver to other parts of the application. 
+\paragraph{Created-by:} Donal McGahon and Conor Tighe
+
+\item \textbf{Bitcoin Wallet feature:}
+Briefly explain what is does ...
+\paragraph{Created-by:} Conor Tighe
+
+\item \textbf{Trading feature:}
+Briefly explain what is does ...
+\paragraph{Created-by:} Stephen Murphy
+
+\end{enumerate}
+
+\section{Project Links}
+Links to this dissertation and the project repository can all be found below via the URL links:
+\\
+\textbf{Project Source Code Link: } https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss \\
+\textbf{Project Documentation Link: } https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/FYP/FYP.pdf\\
 
 
-\section{Filler}
+\section{Chapters Review}
+
+\subsection{Methodology}
+In this chapter we will cover the different development methodologies we used to develop this project, including weekly project meetings, collaboration tools used, application testing and weekly meetings with the project supervisors.
+
+\subsection{Technology Review}
+The different technologies used to design and implement the project from start to finish. The software development approaches to the tools used to create our application and the reasons for choosing the specified technologies.
+
+\subsection{System Design}
+This chapter will provide detailed information about the application system itself along with how it functions. This chapter also gives insight to code used in our project by providing code snippets explaining how we created certain features of our application.
+
+\subsection{System Evaluation}
+This chapter describes how we believe that our application is secure and robust through testing techniques that were used to test the application. We also discuss our initial objectives compared to our achieved goals, and highlight any of the limitation or opportunities in the technologies used.
+
+\subsection{Conclusion}
+This chapter summarises all we have learned and what we would have done differently throughout the whole process of our final year project. It also outlines possible future developments we could interpret into the application.
 
 
 
@@ -579,6 +621,8 @@ Protected buttons and dropdown on left:
     </li>
 </ul>
 \end{lstlisting}
+
+
 
 \section{Blog Posts}
 
@@ -1385,6 +1429,7 @@ export class Wallet {
 }
 \end{lstlisting}
 
+
 \chapter{System Evaluation}
 As many pages as needed.
 \begin{itemize}
@@ -1398,7 +1443,7 @@ As many pages as needed.
 
 
 \subsection{What we learned}
-Throughout the whole process of the final year project, we have learned a substantial amount about a whole range of subjects. From working as part of a team to learning, from scratch, new languages and programs to complete our project. We learned that working as part of a team can have some great benefits. As a team you get input and information from each member that you may have not know before which can greatly help in succeeding. The greatest benefit of teamwork is working efficiency together you can get a great amount of work done compared to if you were working on your own. If you can distribute work out evenly to each individual in the group it makes it fair and realistic. We learned that if we met up on a regular basis and worked on the project together it benefited us greatly as we were able to help one another out and got more work done due to this. We also learned a lot about the MEAN stack. This is what we used to build our application, and as we were never taught it in college we had to teach ourselves how to use it in the most efficent way possible to create the best possible project. With the MEAN.
+Throughout the whole process of the final year project, we have learned a substantial amount about a whole range of subjects. From working as part of a team to learning, from scratch, new languages and programs to complete our project. We learned that working as part of a team can have some great benefits. As a team you get input and information from each member that other members may not have known before which can greatly help in succeeding. The greatest benefit of teamwork is by working efficiency together you can get a great amount of work done compared to if you were working on your own. If you can distribute work out evenly to each individual in the group it makes it fair and realistic. We learned that if we met up on a regular basis and worked on the project together it benefited us greatly as we were able to help one another out and got more work done due to this. We also learned a lot about the MEAN stack. This is what we used to build our application, and as we were never taught it in college we had to research it ourselves and how to use it in the most efficient way possible to create the best possible project. With the MEAN stack we learned how to have multiple technologies and databases interact with one another, for example the MEAN stack allows us to have angular 2, node.js, express.js and mongoDB all interact with each other. A major part as working as part of a team is using Github. We learned throughout the course of our final year project how to best use Github and all its features to our advantage as working as part of a team. Github allowed us to work on part of our project on our own time and when we each completed parts of the project we were able to commit them to Github where the rest of the members in the group could easily see the changes that were made and pull them down to their own machine. Github also allowed us to raise any issues we encountered to our fellow team members by using the Github issues feature. This feature would allow a member to raise a problem they have encountered and allow for the other members in the group to provide solutions. We found this feature very useful and helped us work better as a team. 
 
 \subsection{What we would change}
 
