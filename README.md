@@ -45,7 +45,7 @@ Before a user can start using the application they must register with our system
 Once they have a wallet is set up they view all the users currently online with the global button or search for users. Once they find the user they are looking for they can click the '+ friend button' to add that person to there friends list. Now the user can send bitcoin to their friends address by clicking the send bitcoin button, inspect that users address with the 'inspect address button' or go view that users location on the map.
 
 ## Making status posts
-First navigate to the map menu, from here you can view you own stautus on the map or other statuses made by friends. You can choose one of the 6 types of stauts post on the left, depending on the action if it involves a wallet then you must enter the wallet pin to share that information. The application may also ask you for your devices location or to mark a location on the map, to do this simply click the map to set your latitude and longitude.
+First navigate to the map menu, from here you can view your own status on the map or other statuses made by friends. You can choose one of the 6 types of status post on the left, depending on the action if it involves a wallet then you must enter the wallet pin to share that information. The application may also ask you for your devices location so make sure geolocation is turned on or to mark a location on the map, to do this simply click the map to set your latitude and longitude.
 
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
 Here is a brief video to explain some questions you make have about bitcoin.
