@@ -39,7 +39,7 @@ This a application is a fully functional bitcoin wallet but with extended social
 
 # User Guide
 ## Signing up and my first wallet
-Before a user can start using the application they must register with our system. The user must give a valid username and suitable password before they can gain access to the platform. Once logged in the user can now create a wallet by navigating to the wallet section in the naviagation bar. User must enter a wallet label/name and give a pin. The user must enter this pin everytime they attempt to interact with the wallet, simplar to the finacial apps created by banks to maximize security.
+Before a user can start using the application they must register with our system. The user must give a valid username and suitable password before they can gain access to the platform. Once logged in the user can now create a wallet by navigating to the wallet section in the navigation bar. User must enter a wallet label/name and give a pin. The user must enter this pin everytime they attempt to interact with the wallet, similar to the financial apps created by banks to maximize security.
 
 ## Interacting with other users
 Once they have a wallet is set up they view all the users currenly online with the global button or search for users. Once they find the user they are looking for they can click the '+ friend button' to add that person to there friends list. Now the user can send bitcoin to their friends address by clicking the send bitcoin button, inpect that users address with the 'inpect address button' or go view that users location on the map.
