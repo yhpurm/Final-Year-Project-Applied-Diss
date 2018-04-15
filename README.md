@@ -37,6 +37,24 @@
 # Overview
 This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for recieving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the lasted statics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regulars refrence or discuss. Users can customize thir pofiles to use diffenet avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 6 different types of stautus post,one for general posts with no data attached, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of intrest and one for donation requests. The application also has charts to display the  latest bitcoin prices and how it compares to other cryptocurrencys.
 
+### App Features
+- Rich user GUI with alot of interaction.
+- Status posts displayed, can be deleted.
+- Twitter feed listed on side of page.
+- friends listed in accordian list that exposes details of the account.
+- QR Codes generated live
+- Mlabs Online Server: A Mongodb database hosted by Amazon Web Service.
+- Local Mongodb: Pull personal posts and wallet information from your local database.
+- Add friends to view details or location on map.
+- Create new bitcoin wallets.
+- Add existing wallets to your profile.
+- Convert the value of FIAT to bitcoin.
+- Check the balance of your wallets.
+- Send bitcoin to other wallets.
+- Easily select from friends on your friends list to send BTC to.
+- Share blog posts amoung users
+- Charts displaying latest bitcoin values and other cryptocurrencies
+
 # User Guide
 ## Signing up and my first wallet
 Before a user can start using the application they must register with our system. The user must give a valid username and suitable password before they can gain access to the platform. Once logged in the user can now create a wallet by navigating to the wallet section in the naviagation bar. User must enter a wallet label/name and give a pin. The user must enter this pin everytime they attempt to interact with the wallet, simplar to the finacial apps created by banks to maximize security.
@@ -136,6 +154,19 @@ Node.js is an open source server framework and it is free. Node.js runs on vario
 Below is a screenshot from a presentation our team gave to our software development year. This is a basic overview of how the technologies mentioned will connect and interact from back-end to front-end, we are still investigating extra features and technologies that could be used to create these features so this design is subject to change. The full presentation slides are included in this repository. The QR code on the presentation slide is fully functional and will bring you to a link if scanned, the idea was to bring some audiance interaction to our presentation.
 
 ![Design](technologies.png)
+
+### Middleware:
+- bal: Takes care of the balance response from blockchain.info and requesting the balance.
+- blockstats: Takes care of the blockchain statistics response from blockchain.info along with posting those statistics to a status.
+- blockticker: Takes care of the response for the latest prices and posting those latest prices in a status
+- createWallet: Used for creating a new wallet.
+- myWallet: Used for returning wallet information.
+- payment: Used for parsing the success/failure response when bitcoin is sent.
+- pools: Used to retrieve miner data and then post it in a status.
+- profile: This model is used for processing data related to your profile, global users andd friends.
+- request: used to request bitcoin.
+- status: used to post different types and statuses and process status loaded by the app.
+- trading: used to process trading data.
 
 ---
 
