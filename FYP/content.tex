@@ -14,18 +14,6 @@ We would like to acknowledge our team supervisor Gerard Harrison for support and
 \chapter{Introduction}
 This chapter will outline the objectives of the project along with the scope which we plan to complete those objectives in. An analysis of each of the chapters found in this dissertation along with a summary Github repository containing the project can be found below. This application will aim to satisfy the standards for a Software Development Level 8 project by surpassing the expectation of cryptocurrency wallets currently offered online. Bitcoin has received vast media coverage in the recent months because of its record high price. This brought a lot of new attention towards the technology, but to invest in or use this decentralized currency a benchmark of software and economic knowledge must be met. The members of this group have taken it upon themselves to create an application that not only allows users to use the cryptocurrency in a practical sense, but will also educate the users about the coins and offer feature relevant to members of the bitcoin community allowing them to easily interact with other owners of wallets and share blockchain statistics among each other. Proper authentication and login will be applied to the app to allowing users to easily assess there coins securely and associate relevant information to an address that will be stored in a NoSql database. Gloabal user infromation will be leased out to a server online hosted by Amazon Web Service, this is to create a complete physical separation between the vulnerable financial data stored locally and the profile data that is intended to be shared. Most of the technologies discussed here are emerging technologies that are not taught in the Software Development in GMIT.
 
-\subsection{Objectives:}
-\begin{itemize}
-  \item Create a system capable of hosting interactions between members of the bitcoin community.
-  \item Integrate a feature allowing users to have multiple wallets stored on one account, make these wallets easy to use and share.
-  \item Strong authentication that’s simple to use yet secure so users will trust us with their coins.
-  \item Google Maps integration that will allow users to share there location or make posts on the map related to bitcoin.
-  \item Blog post feature to allow users to interact and educate each other about the latest cryptocurrency news and information.
-  \item News feature to keep users up to date with the latest news in the world of cryptocurrencies.
-  \item Allow each user to easily add other users to a friends list to make transactions easier.
-  \item Utility tools feature that allows users to complete common bitcoin tasks like currency conversion or sending bitcoin.
-\end{itemize}
-
 \section{Specifications}
 
 \subsection{Web application:}
@@ -60,27 +48,71 @@ This chapter will outline the objectives of the project along with the scope whi
 \end{itemize}
 
 
+\chapter{Context}
+The general context of this project is a system that provides several but relative services to users of Bitcoin to help them store their Bitcoins and interact with fellow users of the cryptocurrency. Users of the bitcoin wallet will be able to store their bitcoins in our system and send and recieve bitcoins to and from other users. They will be able to see their friends uses of their bitcoins through the google maps integrated solution in the project. Users can also be sure, due to the steps taking with security, that their bitcoins will be safe as the application has a strong authentication service. Users will also be able to interact through a blog post style feature that allows users to keep each other up to date with the latest news and information about bitcoin or other cryptocurrency news. Users will also be able to find the value of bitcoin in their own currency with the bitcoin currency converter feature. Users will be able to keep up to date with the latest news about cryptocurrenies with the cryptocurrency news feature and also keep the user up to date with the latest stocks and trading of cryptocurrenies with the trading feature. Each user will have their own profile page which will contain information about themselves, status's relating to their bitcoin activity and a twitter feed about cryptocurrency.
+
+
+\subsection{Objectives:}
+\begin{itemize}
+  \item Create a system capable of hosting interactions between members of the bitcoin community.
+  \item Integrate a feature allowing users to have multiple wallets stored on one account, make these wallets easy to use and share.
+  \item Strong authentication that’s simple to use yet secure so users will trust us with their coins.
+  \item Google Maps integration that will allow users to share there location or make posts on the map related to bitcoin.
+  \item Blog post feature to allow users to interact and educate each other about the latest cryptocurrency news and information.
+  \item News feature to keep users up to date with the latest news in the world of cryptocurrencies.
+  \item Allow each user to easily add other users to a friends list to make transactions easier.
+  \item Utility tools feature that allows users to complete common bitcoin tasks like currency conversion or sending bitcoin.
+  \item Keep users up to date with the latest stocks and trading of cryptocurrencies.
+\end{itemize}
+
+\section{Project Links}
+Links to this dissertation and the project repository can all be found below via the URL links:
+\\
+\textbf{Project Source Code Link: } https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss \\
+\textbf{Project Documentation Link: } https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/FYP/FYP.pdf\\
+
+
+\section{Chapters Review}
+
+\subsection{Methodology}
+In this chapter we will cover the different development methodologies we used to develop this project, including weekly project meetings, collaboration tools used, application testing and weekly meetings with the project supervisors.
+
+\subsection{Technology Review}
+The different technologies used to design and implement the project from start to finish. The software development approaches to the tools used to create our application and the reasons for choosing the specified technologies.
+
+\subsection{System Design}
+This chapter will provide detailed information about the application system itself along with how it functions. This chapter also gives insight to code used in our project by providing code snippets explaining how we created certain features of our application.
+
+\subsection{System Evaluation}
+This chapter describes how we believe that our application is secure and robust through testing techniques that were used to test the application. We also discuss our initial objectives compared to our achieved goals, and highlight any of the limitation or opportunities in the technologies used.
+
+\subsection{Conclusion}
+This chapter summarises all we have learned and what we would have done differently throughout the whole process of our final year project. It also outlines possible future developments we could interpret into the application.
+
 
 
 \chapter{Methodology}
-About one to two pages.
-Describe the way you went about your project:
-\begin{itemize}
-\item Agile / incremental and iterative approach to development. Planning, meetings.
-\item What about validation and testing? Junit or some other framework.
-\item If team based, did you use GitHub during the development process.
-\item Selection criteria for algorithms, languages, platforms and technolo-gies.
-\end{itemize}
-Check out the nice graphs in Figure \ref{tikz:graphs}, and the nice diagram in Figure \ref{tikz:mydiagram}.
+The following chapter will discuss how the development of the project was approached. Along with taking a view of how the team worked together and interacted over the course of development. Looking at chose methodology for problem solving, testing, communication and development tools utilized. This will give a keen insight into how the project was formed and came together over the development period.
+The methodology used for this project was a mix between Scrum and Extreme programming which are both agile ways of handling and developing a project. This mix of methodologies involved sprints where each of the team would take a task and work on it in short burst till completion while determining the best approach and practice for each of the team. Some tasks would be larger and take more time than others this is why it was not traditional Scrum or Extreme Programming but a mix of the two. As planned tasks are divided and carried out, each task contributes to the project coming together as a whole. The process was continuous with new versions of the project being delivered one after the other.\\
+The initial meeting or sprint consisted of the team meeting as a group for the first time and discussing the brief of the project that was given. Ideas were discussed technologies, Bitcoin stood out and it was decided that the project would center around it. Though following a Scrum methodology no one scrum master was chose but a idea to split the work and keep in constant contact with each other via a messaging service group chat. It was decided to meet weekly one to several times a week and discuss ideas and features for the project. When given a project supervisor the team had formed the idea to have the project be a Bitcoin wallet with more features and aims to be thought out and formed later. It was agreed with the project supervisor to meet weekly and discuss progress. The following is a Breakdown of a compilation of sprints given the reader an insight into the development of the project.
 
-\section{Platform Design}
 
-As a group Conor, Donal and I(Stephen) met regularly each week and our first plan of action was to divide the work and objectives between the 3 of us. I offered to take on some of the front end and the primary load of the aesthetics/ overall look of the project. I had previous experience in graphic design so I photo-shopped mock designs and thumbnails for the project as we went on. I familiarized myself with how the mean stack controlled its colour scheme and look through bootstrap, CSS and HTML components. I researched a lot of different style-sheets and components to make the projects UI(user interface) stand out and be intuitive. I had working design in my head that I wanted to achieve, along with receiving creative input form Conor and Donal.
+\section{Sprint: One}
+The first sprint and initial project meeting after setting a main object and idea for the project, was to discuss and select the architecture that would be used going forward to develop this project. The Architecture of any project is crucial to the outcome and functionality of the project. Choosing the right architecture was a process that could not be rushed. Initially it was propose possibly to make the project using the flask framework and coding in python as the team had previous experience due to  a past module. The idea was debated but it was decided due to the scale of the project and security issues it there would be other languages and frameworks better suited for developing the project. \\
+Following this Conor introduced the team to a MEAN(MongoDB, Expressjs, Angular2/5, Nodejs) Stack having previously worked with one. The MEAN Stack offered the perfect structure and framework for the project. Each of the technologies of the MEAN giving vast amounts of scalability and room for agile development. Having a MEAN Stack set up meant that having a skeleton of the project to build off, meaning more time to develop idea's and solidify the project aims. This also offered the perfect format for group development as each member could take a component and work on developing and them separately but also working alongside each other to form the overall project. The use of API's and widgets were also crucial to the project. Widgets such as trading prices and twitter feeds. API's such as google maps and the blockchain API, in which the team had to contact those at blockchain to get permission and access to use the API.
 
-I started with the aesthetic of the home page first. Making a 2 by 2 grid with 4 thumbnails that linked to different components of the project. To make this grid and to centre it I used a CSS sheet for the home component HTML page. I wanted each of these thumbnails highlight when hovered on and portray exactly what they linked to. To do so I used Adobe Photoshop for editing and graphic design. For inspiration and templates/base images I used Google images with key words to find exactly what I was looking for. I looked at various crypto-currencies wallets, stock websites and angular apps to get a feel for how this project should look. I want to take the best aspects from each and improve on areas where I felt these other platforms could have. 
+\section{Sprint: Two}
+Meeting regularly in the library and having the architecture figured out gave room discuss ideas and aims for the project. The initial idea was a Bitcoin wallet but it was felt there need to be more expansion on the idea. Instead of offering a simple Bitcoin wallet for storing the users crypto-currencies, the team saw a niche in market when it came to crypto-currencies. In most case's crypto-currencies were a jarring task for people new to the technology to get involved. There is also a very strong focus of anonymity in crypto currencies so the team wanted to offer something different. It was decided that there would be a focus put on offering a social media and community driven experience with the application. Functionality of being able to share crypto-currencies with your friends and offering non-bias educational information on Bitcoin. Another thing the team discussed during these meetings was how there was a lack of easy to use Bitcoin wallets with intuitive UI. So it was decided to also adopt the aim of a Bitcoin wallet that could be used by anyone with a strong UI. As part of the module there was a short presentation that each group had to make in front of the class and lecturer. For this the team met in the library and did out a PowerPoint presentation detailing the technologies used and objectives of the project. Each member took a section of the presentation that they would present. Each group presenting was given 5 minutes to present along with time given afterwards to answer any questions the lecturer or peers may have. The presentation had to have a cover slide, a introduction, objectives, discuss the architecture and give a outline project plan for how this project would be achieved. Donal started the presentation introducing the audience to the project and what it would be along with the objectives that the team aimed to achieve. Stephen discussed the technologies that would be used to develop the project. Conor discussed the project plan for the development of the project and how the team was going to accomplish its goals. Finally the team answered any questions asked and why they were choosing this project. 
 
-Conor informed me about Google fonts. Google fonts is a font hub offered by Google offering a free download of a endless amount of varying fonts. I browsed through the website and found multiple fonts I felt would fit the idea for the look of the app. 
-My criteria for picking a font was
+\section{Sprint: Three}
+
+The team continued to meet regularly and divide the work. The next plan of action was to layout the design, look and feel of the project. Stephen offered to take on some of the front end and the primary load of the aesthetics/ overall look of the project. Stephen had previous experience in graphic design. He photo-shopped mock designs and thumbnails for the project as development went on. Familiarizing himself with how the mean stack controlled its colour scheme and look through bootstrap, CSS and HTML components. A lot of research was done looking into different style-sheets and components to make the projects UI(user interface) stand out and be intuitive. The team had a working design that they wanted to achieve, sharing the creative input on how this application should look. Initially the aesthetic of the home page was chosen first. Making a 2 by 2 grid with 4 thumbnails that linked to different components of the project. To make this grid and to centre it the use of CSS sheet for the home component HTML page was employed. It was necessary for each of these thumbnails to highlight and portray exactly what they were linking to. To do so Adobe Photoshop was used for editing and graphic design. \\
+For inspiration and templates/base images vast research via Google images was employed. Using unique key words to locate base and template images that fit the theme. Research into various crypto-currencies wallets, stock websites and angular apps was carried out to get a feel for how this project should look. The idea was to take the best aspects from each and improve on areas where it was felt these other platforms could have done so. Conor informed Stephen about Google fonts. Google fonts is a font hub offered by Google offering a free download of a endless amount of varying fonts. This service was used to find multiple fonts to suit the projects aesthetic and varying sections and areas that needed styling. The process for picking a correct font was visibility, context, styling and how it fit for the specified section it was being used in. 
+
+\section{Sprint: Four}
+Functionality of the application was the next phase of the project. Having working components that tied in together was integral for the success of the project. A divide and conquer strategy was implemented with this, with each member taking a main component of the application and working on it. Each of the team took on different sections such as security, trading/finance, blockchain/Bitcoin functionality, user interaction, user support and news. Github was a intricate part of this type of developing. Github allowed for each of the team to work on their specified work load adding to the project while hosting the whole project in a group repository. The repository was one of the first thing set up when starting the project and each of the collaborates would pull and push their changes each time progress was made. Github offered a safe place to host the code of the project along with a smart system of keeping track of changes through commits. Another advantage of Github was if there was any crossover in the sections and members of the team had changed similar parts of the project, Github would inform them to pull the changes made before pushing their new changes. There was strong communication throughout these developments helping each other with similar errors that were encountered along with sharing research and easier ways to do things that were discovered. Resources from the web such as stack overflow and docs for bootstrap, angular and the other technologies were used. While development continued it was also decided to start documenting and writing the process in the dissertation and Github project repository readme. The dissertation was being written using sharelatex and the team also hosted it on project repository for easy access. Meaning any of the members could write their changes to the dissertation and push the changed to the repository.
+\section{Sprint: Five}
+The final sprint saw the finalization of the development process. Each of the sections had come together with strong functionality and the application was working smoothly as a whole. Rigorous testing had been carried out frequently through the whole development of the project. This final stage was used for user acceptance testing, the team shared the project with peers, friends and family letting them use the application and taking their feedback. The feedback provided keen insight into what needed to be modified in the project and what could be improved on. Taking this feedback into the UI was updated to provide a more friendly experience using the application. The friendlist and profile options were updated to offer the best community experience for users. Testing on different platforms and hardware was carried out for scope of deployment and availability of the application. The team demoed the fully working project to their project supervisor and explained why they chose to code and develop certain functions in the way they did. Due to time constraints and lack of resources certain stretch goals/aims of the project had to be eliminated. The time remaining until the deadline was used for writing and finalizing parts of the dissertation along with polishing the application both aesthetically and functionally. Further testing was carried out on different browsers and OS' to document any differences and examine if there was a optimum build environment for the application. 
 
 
 \chapter{Technology Review}
@@ -206,6 +238,24 @@ function myFunction(a, b) {
     return a * b;   
 }
 \end{lstlisting}
+
+\section{Robo 3T}
+Robo 3T is a free open source tool used to interact with the contents of Mongo databases\cite{Robo3Tfo20}. During the creating of the authentication and blog post feature, this tool was used a lot. It helped understanding how the mongoDB was working and what was in the databases. Below in figure 4.1: Robo 3T, an example of the applications MongoDB being viewed using Robo 3T.
+
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/Robo3T.png}
+\caption{Robo 3T.}
+\end{figure}
+
+\section{Postman}
+Postman is a Google Chrome app for interacting with HTTP APIs and it also has some powerful testing features. It presents you with a friendly GUI for constructing requests and reading responses\cite{APITesti56}. Throughout many features of the application we used postman to test out parts of our application. For example, for the login feature of the application, postman was used to test the username and password would work. Below in figure 4.2: Robo 3T, shows postman testing a username and password and responding that the password is invalid.
+
+\begin{figure}[H]
+\centering
+\includegraphics[]{img/postman.png}
+\caption{Robo 3T.}
+\end{figure}
 
 
 \section{Social Media Research}
@@ -1436,28 +1486,47 @@ export class Wallet {
 \end{lstlisting}
 
 \chapter{System Evaluation}
-As many pages as needed.
+
+The following chapter will talk through the testing and evaluation process of the project. Taking a look at the testing processes and steps taken while developing this project. Along with taking note of any constraint's or drawbacks on the project. Then looking at where improvements could have been made to better the finished product. 
+\section{Testing}
+\subsection{Back-End Testing}
+Back-end testing is hugely important while developing any kind of application. It is vital to know that anything from the front end that the user is interacting with that deals with storing data is being stored to the database. In the case of this project while working with MongoDB it was necessary throughout multiple stages of the project to check that data and information was being stored correctly in the database. Writing dummy data and post was important in this as it would give an idea of what was storing. To ensure it wasn't just session based storing. The us of Robo 3T a GUI application for Mongodb was utilized. This made it much easier to see if data was in fact being stored correctly to the Mongo database.
+
+\subsection{System Testing}
+It is important to carry out System Testing, ensuring each node of the system enter acts correctly together and the system as an entirety meets requirements. Having used a MEAN Stack for this project system testing was a regular part of the project. To even run the project correctly must ensure that the MEAN stack is working correctly and each part is interacting correctly together. In doing this it meant having to run the Mongodb first in command line then in a separate command line run the node server instance on a local host. If there was any error in the Angular code the project would not run correctly and be stuck at a loading screen. If there were any errors or issues loading it would mean having to inspect the element and use the browsers console to see what was causing the errors. While the project was running HTML and CSS files within the project could be changed on the file and live tested. Whereas when anything was changed in a TypeScript file would mean having to kill the instance of the server running on the console and recompile the angular files. While compiling if there were any errors the console would save the new changes to the files but alert us to errors on the command line. 
+
+\subsection{Browser Compatibility Testing}
+Having an app be available on multiple platforms and work across different browser is vital for user adoption of the app. This is why we carried out multiple test cases across the different browsers ensuring the application was capable of running on any the user desired. Running a local host on each of the browsers and documenting any differences or errors was a huge part of this. Selenium an automated suite of tools was chosen to test web browsers, in particular Firefox which has built in extension for selenium. Multiple test cases were run, such as pages loading correctly, link testing, data entry testing, correct loading of APIs and widgets etc. These test cases proved to be very useful as it identified any errors any of the pages might have. Along with this it was important to check that bootstrap was working correctly across the different browsers and if anything wasn't to scale or if visibility was poor.
+
+\subsection{OS Compatibility Testing}
+Like discussed in like discussed in the browser compatibility testing section, It is very important to offer as much choice to the user as possible when developing an application. The fewer systems an application can run on the correlates to fewer users. This is why it was important to test the application on different operating systems to insure the maximum amount of users for the application can be reached. Virtual machines were employed to achieve this. Having used VM Ware in the past for previous college assignments, it was decided it would be the chose virtual machine software for testing. Making instances of virtual machines of a macOS build and a Ubuntu(Linux) build. After installing the MEAN Stack and other dependencies for the project to both virtual machines it was time to run test cases. All test cases that had been run on the windows build of the project where run on each of the separate os builds. It was important to ensure that the project is versatile enough to work across every platform it could.
+
+\subsection{Performance Testing}
+How well a application can perform is crucial as it will affect. If an application is sluggish, buggy and doesn't run correctly it will not be accepted by the wider market or have a user base. This is why it is very important to work out the minimum requirements to run a particular application. Minimum requirements such as: 
 \begin{itemize}
-\item Prove that your software is robust. How? Testing etc. 
-\item Use performance benchmarks (space and time) if algorithmic.
-\item Measure the outcomes / outputs of your system / software against the objectives from the Introduction.
-\item Highlight any limitations or opportuni-ties in your approach or technologies used.
+\item Minimum disk/install space.
+\item Connection to WIFI for API's and other web dependencies.
+\item A current browser: Microsoft Edge, Google Chrome, Firefox, Safari. 
+\item Mouse, keyboard.
 \end{itemize}
+These would be basic requirements the user would need to run the application. Having better hardware or WIFI connections will always lead to better performance. When developing and testing the application many different machines of varying types were used. Mainly the three machines of varying specs used for development by each of the developers. Then Machines the application was installed on for user testing. This gave an scope of what hardware offered the best performance for the application. Performance testing also entailed of workload/stress testing the application from posting multiple posts one after the other to using products such as selenium to continually reload pages and send request to test how the application handled it. 
+\subsection{User Accepctance Testing}
+An application being accepted by it user base is vital to the life and future of the application. When developing any application the focus is always on the user, making sure it is easy to use, has a intuitive UI and well be something they will use regularly. To meet all these requirements it was important to get an outside perspective from those that weren't developing the application. As developers it is very much see  a problem and fix it. This means being so close to the project there can be things that can be missed. To get a fresh perspective each of the group got peers, friends and families to user test the app at different stages, taking note of their feedback and general feelings on the application. 
+Having such a wide pool of people to pick from gave a huge range of varying perspective and skills. With peers it gave the perspective from those with strong coding and software experience, their input was vital for many aspects of the app. Whereas from the perspective of family and friends it gave more of a general view from those with little to no coding or software experience. Their input was just as vital as it gave a fresh look on things. Along with seeing if the aim of introducing and educating those new to Bitcoin and crypto-currencies could be met. With those of varying age ranges and experiences it also gave useful information on who the target audience for the application could be. User acceptance was very positive from those who tested the application.
+
+\subsection{Limitations}
+Identifying limitations of any project is always important it isn't identifying failure but offering insight into the making of the project and what could have been improved upon. This project is no exception while developing there were many obstacles that had to be over come and some that were insurmountable. When it came to the Trading section of the project the task was to get an API or widget that would display the current price of several crypto-currencies, along with graphing the falls and rises in each. This was done using a the Trading View web widget. The widget works perfectly and offers vast functionality but also limits the users navigation in the application. This is because the widget loads over the applications bootstrap navigation bar stopping them from easily cycling through the app unlike on all the other pages where the navigation bar remains. This means to get back to the rest of the app the user must press the back key in the URL bar and reload the page. This would not be up to industry or market place standard as the user should not have to do anything extra just to navigate through the app. The page does fulfill its function and offers unique and helpful information, but at the cost of easy navigation for the user. \\
+Looking at another aspect of the project there is the problem of it not being a application that comes ready in the box. What is meant by this is there are quite a few dependencies the user must install to have this web application up and running correctly. As opposed to a mobile application you download on your phone that comes ready to go or a website you can just navigate to. The MEAN Stack has a lot of different technologies and nodes working together to produce this working web application. While this is also a strong point of the application as there is a lot of strengths and functionality offered by the MEAN technologies. It also can lead to some alienation of possible user base, as some people will find problem with having to install and run multiple technologies for the purpose of one application. Another factor of this is if something would or is to go wrong in one of the components of the application or one of the MEAN technologies it can crash the whole application. If this is occur it can be damaging to the reputation of the application along with a unfortunate task for the developers to correct this this error. On the other side of thing the application does come with a section for users to submit problems they have encountered while using the application and a opportunity for the developers to be constantly improving the application and meeting the users needs.
 
 \chapter{Conclusion}
 
-
 \subsection{What we learned}
-Throughout the whole process of the final year project, we have learned a substantial amount about a whole range of subjects. From working as part of a team to learning, from scratch, new languages and programs to complete our project. We learned that working as part of a team can have some great benefits. As a team you get input and information from each member that you may have not know before which can greatly help in succeeding. The greatest benefit of teamwork is working efficiency together you can get a great amount of work done compared to if you were working on your own. If you can distribute work out evenly to each individual in the group it makes it fair and realistic. We learned that if we met up on a regular basis and worked on the project together it benefited us greatly as we were able to help one another out and got more work done due to this. We also learned a lot about the MEAN stack. This is what we used to build our application, and as we were never taught it in college we had to teach ourselves how to use it in the most efficent way possible to create the best possible project. With the MEAN.
-
-\subsection{What we would change}
+Throughout the whole process of the final year project, we have learned a substantial amount about a whole range of subjects. From working as part of a team to learning, from scratch, new languages and programs to complete our project. We learned that working as part of a team can have some great benefits. As a team you get input and information from each member that other members may not have known before which can greatly help in succeeding. The greatest benefit of teamwork is by working efficiency together you can get a great amount of work done compared to if you were working on your own. If you can distribute work out evenly to each individual in the group it makes it fair and realistic. We learned that if we met up on a regular basis and worked on the project together it benefited us greatly as we were able to help one another out and got more work done due to this. We also learned a lot about the MEAN stack. This is what we used to build our application, and as we were never taught it in college we had to research it ourselves and how to use it in the most efficient way possible to create the best possible project. With the MEAN stack we learned how to have multiple technologies and databases interact with one another, for example the MEAN stack allows us to have angular 2, node.js, express.js and mongoDB all interact with each other. A major part as working as part of a team is using Github. We learned throughout the course of our final year project how to best use Github and all its features to our advantage as working as part of a team. Github allowed us to work on part of our project on our own time and when we each completed parts of the project we were able to commit them to Github where the rest of the members in the group could easily see the changes that were made and pull them down to their own machine. Github also allowed us to raise any issues we encountered to our fellow team members by using the Github issues feature. This feature would allow a member to raise a problem they have encountered and allow for the other members in the group to provide solutions. We found this feature very useful and helped us work better as a team. 
 
 \subsection{Future Development}
-
-\begin{itemize}
-\item Briefly summarise your context and ob-jectives (a few lines).
-\item Highlight your findings from the evalua-tion section / chapter and any opportuni-ties identified.
-\end{itemize}
+For future development of the application we could add many new and exciting aspects. One feature we could add to the application in the future is an instant chat messenger. This feature would allow the users of the bitcoin wallet to talk to their friends on the application instantly. This would give the application even more social aspects which would benefit the application hugely and it would allow the users to keep in touch with each other effortlessly.
+\par We could also introduce a questions and answers feature like stackoverflow, where the users can ask questions related to topics about the bitcoin wallet or other quires they may have. Other users would then be able to answer their questions and help them out.
+\par Future development of the application could see us integrate notifications to the application. For example, when a user receives bitcoin from another user, they will be alerted about this. Also we could have notifications for when another user has liked or disliked their blog post or when a user receives a friend request.
 
 \chapter{Appendix}
 \textbf{Project Source Code Link: } https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss \\
