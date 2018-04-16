@@ -1501,6 +1501,12 @@ It is important to carry out System Testing, ensuring each node of the system en
 \subsection{Browser Compatibility Testing}
 Having an app be available on multiple platforms and work across different browser is vital for user adoption of the app. This is why we carried out multiple test cases across the different browsers ensuring the application was capable of running on any the user desired. Running a local host on each of the browsers and documenting any differences or errors was a huge part of this. Selenium an automated suite of tools was chosen to test web browsers, in particular Firefox which has built in extension for selenium. Multiple test cases were run, such as pages loading correctly, link testing, data entry testing, correct loading of APIs and widgets etc. These test cases proved to be very useful as it identified any errors any of the pages might have. Along with this it was important to check that bootstrap was working correctly across the different browsers and if anything wasn't to scale or if visibility was poor.
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.44]{img/selenium.png}
+\caption{Browser Testing}
+\end{figure}
+
 \subsection{OS Compatibility Testing}
 Like discussed in like discussed in the browser compatibility testing section, It is very important to offer as much choice to the user as possible when developing an application. The fewer systems an application can run on the correlates to fewer users. This is why it was important to test the application on different operating systems to insure the maximum amount of users for the application can be reached. Virtual machines were employed to achieve this. Having used VM Ware in the past for previous college assignments, it was decided it would be the chose virtual machine software for testing. Making instances of virtual machines of a macOS build and a Ubuntu(Linux) build. After installing the MEAN Stack and other dependencies for the project to both virtual machines it was time to run test cases. All test cases that had been run on the windows build of the project where run on each of the separate os builds. It was important to ensure that the project is versatile enough to work across every platform it could.
 
