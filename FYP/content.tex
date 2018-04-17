@@ -5,7 +5,7 @@
 This project attempts to combine the cryptocurreny bitcoin and the blockchain which it uses to perform decentralized operations with the networking features offered by social media platforms. After examining the popular bitcoin wallets available online the team noticed a lack in user friendly applications for sending and storing bitcoin. On noticing this gap in the market it was decided we would create an application that would focus on efficient bitcoin and blockchain interactions while keeping each operation as user-friendly,robust and secure as possible. This application offers the user an authenticated profile for managing wallets and sharing information with the world. The application allows users to connect with a whole online community and share their recent transaction and experiences with bitcoin through a post system. Users can add friends and instantly send bitcoin to them, or use the maps feature to locate them. As bitcoin by its nature is volatile, the application pulls a range of up-to-date statistics to provide that user with complex charts, FIAT currency conversion, blockchain performance, miner activity and more.
 
 \paragraph{Authors}
-This project has been developed by fourth year students: Conor Tighe, Donal McGahon and Stephen Murphy. We developed this project for our Bachelors of Science Honours Degree in Software Development. We divided up the work into sections. Conor worked on "Bitcoin wallet integration, Blockchain utility tools, Social Media features and User connectivity". Donal worked on the authentication and security of the project. Also he worked on created a blog post feature and a cryptocurrency news feature to the application. Stephen worked on "Say what you work on here". We all collaborated on the look of the application as well as the dissertation.
+This project has been developed by fourth year students: Conor Tighe, Donal McGahon and Stephen Murphy. We developed this project for our Bachelors of Science Honours Degree in Software Development. We divided up the work into sections. Conor worked on Bitcoin wallet integration, Blockchain utility tools, Social Media features and User connectivity. Donal worked on the authentication and security of the project. Also he worked on created a blog post feature and a cryptocurrency news feature to the application. Stephen worked on the stocks and trading section of this project. Along with the graphic and aesthetic design and customer support for the user. We all collaborated on the look of the application as well as the dissertation.
 
 \chapter*{Acknowledgements}
 We would like to acknowledge our team supervisor Gerard Harrison for support and understanding as well as all GMIT teachers for helping us to get this far.
@@ -152,7 +152,7 @@ This is a run time environment for executing server-side JavaScript. This allows
 \subsection{Mlab:}
 MLab is a fully managed cloud database service that hosts MongoDB databases. MLab runs on cloud providers Amazon, Google, and Microsoft Azure, and has partnered with platform-as-a-service providers. For this project we decided to choose AWS as the provider since our team have experience with the service from previous modules.\cite{MongoDBH41}
 
-\subsectio{Visual studio code:}
+\subsection{Visual studio code:}
 Visual Studio Code is a source code editor developed by MicrosoftS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring. Visual studio checks for errors in the syntax of typescript and javascript files which made it appealing for our team since those 2 file types appear a lot in our project.\cite{VisualSt10}
 
 \subsection{Github:}
@@ -257,7 +257,7 @@ Postman is a Google Chrome app for interacting with HTTP APIs and it also has so
 \begin{figure}[H]
 \centering
 \includegraphics[]{img/postman.png}
-\caption{Robo 3T.}
+\caption{Postman.}
 \end{figure}
 
 
@@ -268,7 +268,7 @@ Facebook and Twitters ability to document users information and habits has helpe
 
 So taking of this into account and to bring a educational crypto-currency platform to the market it is necessary to research the information and trends out there in the market and on social media. As discussed previously Social Media influences the market. Public opinion will influence the success of your product and in this day and age social media is public opinion. To Launch any sort of app these days, there Has to be some sort of social media interaction or built in functionality. Every app these days lets you follow your friends and informs you what they are doing. Each app has a communication/messaging service between its users. FAQ services and support between the user and the developer is of the up most importance a lot of this is done through social media. Take air line's social medias often people can complain to these accounts and the issues will instantly be resolved. No company wants a negative image on social media as they know people will be swayed. 
 
-Public opinion on the topic that informs the app or the platform is based on is also hugely important. Taking this into account we can't just observe how our platform is interacts with social media and what people say about it on social media. We in fact have to look at the subject matter of our application, Bitcoin a violate crypto currency that everyone in the past year has an opinion on and has been talking about. Social media can literally affect the price of any crypto currency. From celebrities and social media personalities talking about and announcing their support or investment into a currency to people talking about the negative affects or downside of Crypto-Currencies. Bitcoin and Crypto-Currencies are a new wave and almost controversial topic. The information is out there but people aren't very well informed on the topic. With differing opinions and news flooding in on social media platforms it gets very confusing for the average person to know who to listen to and what to follow..
+Public opinion on the topic that informs the app or the platform is based on is also hugely important. Taking this into account we can't just observe how our platform is interacts with social media and what people say about it on social media. We in fact have to look at the subject matter of our application, Bitcoin a violate crypto currency that everyone in the past year has an opinion on and has been talking about. Social media can literally affect the price of any crypto currency. From celebrities and social media personalities talking about and announcing their support or investment into a currency to people talking about the negative affects or downside of Crypto-Currencies. Bitcoin and Crypto-Currencies are a new wave and almost controversial topic. The information is out there but people aren't very well informed on the topic. With differing opinions and news flooding in on social media platforms it gets very confusing for the average person to know who to listen to and what to follow.
 
 
 \chapter{System Design}
@@ -854,7 +854,7 @@ The are posts about the most recent miner activity and what miner pools are curr
 \begin{figure}[H]
 \centering
 \includegraphics[width=10cm, height=10cm]{img/post3.png}
-\caption{Status Post Location.}
+\caption{Status Post Bockchain Activity.}
 \end{figure}
 
 \begin{figure}[H]
@@ -1140,7 +1140,7 @@ The convert.components allow users to convert the value of a FIAT currency to bi
 \begin{figure}[H]
 \centering
 \includegraphics[width=16cm, height=10cm]{img/fiat.png}
-\caption{fiat conversion.}
+\caption{FIAT conversion.}
 \end{figure}
 
 \begin{lstlisting}
@@ -1500,6 +1500,12 @@ It is important to carry out System Testing, ensuring each node of the system en
 
 \subsection{Browser Compatibility Testing}
 Having an app be available on multiple platforms and work across different browser is vital for user adoption of the app. This is why we carried out multiple test cases across the different browsers ensuring the application was capable of running on any the user desired. Running a local host on each of the browsers and documenting any differences or errors was a huge part of this. Selenium an automated suite of tools was chosen to test web browsers, in particular Firefox which has built in extension for selenium. Multiple test cases were run, such as pages loading correctly, link testing, data entry testing, correct loading of APIs and widgets etc. These test cases proved to be very useful as it identified any errors any of the pages might have. Along with this it was important to check that bootstrap was working correctly across the different browsers and if anything wasn't to scale or if visibility was poor.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.44]{img/selenium.png}
+\caption{Browser Testing}
+\end{figure}
 
 \subsection{OS Compatibility Testing}
 Like discussed in like discussed in the browser compatibility testing section, It is very important to offer as much choice to the user as possible when developing an application. The fewer systems an application can run on the correlates to fewer users. This is why it was important to test the application on different operating systems to insure the maximum amount of users for the application can be reached. Virtual machines were employed to achieve this. Having used VM Ware in the past for previous college assignments, it was decided it would be the chose virtual machine software for testing. Making instances of virtual machines of a macOS build and a Ubuntu(Linux) build. After installing the MEAN Stack and other dependencies for the project to both virtual machines it was time to run test cases. All test cases that had been run on the windows build of the project where run on each of the separate os builds. It was important to ensure that the project is versatile enough to work across every platform it could.
