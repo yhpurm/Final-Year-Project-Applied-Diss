@@ -9,6 +9,7 @@ var Status= require('../models/statusModel');
 var BalStatus= require('../models/statusBalModel');
 var StatsStatus= require('../models/blockstatsModel');
 var Balance= require('../models/balanceModel');
+var Payment= require('../models/paymentModel');
 var PoolStatus= require('../models/statusPoolModel');
 var PriceStatus= require('../models/statusPriceModel');
 var FlagStatus= require('../models/FlagStatusModel');
@@ -936,12 +937,12 @@ router.post('/Register/Profile', function(req, res, next) {
 
 
 /* Below are the calls to the blockchain API node,
-run blockchain-wallet-service start --port 4000 to start this apps
+run blockchain-wallet-service start --port 3001 to start this apps
 node. We run it on port 4000 cause our app is already is using 3000
 */
 
 // The call for creating the a new wallet, this can be linked to the registration page
-router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
+router.post('http://localhost:3001/api/v2/create?password=:pass&email=:emailAddress&label=:username$api_code=' + apiCode, function (req, res) {
     console.log(req.body); 
     if (err) {
         return res.status(500).json({
@@ -951,6 +952,47 @@ router.post('http://localhost:4000/api/v2/create?password=:pass&email=:emailAddr
     res.status(200).json({
         data: wallet
     });
+});
+
+
+router.post('/Wallet/payment', function (req, res, next) {
+    var pass = req.body.password;
+    var guid = req.body.guid;
+    var amount = req.body.amount;
+    var to = req.body.to;
+    var payment = new Payment;
+    console.log("Request pass:" + pass);
+    console.log("Request guid:" + guid);
+    console.log("Request to:" + to);
+    console.log("Request amount:" + amount);
+
+    function processRequest(json) {
+        var j = JSON.parse(json);
+        console.log("j obj: " + j);
+        this.walletbal = j.body.balance;
+
+        this.payment = ({
+            to: j.body.to,
+            from: j.body.from,
+            amount: j.body.amounts,
+            fees: j.body.fees,
+            txid: j.body.txid,
+            success: j.body.success
+        });
+   
+       console.log("balance: ");
+       console.log(this.payment);
+       res.json(this.payment);
+    }
+
+    request('http://localhost:3001/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to + '$api_code=' + apiCode, { json: true }, (err, resp, body) => {
+        if (err) { return console.log(err); }
+        response = resp;
+        var resjson = JSON.stringify(resp);
+        console.log(resjson);
+        processRequest(resjson);
+    });
+
 });
 
 /*

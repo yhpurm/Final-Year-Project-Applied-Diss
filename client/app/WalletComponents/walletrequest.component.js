@@ -30,6 +30,7 @@ var NewWalletComponent = /** @class */ (function () {
         this.blockchainService.saveWallet(newWallet)
             .subscribe(function (messages) { return _this.wallet = messages; }, function (error) { return console.error(error); });
         console.log(this.wallet);
+        alert("wallet created!");
     };
     NewWalletComponent = __decorate([
         core_1.Component({

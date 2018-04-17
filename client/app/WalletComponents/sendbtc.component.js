@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var profile_service_1 = require("../services/profile.service");
 var blockchain_service_1 = require("../services/blockchain.service");
+var sendbtc_model_1 = require("../DataModals/sendbtc.model");
 var SendBTCComponent = /** @class */ (function () {
     function SendBTCComponent(profileService, blockchainService) {
         this.profileService = profileService;
@@ -35,17 +36,23 @@ var SendBTCComponent = /** @class */ (function () {
         }, function (error) { return console.error("error:" + error); });
     };
     SendBTCComponent.prototype.setTargetAddress = function (address) {
-        console.log("address: " + address);
+        alert("target address: " + address);
         this.to = address;
-        console.log(this.to);
+        console.log("to:" + this.to);
+    };
+    SendBTCComponent.prototype.selectItem = function (id) {
+        this.guid = id;
+        console.log("guid" + this.guid);
     };
     SendBTCComponent.prototype.onSendBTC = function () {
         var _this = this;
         if (this.password != this.passwordValid) {
             return alert("Passwords dont match");
         }
-        this.blockchainService.sendBTC(this.guid, this.password, this.amount, this.to)
-            .subscribe(function (messages) { return _this.wallets = messages; }, function (error) { return console.error(error); });
+        var PayRequest = new sendbtc_model_1.SendBTC(this.guid, this.password, this.amount, this.to);
+        console.log(this.guid, this.password, this.amount, this.to);
+        this.blockchainService.sendBTC(PayRequest)
+            .subscribe(function (messages) { return _this.wallets = messages; }, function (error) { return alert(error); });
     };
     SendBTCComponent = __decorate([
         core_1.Component({

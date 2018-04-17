@@ -11,6 +11,7 @@ import { createWallet } from "../DataModals/createWallet.model";
 import { BalanceReq } from "../DataModals/bal.modal";
 import { Balance } from "../DataModals/bal.modal";
 import { Payment } from "../DataModals/payment.modal";
+import { SendBTC } from "../DataModals/sendbtc.model";
 
 @Injectable()
 export class BlockchainService {
@@ -69,9 +70,12 @@ export class BlockchainService {
             });
         }
 
-        sendBTC(guid : string, pass : string, amount: string, to: string) {
+        sendBTC(payment: SendBTC) {
             console.log("sending bitcoin");
-            return this.http.get('https://api.blockchain.info/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to)
+            const body = JSON.stringify(payment);
+            console.log(body);
+            const headers = new Headers({'Content-Type': 'application/json'});
+            return this.http.post('/Wallet/payment',body, {headers: headers})
             .map(response => response.json() as Payment[])
             .catch(handleError);
         }

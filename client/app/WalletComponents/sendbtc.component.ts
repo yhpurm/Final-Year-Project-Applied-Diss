@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfileService } from "../services/profile.service";
 import { BlockchainService } from "../services/blockchain.service";
 import { Wallet } from "../DataModals/myWallet.model";
+import { SendBTC } from "../DataModals/sendbtc.model";
 import { Profile } from "../DataModals/profile.model";
 import { OnInit } from '@angular/core';
 
@@ -20,7 +21,7 @@ export class SendBTCComponent implements OnInit {
   wallets: Wallet [] = [];
   guid: string;
   to: string;
-  amount: string;
+  amount: number;
   password: string;
   passwordValid: string;
   friends: Profile [] = [];
@@ -49,19 +50,29 @@ export class SendBTCComponent implements OnInit {
   }
 
   setTargetAddress(address: string){
-    console.log("address: " + address);
+    alert("target address: " + address);
     this.to = address;
-    console.log(this.to);
+    console.log("to:"+ this.to);
   }
 
+  selectItem(id: string){
+        this.guid = id;
+        console.log("guid" + this.guid);
+  }
+
+  
   onSendBTC() {
     if(this.password != this.passwordValid){
         return alert("Passwords dont match");
     }
-    this.blockchainService.sendBTC(this.guid,this.password,this.amount,this.to)
+
+    const PayRequest = new SendBTC (this.guid,this.password,this.amount,this.to);
+
+    console.log(this.guid,this.password,this.amount,this.to);
+    this.blockchainService.sendBTC(PayRequest)
           .subscribe(
             messages => this.wallets = messages,
-            error => console.error(error)
+            error => alert(error)
         );
     }
 }

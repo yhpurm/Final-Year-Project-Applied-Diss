@@ -39,5 +39,6 @@ export class NewWalletComponent {
             error => console.error(error)
         );
         console.log(this.wallet);
+        alert("wallet created!")
     }
  }

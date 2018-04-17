@@ -101,9 +101,9 @@ Blockchain.info are the largest site for blockchain statisics in the world, we a
 
 ``` npm start  ```
 
-* Run the blockchain client in a seperate command line window on port 4000:
+* Run the blockchain client in a seperate command line window on port 3001:
 
-``` blockchain-wallet-service start --port 4000  ```
+``` blockchain-wallet-service start --port 3001  ```
 
 * Navigate to the root directory and then:
 

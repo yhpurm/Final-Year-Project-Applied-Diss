@@ -7,14 +7,9 @@
 
                                 <h3>Choose an address from your wallets</h3>
                                 <select title="Pick a address from your wallets" (change)="selectItem($event.target.value)">
-                                        <option *ngFor="let value of wallets" value={{value.address}}>{{value.address}}</option>
+                                        <option *ngFor="let value of wallets" value={{value.guid}}>{{value.label}}</option>
                                 </select>
 
-                                <h3>Enter a target address or choose someone on your friends list</h3>
-                                <p class = "tpbutton btn-toolbar text-center">
-                                        <a class = "btn navbar-btn btn-primary" href = "#">Use friends address</a>
-                                        <a class = "btn navbar-btn btn-default" href = "#">Enter another address below</a>
-                                </p>
                                 <h3>Choose from a friends list or enter a address to send BTC to</h3>
                                 <table class="table table-hover" *ngFor="let value of friends" >
                                     <thead>
@@ -26,7 +21,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><button type = "button" (click)="setAddress(value.address)" class = "btn btn-primary">
+                                            <td><button type = "button" (click)="setTargetAddress(value.bitcoinAddress)" class = "btn btn-primary">
                                                     Set</button></td>
                                             <td>{{value.bitcoinAddress}}</td>
                                             <td>{{value.username}}</td>
@@ -43,7 +38,7 @@
                                     <h3>Enter bitcoin below</h3>
                                     <div class="form-row">
                                         <label for="c1">BTC</label>
-                                        <input type="number" value="1000" min="0" step="0.01" [(ngModel)]="to" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="c1" />
+                                        <input type="number" value="1000" min="0" step="0.00000001" [(ngModel)]="amount" data-number-to-fixed="2" data-number-stepfactor="100" class="currency" id="c1" />
                                     </div>
                                 </div>
                             
@@ -55,7 +50,7 @@
                                         <label for="password">Password validation:</label>
                                         <input type="password" class="form-control" [(ngModel)]="passwordValid">
                                 </div>
-                                <button id="submitBtn" class="btn btn-primary" (click)="onStatusSubmit()">Send BTC</button>
+                                <button id="submitBtn" class="btn btn-primary" (click)="onSendBTC()">Send BTC</button>
                     </div>
                 </div>
             </div>
