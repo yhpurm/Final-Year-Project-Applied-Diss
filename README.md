@@ -1,11 +1,16 @@
 # **Bitcoin Wallet**
 
 
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/DonalMcGahon)
+| Project Details   |     |
+| --- | --- |
+| `Course` | BSc (Hons) in Software Development  |
+| `Module` |  Applied Project and Minor Dissertation |
+| `College`| [GMIT Galway](http://www.gmit.ie/) |
+| `Students` | [Donal McGahon](https://github.com/DonalMcGahon)&nbsp;&nbsp;&nbsp; G00299627<br/> [Conor Tighe](https://github.com/ConorTighe1995)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G00314417<br/> [Stephen Murphy](https://github.com/Smurfgalway)&nbsp;&nbsp;&nbsp; G00323639<br/> |
+| `Project Supervisor` | Gerard Harrison |
+| `Project Title` | Bitcoin Wallet |
 
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/ConorTighe1995)
-
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/Smurfgalway)
+---
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/graphs/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/Disseration.pdf)
@@ -33,6 +38,7 @@
 14. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
 
 ---
+
 
 # Overview
 This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for receiving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the lasted statics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regularly reference or discuss. Users can customize their profiles to use different avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 7 different types of status post,one for general posts with no data attached, one for posting bitcoin price posts, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of interest and one for donation requests. The application also has charts to display the latest bitcoin prices and how it compares to other cryptocurrencys.
