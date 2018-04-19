@@ -23,6 +23,19 @@ var PriceComponent = /** @class */ (function () {
             _this.cryptos = res;
             console.log(res);
         });
+        this.refreshData();
+        this.cryptos = setInterval(function () {
+            _this.refreshData();
+        }, 5000); // refresh all 5 sec
+    };
+    // refresh data for get new cryptos values
+    PriceComponent.prototype.refreshData = function () {
+        var _this = this;
+        this._data.getPrices()
+            .subscribe(function (res) {
+            _this.cryptos = res;
+            console.log(res);
+        });
     };
     PriceComponent = __decorate([
         core_1.Component({

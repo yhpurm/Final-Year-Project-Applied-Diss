@@ -21,6 +21,20 @@ import { DataService } from '../services/data.service';
           this.cryptos = res;
           console.log(res);
         });
+
+        this.refreshData();
+        this.cryptos = setInterval(() => {
+          this.refreshData();
+        }, 5000); // refresh all 5 sec
+      }
+    
+      // refresh data for get new cryptos values
+      refreshData(){
+        this._data.getPrices()
+          .subscribe(res => {
+            this.cryptos = res;
+            console.log(res);
+          });
     }
   
   }
