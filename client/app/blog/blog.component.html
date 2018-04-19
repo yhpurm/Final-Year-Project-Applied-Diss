@@ -1,7 +1,10 @@
 <div class="container">
 
-    <h1 class="page-header">Cryptocurrency Blog Feed</h1>
-  
+    <div class="panel panel-primary" align="center">
+      <div class="panel-heading">
+        <h1 class="header">Cryptocurrency Blog Feed</h1>
+      </div>
+  </div>
 
 <div class="Panel with panel-info class">
     <div class="panel-heading">
@@ -19,9 +22,6 @@
 
 <!-- New Post Button -->
 <button type="button" name="button" class="btn btn-warning" *ngIf="!newPost" (click)="newBlogForm()">New Post</button>
-
-<!-- Reload Button -->
-<button [disabled]="loadingBlogs" type="button" name="button" class="btn btn-default" *ngIf="!newPost" (click)="reloadBlogs()"><span class="glyphicon glyphicon-repeat"></span>&nbsp;&nbsp;Reload</button>
 
 <br />
 <br />
