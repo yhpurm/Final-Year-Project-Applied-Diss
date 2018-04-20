@@ -23,20 +23,22 @@
 
 # Application Code Structure
 1. [Architecture](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#architecture)
-2. [Main components](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
-3. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
-4. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
-5. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
-6. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
-7. [Blog Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/blog)
-8. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
-9. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
-10. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
-11. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
-12. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
-13. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
-14. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
-15. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+1. [Main components](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+1. [Demo](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#demo)
+1. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
+1. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
+1. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
+1. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
+1. [Blog Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/blog)
+1. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
+1. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
+1. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+1. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
+1. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
+1. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
+1. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
+1. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+1. [Live Prices](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/PriceComponent)
 
 ---
 
@@ -71,6 +73,12 @@ Once they have a wallet is set up they view all the users currently online with 
 
 ## Making status posts
 First navigate to the map menu, from here you can view your own status on the map or other statuses made by friends. You can choose one of the 7 types of status post on the left, depending on the action if it involves a wallet then you must enter the wallet pin to share that information. The application may also ask you for your devices location so make sure geolocation is turned on or to mark a location on the map, to do this simply click the map to set your latitude and longitude.
+
+---
+## Demo
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/39075327-03c58202-44ed-11e8-9b4b-26e17d43355b.png)](https://www.youtube.com/watch?v=0aQGsaEGTok&feature=youtu.be)
+
+---
 
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
 Here is a brief video to explain some questions you make have about bitcoin.
@@ -194,4 +202,4 @@ Below is a screenshot from a presentation our team gave to our software developm
 
 [8] - https://en.wikipedia.org/wiki/Node.js
 
-[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin).
+[9] - https://en.wikipedia.org/wiki/Bitcoin
