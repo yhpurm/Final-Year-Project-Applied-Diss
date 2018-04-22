@@ -31,6 +31,25 @@ var ViewMapComponent = /** @class */ (function () {
         // get logged in username
         this.username = this.user.username;
         console.log(this.username);
+        this.profileService.getMyPayments()
+            .subscribe(function (res) {
+            res.forEach(function (p) {
+                console.log("Payments:" + p.lat + p.long);
+                var location = { lat: p.lat, lng: p.long };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: _this.map,
+                    icon: 'http://maps.google.com/mapfiles/kml/shapes/arrow.png',
+                    title: p.txid,
+                });
+                marker.addListener('click', function () {
+                    var retVal = confirm("Do you want to inspect the Tx ID?");
+                    if (retVal == true) {
+                        _this.openInNewTab("https://blockchain.info/tx/" + p.txid);
+                    }
+                });
+            });
+        }, function (error) { return console.error(error); });
         // This service gets the logged in users posted statuses
         this.statusService.getStatusByUsername(this.username)
             .subscribe(function (res) {
@@ -158,6 +177,10 @@ var ViewMapComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    ViewMapComponent.prototype.openInNewTab = function (url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    };
     ViewMapComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

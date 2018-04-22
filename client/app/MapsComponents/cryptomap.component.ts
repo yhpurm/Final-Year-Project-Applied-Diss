@@ -16,5 +16,5 @@ declare var google: any;
 })
 
 export class CryptoMapComponent  {
-  
+    
 }

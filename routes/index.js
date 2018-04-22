@@ -90,6 +90,39 @@ router.post('/newWallet', function (req, res, next) {
 
 });
 
+// Create a new wallet and add it to the wallets collection
+router.post('/saveTx', function (req, res, next) {
+    var payment = new Payment;
+
+    this.payment = ({
+        to: req.body.to,
+        from: req.body.from,
+        amount: req.body.amounts,
+        fees: req.body.fees,
+        txid: req.body.txid,
+        success: req.body.success,
+        lat: req.body.lat,
+        long: req.body.long
+    });
+   
+    console.log("payment: ");
+    console.log(payment);
+    payment.save(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                message: 'Error while saving data!'
+            });
+        }
+        console.log("SUCCESS");
+        console.log(result);
+        res.status(201).json({
+            message: 'Saved data successfully'
+        });
+    });
+    
+});
+
 router.delete('/Tx/Status/Remove/:title', function (req, res) {
     console.log(req.params.title);
     Status.remove({title: req.params.title}, function(err, message) {
@@ -415,6 +448,21 @@ router.get('/globalusers/:username', function(req, res, next) {
 // Getting crypto profile from db
 router.get('/login/profile/:username', function(req, res, next) {
     Profile.find(function(err, messages) {
+        console.log(messages);
+        if (err) {
+            return res.status(500).json({
+                message: 'Error while fetching data!'
+            });
+        }
+        res.status(200).json({
+            data: messages
+        });
+    });
+});
+
+// Get payments
+router.get('/Tx/all', function(req, res, next) {
+    Payment.find(function(err, messages) {
         console.log(messages);
         if (err) {
             return res.status(500).json({
@@ -960,6 +1008,7 @@ router.post('/Wallet/payment', function (req, res, next) {
     var guid = req.body.guid;
     var amount = req.body.amount;
     var to = req.body.to;
+    var fee_per_byte = 0.0003;
     var payment = new Payment;
     console.log("Request pass:" + pass);
     console.log("Request guid:" + guid);
@@ -967,6 +1016,7 @@ router.post('/Wallet/payment', function (req, res, next) {
     console.log("Request amount:" + amount);
 
     function processRequest(json) {
+        console.log(json);
         var j = JSON.parse(json);
         console.log("j obj: " + j);
         this.walletbal = j.body.balance;
@@ -980,12 +1030,12 @@ router.post('/Wallet/payment', function (req, res, next) {
             success: j.body.success
         });
    
-       console.log("balance: ");
+       console.log("payment: ");
        console.log(this.payment);
        res.json(this.payment);
     }
 
-    request('http://localhost:3001/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to + '$api_code=' + apiCode, { json: true }, (err, resp, body) => {
+    request('http://localhost:3001/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to + '&fee_per_byte=' + fee_per_byte + '$api_code=' + apiCode, { json: true }, (err, resp, body) => {
         if (err) { return console.log(err); }
         response = resp;
         var resjson = JSON.stringify(resp);

@@ -8,10 +8,12 @@ var schema = new Schema({
         amount: {type: Number, required: true, unique : true},
         fees: {type: Number, required: true, unique : true}, 
         txid: {type: String, required: true},
-        success: {type: Boolean, required: true}
+        success: {type: Boolean, required: true},
+        lat: {type: String, required: false},
+        long: {type: String, required: false}
     },
-    { collection : 'sendbtc' });
+    { collection : 'payment' });
 
 schema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('Sendbtc', schema);
+module.exports = mongoose.model('payment', schema);

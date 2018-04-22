@@ -26,6 +26,14 @@ export class BlockchainService {
             return this.http.post('http://localhost:3000/newWallet', body, {headers: headers});
         }
 
+        saveTx(tx: Payment): Observable<any> {
+            console.log(tx);
+            const body = JSON.stringify(tx);
+            console.log(body);
+            const headers = new Headers({'Content-Type': 'application/json'});
+            return this.http.post('http://localhost:3000/saveTx', body, {headers: headers});
+        }
+
         getCurrentPrice() {
             console.log("contacting ticker");
             return this.http.get('https://blockchain.info/ticker')

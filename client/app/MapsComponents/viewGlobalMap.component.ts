@@ -13,7 +13,7 @@ declare var google: any;
   moduleId: module.id,
   selector: 'viewmap',
   templateUrl: 'viewmap.component.html',
-  providers: [ProfileService,StatusService]
+  providers: [MlabsService,ProfileService,StatusService]
 })
 
 export class GlobalMapComponent implements OnInit {

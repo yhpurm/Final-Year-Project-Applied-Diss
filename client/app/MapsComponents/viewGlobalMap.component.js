@@ -154,7 +154,7 @@ var GlobalMapComponent = /** @class */ (function () {
             moduleId: module.id,
             selector: 'viewmap',
             templateUrl: 'viewmap.component.html',
-            providers: [profile_service_1.ProfileService, status_service_1.StatusService]
+            providers: [mlabs_service_1.MlabsService, profile_service_1.ProfileService, status_service_1.StatusService]
         }),
         __metadata("design:paramtypes", [mlabs_service_1.MlabsService,
             auth_service_1.AuthService,

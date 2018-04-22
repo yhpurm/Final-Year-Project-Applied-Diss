@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 require("rxjs/Rx");
 var profile_model_1 = require("../DataModals/profile.model");
 var mywallet_model_1 = require("../DataModals/mywallet.model");
+var payment_modal_1 = require("../DataModals/payment.modal");
 var ProfileService = /** @class */ (function () {
     // Http Contructor for setting up connection
     function ProfileService(http) {
@@ -61,6 +62,21 @@ var ProfileService = /** @class */ (function () {
                 console.log(element.address);
                 console.log(element.label);
                 message = new mywallet_model_1.Wallet(element.guid, element.address, element.label);
+                msgArray.push(message);
+            }
+            return msgArray;
+        });
+    };
+    ProfileService.prototype.getMyPayments = function () {
+        return this.http.get('http://localhost:3000/Tx/all')
+            .map(function (data) {
+            var extracted = data.json();
+            var msgArray = [];
+            var message;
+            for (var _i = 0, _a = extracted.data; _i < _a.length; _i++) {
+                var element = _a[_i];
+                console.log(element.to, element.from, element.amounts, element.fees, element.txid, element.success, element.lat, element.long);
+                message = new payment_modal_1.Payment(element.to, element.from, element.amounts, element.fees, element.txid, element.success, element.lat, element.long);
                 msgArray.push(message);
             }
             return msgArray;
