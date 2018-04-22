@@ -44,7 +44,7 @@
 
 
 # Overview
-This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for receiving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the lasted statics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regularly reference or discuss. Users can customize their profiles to use different avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 7 different types of status post,one for general posts with no data attached, one for posting bitcoin price posts, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of interest and one for donation requests. The application also has charts to display the latest bitcoin prices and how it compares to other cryptocurrencys.
+This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for receiving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the latest statistics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regularly reference or discuss. Users can customize their profiles to use different avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 7 different types of status post,one for general posts with no data attached, one for posting bitcoin price posts, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of interest and one for donation requests. The application also has charts to display the latest bitcoin prices and how it compares to other cryptocurrencys.
 
 ### App Features
 - Rich user GUI with alot of interaction.
@@ -66,7 +66,7 @@ This a application is a fully functional bitcoin wallet but with extended social
 
 # User Guide
 ## Signing up and my first wallet
-Before a user can start using the application they must register with our system. The user must give a valid username and suitable password before they can gain access to the platform. Once logged in the user can now create a wallet by navigating to the wallet section in the navigation bar. User must enter a wallet label/name and give a pin. The user must enter this pin everytime they attempt to interact with the wallet, similar to the financial apps created by banks to maximize security.
+Before a user can start using the application they must register with our system. The user must give a valid username and suitable password before they can gain access to the platform. Once logged in the user can now create a wallet by navigating to the wallet section in the navigation bar. User must enter a wallet label/name and give a pin. The user must enter this pin everytime they attempt to interact with the addresses, similar to the financial apps created by banks to maximize security.
 
 ## Interacting with other users
 Once they have a wallet is set up they view all the users currently online with the global button or search for users. Once they find the user they are looking for they can click the '+ friend button' to add that person to there friends list. Now the user can send bitcoin to their friends address by clicking the send bitcoin button, inspect that users address with the 'inspect address button' or go view that users location on the map.
@@ -165,7 +165,7 @@ Node.js is an open source server framework and it is free. Node.js runs on vario
 ---
 
 ## Architecture
-
+## Novemeber presentation
 Below is a screenshot from a presentation our team gave to our software development year. This is a basic overview of how the technologies mentioned will connect and interact from back-end to front-end, we are still investigating extra features and technologies that could be used to create these features so this design is subject to change. The full presentation slides are included in this repository. The QR code on the presentation slide is fully functional and will bring you to a link if scanned, the idea was to bring some audiance interaction to our presentation.
 
 ![Design](https://user-images.githubusercontent.com/14197773/38949274-cee8dbce-4339-11e8-964b-b1c071579d95.png)
