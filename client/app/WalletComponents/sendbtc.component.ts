@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ProfileService } from "../services/profile.service";
 import { BlockchainService } from "../services/blockchain.service";
 import { Wallet } from "../DataModals/myWallet.model";
+import { SendBTC } from "../DataModals/sendbtc.model";
+import { Payment } from "../DataModals/payment.modal";
 import { Profile } from "../DataModals/profile.model";
 import { OnInit } from '@angular/core';
 
@@ -20,12 +22,17 @@ export class SendBTCComponent implements OnInit {
   wallets: Wallet [] = [];
   guid: string;
   to: string;
-  amount: string;
+  amount: number;
   password: string;
   passwordValid: string;
   friends: Profile [] = [];
-  
+  geolocationPosition: Object;
+  lat: number;
+  long: number;
+
   ngOnInit() {
+
+    this.getLocation();
 
     this.profileService.getMyWallets()
        .subscribe(
@@ -49,19 +56,78 @@ export class SendBTCComponent implements OnInit {
   }
 
   setTargetAddress(address: string){
-    console.log("address: " + address);
+    alert("target address: " + address);
     this.to = address;
-    console.log(this.to);
+    console.log("to:"+ this.to);
   }
 
+  selectItem(id: string){
+        this.guid = id;
+        console.log("guid" + this.guid);
+  }
+
+  SaveTx(pay: Payment){
+    var payment = new Payment(pay.to,pay.from,pay.amounts,pay.fees,pay.txid,pay.success,this.lat,this.long);
+    var retVal = confirm("Do you want to save Tx attempt?");
+
+    if( retVal == true ){
+        this.blockchainService.saveTx(payment)
+        .subscribe(
+            () => console.log('POST from blockchain tx'),
+            error => alert(error)
+        );
+    }else{
+        alert("Tx not saved");
+    }
+
+    alert("Transaction request sent to block chain for processing!");
+  }
+  
   onSendBTC() {
     if(this.password != this.passwordValid){
         return alert("Passwords dont match");
     }
-    this.blockchainService.sendBTC(this.guid,this.password,this.amount,this.to)
+
+    const PayRequest = new SendBTC (this.guid,this.password,this.amount,this.to);
+
+    console.log(this.guid,this.password,this.amount,this.to);
+    this.blockchainService.sendBTC(PayRequest)
           .subscribe(
-            messages => this.wallets = messages,
-            error => console.error(error)
+            messages => this.SaveTx(messages),
+            error => alert(error)
         );
     }
+
+    // Update lat and long
+  setPosition(position) {
+    this.lat = position.coords.latitude;
+    this.long = position.coords.longitude;
+    alert("Your Lat:" + this.lat  + "\nYour Long" + this.lat );
+  }
+ 
+  // get your location
+  getLocation() {
+    if (window.navigator && window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+          position => {
+              this.geolocationPosition = position,
+                  console.log(position),
+                  this.setPosition(position)
+          },
+          error => {
+              switch (error.code) {
+                  case 1:
+                      console.log('Permission Denied');
+                      break;
+                  case 2:
+                      console.log('Position Unavailable');
+                      break;
+                  case 3:
+                      console.log('Timeout');
+                      break;
+              }
+          }
+      );
+  };
+  }
 }

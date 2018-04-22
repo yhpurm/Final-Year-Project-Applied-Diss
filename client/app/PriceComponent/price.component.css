@@ -1,0 +1,30 @@
+div#crypto-container {
+    background:rgb(69, 215, 235);
+    width: 70%;
+    margin: 0 auto 4px auto;
+    padding: 1em;
+    box-shadow: 1px 1px 0 black;
+  }
+  
+  span.left {
+    font-weight: bold;
+  }
+  
+  span.right {
+    float:right;
+  }
+
+  h2 {
+    color:black;
+  }
+  
+  .smallerFont {
+    margin: 4.5cm;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .bigFont {
+    margin: 8cm;
+    font-size: 30px;
+  }

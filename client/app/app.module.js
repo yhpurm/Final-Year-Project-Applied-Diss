@@ -47,6 +47,8 @@ var viewGlobalMap_component_1 = require("./MapsComponents/viewGlobalMap.componen
 var blog_component_1 = require("./blog/blog.component");
 var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component");
 var peopleMap_component_1 = require("./MapsComponents/peopleMap.component");
+var data_service_1 = require("./services/data.service");
+var price_component_1 = require("./PriceComponent/price.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -89,9 +91,10 @@ var AppModule = /** @class */ (function () {
                 login_component_1.LoginComponent,
                 cryptonews_component_1.CryptonewsComponent,
                 blog_component_1.BlogComponent,
-                delete_blog_component_1.DeleteBlogComponent],
+                delete_blog_component_1.DeleteBlogComponent,
+                price_component_1.PriceComponent],
             exports: [],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard, blog_service_1.BlogService],
+            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, auth_service_1.AuthService, auth_guard_1.AuthGuard, notauth_guard_1.NotAuthGuard, blog_service_1.BlogService, data_service_1.DataService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

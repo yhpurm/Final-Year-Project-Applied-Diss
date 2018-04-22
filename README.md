@@ -1,11 +1,16 @@
 # **Bitcoin Wallet**
 
 
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/DonalMcGahon)
+| Project Details   |     |
+| --- | --- |
+| `Course` | BSc (Hons) in Software Development  |
+| `Module` |  Applied Project and Minor Dissertation |
+| `College`| [GMIT Galway](http://www.gmit.ie/) |
+| `Students` | [Donal McGahon](https://github.com/DonalMcGahon)&nbsp;&nbsp;&nbsp; G00299627<br/> [Conor Tighe](https://github.com/ConorTighe1995)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G00314417<br/> [Stephen Murphy](https://github.com/Smurfgalway)&nbsp;&nbsp;&nbsp; G00323639<br/> |
+| `Project Supervisor` | Gerard Harrison |
+| `Project Title` | Bitcoin Wallet |
 
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/ConorTighe1995)
-
-[![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://github.com/Smurfgalway)
+---
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/graphs/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/Disseration.pdf)
@@ -18,24 +23,28 @@
 
 # Application Code Structure
 1. [Architecture](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#architecture)
-2. [Main components](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
-3. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
-4. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
-5. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
-6. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
-7. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
-8. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
-9. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
-10. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
-11. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
-12. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
-13. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
-14. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+1. [Main components](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+1. [Demo](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#demo)
+1. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
+1. [App Navigation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NavbarComponents)
+1. [User Profiles](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/ProfileComponents)
+1. [Bitcoin Wallet](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/WalletComponents)
+1. [Blog Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/blog)
+1. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
+1. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
+1. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+1. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
+1. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
+1. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
+1. [Auth Gaurds](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/guards)
+1. [Data Services](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/services)
+1. [Live Prices](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/PriceComponent)
 
 ---
 
+
 # Overview
-This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for receiving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the lasted statics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regularly reference or discuss. Users can customize their profiles to use different avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 6 different types of status post,one for general posts with no data attached, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of interest and one for donation requests. The application also has charts to display the latest bitcoin prices and how it compares to other cryptocurrencys.
+This a application is a fully functional bitcoin wallet but with extended social media features and elements. Users can multiple wallets and have them stored on the profile for receiving and sending bitcoin. Users can add people from around the world to their friends list so they can easily send them bitcoin at any time. Users can share customized social media posts that can include the lasted statics and news on the blockchain along with bitcoin prices, miner performance and more up to date information cryptocurrency users regularly reference or discuss. Users can customize their profiles to use different avatars for appearing online. This application also gives users the ability to convert all major FIAT currencies to bitcoin. The maps integration allows users to see their friends latest location and bitcoin activity. There are 7 different types of status post,one for general posts with no data attached, one for posting bitcoin price posts, one for blockchain performance, one for wallet balance, one for miner performance, one for bitcoin places of interest and one for donation requests. The application also has charts to display the latest bitcoin prices and how it compares to other cryptocurrencys.
 
 ### App Features
 - Rich user GUI with alot of interaction.
@@ -63,7 +72,13 @@ Before a user can start using the application they must register with our system
 Once they have a wallet is set up they view all the users currently online with the global button or search for users. Once they find the user they are looking for they can click the '+ friend button' to add that person to there friends list. Now the user can send bitcoin to their friends address by clicking the send bitcoin button, inspect that users address with the 'inspect address button' or go view that users location on the map.
 
 ## Making status posts
-First navigate to the map menu, from here you can view your own status on the map or other statuses made by friends. You can choose one of the 6 types of status post on the left, depending on the action if it involves a wallet then you must enter the wallet pin to share that information. The application may also ask you for your devices location so make sure geolocation is turned on or to mark a location on the map, to do this simply click the map to set your latitude and longitude.
+First navigate to the map menu, from here you can view your own status on the map or other statuses made by friends. You can choose one of the 7 types of status post on the left, depending on the action if it involves a wallet then you must enter the wallet pin to share that information. The application may also ask you for your devices location so make sure geolocation is turned on or to mark a location on the map, to do this simply click the map to set your latitude and longitude.
+
+---
+## Demo
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/39075327-03c58202-44ed-11e8-9b4b-26e17d43355b.png)](https://www.youtube.com/watch?v=0aQGsaEGTok&feature=youtu.be)
+
+---
 
 ### What is [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)?
 Here is a brief video to explain some questions you make have about bitcoin.
@@ -101,9 +116,9 @@ Blockchain.info are the largest site for blockchain statisics in the world, we a
 
 ``` npm start  ```
 
-* Run the blockchain client in a seperate command line window on port 4000:
+* Run the blockchain client in a seperate command line window on port 3001:
 
-``` blockchain-wallet-service start --port 4000  ```
+``` blockchain-wallet-service start --port 3001  ```
 
 * Navigate to the root directory and then:
 
@@ -153,7 +168,7 @@ Node.js is an open source server framework and it is free. Node.js runs on vario
 
 Below is a screenshot from a presentation our team gave to our software development year. This is a basic overview of how the technologies mentioned will connect and interact from back-end to front-end, we are still investigating extra features and technologies that could be used to create these features so this design is subject to change. The full presentation slides are included in this repository. The QR code on the presentation slide is fully functional and will bring you to a link if scanned, the idea was to bring some audiance interaction to our presentation.
 
-![Design](technologies.png)
+![Design](https://user-images.githubusercontent.com/14197773/38949274-cee8dbce-4339-11e8-964b-b1c071579d95.png)
 
 ### Middleware:
 - bal: Takes care of the balance response from blockchain.info and requesting the balance.
@@ -187,4 +202,4 @@ Below is a screenshot from a presentation our team gave to our software developm
 
 [8] - https://en.wikipedia.org/wiki/Node.js
 
-[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin).
+[9] - https://en.wikipedia.org/wiki/Bitcoin

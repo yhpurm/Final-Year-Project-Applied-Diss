@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Profile } from "../DataModals/profile.model";
 import { Wallet } from '../DataModals/mywallet.model';
+import { Payment } from "../DataModals/payment.modal";
 
 @Injectable()
 export class ProfileService {
@@ -51,6 +52,21 @@ export class ProfileService {
                     console.log(element.address);
                     console.log(element.label);
                     message = new Wallet(element.guid, element.address, element.label);
+                    msgArray.push(message);
+                }
+                return msgArray;
+            });
+    }
+
+    getMyPayments() {
+        return this.http.get('http://localhost:3000/Tx/all')
+            .map( (data: Response) => {
+                const extracted = data.json();
+                const msgArray: Payment[] = [];
+                let message;
+                for (let element of extracted.data) {
+                    console.log(element.to, element.from, element.amounts,element.fees,element.txid,element.success,element.lat,element.long);
+                    message = new Payment(element.to, element.from, element.amounts,element.fees,element.txid,element.success,element.lat,element.long);
                     msgArray.push(message);
                 }
                 return msgArray;

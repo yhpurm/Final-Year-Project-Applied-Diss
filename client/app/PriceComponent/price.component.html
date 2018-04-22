@@ -1,0 +1,27 @@
+<div class="container">
+<div class="panel panel-primary" align="center">
+    <div class="panel-heading">
+        <h1 class="header" align="center">Cryptocurrency Prices</h1>
+    </div>
+</div>
+
+<div class="Panel with panel-info class" align="center">
+    <div class="panel-heading">
+    <h3 class="panel-title">Below is a list of different cryptocurrencies with their symbols and prices in Euro. The prices are updated every 5 seconds.</h3>
+    </div>
+</div>
+
+
+<div *ngIf="cryptos">
+    <h2>
+        <span class="smallerFont">Symbol</span>
+        <span align="right" class="bigFont">Prices</span>
+      </h2>
+  <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+    <h4>
+      <span class="left">{{ crypto }}</span>
+    <span class="right">{{ cryptos[crypto].EUR | currency:'EUR':true }}</span>
+    </h4>
+  </div>
+</div>
+</div>

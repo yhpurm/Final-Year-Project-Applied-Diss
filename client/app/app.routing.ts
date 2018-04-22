@@ -31,6 +31,7 @@ import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component';
 import { BlogComponent } from './blog/blog.component';
 import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
 import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
+import { PriceComponent } from './PriceComponent/price.component';
 
 const appRoutes: Routes = [
     {
@@ -176,6 +177,11 @@ const appRoutes: Routes = [
         path: 'delete-blog/:id',
         component: DeleteBlogComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'price',
+        component: PriceComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route 
     }
 ];
 

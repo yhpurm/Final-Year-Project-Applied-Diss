@@ -28,9 +28,16 @@
                   </form>
               </div>
               <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                      <a *ngIf="authService.loggedIn()" class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="	glyphicon glyphicon-euro"></span> Prices
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                          <li *ngIf="authService.loggedIn()"><a routerLink="/price"><span class="	glyphicon glyphicon-euro"></span> Live Prices</a></li>
+                          <li *ngIf="authService.loggedIn()"><a routerLink="/convert"><span class="glyphicon glyphicon-bitcoin"></span> Convert FIAT</a></li>  
+                      </ul>
+                    </li>
                 <li *ngIf="authService.loggedIn()"><a routerLink="/blog"><span class="	glyphicon glyphicon-envelope"></span> Posts</a></li>
                 <li *ngIf="authService.loggedIn()"><a routerLink="/sendbtc"><span class="glyphicon glyphicon-plus"></span> Send BTC</a></li>
-                <li *ngIf="authService.loggedIn()"><a routerLink="/convert"><span class="glyphicon glyphicon-bitcoin"></span> Convert FIAT</a></li>
                 <li *ngIf="authService.loggedIn()"><a routerLink="/global"><span class="glyphicon glyphicon-globe"></span> Users</a></li>
                 <li *ngIf="!authService.loggedIn()"><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li *ngIf="!authService.loggedIn()"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

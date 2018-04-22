@@ -39,10 +39,12 @@ import { GlobalMapComponent } from './MapsComponents/viewGlobalMap.component';
 import { BlogComponent } from './blog/blog.component'; 
 import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
 import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
+import { DataService } from './services/data.service';
+import { PriceComponent } from './PriceComponent/price.component'
 
 
 @NgModule({
-  imports:      [
+  imports:[
      BrowserModule,
      routing,
      HttpModule,
@@ -79,9 +81,10 @@ import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
     LoginComponent,
     CryptonewsComponent,
     BlogComponent,
-    DeleteBlogComponent ],
+    DeleteBlogComponent,
+    PriceComponent ],
   exports: [  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard, BlogService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, AuthService, AuthGuard, NotAuthGuard, BlogService, DataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

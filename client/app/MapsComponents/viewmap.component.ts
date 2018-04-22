@@ -35,6 +35,30 @@ export class ViewMapComponent implements OnInit {
     this.username = this.user.username;
     console.log(this.username);
    
+    this.profileService.getMyPayments()
+    .subscribe(
+        res => {
+            res.forEach(p => {
+            console.log("Payments:" + p.lat + p.long);
+            var location = {lat: p.lat, lng: p.long};
+            var marker = new google.maps.Marker({
+            position: location, 
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/kml/shapes/arrow.png',
+            title: p.txid,
+            });
+            marker.addListener('click', ()=> {
+              var retVal = confirm("Do you want to inspect the Tx ID?");
+
+              if( retVal == true ){
+                this.openInNewTab("https://blockchain.info/tx/" + p.txid);
+              }
+            }); 
+          })  
+        },
+        error => console.error(error)
+    );
+
     // This service gets the logged in users posted statuses
     this.statusService.getStatusByUsername(this.username)
     .subscribe(
@@ -182,9 +206,15 @@ export class ViewMapComponent implements OnInit {
     );
   }
 
+  
+
   // returns logged in user from local storage
   get user(): any {
     return JSON.parse(localStorage.getItem('user'));
   }
   
+  openInNewTab(url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+  }
  }

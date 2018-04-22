@@ -5,5 +5,8 @@ export class Payment {
         public amounts: number,
         public fees: number,
         public txid: number,
-        public success: number) {}
+        public success: number,
+        public lat: number,
+        public long: number) {}
+        
 }
