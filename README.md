@@ -76,7 +76,7 @@ First navigate to the map menu, from here you can view your own status on the ma
 
 ---
 ## Demo
-[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/39075327-03c58202-44ed-11e8-9b4b-26e17d43355b.png)](https://www.youtube.com/watch?v=0aQGsaEGTok&feature=youtu.be)
+[![IMAGE ALT TEXT HERE](https://user-images.githubusercontent.com/14197773/39075327-03c58202-44ed-11e8-9b4b-26e17d43355b.png)](https://www.youtube.com/watch?v=tzlLa0xLPqA&feature=youtu.be)
 
 ---
 
