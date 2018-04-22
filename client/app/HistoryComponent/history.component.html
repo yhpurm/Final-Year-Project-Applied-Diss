@@ -1,0 +1,25 @@
+<h2>{{username}} Statements</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>To</td>
+            <td>From</td>
+            <td>Amount</td>
+            <td>Fees</td>
+            <td>Tx ID</td>
+            <td>Tx Status</td>
+            <td>Inspect Tx</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let h of history" >
+            <td>{{h.to}}</td>
+            <td>{{h.from}}</td>
+            <td>{{h.amounts}}</td>
+            <td>{{h.fees}}</td>
+            <td>{{h.txid}}</td>
+            <td>{{h.success}}</td>
+            <td><a href="https://blockchain.info/address/{{h.txid}}" target="_blank"><button type="button" class="btn btn-warning">Inspect Address</button></a></td>
+        </tr>
+    </tbody>
+</table> 

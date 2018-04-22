@@ -33,6 +33,7 @@ var blog_component_1 = require("./blog/blog.component");
 var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component");
 var peopleMap_component_1 = require("./MapsComponents/peopleMap.component");
 var price_component_1 = require("./PriceComponent/price.component");
+var history_component_1 = require("./HistoryComponent/history.component");
 var appRoutes = [
     {
         path: '',
@@ -51,6 +52,11 @@ var appRoutes = [
     {
         path: 'flaglocation',
         component: flag_component_1.FlagComponent,
+        canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path: 'history',
+        component: history_component_1.HistoryComponent,
         canActivate: [auth_guard_1.AuthGuard] // User must be logged in to view this route
     },
     {

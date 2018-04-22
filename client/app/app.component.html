@@ -33,7 +33,8 @@
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                           <li *ngIf="authService.loggedIn()"><a routerLink="/price"><span class="	glyphicon glyphicon-euro"></span> Live Prices</a></li>
-                          <li *ngIf="authService.loggedIn()"><a routerLink="/convert"><span class="glyphicon glyphicon-bitcoin"></span> Convert FIAT</a></li>  
+                          <li *ngIf="authService.loggedIn()"><a routerLink="/convert"><span class="glyphicon glyphicon-bitcoin"></span> Convert FIAT</a></li>
+                          <li *ngIf="authService.loggedIn()"><a routerLink="/history"><span class="glyphicon glyphicon-arrow-down"></span> Tx Statment</a></li> 
                       </ul>
                     </li>
                 <li *ngIf="authService.loggedIn()"><a routerLink="/blog"><span class="	glyphicon glyphicon-envelope"></span> Posts</a></li>

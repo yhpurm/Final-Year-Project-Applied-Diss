@@ -32,6 +32,7 @@ import { BlogComponent } from './blog/blog.component';
 import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
 import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
 import { PriceComponent } from './PriceComponent/price.component';
+import { HistoryComponent } from './HistoryComponent/history.component';
 
 const appRoutes: Routes = [
     {
@@ -51,6 +52,11 @@ const appRoutes: Routes = [
     {
         path:'flaglocation',
         component: FlagComponent,
+        canActivate: [AuthGuard] // User must be logged in to view this route
+    },
+    {
+        path:'history',
+        component: HistoryComponent,
         canActivate: [AuthGuard] // User must be logged in to view this route
     },
     {

@@ -41,7 +41,7 @@ import { DeleteBlogComponent } from './blog/delete-blog/delete-blog.component';
 import { PeopleMapComponent } from './MapsComponents/peopleMap.component';
 import { DataService } from './services/data.service';
 import { PriceComponent } from './PriceComponent/price.component'
-
+import { HistoryComponent } from './HistoryComponent/history.component';
 
 @NgModule({
   imports:[
@@ -77,6 +77,7 @@ import { PriceComponent } from './PriceComponent/price.component'
     TradingComponent,
     SettingsComponent,
     RegisterComponent,
+    HistoryComponent,
     WelcomeComponent,
     LoginComponent,
     CryptonewsComponent,

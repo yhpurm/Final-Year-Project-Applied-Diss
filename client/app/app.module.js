@@ -49,6 +49,7 @@ var delete_blog_component_1 = require("./blog/delete-blog/delete-blog.component"
 var peopleMap_component_1 = require("./MapsComponents/peopleMap.component");
 var data_service_1 = require("./services/data.service");
 var price_component_1 = require("./PriceComponent/price.component");
+var history_component_1 = require("./HistoryComponent/history.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -87,6 +88,7 @@ var AppModule = /** @class */ (function () {
                 trading_component_1.TradingComponent,
                 settings_component_1.SettingsComponent,
                 register_component_1.RegisterComponent,
+                history_component_1.HistoryComponent,
                 welcome_component_1.WelcomeComponent,
                 login_component_1.LoginComponent,
                 cryptonews_component_1.CryptonewsComponent,
