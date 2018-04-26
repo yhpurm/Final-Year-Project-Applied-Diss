@@ -90,7 +90,7 @@ exports.BlockchainService = BlockchainService;
 function handleError(error) {
     // log error
     // could be something more sofisticated
-    var errorMsg = error.message || "Problem contacting blockchain!!!! try again later.";
+    var errorMsg = error.message || "Problem with address, please check your balance.";
     console.error(errorMsg);
     // throw an application level error
     return Observable_1.Observable.throw(errorMsg);
