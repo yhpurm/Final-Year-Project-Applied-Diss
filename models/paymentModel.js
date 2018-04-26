@@ -3,10 +3,10 @@ var Schema = mongoose.Schema;
 var uniqueValidator = require('mongoose-unique-validator');
 
 var schema = new Schema({
-        to: {type: String, required: true, unique : true},
-        from: {type: String, required: true, unique : true},
-        amount: {type: Number, required: true, unique : true},
-        fees: {type: Number, required: true, unique : true}, 
+        to: {type: String, required: true},
+        from: {type: String, required: true},
+        amount: {type: Number, required: true},
+        fees: {type: Number, required: true}, 
         txid: {type: String, required: true},
         success: {type: Boolean, required: true},
         lat: {type: String, required: false},

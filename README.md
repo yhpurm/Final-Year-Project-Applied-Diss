@@ -168,7 +168,11 @@ Node.js is an open source server framework and it is free. Node.js runs on vario
 ## Novemeber presentation
 Below is a screenshot from a presentation our team gave to our software development year. This is a basic overview of how the technologies mentioned will connect and interact from back-end to front-end, we are still investigating extra features and technologies that could be used to create these features so this design is subject to change. The full presentation slides are included in this repository. The QR code on the presentation slide is fully functional and will bring you to a link if scanned, the idea was to bring some audiance interaction to our presentation.
 
-![Design](https://user-images.githubusercontent.com/14197773/38949274-cee8dbce-4339-11e8-964b-b1c071579d95.png)
+![Design1](https://user-images.githubusercontent.com/14197773/38949274-cee8dbce-4339-11e8-964b-b1c071579d95.png)
+
+## Final product
+Below is the final project Architecture that we will present to a panal.
+![Design2](Final Presentation/finalArchitecture.png)
 
 ### Middleware:
 - bal: Takes care of the balance response from blockchain.info and requesting the balance.

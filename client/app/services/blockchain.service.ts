@@ -92,7 +92,7 @@ export class BlockchainService {
   function handleError (error: any) {
     // log error
     // could be something more sofisticated
-    let errorMsg = error.message || `Problem contacting blockchain!!!! try again later.`
+    let errorMsg = error.message || `Problem with address, please check your balance.`
     console.error(errorMsg);
   
     // throw an application level error
