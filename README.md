@@ -172,7 +172,7 @@ Below is a screenshot from a presentation our team gave to our software developm
 
 ## Final product
 Below is the final project Architecture that we will present to a panal.
-![Design2](Final Presentation/finalArchitecture.png)
+![Design2](finalArchitecture.png)
 
 ### Middleware:
 - bal: Takes care of the balance response from blockchain.info and requesting the balance.
