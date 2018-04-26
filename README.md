@@ -33,6 +33,7 @@
 1. [Social Media Posts](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/StatusComponents)
 1. [MLABS & Online Interaction](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/MlabsComponents)
 1. [Google Maps Integration](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
+1. [Tx Statments](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/HistoryComponent)
 1. [Cryptocurrency Trading](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/TradingComponents)
 1. [Cryptocurrency News](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/NewsComponents)
 1. [Data Modals](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/DataModals)
