@@ -171,7 +171,7 @@ Below is a screenshot from a presentation our team gave to our software developm
 ![Design1](https://user-images.githubusercontent.com/14197773/38949274-cee8dbce-4339-11e8-964b-b1c071579d95.png)
 
 ## Final product
-Below is the final project Architecture that we will present to a panal for grading. We completed our scope eariler then expected so you cann see a lot more technologies have been added since the November presentation.
+Below is the final project architecture that we will present to a panel for grading. We completed our scope earlier than expected so you can see a lot more technologies have been added since the November presentation.
 
 ![Design2](finalArchitecture.png)
 
