@@ -62,7 +62,11 @@ This a application is a fully functional bitcoin wallet but with extended social
 - Check the balance of your wallets.
 - Send bitcoin to other wallets.
 - Easily select from friends on your friends list to send BTC to.
-- Share blog posts amoung users
+- Create blog posts.
+- Like Posts.
+- Dislike Posts.
+- Delete Posts.
+- Posts displayed in a stack from newest to oldest.
 - Charts displaying latest bitcoin values and other cryptocurrencies
 
 # User Guide
@@ -150,7 +154,7 @@ Express.js, or simply Express, is a web application framework for Node.js, relea
 
 ### Angular 2
 
-![angular2](https://user-images.githubusercontent.com/14197773/35832323-cb1dfa9a-0ac4-11e8-8109-595ba0163507.png)
+![angular2/5](https://user-images.githubusercontent.com/14197773/35832323-cb1dfa9a-0ac4-11e8-8109-595ba0163507.png)
 
 Angular is a TypeScript-based open-source front-end web application platform led by the Angular Team at Google and by a community of individuals and corporations. [5]
 
