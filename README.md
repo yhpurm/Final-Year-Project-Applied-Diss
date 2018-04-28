@@ -152,7 +152,7 @@ MongoDB stores data in flexible, JSON-like documents, meaning fields can vary fr
 
 Express.js, or simply Express, is a web application framework for Node.js, released as free and open-source software. It is designed for building web applications and APIs. It is in fact the standard server framework for Node.js. Express is the backend part of the MEAN stack, together with MongoDB database and AngularJS frontend framework. [4]
 
-### Angular 2
+### Angular 2/5
 
 ![angular2/5](https://user-images.githubusercontent.com/14197773/35832323-cb1dfa9a-0ac4-11e8-8109-595ba0163507.png)
 
