@@ -78,7 +78,7 @@ var PostStatusComponent = /** @class */ (function () {
     PostStatusComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
-        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+        console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
     // get user location
     PostStatusComponent.prototype.getLocation = function () {

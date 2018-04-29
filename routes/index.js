@@ -92,12 +92,11 @@ router.post('/newWallet', function (req, res, next) {
 
 // Create a new wallet and add it to the wallets collection
 router.post('/saveTx', function (req, res, next) {
-    var payment = new Payment;
-
-    this.payment = ({
+    console.log(req.body.amounts)
+    var payment = new Payment({
         to: req.body.to,
         from: req.body.from,
-        amount: req.body.amounts,
+        amounts: req.body.amounts,
         fees: req.body.fees,
         txid: req.body.txid,
         success: req.body.success,
@@ -771,7 +770,7 @@ router.get('/Tx/Local/stats/:user', function(req, res, next) {
 
 // Get logged in statuses
 router.get('/Tx/Local/pools/:user', function(req, res, next) {
-    StatsStatus.find(function(err, messages) {
+    PoolStatus.find(function(err, messages) {
         console.log(messages);
         if (err) {
             return res.status(500).json({
@@ -1008,6 +1007,7 @@ router.post('/Wallet/payment', function (req, res, next) {
     var guid = req.body.guid;
     var amount = req.body.amount;
     var to = req.body.to;
+    var destination = req.body.from;
     var fee_per_byte = 0.0003;
     var payment = new Payment;
     console.log("Request pass:" + pass);
@@ -1020,14 +1020,39 @@ router.post('/Wallet/payment', function (req, res, next) {
         var j = JSON.parse(json);
         console.log("j obj: " + j);
         this.walletbal = j.body.balance;
+        var toRes = j.body.to;
+        var fromRes = j.body.from;
+        var amountRes = j.body.amounts;
+        var feesRes = j.body.fees;
+        var txidRes = j.body.txid;
+        var successRes = j.body.success;
+
+        if(toRes == null){
+            toRes = req.body.to;
+        }
+        if(fromRes == null){
+            fromRes = "Failed";
+        }
+        if(amountRes == null){
+            amountRes = req.body.amount;
+        }
+        if(feesRes == null){
+            feesRes = 0.00;
+        }
+        if(txidRes == null){
+            txidRes = "Failed";
+        }
+        if(successRes == null){
+            successRes = false;
+        }
 
         this.payment = ({
-            to: j.body.to,
-            from: j.body.from,
-            amount: j.body.amounts,
-            fees: j.body.fees,
-            txid: j.body.txid,
-            success: j.body.success
+            to: toRes,
+            from: fromRes,
+            amounts: amountRes,
+            fees: feesRes,
+            txid: txidRes,
+            success: successRes
         });
    
        console.log("payment: ");
@@ -1035,7 +1060,7 @@ router.post('/Wallet/payment', function (req, res, next) {
        res.json(this.payment);
     }
 
-    request('http://localhost:3001/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to + '&fee_per_byte=' + fee_per_byte + '$api_code=' + apiCode, { json: true }, (err, resp, body) => {
+    request('http://localhost:3001/merchant/' + guid + '/payment?password=' + pass + '&amount=' + amount + '&to=' + to + '&destination=' + destination + '&fee_per_byte=' + fee_per_byte + '$api_code=' + apiCode, { json: true }, (err, resp, body) => {
         if (err) { return console.log(err); }
         response = resp;
         var resjson = JSON.stringify(resp);

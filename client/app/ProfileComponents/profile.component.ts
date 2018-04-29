@@ -136,7 +136,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
      .subscribe(
          res => {
              this.tickerStatus = res;
-             console.log(this.tickerStatus);  
+             console.log("tikcer: " + this.tickerStatus);  
          },
          error => console.error(error)
      );

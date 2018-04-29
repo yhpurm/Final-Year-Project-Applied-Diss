@@ -65,11 +65,13 @@ export class SendBTCComponent implements OnInit {
         this.guid = id;
         console.log("guid" + this.guid);
   }
-
+  
   SaveTx(pay: Payment){
+    console.log(pay);
+    console.log(pay.to,pay.from,pay.amounts,pay.fees,pay.txid,pay.success,this.lat,this.long);
     var payment = new Payment(pay.to,pay.from,pay.amounts,pay.fees,pay.txid,pay.success,this.lat,this.long);
     var retVal = confirm("Do you want to save Tx attempt?");
-
+    console.log(payment);
     if( retVal == true ){
         this.blockchainService.saveTx(payment)
         .subscribe(
@@ -102,7 +104,7 @@ export class SendBTCComponent implements OnInit {
   setPosition(position) {
     this.lat = position.coords.latitude;
     this.long = position.coords.longitude;
-    alert("Your Lat:" + this.lat  + "\nYour Long" + this.lat );
+    console.log("Your Lat:" + this.lat  + "\nYour Long" + this.lat );
   }
  
   // get your location

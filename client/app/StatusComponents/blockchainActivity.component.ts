@@ -61,7 +61,7 @@ export class TransactionsComponent implements OnInit {
   setPosition(position) {
     this.lat = position.coords.latitude;
     this.long = position.coords.longitude;
-    alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+    console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
   }
  
   // get your location
