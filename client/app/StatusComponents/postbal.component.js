@@ -42,7 +42,7 @@ var PostBalanceComponent = /** @class */ (function () {
     PostBalanceComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
-        alert("Your Lat:" + this.lat + "\nYour Long" + this.long);
+        console.log("Your Lat:" + this.lat + "\nYour Long" + this.long);
     };
     // get user location
     PostBalanceComponent.prototype.getLocation = function () {

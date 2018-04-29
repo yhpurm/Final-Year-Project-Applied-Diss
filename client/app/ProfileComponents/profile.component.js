@@ -93,7 +93,7 @@ var ProfileComponent = /** @class */ (function () {
         this.statusService.getPriceStatusByUsername(this.username)
             .subscribe(function (res) {
             _this.tickerStatus = res;
-            console.log(_this.tickerStatus);
+            console.log("tikcer: " + _this.tickerStatus);
         }, function (error) { return console.error(error); });
         // This service gets the logged in users profile
         this.statusService.getFlagsStatusByUsername(this.username)

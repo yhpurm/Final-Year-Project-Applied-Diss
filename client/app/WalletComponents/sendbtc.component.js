@@ -47,8 +47,11 @@ var SendBTCComponent = /** @class */ (function () {
         console.log("guid" + this.guid);
     };
     SendBTCComponent.prototype.SaveTx = function (pay) {
+        console.log(pay);
+        console.log(pay.to, pay.from, pay.amounts, pay.fees, pay.txid, pay.success, this.lat, this.long);
         var payment = new payment_modal_1.Payment(pay.to, pay.from, pay.amounts, pay.fees, pay.txid, pay.success, this.lat, this.long);
         var retVal = confirm("Do you want to save Tx attempt?");
+        console.log(payment);
         if (retVal == true) {
             this.blockchainService.saveTx(payment)
                 .subscribe(function () { return console.log('POST from blockchain tx'); }, function (error) { return alert(error); });
@@ -72,7 +75,7 @@ var SendBTCComponent = /** @class */ (function () {
     SendBTCComponent.prototype.setPosition = function (position) {
         this.lat = position.coords.latitude;
         this.long = position.coords.longitude;
-        alert("Your Lat:" + this.lat + "\nYour Long" + this.lat);
+        console.log("Your Lat:" + this.lat + "\nYour Long" + this.lat);
     };
     // get your location
     SendBTCComponent.prototype.getLocation = function () {

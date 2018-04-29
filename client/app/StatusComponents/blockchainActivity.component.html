@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-md-offset-5">
-            <p>Post about blockchain activity</p>
+            <h2>Post about blockchain activity</h2>
             <div class="form-group">
                     <label for="inputdefault">Status title</label>
                     <input class="form-control" [(ngModel)]="title" id="inputdefault" type="text">
@@ -10,6 +10,12 @@
                     <label for="inputdefault">Status text:</label>
                     <input type="text" class="form-control" [(ngModel)]="text">
                 </div>
+                <h3>Values that will be posted:</h3>
+                <p>Last: {{ postLast }}</p>
+                <p>Sell: {{ postSell }}</p>
+                <p>Buy: {{ postBuy }}</p>
+                <p>Symbol: {{ postSymbol }}</p>
+                <button id="submitBtn" class="btn btn-primary" (click)="onStatusPriceSubmit()">Post status</button>
         </div>
     </div>
 <h2> select a value from around the world to post about!</h2>
@@ -28,14 +34,9 @@
                     <td> {{ p.last }} </td>
                     <td> {{ p.buy }} </td>
                     <td> {{ p.sell }} </td>
-                    <td> <a (click)="onSetValue(p.symbol,p.last,p.buy,p.sell)"> SET </a> </td> <!-- MAKE CHANGE HERE -->
+                    <td> <button (click)="onSetValue(p.symbol,p.last,p.buy,p.sell)" type="button" class="btn btn-info">SET</button> </td> <!-- MAKE CHANGE HERE -->
                 </tr>
             </table>
         </div>
 </div>
-    <p>{{ postLast }}</p>
-    <p>{{ postSell }}</p>
-    <p>{{ postBuy }}</p>
-    <p>{{ postSymbol }}</p>
-<button id="submitBtn" class="btn btn-primary" (click)="onStatusPriceSubmit()">Post status</button>
 </div>
