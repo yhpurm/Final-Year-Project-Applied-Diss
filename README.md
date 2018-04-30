@@ -13,7 +13,7 @@
 ---
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/graphs/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/issues)
-[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/Disseration.pdf)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/FYP/FYP.pdf)
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
@@ -23,6 +23,7 @@
 
 # Application Code Structure
 1. [Architecture](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#architecture)
+1. [Documentation](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/blob/master/FYP/FYP.pdf)
 1. [Main components](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app)
 1. [Demo](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss#demo)
 1. [Login](https://github.com/Smurfgalway/Final-Year-Project-Applied-Diss/tree/master/client/app/LoginComponents)
